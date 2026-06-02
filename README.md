@@ -1,2 +1,2 @@
 # colorado-boom-site
-Colorado Boom homepage
+Colorado Boom homepage.
