@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Tryouts July 2026.">
+  <meta name="theme-color" content="#0E7C86">
+  <!-- TEMP: while evaluating on staging, hide from Google so it doesn't see duplicate content vs the live Wix site. Remove this line when you're ready to fully launch. -->
+  <meta name="robots" content="noindex">
+
+  <meta property="og:title" content="Colorado Boom Volleyball Club">
+  <meta property="og:description" content="Where Potential Booms — Elite Youth Volleyball in Denver Metro">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://static.wixstatic.com/media/3bffc9_f9f56b71c7a1426a8ef116f11d7c510b~mv2.jpg">
+
+  <title>Colorado Boom Volleyball Club | Where Potential Booms — Aurora, CO</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://static.wixstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       DESIGN TOKENS — locked per COBO Design System v2.0
+       ========================================================= */
+    :root {
+      --teal:        #0E7C86;
+      --teal-dark:   #065A62;
+      --teal-light:  #E4F2F3;
+      --gold:        #E5B800;
+      --gold-dark:   #C49A00;
+      --cream:       #FFF9F0;
+      --black:       #111111;
+      --white:       #FFFFFF;
+      --gray-text:   #555555;
+      --gray-meta:   #AAAAAA;
+
+      --max-w:       1140px;
+      --section-py:  56px;
+      --section-py-mobile: 40px;
+      --radius:      6px;
+
+      --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--black);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; cursor: pointer; border: 0; background: transparent; }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      text-transform: uppercase;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    h1 { font-size: clamp(36px, 5.5vw, 56px); font-weight: 900; }
+    h2 { font-size: clamp(28px, 4vw, 36px); font-weight: 900; }
+    h3 { font-size: clamp(20px, 2.4vw, 24px); font-weight: 700; }
+    h4 { font-size: 20px; font-weight: 700; text-transform: none; }
+    p  { margin-bottom: 12px; }
+    p:last-child { margin-bottom: 0; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section { padding: var(--section-py) 0; }
+    @media (max-width: 768px) {
+      section { padding: var(--section-py-mobile) 0; }
+    }
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+    .btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      transition: transform 160ms var(--ease-out), background-color 160ms ease, color 160ms ease, box-shadow 200ms var(--ease-out);
+      will-change: transform;
+    }
+    .btn:active { transform: scale(0.97); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+      box-shadow: 0 1px 0 var(--gold-dark) inset, 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      padding: 12px 26px;
+    }
+    .btn-teal {
+      background: var(--teal);
+      color: var(--white);
+    }
+    .btn-outline-black {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      padding: 12px 26px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .btn-gold:hover {
+        background: #f1c700;
+        box-shadow: 0 1px 0 var(--gold-dark) inset, 0 4px 14px rgba(229,184,0,0.35);
+      }
+      .btn-outline-white:hover { background: var(--white); color: var(--teal-dark); }
+      .btn-teal:hover { background: var(--teal-dark); }
+      .btn-outline-black:hover { background: var(--white); color: var(--black); }
+    }
+
+    /* =========================================================
+       HEADER — sticky, teal→black gradient
+       ========================================================= */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, var(--teal) 0%, var(--teal-dark) 55%, var(--black) 100%);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px 24px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    .logo span {
+      display: block;
+      font-weight: 600;
+      font-size: 11px;
+      opacity: 0.85;
+      letter-spacing: 0.15em;
+    }
+    .nav { display: flex; align-items: center; gap: 28px; }
+    .nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      padding: 6px 0;
+      position: relative;
+      transition: color 160ms ease;
+    }
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 200ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .nav a:hover::after { transform: scaleX(1); }
+      .nav a.btn-gold:hover::after { display: none; }
+    }
+    .nav .btn { font-size: 14px; padding: 10px 18px; }
+    .nav .btn::after { display: none !important; }
+
+    .nav-toggle { display: none; color: var(--white); font-size: 24px; padding: 6px; }
+
+    @media (max-width: 880px) {
+      .nav {
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: var(--teal-dark);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 260ms var(--ease-out);
+      }
+      .nav.open { max-height: 600px; }
+      .nav a { padding: 14px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .nav .btn { margin: 12px 24px; text-align: center; }
+      .nav-toggle { display: inline-block; }
+    }
+
+    /* =========================================================
+       ANNOUNCEMENT BAR — gold→black gradient
+       ========================================================= */
+    .announcement {
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 55%, var(--black) 100%);
+      color: var(--black);
+      text-align: center;
+      padding: 10px 24px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .announcement a {
+      color: var(--white);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+    }
+
+    /* =========================================================
+       HERO — uses your real Wix photo as background with overlay
+       ========================================================= */
+    .hero {
+      position: relative;
+      background: var(--teal-dark);
+      color: var(--white);
+      min-height: 360px;
+      height: clamp(360px, 55vh, 520px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(6,90,98,0.85) 0%, rgba(6,90,98,0.55) 55%, rgba(17,17,17,0.6) 100%),
+        url('https://static.wixstatic.com/media/3bffc9_f9f56b71c7a1426a8ef116f11d7c510b~mv2.jpg') center/cover no-repeat;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+    .hero h1 {
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5), 0 4px 24px rgba(0,0,0,0.3);
+    }
+    .hero p.tagline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: clamp(16px, 2vw, 20px);
+      margin-bottom: 28px;
+      opacity: 0.97;
+      max-width: 600px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+    }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* =========================================================
+       SECTIONS
+       ========================================================= */
+    .bg-cream  { background: var(--cream); }
+    .bg-white  { background: var(--white); }
+    .bg-dark   { background: var(--black); color: var(--white); }
+    .bg-teal-d { background: var(--teal-dark); color: var(--white); }
+    .bg-teal-l { background: var(--teal-light); }
+
+    .section-title { text-align: center; margin-bottom: 8px; }
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray-text);
+      max-width: 620px;
+      margin: 0 auto 40px;
+    }
+    .bg-dark .section-subtitle,
+    .bg-teal-d .section-subtitle { color: rgba(255,255,255,0.85); }
+
+    /* =========================================================
+       3 WAYS CARDS — with real photos
+       ========================================================= */
+    .cards-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 880px) {
+      .cards-3 { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+      }
+    }
+    .card-img {
+      aspect-ratio: 16 / 10;
+      background-color: var(--teal-light);
+      background-size: cover;
+      background-position: center;
+    }
+    .card-body { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; }
+    .card .badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+    .card h3 { margin-bottom: 12px; }
+    .card p { color: var(--gray-text); flex-grow: 1; margin-bottom: 20px; }
+    .card .btn { align-self: flex-start; }
+
+    /* =========================================================
+       WHY COLORADO BOOM — dark, 2-column with photo
+       ========================================================= */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .why-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    .why-grid ul { list-style: none; padding: 0; }
+    .why-grid li {
+      position: relative;
+      padding: 14px 0 14px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .why-grid li:last-child { border-bottom: 0; }
+    .why-grid li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 22px;
+      width: 14px; height: 2px;
+      background: var(--gold);
+    }
+    .why-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    /* =========================================================
+       TESTIMONIALS
+       ========================================================= */
+    .quotes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 880px) {
+      .quotes { grid-template-columns: 1fr; }
+    }
+    .quote {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      border-left: 4px solid var(--teal);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .quote p { color: var(--gray-text); font-style: italic; margin-bottom: 16px; }
+    .quote .attr {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--teal-dark);
+    }
+
+    /* =========================================================
+       FIELDHOUSE — stats single-line + photo
+       ========================================================= */
+    .fieldhouse-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (max-width: 880px) {
+      .fieldhouse-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    .fieldhouse-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .fieldhouse-text h2 { text-align: left; margin-bottom: 16px; }
+    .fieldhouse-text p { color: rgba(255,255,255,0.9); margin-bottom: 24px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: center;
+      margin-top: 16px;
+    }
+    @media (max-width: 600px) {
+      .stats { grid-template-columns: 1fr; gap: 16px; }
+    }
+    .stat {
+      padding: 20px 8px;
+      border-top: 2px solid rgba(229,184,0,0.4);
+    }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(40px, 5vw, 56px);
+      line-height: 1;
+      color: var(--gold);
+      white-space: nowrap;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-top: 8px;
+    }
+
+    /* =========================================================
+       CONTACT & MAP — side by side
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: stretch;
+    }
+    @media (max-width: 880px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      min-height: 340px;
+      background: var(--teal-light);
+    }
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      border: 0;
+      display: block;
+    }
+    .contact-info {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-info h3 { margin-bottom: 16px; color: var(--teal-dark); }
+    .contact-info dl {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 12px 16px;
+      margin-bottom: 20px;
+    }
+    .contact-info dt {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-text);
+      padding-top: 2px;
+    }
+    .contact-info dd { color: var(--black); }
+    .contact-info a { color: var(--teal); border-bottom: 1px solid currentColor; }
+
+    /* =========================================================
+       FINAL CTA — gold→black gradient
+       ========================================================= */
+    .cta-band {
+      background: linear-gradient(90deg, var(--gold) 0%, var(--gold-dark) 55%, var(--black) 100%);
+      color: var(--black);
+      text-align: center;
+    }
+    .cta-band h2 { color: var(--black); margin-bottom: 12px; }
+    .cta-band p {
+      margin-bottom: 28px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-band .cta-buttons {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       FOOTER — Facebook + Instagram only
+       ========================================================= */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 0 24px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    footer h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    footer ul { list-style: none; }
+    footer li {
+      margin-bottom: 8px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.78);
+    }
+    footer a {
+      color: rgba(255,255,255,0.78);
+      transition: color 160ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      footer a:hover { color: var(--white); }
+    }
+    .footer-address {
+      font-size: 15px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.78);
+    }
+    .footer-address strong {
+      color: var(--white);
+      display: block;
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .socials { display: flex; gap: 12px; margin-top: 16px; }
+    .socials a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 160ms ease, transform 160ms var(--ease-out);
+    }
+    .socials a:active { transform: scale(0.94); }
+    @media (hover: hover) and (pointer: fine) {
+      .socials a:hover { background: var(--gold); }
+      .socials a:hover svg { fill: var(--black); }
+    }
+    .socials svg {
+      width: 18px; height: 18px;
+      fill: var(--white);
+      transition: fill 160ms ease;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+    }
+    .footer-bottom nav {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       SCROLL REVEAL
+       ========================================================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* =========================================================
+       ACCESSIBILITY
+       ========================================================= */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    a:focus-visible, button:focus-visible, .btn:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       ANNOUNCEMENT BAR
+       ========================================================= -->
+  <div class="announcement" role="banner">
+    RMR Girls 15U–18U Tryouts July 10th &nbsp;•&nbsp; Boys &amp; 14U Girls Aug 10th —
+    <a href="https://www.coloradoboom.com/tryouts">Register Now!</a>
+  </div>
+
+  <!-- =========================================================
+       HEADER + NAVIGATION
+       Links point to the existing Wix pages until those pages
+       are migrated to this site.
+       ========================================================= -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Colorado Boom Volleyball Club home">
+        Colorado Boom
+        <span>Volleyball Club</span>
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="https://www.coloradoboom.com/tryouts">Tryouts</a>
+        <a href="https://www.coloradoboom.com/club">Club</a>
+        <a href="https://www.coloradoboom.com/vbprograms">Programs</a>
+        <a href="https://www.coloradoboom.com/parent-resources">Resources</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.coloradoboom.com/tryouts" class="btn btn-gold">Register Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO — uses your hero photo from Wix CDN
+       Photo: 3bffc9_f9f56b71c7a1426a8ef116f11d7c510b
+       ========================================================= -->
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Colorado Boom<br>Volleyball Club</h1>
+        <p class="tagline">Where Potential Booms — Elite Youth Volleyball in Denver Metro</p>
+        <div class="hero-cta">
+          <a href="https://www.coloradoboom.com/tryouts" class="btn btn-gold">Register for Tryouts</a>
+          <a href="https://www.coloradoboom.com/vbprograms" class="btn btn-outline-white">Explore Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3 WAYS TO START PLAYING — with real Wix photos
+       ========================================================= -->
+  <section id="programs" class="bg-cream">
+    <div class="container">
+      <h2 class="section-title reveal">3 Ways to Start Playing</h2>
+      <p class="section-subtitle reveal">Pick the path that fits your athlete — competitive teams, foundational training, or focused skills.</p>
+
+      <div class="cards-3">
+        <article class="card reveal">
+          <div class="card-img" style="background-image: url('https://static.wixstatic.com/media/3bffc9_56fd67dbe1cc4492a6aba079f52c5a09~mv2.jpg');" role="img" aria-label="Colorado Boom team players"></div>
+          <div class="card-body">
+            <span class="badge">Competitive</span>
+            <h3>Club Volleyball</h3>
+            <p>Girls 10U–18U and Boys 13U–18U. Sanctioned by RMR and USA Volleyball. Tryouts begin July 2026.</p>
+            <a href="https://www.coloradoboom.com/tryouts" class="btn btn-teal">View Tryout Dates</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-img" style="background-image: url('https://static.wixstatic.com/media/3bffc9_32a498d6b44a44f7b120f786302b1708~mv2.jpg');" role="img" aria-label="Youth volleyball training drill"></div>
+          <div class="card-body">
+            <span class="badge">Foundational</span>
+            <h3>Developmental Training</h3>
+            <p>Ages 8–16. Mon–Thurs, 5:00–6:30 PM. Pick 1 or 2 days. Monthly, cancel anytime. Drop-in and grass league included.</p>
+            <a href="https://forms.gle/nx3jtbQCTXsEVZKU8" target="_blank" rel="noopener" class="btn btn-teal">Sign Up</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-img" style="background-image: url('https://static.wixstatic.com/media/3bffc9_b09162d589314c719dd95f450dd1063a~mv2.jpg');" role="img" aria-label="Position-specific volleyball clinic"></div>
+          <div class="card-body">
+            <span class="badge">Skills</span>
+            <h3>Camps &amp; Clinics</h3>
+            <p>Ages 9–18. Position-specific summer skills — hitters, setters, defensive specialists. Led by regional-level coaches.</p>
+            <a href="https://www.coloradoboom.com/vbprograms" class="btn btn-teal">Learn More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       WHY COLORADO BOOM — with team practice photo
+       ========================================================= -->
+  <section id="why" class="bg-dark">
+    <div class="container">
+      <div class="why-grid">
+        <div class="reveal">
+          <h2 style="text-align:left; margin-bottom:16px;">Why Colorado Boom?</h2>
+          <p style="color:rgba(255,255,255,0.85); margin-bottom:24px;">
+            We're different. Fundamentals and biomechanics come first. A dedicated training center built for the sport. A culture that prioritizes the player's journey above everything.
+          </p>
+          <ul>
+            <li>Biomechanics-first coaching from top Colorado club coaches</li>
+            <li>Family-friendly practice times — 5–7:30 PM, no late practices</li>
+            <li>Three practices per week — more reps, more touches</li>
+            <li>Consistent schedule — times and location never change</li>
+            <li>Year-round indoor and outdoor programs</li>
+            <li>Drop-in play included for all club members</li>
+          </ul>
+        </div>
+        <div class="why-photo reveal" style="background-image: url('https://static.wixstatic.com/media/3bffc9_a4c2462bda574d8aae13f1f5329c0c30~mv2.jpg');" role="img" aria-label="Colorado Boom players in practice"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TESTIMONIALS
+       ========================================================= -->
+  <section class="bg-cream">
+    <div class="container">
+      <h2 class="section-title reveal">What Families Say</h2>
+      <p class="section-subtitle reveal">Real feedback from Colorado Boom parents and players.</p>
+
+      <div class="quotes">
+        <blockquote class="quote reveal">
+          <p>"We found the perfect balance of high-level training and a supportive community. The commitment to excellence is evident in every practice."</p>
+          <div class="attr">— Elena Rodriguez</div>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <p>"Colorado Boom has been transformative for my daughter. The coaching staff is incredibly dedicated, and I've seen massive improvements in her skills and confidence."</p>
+          <div class="attr">— Jesse N.</div>
+        </blockquote>
+        <blockquote class="quote reveal">
+          <p>"My daughter and son practically live at the facility. Between drop-in and practice, it's a second home. We love it here."</p>
+          <div class="attr">— Jamie L.</div>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       BOOMTOWN FIELDHOUSE — with facility photo
+       ========================================================= -->
+  <section id="fieldhouse" class="bg-teal-d">
+    <div class="container">
+      <div class="fieldhouse-grid">
+        <div class="fieldhouse-text reveal">
+          <h2>Boomtown Fieldhouse</h2>
+          <p>Our dedicated training home in Aurora — the only purpose-built club volleyball base on the south side of Denver metro. Thirteen full-size courts, daily open gyms, and tournament-ready facilities.</p>
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">13</div>
+              <div class="stat-label">Courts</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">96K</div>
+              <div class="stat-label">Sq Ft</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">15</div>
+              <div class="stat-label">Teams</div>
+            </div>
+          </div>
+        </div>
+        <div class="fieldhouse-photo reveal" style="background-image: url('https://static.wixstatic.com/media/3bffc9_a8d44fe1a9dd4f138145fd985507a9bd~mv2.jpg');" role="img" aria-label="Boomtown Fieldhouse interior"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CONTACT & MAP — side by side, real Google Maps embed
+       ========================================================= -->
+  <section id="contact" class="bg-white">
+    <div class="container">
+      <h2 class="section-title reveal">Visit Us</h2>
+      <p class="section-subtitle reveal">Find Boomtown Fieldhouse in Aurora — open gyms three days a week, all summer.</p>
+
+      <div class="contact-grid">
+        <div class="map-wrap reveal">
+          <iframe
+            title="Map to Boomtown Fieldhouse, 14200 E Alameda Ave, Aurora, CO"
+            src="https://www.google.com/maps?q=14200+E+Alameda+Ave,+Aurora,+CO+80012&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="contact-info reveal">
+          <h3>Boomtown Fieldhouse</h3>
+          <dl>
+            <dt>Address</dt>
+            <dd>14200 E Alameda Ave<br>Aurora, CO 80012</dd>
+
+            <dt>Email</dt>
+            <dd><a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></dd>
+
+            <dt>Open Gym</dt>
+            <dd>Mon / Wed / Fri<br>5:00 – 7:00 PM, all summer</dd>
+
+            <dt>Sanctioned</dt>
+            <dd>RMR &amp; USA Volleyball</dd>
+          </dl>
+          <a href="https://www.google.com/maps?q=14200+E+Alameda+Ave,+Aurora,+CO+80012" target="_blank" rel="noopener" class="btn btn-teal" style="align-self:flex-start;">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA BAND
+       ========================================================= -->
+  <section id="cta" class="cta-band">
+    <div class="container">
+      <h2>Ready to See What Boom Is About?</h2>
+      <p>Drop in to open gym, sign up for a summer camp, or register for tryouts. No commitment to come play.</p>
+      <div class="cta-buttons">
+        <a href="https://www.coloradoboom.com/tryouts" class="btn btn-teal">Register for Tryouts</a>
+        <a href="mailto:admin@coloradoboom.com" class="btn btn-outline-black">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER
+       Legal links point to the existing Wix legal pages.
+       ========================================================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-address">
+            <strong>Colorado Boom Volleyball Club</strong>
+            Boomtown Fieldhouse<br>
+            14200 E Alameda Ave<br>
+            Aurora, CO 80012<br><br>
+            <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.8v3h2.5V21h3.2z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" aria-label="Instagram @coboomvb">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.3.8-.4.4-.6.8-.8 1.3-.2.4-.3 1-.4 2.1C2.6 8.5 2.6 8.9 2.6 12s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.3.4.4.8.6 1.3.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.3-.8.4-.4.6-.8.8-1.3.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.3-.4-.4-.8-.6-1.3-.8-.4-.2-1-.3-2.1-.4C15.5 4 15.1 4 12 4zm0 3.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm0 1.8a3 3 0 100 6 3 3 0 000-6zm5-2.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="https://www.coloradoboom.com/tryouts">Tryouts &amp; Open Gyms</a></li>
+            <li><a href="https://www.coloradoboom.com/club">Club Information</a></li>
+            <li><a href="https://www.coloradoboom.com/vbprograms">Programs</a></li>
+            <li><a href="https://www.coloradoboom.com/parent-resources">Parent Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="https://www.coloradoboom.com/club">Club Volleyball</a></li>
+            <li><a href="https://forms.gle/nx3jtbQCTXsEVZKU8">Developmental Training</a></li>
+            <li><a href="https://www.coloradoboom.com/vbprograms">Camps &amp; Clinics</a></li>
+            <li><a href="https://www.coloradoboom.com/tryouts">Open Gym</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Colorado Boom Volleyball Club</div>
+        <nav aria-label="Legal">
+          <a href="https://www.coloradoboom.com/terms-and-conditions">Terms</a>
+          <a href="https://www.coloradoboom.com/privacy-policy">Privacy</a>
+          <a href="https://www.coloradoboom.com/refund-policy">Refund</a>
+          <a href="https://www.coloradoboom.com/accessibility-statement">Accessibility</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('primary-nav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+      nav.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A' && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    })();
+
+    // Scroll reveal — gentle fade-in
+    (function () {
+      var items = document.querySelectorAll('.reveal');
+      if (!items.length || !('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry, i) {
+          if (entry.isIntersecting) {
+            setTimeout(function () { entry.target.classList.add('visible'); }, Math.min(i * 60, 240));
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
