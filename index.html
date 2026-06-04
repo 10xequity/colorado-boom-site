@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Tryouts July 2026.">
+  <meta name="theme-color" content="#0E7C86">
+  <!-- STAGING: hide from Google during review. REMOVE this line at launch. -->
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="Colorado Boom Volleyball Club">
+  <meta property="og:description" content="Where Potential Booms — Elite Youth Volleyball in Denver Metro">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <title>Colorado Boom Volleyball Club | Where Potential Booms — Aurora, CO</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<!--
+  ==============================================================
+  PAGE: Home (index.html)   |   CODE: HM   |   Updated: 2026-06-03
+  REFERENCE NUMBERING (code-only, never shown on the page):
+  --------------------------------------------------------------
+  [NAV]    Header / nav (SHARED) -> logo; Open Gyms & Tryouts (drop);
+           Club (drop); Programs (drop); Coaching Staff; Resources;
+           Contact; Register Now
+  [HM-01]  Hero
+  [ANN]    Announcement bar (SHARED, below hero)
+  [HMB]    Girls/Boys quick-select band (HMB.1 girls / HMB.2 boys)
+  [HM-02]  3 Ways to Start Playing (cards HM-02.1/.2/.3)
+  [HM-03]  Why Club Volleyball (boxes HM-03.1 / HM-03.2)
+  [HM-04]  Why Colorado Boom (dark)
+  [HM-05]  What Families Say (testimonials)
+  [HM-06]  Instagram (grid HM-06.1)
+  [HM-07]  Boomtown Fieldhouse + stats (HM-07.1/.2/.3)
+  [HM-08]  Contact & Map
+  [HM-09]  Final CTA band (golden radial)
+  [FT]     Footer (SHARED) -> logo + address; quick links; programs
+  --------------------------------------------------------------
+  Reference an area by its code, e.g. "[HM-07]".
+  ==============================================================
+-->
+
+  <!-- ============ [NAV] HEADER (shared on every page) ============ -->
+  <header class="header" data-section="NAV">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
+        <img class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <span class="has-drop two">
+          <a href="tryouts.html" class="nav-2line" aria-haspopup="true">Open Gyms &amp;<br>Tryouts &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="tryouts.html#open-gyms" role="menuitem">Open Gyms</a>
+            <a href="tryouts.html#tryouts" role="menuitem">Tryouts</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="club.html" aria-haspopup="true">Club &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="girls-club.html" role="menuitem">Girls Club</a>
+            <a href="boys-club.html" role="menuitem">Boys Club</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="programs.html" aria-haspopup="true">Programs &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
+            <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
+            <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+          </span>
+        </span>
+        <a href="coaching-staff.html">Coaching Staff</a>
+        <a href="parent-resources.html">Resources</a>
+        <a href="mailto:admin@coloradoboom.com">Contact</a>
+        <a href="tryouts.html" class="btn btn-gold">Register Now</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- ============ [HM-01] HERO ============ -->
+  <section class="hero" id="hm-01-hero" data-section="HM-01" aria-labelledby="hm-01-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <h1 id="hm-01-title"><span class="hl-1">Colorado Boom</span><br><span class="hl-2">Volleyball Club</span></h1>
+        <p class="tagline">Where Potential Booms — Elite Youth Volleyball in Denver&nbsp;Metro</p>
+        <div class="hero-cta">
+          <a href="tryouts.html" class="btn btn-gold">Register for Tryouts</a>
+          <a href="programs.html" class="btn btn-outline-white">Explore Programs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [ANN] ANNOUNCEMENT BAR (now below hero) ============ -->
+  <div class="announcement" data-section="ANN" role="region" aria-label="Announcement">
+    <!-- EDIT: tryout dates -->
+    RMR Girls 15U&ndash;18U Tryouts July 10th &nbsp;&bull;&nbsp; Boys &amp; 14U Girls Aug 10th &mdash;
+    <!-- /EDIT -->
+    <a href="tryouts.html">Register Now!</a>
+  </div>
+
+  <!-- ============ [HMB] GIRLS / BOYS QUICK-SELECT BAND ============ -->
+  <section class="gb-band" data-section="HMB" aria-label="Choose a program">
+    <a class="gb-half gb-girls" href="girls-club.html" data-block="HMB.1" aria-label="Girls Club program">
+      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 18%;"></span>
+      <span class="gb-label">Girls<span class="gb-sub">Club &middot; 10U&ndash;18U</span></span>
+    </a>
+    <a class="gb-half gb-boys" href="boys-club.html" data-block="HMB.2" aria-label="Boys Club program">
+      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:center 35%;"></span>
+      <span class="gb-label">Boys<span class="gb-sub">Club &middot; 13U&ndash;18U</span></span>
+    </a>
+    <span class="gb-divider" aria-hidden="true"></span>
+  </section>
+
+  <!-- ============ [HM-02] 3 WAYS TO START PLAYING ============ -->
+  <section id="hm-02-programs" data-section="HM-02" class="bg-cream" aria-labelledby="hm-02-title">
+    <div class="container">
+      <h2 class="section-title reveal" id="hm-02-title">3 Ways to Start Playing</h2>
+      <p class="section-subtitle reveal">Pick the path that fits your athlete &mdash; competitive teams, foundational training, or focused skills.</p>
+      <div class="cards-3">
+        <article class="card reveal" data-card="HM-02.1">
+          <div class="card-img" style="background-image:url('assets/img/club.jpg');" role="img" aria-label="Colorado Boom team players"></div>
+          <div class="card-body">
+            <span class="badge">Competitive</span>
+            <h3>Club Volleyball</h3>
+            <p>Girls 10U&ndash;18U and Boys 13U&ndash;18U. Sanctioned by RMR and USA Volleyball. Tryouts begin July 2026.</p>
+            <a href="tryouts.html" class="btn btn-teal">View Tryout Dates</a>
+          </div>
+        </article>
+        <article class="card reveal" data-card="HM-02.2">
+          <div class="card-img" style="background-image:url('assets/img/developmental.jpg');" role="img" aria-label="Youth volleyball training drill"></div>
+          <div class="card-body">
+            <span class="badge">Foundational</span>
+            <h3>Developmental Training</h3>
+            <p>Ages 8&ndash;16. Mon&ndash;Thurs, 5:00&ndash;6:30 PM. Pick 1 or 2 days. Monthly, cancel anytime. Drop-in and grass league included.</p>
+            <a href="https://forms.gle/nx3jtbQCTXsEVZKU8" target="_blank" rel="noopener" class="btn btn-teal">Sign Up</a>
+          </div>
+        </article>
+        <article class="card reveal" data-card="HM-02.3">
+          <div class="card-img" style="background-image:url('assets/img/camps.jpg');" role="img" aria-label="Position-specific volleyball clinic"></div>
+          <div class="card-body">
+            <span class="badge">Skills</span>
+            <h3>Camps &amp; Clinics</h3>
+            <p>Ages 9&ndash;18. Position-specific summer skills &mdash; hitters, setters, defensive specialists. Led by regional-level coaches.</p>
+            <a href="programs.html" class="btn btn-teal">Learn More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-03] WHY CLUB VOLLEYBALL ============ -->
+  <section id="hm-03-whyclub" data-section="HM-03" class="bg-teal-d" aria-labelledby="hm-03-title">
+    <div class="container">
+      <h2 class="section-title reveal" id="hm-03-title">Why Club Volleyball?</h2>
+      <p class="section-subtitle reveal">New to the sport? Here's what club volleyball is &mdash; and why families choose it.</p>
+      <div class="why-club-grid">
+        <div class="info-box reveal" data-block="HM-03.1">
+          <h3>What Is Club Volleyball?</h3>
+          <p>Club volleyball is organized, competitive volleyball played outside the school system. Players join a club, try out for a team, and compete in tournaments through the season &mdash; all sanctioned by USA Volleyball (USAV) and, here in Colorado, the Rocky Mountain Region (RMR).</p>
+          <p>Teams practice multiple times a week and travel to local, regional, and sometimes national tournaments. It's widely considered the primary pathway for athletes who want to develop advanced skills and play in college.</p>
+        </div>
+        <div class="info-box reveal" data-block="HM-03.2">
+          <h3>Why Play Club?</h3>
+          <p>Club is where players make their biggest jumps. The coaching, training intensity, and level of competition run higher than school or rec play &mdash; and the season fills the months school ball doesn't, so athletes train year-round.</p>
+          <p>It's also the recruiting pipeline: college coaches evaluate almost entirely at club tournaments and showcases. Beyond the court, players build discipline, teamwork, and friendships in a community built around their growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-04] WHY COLORADO BOOM ============ -->
+  <section id="hm-04-why" data-section="HM-04" class="bg-dark" aria-labelledby="hm-04-title">
+    <div class="container">
+      <div class="why-grid">
+        <div class="reveal">
+          <h2 id="hm-04-title" style="text-align:left;margin-bottom:16px;">Why Colorado Boom?</h2>
+          <p style="color:rgba(255,255,255,0.85);margin-bottom:24px;">We're different. Fundamentals and biomechanics come first. A dedicated training center built for the sport. A culture that prioritizes the player's journey above everything.</p>
+          <ul>
+            <li>Biomechanics-first coaching from top Colorado club coaches</li>
+            <li>Family-friendly practice times &mdash; 5&ndash;7:30 PM, no late practices</li>
+            <li>Three practices per week &mdash; more reps, more touches</li>
+            <li>Consistent schedule &mdash; times and location never change</li>
+            <li>Year-round indoor and outdoor programs</li>
+            <li>Drop-in play included for all club members</li>
+          </ul>
+        </div>
+        <div class="why-photo portrait reveal" style="background-image:url('assets/img/why-boom.jpg');" role="img" aria-label="Colorado Boom players in practice"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-05] TESTIMONIALS ============ -->
+  <section id="hm-05-testimonials" data-section="HM-05" class="bg-cream" aria-labelledby="hm-05-title">
+    <div class="container">
+      <h2 class="section-title reveal" id="hm-05-title">What Families Say</h2>
+      <p class="section-subtitle reveal">Real feedback from Colorado Boom parents and players.</p>
+      <div class="quotes">
+        <blockquote class="quote reveal"><p>"We found the perfect balance of high-level training and a supportive community. The commitment to excellence is evident in every practice."</p><div class="attr">&mdash; Elena Rodriguez</div></blockquote>
+        <blockquote class="quote reveal"><p>"Colorado Boom has been transformative for my daughter. The coaching staff is incredibly dedicated, and I've seen massive improvements in her skills and confidence."</p><div class="attr">&mdash; Jesse N.</div></blockquote>
+        <blockquote class="quote reveal"><p>"My daughter and son practically live at the facility. Between drop-in and practice, it's a second home. We love it here."</p><div class="attr">&mdash; Jamie L.</div></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-06] INSTAGRAM ============ -->
+  <section id="hm-06-instagram" data-section="HM-06" class="bg-white" aria-labelledby="hm-06-title">
+    <div class="container">
+      <h2 class="section-title reveal" id="hm-06-title">Follow Us on Instagram</h2>
+      <p class="section-subtitle reveal">@coboomvb &mdash; game highlights, tryout announcements, and life at Boomtown.</p>
+      <!-- Replace this placeholder grid with an OAuth widget (Elfsight / SnapWidget / Wix Instagram Feed). Do NOT hard-code Instagram credentials. -->
+      <div class="ig-grid reveal" data-block="HM-06.1">
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+        <div class="ig-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm5.5-3a1 1 0 100 2 1 1 0 000-2z"/></svg></div>
+      </div>
+      <div style="text-align:center;margin-top:28px;">
+        <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" class="btn btn-teal">Follow @coboomvb</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-07] BOOMTOWN FIELDHOUSE ============ -->
+  <section id="hm-07-fieldhouse" data-section="HM-07" class="bg-teal-d" aria-labelledby="hm-07-title">
+    <div class="container">
+      <div class="fieldhouse-grid">
+        <div class="fieldhouse-text reveal">
+          <h2 id="hm-07-title">Boomtown Fieldhouse</h2>
+          <p>Our dedicated training home in Aurora &mdash; the only purpose-built club volleyball base on the south side of Denver metro. Thirteen full-size courts, daily open gyms, and tournament-ready facilities.</p>
+          <div class="stats">
+            <div class="stat" data-block="HM-07.1"><div class="stat-num">13</div><div class="stat-label">Courts</div></div>
+            <div class="stat" data-block="HM-07.2"><div class="stat-num">96K</div><div class="stat-label">Sq Ft</div></div>
+            <div class="stat" data-block="HM-07.3"><div class="stat-num">15</div><div class="stat-label">Teams</div></div>
+          </div>
+        </div>
+        <div class="fieldhouse-photo reveal" style="background-image:url('https://static.wixstatic.com/media/3bffc9_a8d44fe1a9dd4f138145fd985507a9bd~mv2.jpg');" role="img" aria-label="Boomtown Fieldhouse interior"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-08] CONTACT & MAP ============ -->
+  <section id="hm-08-contact" data-section="HM-08" class="bg-white" aria-labelledby="hm-08-title">
+    <div class="container">
+      <h2 class="section-title reveal" id="hm-08-title">Visit Us</h2>
+      <p class="section-subtitle reveal">Find Boomtown Fieldhouse in Aurora &mdash; open gyms three days a week, all summer.</p>
+      <div class="contact-grid">
+        <div class="map-wrap reveal">
+          <iframe title="Map to Boomtown Fieldhouse, 14200 E Alameda Ave, Aurora, CO" src="https://www.google.com/maps?q=14200+E+Alameda+Ave,+Aurora,+CO+80012&output=embed" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+        <div class="contact-info reveal">
+          <h3>Boomtown Fieldhouse</h3>
+          <dl>
+            <dt>Address</dt><dd>14200 E Alameda Ave<br>Aurora, CO 80012</dd>
+            <dt>Email</dt><dd><a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></dd>
+            <dt>Open Gym</dt><dd>Mon / Wed / Fri<br>5:00 &ndash; 7:00 PM, all summer</dd>
+            <dt>Sanctioned</dt><dd>RMR &amp; USA Volleyball</dd>
+          </dl>
+          <a href="https://www.google.com/maps?q=14200+E+Alameda+Ave,+Aurora,+CO+80012" target="_blank" rel="noopener" class="btn btn-teal btn-static" style="align-self:flex-start;color:#fff;">Get Directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [HM-09] FINAL CTA BAND ============ -->
+  <section id="hm-09-cta" data-section="HM-09" class="cta-band" aria-labelledby="hm-09-title">
+    <div class="container">
+      <h2 id="hm-09-title">Ready to See What Boom Is About?</h2>
+      <p>Drop in to open gym, sign up for a summer camp, or register for tryouts. No commitment to come play.</p>
+      <div class="cta-buttons">
+        <a href="tryouts.html" class="btn btn-teal">Register for Tryouts</a>
+        <a href="mailto:admin@coloradoboom.com" class="btn btn-outline-dark">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ [FT] FOOTER (shared on every page) ============ -->
+  <footer data-section="FT">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+          <div class="footer-address">
+            <strong>Colorado Boom Volleyball Club</strong>
+            Boomtown Fieldhouse<br>14200 E Alameda Ave<br>Aurora, CO 80012
+            <span style="display:block;margin:8px 0;color:rgba(255,255,255,0.6);font-size:14px;">Serving Denver metro, Aurora, Centennial, Parker, Highlands Ranch &amp; beyond</span>
+            <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.8v3h2.5V21h3.2z"/></svg></a>
+            <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" aria-label="Instagram @coboomvb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm0 1.8a3 3 0 100 6 3 3 0 000-6zm5-2.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="tryouts.html">Open Gyms &amp; Tryouts</a></li>
+            <li><a href="club.html">Club Information</a></li>
+            <li><a href="girls-club.html">Girls Club</a></li>
+            <li><a href="boys-club.html">Boys Club</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="parent-resources.html">Parent Resources</a></li>
+            <li><a href="mailto:admin@coloradoboom.com">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="girls-club.html">Club Volleyball</a></li>
+            <li><a href="https://forms.gle/nx3jtbQCTXsEVZKU8" target="_blank" rel="noopener">Developmental Training</a></li>
+            <li><a href="programs.html">Camps &amp; Clinics</a></li>
+            <li><a href="programs.html">Littles (Coming Soon)</a></li>
+            <li><a href="tryouts.html">Open Gym</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Colorado Boom Volleyball Club</div>
+        <nav aria-label="Legal"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">Accessibility</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
