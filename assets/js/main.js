@@ -24,3 +24,20 @@
     });
   });
 })();
+
+// Lazy YouTube facade
+(function(){
+  function play(el){
+    var id=el.getAttribute('data-yt'); if(!id)return;
+    var f=document.createElement('iframe');
+    f.setAttribute('src','https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0');
+    f.setAttribute('title','Volleyball rotations explainer video');
+    f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    f.setAttribute('allowfullscreen','');
+    el.innerHTML=''; el.appendChild(f);
+  }
+  document.querySelectorAll('.yt-facade').forEach(function(el){
+    el.addEventListener('click',function(){play(el);});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(el);}});
+  });
+})();

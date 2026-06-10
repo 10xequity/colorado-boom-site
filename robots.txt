@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-# NOTE: pages carry <meta robots=noindex> during staging. Remove that tag at launch.
-Sitemap: https://www.coloradoboom.com/sitemap.xml
+Sitemap: https://coloradoboom.com/sitemap.xml
