@@ -1,32 +1,39 @@
 # Colorado Boom Volleyball Club — Website
 
-Static site (plain HTML/CSS/JS, no build step) for **GitHub Pages**.
+Static site (plain HTML/CSS/JS, no build step) hosted on **GitHub Pages** at
+**coloradoboom.com**. (An earlier Wix build was abandoned — GitHub Pages is the live site.)
 
 ## Files
-- 7 pages: `index.html`, `tryouts.html`, `girls-club.html`, `boys-club.html`, `programs.html`, `coaching-staff.html`, `parent-resources.html`
+- 11 pages: `index.html`, `tryouts.html`, `club.html`, `girls-club.html`, `boys-club.html`,
+  `programs.html`, `coaching-staff.html`, `parent-resources.html`, `volleyball-rules.html`,
+  `volleyball-positions.html`, `legal.html`
 - `assets/css/styles.css` — all styling (shared)
 - `assets/js/main.js` — nav, scroll reveal, FAQ accordion (shared)
 - `assets/img/` — image library (see `IMAGES.md`)
-- `EDITING_GUIDE.md` — how to find/change things
-- `.nojekyll` — tells GitHub Pages to serve files as-is
+- `robots.txt`, `sitemap.xml` — SEO (sitemap lists all 11 pages)
+- `CNAME` — custom domain (`coloradoboom.com`)
+- `.nojekyll` — tells GitHub Pages to serve files as-is (keep this dotfile)
+- `EDITING_GUIDE.md`, `DEPLOY_GITHUB.md`, `IMAGES.md` — reference docs
 
-## Deploy on GitHub Pages (one-time)
-1. Create a free account at github.com if you don't have one.
-2. Create a new repository (e.g. `colorado-boom`). Make it **Public**.
-3. On the repo page click **Add file -> Upload files**. Drag in EVERYTHING from this folder,
-   **keeping the `assets/` folder structure** (drag the whole `assets` folder in too). Commit.
-4. Go to **Settings -> Pages**. Under "Build and deployment", Source = **Deploy from a branch**,
-   Branch = **main**, folder = **/(root)**. Save.
-5. Wait ~1 minute. Your site is live at `https://<your-username>.github.io/<repo-name>/`.
-
-## Edit later (no tools needed)
-- Open any file on github.com, click the **pencil (Edit)** icon, make changes, **Commit**.
-  The site redeploys automatically in under a minute.
+## Update the live site
+- **Web:** open any file on github.com, click the **pencil (Edit)** icon, make changes,
+  **Commit**. Pages redeploys automatically in under a minute.
+- **From a new batch:** unzip and re-upload the contents to the repo root; GitHub overwrites
+  changed files. Confirm `.nojekyll` is present after upload (some OSes hide dotfiles).
 
 ## Replace / add photos
-- Upload a file into `assets/img/` with the **exact same filename** (case-sensitive) as in `IMAGES.md`.
+Upload a file into `assets/img/` with the **exact same filename** (case-sensitive) as in `IMAGES.md`.
 
-## Go live on your domain
-- When approved: add a file named `CNAME` at the repo root containing `www.coloradoboom.com`,
-  then point your DNS to GitHub Pages. **Remove the `<meta name="robots" content="noindex">`
-  line from each page** so Google can index it.
+## SEO status
+On-page SEO is in place: unique title + description, canonical, OG/Twitter/geo meta, and
+JSON-LD on every page; `robots.txt` + `sitemap.xml` at the root. Still open (off-page,
+done in dashboards, not in code): submit the sitemap to Google Search Console + Bing
+Webmaster Tools, create/claim the Google Business Profile, add security headers + cookieless
+analytics via Cloudflare, and replace any AI-placeholder images with real photos.
+
+## Notes
+- No `noindex` remains — the site is indexable.
+- The home Instagram feed uses a Behold widget (config on the Behold dashboard; no
+  credentials in code). See `EDITING_GUIDE.md`.
+- Legal pages (Privacy/Terms/Accessibility) are on `legal.html`; copy is boilerplate
+  pending counsel review.
