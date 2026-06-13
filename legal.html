@@ -148,6 +148,12 @@
       nav.toc{position:static;}
       nav.toc a{display:inline-block; margin-right:8px;}
     }
+    .btn-shine{position:relative;overflow:hidden;}
+    .btn-shine::after{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;
+      background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,0.55) 50%,rgba(255,255,255,0) 100%);
+      transform:skewX(-20deg);animation:btn-shine-sweep 4.5s ease-in-out infinite;}
+    @keyframes btn-shine-sweep{0%{left:-75%;}18%{left:130%;}100%{left:130%;}}
+    @media (prefers-reduced-motion: reduce){.btn-shine::after{animation:none;}}
   </style>
 </head>
 <body>
@@ -165,7 +171,7 @@
         <a href="club.html">Club</a>
         <a href="programs.html">Programs</a>
         <a href="parent-resources.html">Parents</a>
-        <a class="btn-register" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Register Now</a>
+        <a class="btn-register btn-shine" href="tryouts.html">Tryout Now!</a>
       </nav>
     </div>
   </header>
