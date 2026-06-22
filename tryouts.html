@@ -29,6 +29,10 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Tryouts & Open Gyms","item":"https://coloradoboom.com/tryouts.html"}]}
   </script>
+  <!-- ===== v1.34 (2026-06-22): [TO-NAV] jump nav + [TO-02] 14+ Advanced Skills box ===== -->
+  <style>
+    .page-jump{padding:18px 0;border-bottom:1px solid rgba(0,0,0,.07);}
+  </style>
 </head>
 <body>
   <!-- ============ [NAV] HEADER (shared on every page) ============ -->
@@ -86,6 +90,17 @@
     <span class="sub-bg" style="background-image:url('assets/img/tryouts.jpg');background-position:center 70%;"></span>
     <div class="container"><h1>Tryouts &amp; Open Gyms</h1><p>Summer 2026 at Boomtown Fieldhouse &mdash; serving Denver metro, Aurora, Centennial, Parker &amp; beyond</p></div>
   </section>
+  <!-- ===== [TO-NAV] Jump nav (v1.34, #8) ===== -->
+  <div class="page-jump bg-white" data-section="TO-NAV">
+    <nav class="jump-nav container" aria-label="On this page">
+      <a href="#open-gyms">Open Gym</a>
+      <a href="#advanced-skills">Advanced Skills</a>
+      <a href="#membership">Membership</a>
+      <a href="#tryouts">Tryouts</a>
+      <a href="#prepare">Prepare</a>
+      <a href="#ocs">Offers (OCS)</a>
+    </nav>
+  </div>
   <!-- ===== [TO-02] OPEN GYM (first) ===== -->
   <section id="open-gyms" data-section="TO-02" class="bg-white">
     <div class="container narrow" style="text-align:center;">
@@ -98,6 +113,15 @@
       </div>
       <p class="prose">$20 per session. Boomtown drop-in included 7&ndash;11 PM (players under 14 need parental supervision). Registration preferred &mdash; walk-ins welcome.</p>
       <div class="cta-inline"><a href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener" class="btn btn-teal">Register for Open Gym</a></div>
+
+      <!-- 14+ Advanced Skills & Mechanics (v1.34, #4) -->
+      <div id="advanced-skills" class="times-callout" style="margin-top:26px;">
+        <span class="big">14+ Advanced Skills &amp; Mechanics Training</span>
+        <span class="sub">Tues / Thurs &middot; 4:00&ndash;6:00 PM &mdash; advanced skill and mechanics work for players 14 and up</span>
+        <span class="sub">All levels 14+ welcome. Registration preferred &mdash; walk-ins welcome.</span>
+      </div>
+      <div class="cta-inline" style="margin-top:0;"><a href="mailto:admin@coloradoboom.com?subject=14+%20Advanced%20Skills%20%26%20Mechanics%20Training" class="btn btn-teal">Ask About Enrolling</a></div>
+
       <div class="times-callout" style="margin-top:26px;">
         <span class="big">Advanced Summer Club Training &mdash; Coach Damon Sichler</span>
         <span class="sub">Mon / Wed &middot; 7:00&ndash;8:30 PM &mdash; high-rep training for competitive and committed players (open gyms included)</span>

@@ -1,4 +1,3 @@
-
     // Mobile nav toggle
     (function(){
       var t=document.querySelector('.nav-toggle'),n=document.getElementById('primary-nav');
@@ -39,5 +38,33 @@
   document.querySelectorAll('.yt-facade').forEach(function(el){
     el.addEventListener('click',function(){play(el);});
     el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();play(el);}});
+  });
+})();
+
+// Back-to-top button (v1.34, 2026-06-22) — injected on every page; styles inline so no CSS edit needed
+(function(){
+  if(document.querySelector('.to-top'))return;
+  var css='.to-top{position:fixed;right:18px;bottom:18px;z-index:200;width:46px;height:46px;'+
+    'border-radius:50%;background:var(--teal,#0E7C86);color:#fff;font-size:22px;line-height:1;'+
+    'box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:0;visibility:hidden;transform:translateY(8px);'+
+    'transition:opacity .2s ease,transform .2s ease,background .2s ease;}'+
+    '.to-top.show{opacity:1;visibility:visible;transform:translateY(0);}'+
+    '.to-top:hover{background:var(--teal-dark,#065A62);}'+
+    '.to-top:focus-visible{outline:2px solid var(--gold,#E5B800);outline-offset:3px;}'+
+    '@media(prefers-reduced-motion:reduce){.to-top{transition:none;}}';
+  var s=document.createElement('style');s.textContent=css;document.head.appendChild(s);
+
+  var btn=document.createElement('button');
+  btn.type='button';btn.className='to-top';
+  btn.setAttribute('aria-label','Back to top');
+  btn.innerHTML='\u2191';
+  document.body.appendChild(btn);
+
+  var toggle=function(){btn.classList.toggle('show',window.scrollY>600);};
+  window.addEventListener('scroll',toggle,{passive:true});
+  toggle();
+  btn.addEventListener('click',function(){
+    var rm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    window.scrollTo({top:0,behavior:rm?'auto':'smooth'});
   });
 })();

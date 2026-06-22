@@ -30,6 +30,34 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":["SportsClub","LocalBusiness"],"name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/","email":"admin@coloradoboom.com","image":"https://coloradoboom.com/assets/img/girls.jpg","logo":"https://coloradoboom.com/assets/img/logo.png","telephone":"","sport":"Volleyball","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":39.70929,"longitude":-104.82171},"hasMap":"https://www.google.com/maps?q=14200+E+Alameda+Ave,+Aurora,+CO+80012","areaServed":["Aurora CO","Denver metro","Centennial","Parker","Highlands Ranch"],"sameAs":["https://www.facebook.com/profile.php?id=61590351960515","https://www.instagram.com/coboomvb"]}
   </script>
+  <!-- ===== v1.34 home overrides (2026-06-22): [HMB] diagonal photo-align + [HM-06] IG grid ===== -->
+  <style>
+    /* [HMB] #5 — clip BOTH photos to the same diagonal the divider uses, so the
+       photo seam and the highlight line always coincide (fixes straight-seam vs angled-line). */
+    .gb-band{display:block;position:relative;height:clamp(132px,17vw,170px);overflow:hidden;}
+    .gb-half{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .gb-girls{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);z-index:1;}
+    .gb-boys{clip-path:polygon(53% 0,100% 0,100% 100%,47% 100%);z-index:1;}
+    .gb-half .gb-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max-content;max-width:46%;margin:0;}
+    .gb-girls .gb-label{left:25%;}
+    .gb-boys .gb-label{left:75%;}
+    .gb-divider{position:absolute;inset:0;width:auto;height:auto;left:0;top:0;transform:none;z-index:3;
+      clip-path:polygon(52.4% 0,53% 0,47% 100%,46.4% 100%);
+      background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));box-shadow:none;}
+    @media(max-width:700px){
+      .gb-band{height:auto;}
+      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:128px;clip-path:none;}
+      .gb-half .gb-label,.gb-girls .gb-label,.gb-boys .gb-label{left:50%;}
+      .gb-divider{position:absolute;left:-1px;right:-1px;top:50%;bottom:auto;width:auto;height:3px;
+        clip-path:none;transform:translateY(-50%) skewY(-4deg);
+        background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.30),rgba(255,255,255,0));}
+    }
+    /* [HM-06] #6 — grid for the cached-JSON Instagram render */
+    .ig-embed{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+    .ig-cell{display:block;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);}
+    .ig-cell img{width:100%;height:100%;object-fit:cover;display:block;}
+    @media(max-width:768px){.ig-embed{grid-template-columns:repeat(2,1fr);}}
+  </style>
 </head>
 <body>
 <!--
@@ -237,13 +265,36 @@
     <div class="container">
       <h2 class="section-title reveal" id="hm-06-title">Follow Us on Instagram</h2>
       <p class="section-subtitle reveal">@coboomvb &mdash; game highlights, tryout announcements, and life at Boomtown.</p>
-      <!-- Behold Instagram feed for @coboomvb (OAuth widget; no credentials stored).
-           NOTE: do NOT add `reveal` to .ig-embed — the widget hydrates to zero height,
-           so a scroll-reveal observer never fires and the container stays opacity:0 (blank feed). -->
-      <div class="ig-embed" style="min-height:300px;">
-        <behold-widget feed-id="p4gyc3sRiiOZbXltCYKY"></behold-widget>
-      </div>
-      <script type="module" src="https://w.behold.so/widget.js"></script>
+      <!-- [HM-06] #6 (v1.34): renders from the Cloudflare Worker that edge-caches Behold's
+           JSON feed (coloradoboom.com/api/ig). Keeps Behold free-plan views to ~120/mo.
+           Nodes built via DOM props (not innerHTML) — no XSS surface. Do NOT add `reveal`. -->
+      <div class="ig-embed" id="ig-feed" style="min-height:300px;"></div>
+      <script>
+        (async () => {
+          const mount = document.getElementById('ig-feed');
+          if (!mount) return;
+          try {
+            const r = await fetch('https://coloradoboom.com/api/ig');
+            const data = await r.json();
+            const posts = (data.posts || []).slice(0, 6); // free plan returns up to 6
+            if (!posts.length) throw new Error('empty');
+            const frag = document.createDocumentFragment();
+            posts.forEach((p) => {
+              const a = document.createElement('a');
+              a.className = 'ig-cell';
+              a.href = p.permalink; a.target = '_blank'; a.rel = 'noopener';
+              const img = document.createElement('img');
+              img.src = (p.sizes && p.sizes.medium && p.sizes.medium.mediaUrl) || p.mediaUrl;
+              img.alt = (p.altText || 'Colorado Boom Instagram post').slice(0, 120);
+              img.loading = 'lazy'; img.width = 300; img.height = 300;
+              a.appendChild(img); frag.appendChild(a);
+            });
+            mount.replaceChildren(frag);
+          } catch (e) {
+            mount.innerHTML = '<p style="text-align:center;margin:0;">See us on Instagram <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener">@coboomvb</a></p>';
+          }
+        })();
+      </script>
       <div style="text-align:center;margin-top:28px;">
         <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" class="btn btn-teal">Follow @coboomvb</a>
       </div>
