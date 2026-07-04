@@ -1,3 +1,4 @@
+/* COBO styles.css — build v1.36 · 2026-07-04 */
 
     /* ===== DESIGN TOKENS — locked per COBO Design System v2.0 ===== */
     :root{
@@ -417,3 +418,68 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
   .btn-row.aid-buttons .btn { flex: 1 1 auto; }
 }
 
+
+/* ===== batch v1.36 (2026-07-04) ===== */
+
+/* Task 10 — [ANN] announcement bar enlarged ~50% + RMR membership/OCS note line */
+.announcement--xl{padding:18px 24px;font-size:19px;letter-spacing:.06em;line-height:1.45;}
+.announcement--xl .ann-note{display:block;font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:600;text-transform:none;letter-spacing:.01em;margin-top:6px;color:#111;text-shadow:0 1px 0 rgba(255,255,255,.25);}
+@media(max-width:700px){.announcement--xl{font-size:14.5px;padding:14px 18px;}.announcement--xl .ann-note{font-size:12.5px;}}
+
+/* Task 4 — header CTA glow (extends .btn-shine; sweep unchanged) */
+.nav .btn-gold.btn-shine{animation:btn-glow 2.6s ease-in-out infinite;}
+@keyframes btn-glow{0%,100%{box-shadow:0 1px 0 var(--gold-dark) inset,0 2px 6px rgba(0,0,0,0.08);}50%{box-shadow:0 1px 0 var(--gold-dark) inset,0 0 16px rgba(229,184,0,0.7);}}
+@media(prefers-reduced-motion:reduce){.nav .btn-gold.btn-shine{animation:none;}}
+
+/* Task 4 — jump-nav "Tryouts" highlight pulse */
+.jump-nav a.jump-hot{color:var(--teal);border-bottom:2px solid var(--gold);font-weight:700;animation:jump-pulse 2.2s ease-in-out infinite;}
+@keyframes jump-pulse{0%,100%{border-bottom-color:var(--gold);}50%{border-bottom-color:rgba(229,184,0,0.15);}}
+@media(prefers-reduced-motion:reduce){.jump-nav a.jump-hot{animation:none;}}
+
+/* Task 5 — OCS buttons under [TO-NAV] */
+.ocs-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:18px 24px 6px;background:var(--white);}
+.ocs-btns-note{max-width:820px;margin:0 auto;padding:0 24px 18px;text-align:center;font-size:13.5px;color:var(--gray-text);background:var(--white);}
+
+/* Task 2 — [HMB]/[CL-09] band: taller so faces are not cropped (girls.jpg 1100x897) */
+.gb-band{height:clamp(200px,26vw,320px);}
+@media(max-width:700px){.gb-half{min-height:180px;}}
+
+/* Tasks 3+8 — club benefits grid (2-col, teal/gold alternation, hover lift) */
+.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:980px;margin:0 auto;}
+.benefit{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);border-top:4px solid var(--teal);transition:transform .2s ease,box-shadow .2s ease;}
+.benefit:nth-child(even){border-top-color:var(--gold);}
+@media(hover:hover) and (pointer:fine){.benefit:hover{transform:translateY(-3px);box-shadow:0 6px 22px rgba(0,0,0,.13);}}
+.benefit h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:var(--teal-dark);margin:0 0 8px;}
+.benefit p{margin:0;font-size:15px;color:#111;}
+@media(max-width:760px){.benefit-grid{grid-template-columns:1fr;}}
+
+/* Task 7 — team levels: Regional teal · Colorado black · National metallic gold */
+.level-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1040px;margin:0 auto;}
+.level{background:#fff;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.08);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;display:flex;flex-direction:column;}
+@media(hover:hover) and (pointer:fine){.level:hover{transform:translateY(-3px);box-shadow:0 6px 22px rgba(0,0,0,.13);}}
+.level-head{padding:16px 18px;text-align:center;}
+.level--regional .level-head{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;}
+.level--colorado .level-head{background:linear-gradient(135deg,#2a2a2a 0%,var(--black) 100%);color:#fff;border-bottom:3px solid var(--teal);}
+.level--national .level-head{background:linear-gradient(135deg,#D4A017 0%,#FFD700 28%,#FFF4B8 50%,#FFD700 72%,#D4A017 100%);color:var(--black);border-bottom:3px solid var(--black);}
+.level--national .level-head .name,.level--national .level-head .ages{text-shadow:0 1px 0 rgba(255,255,255,.5);}
+.level-head .name{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;text-transform:uppercase;line-height:1.15;}
+.level-head .ages{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.9;margin-top:3px;}
+.level-body{padding:16px 18px 20px;}
+.level-body .travel{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;color:var(--teal-dark);margin:0 0 8px;text-align:center;}
+.level--colorado .level-body .travel{color:var(--black);}
+.level--national .level-body .travel{color:var(--gold-dark);}
+.level-body p{margin:0;font-size:14px;color:#111;}
+@media(max-width:960px){.level-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.level-grid{grid-template-columns:1fr;}}
+
+/* Task 3 — club fees table + notes */
+.fee-table td:not(:first-child),.fee-table th:not(:first-child){text-align:center;}
+.fee-table .total-row td{font-family:'Montserrat',sans-serif;font-weight:900;background:var(--teal-light);font-size:18px;color:#111;}
+.fee-table .ryl-row td{background:var(--cream);font-weight:600;}
+.fee-table tbody tr:hover{background:#fafafa;}
+.fee-table .ryl-row:hover td{background:var(--cream);}
+.fee-note{max-width:900px;margin:22px auto 0;}
+.fee-note h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;color:var(--teal-dark);margin:22px 0 6px;}
+.fee-note ul{margin:0;padding-left:22px;color:#111;}
+.fee-note li{margin-bottom:8px;font-size:15px;}
+.fee-flag{max-width:900px;margin:26px auto 0;padding:14px 18px;background:var(--cream);border-left:4px solid var(--gold);border-radius:var(--radius);font-size:14px;color:#111;}

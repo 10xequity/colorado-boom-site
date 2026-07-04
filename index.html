@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.36 · 2026-07-04 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Tryouts July 2026.">
@@ -34,7 +35,7 @@
   <style>
     /* [HMB] #5 — clip BOTH photos to the same diagonal the divider uses, so the
        photo seam and the highlight line always coincide (fixes straight-seam vs angled-line). */
-    .gb-band{display:block;position:relative;height:clamp(132px,17vw,170px);overflow:hidden;}
+    .gb-band{display:block;position:relative;height:clamp(200px,26vw,320px);overflow:hidden;} /* v1.36: taller so faces fit (girls.jpg 1100x897) */
     .gb-half{position:absolute;inset:0;width:100%;height:100%;display:block;}
     .gb-girls{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);z-index:1;}
     .gb-boys{clip-path:polygon(53% 0,100% 0,100% 100%,47% 100%);z-index:1;}
@@ -46,7 +47,7 @@
       background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));box-shadow:none;}
     @media(max-width:700px){
       .gb-band{height:auto;}
-      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:128px;clip-path:none;}
+      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:180px;clip-path:none;} /* v1.36 */
       .gb-half .gb-label,.gb-girls .gb-label,.gb-boys .gb-label{left:50%;}
       .gb-divider{position:absolute;left:-1px;right:-1px;top:50%;bottom:auto;width:auto;height:3px;
         clip-path:none;transform:translateY(-50%) skewY(-4deg);
@@ -57,12 +58,50 @@
     .ig-cell{display:block;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius);}
     .ig-cell img{width:100%;height:100%;object-fit:cover;display:block;}
     @media(max-width:768px){.ig-embed{grid-template-columns:repeat(2,1fr);}}
+
+    /* ===== [HM-POP] v1.36 (2026-07-04) — one-per-session tryout popup ===== */
+    .popup-overlay{position:fixed;inset:0;z-index:1000;background:rgba(6,90,98,.55);backdrop-filter:blur(2px);
+      display:flex;align-items:center;justify-content:center;padding:20px;
+      opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;}
+    .popup-overlay.open{opacity:1;visibility:visible;}
+    .popup{position:relative;width:min(540px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:var(--radius);
+      box-shadow:0 24px 64px rgba(0,0,0,.35);transform:translateY(14px) scale(.985);transition:transform .24s ease;}
+    .popup-overlay.open .popup{transform:none;}
+    .popup-head{background:linear-gradient(90deg,var(--black) 0%,var(--teal-dark) 26%,var(--teal) 50%,var(--teal-dark) 74%,var(--black) 100%);
+      color:#fff;padding:20px 52px 18px;text-align:center;}
+    .popup-head .venue{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:8px;text-shadow:0 2px 6px rgba(0,0,0,.55);}
+    .popup-head h2{margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(20px,4.6vw,26px);line-height:1.15;text-transform:uppercase;
+      text-shadow:0 2px 8px rgba(0,0,0,.55),0 4px 18px rgba(0,0,0,.35);}
+    .popup-head .kicker{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+      color:rgba(255,255,255,.92);text-shadow:0 1px 4px rgba(0,0,0,.5);}
+    .popup-body{padding:20px 26px 26px;color:#111;}
+    .popup-sched{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:14px;}
+    .popup-sched caption{caption-side:top;text-align:left;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--teal-dark);padding-bottom:6px;}
+    .popup-sched td{padding:7px 10px;border-bottom:1px solid #e4e4e4;color:#111;}
+    .popup-sched td:last-child{text-align:right;font-weight:600;white-space:nowrap;}
+    .popup-sched tr.wk td{border-bottom:0;padding-top:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-dark);}
+    .popup-body ul{margin:0 0 20px;padding:0;list-style:none;}
+    .popup-body li{position:relative;padding:0 0 0 24px;margin-bottom:9px;font-size:15px;line-height:1.55;color:#111;}
+    .popup-body li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);}
+    .popup-body a.inline{color:var(--teal-dark);font-weight:600;text-decoration:underline;}
+    .popup-cta{display:block;text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:1px;
+      color:var(--black);text-decoration:none;padding:14px 28px;border-radius:var(--radius);
+      background:linear-gradient(135deg,#D4A017,#FFD700,#FFF4B8,#FFD700,#D4A017);}
+    .popup-cta:hover{filter:brightness(1.05);}
+    .popup-alt{display:block;text-align:center;margin-top:12px;font-size:13px;color:#111;}
+    .popup-alt a{color:var(--teal-dark);font-weight:600;text-decoration:underline;}
+    .popup-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border:0;border-radius:50%;cursor:pointer;
+      background:rgba(255,255,255,.18);color:#fff;font-size:20px;line-height:1;font-family:'Montserrat',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.5);}
+    .popup-close:hover{background:rgba(255,255,255,.32);}
+    .popup-close:focus-visible,.popup-cta:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+    @media(prefers-reduced-motion:reduce){.popup-overlay,.popup{transition:none;}}
   </style>
 </head>
 <body>
 <!--
   ==============================================================
-  PAGE: Home (index.html)   |   CODE: HM   |   Updated: 2026-06-29 (batch v1.35: HMB banner vertical reframe — girls 18%->42%, boys 35%->45%)
+  PAGE: Home (index.html)   |   CODE: HM   |   Updated: 2026-07-04 (batch v1.36: [HM-POP] tryout popup, [HMB] taller band + face/shoulder reframe, [ANN] xl + OCS note, nav Advanced Skills item, drop-in wording)
   REFERENCE NUMBERING (code-only, never shown on the page):
   --------------------------------------------------------------
   [NAV]    Header / nav (SHARED) -> logo; Open Gyms & Tryouts (drop);
@@ -114,6 +153,7 @@
           <span class="drop" role="menu">
             <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
             <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
             <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
           </span>
         </span>
@@ -149,21 +189,22 @@
   </section>
 
   <!-- ============ [ANN] ANNOUNCEMENT BAR (now below hero) ============ -->
-  <div class="announcement" data-section="ANN" role="region" aria-label="Announcement">
+  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Announcement">
     <!-- EDIT: tryout dates -->
     RMR Tryouts &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 10 &nbsp;&bull;&nbsp; Boys July 17 &nbsp;&bull;&nbsp; Girls 11U&ndash;14U Aug 21 &mdash;
     <!-- /EDIT -->
     <a href="tryouts.html">Register Now!</a>
+    <span class="ann-note">Trying out? You’ll need a low-cost RMR tryout membership ($15) &mdash; applied toward your full membership when you commit. <a href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add your player to the RMR OCS</a></span>
   </div>
 
   <!-- ============ [HMB] GIRLS / BOYS QUICK-SELECT BAND ============ -->
   <section class="gb-band" data-section="HMB" aria-label="Choose a program">
     <a class="gb-half gb-girls" href="girls-club.html" data-block="HMB.1" aria-label="Girls Club program">
-      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 42%;"></span>
+      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 8%; /* v1.36 face+shoulder */"></span>
       <span class="gb-label">Girls<span class="gb-sub">Club &middot; 10U&ndash;18U</span></span>
     </a>
     <a class="gb-half gb-boys" href="boys-club.html" data-block="HMB.2" aria-label="Boys Club program">
-      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:center 45%;"></span>
+      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:55% center; /* v1.36 face in frame */"></span>
       <span class="gb-label">Boys<span class="gb-sub">Club &middot; 13U&ndash;18U</span></span>
     </a>
     <span class="gb-divider" aria-hidden="true"></span>
@@ -239,7 +280,7 @@
             <li>Three practices per week &mdash; more reps, more touches</li>
             <li>Consistent schedule &mdash; one location, predictable evening practice times</li>
             <li>Year-round indoor and outdoor programs</li>
-            <li>Drop-in play included for all club members</li>
+            <li>Drop-in play included for all club members (when available)</li>
           </ul>
         </div>
         <div class="why-photo portrait reveal" style="background-image:url('assets/img/why-boom.jpg');" role="img" aria-label="Colorado Boom players in practice"></div>
@@ -400,6 +441,74 @@
       </div>
     </div>
   </footer>
+
+
+  <!-- ============ [HM-POP] TRYOUT POPUP (v1.36) — shows once per session ============ -->
+  <div class="popup-overlay" id="tryout-popup" data-section="HM-POP" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-describedby="popup-desc">
+    <div class="popup">
+      <button type="button" class="popup-close" aria-label="Close announcement">&times;</button>
+      <div class="popup-head">
+        <span class="venue">Boomtown Fieldhouse &middot; Aurora</span>
+        <h2 id="popup-title">Tryouts Begin This Week<br>Girls 15U&ndash;18U</h2>
+        <span class="kicker">Limited tryout spots &mdash; register fast</span>
+      </div>
+      <div class="popup-body">
+        <table class="popup-sched">
+          <caption>Tryout Sessions</caption>
+          <tbody>
+            <tr class="wk"><td colspan="2">Week 1</td></tr>
+            <tr><td>Friday, July 10</td><td>4:00&ndash;5:30 PM</td></tr>
+            <tr><td>Saturday, July 11</td><td>10:00&ndash;11:30 AM</td></tr>
+            <tr class="wk"><td colspan="2">Week 2</td></tr>
+            <tr><td>Monday, July 13</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr><td>Saturday, July 18</td><td>10:00&ndash;11:30 AM</td></tr>
+          </tbody>
+        </table>
+        <ul id="popup-desc">
+          <li>Girls 12U&ndash;14U who want to play up are welcome to attend.</li>
+          <li>Open team slots at every level &mdash; all skill levels welcome.</li>
+          <li>Spots are limited &mdash; register before your first session.</li>
+          <li><strong>Returning &amp; offered players:</strong> offers go out July 9 &mdash; accept within 48 hours or the spot may be offered to another player.</li>
+          <li>OCS registration required &mdash; add your player in the <a class="inline" href="https://rmr.vstarvolleyball.com/ocs/index.php" target="_blank" rel="noopener">RMR OCS portal</a> so offers can reach you.</li>
+        </ul>
+        <a class="popup-cta" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Register for Tryouts</a>
+        <span class="popup-alt">Full schedule on the <a href="tryouts.html#tryouts">Tryouts page</a></span>
+      </div>
+    </div>
+  </div>
+  <script>
+  /* [HM-POP] v1.36 — once per session; X / backdrop / Esc close; focus trapped */
+  (function(){
+    var overlay=document.getElementById('tryout-popup');
+    if(!overlay)return;
+    var KEY='cobo-popup-v136';
+    var lastFocus=null;
+    function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
+    function open(){
+      lastFocus=document.activeElement;
+      overlay.classList.add('open');
+      focusables()[0].focus();
+      document.addEventListener('keydown',onKey);
+      try{sessionStorage.setItem(KEY,'1');}catch(e){}
+    }
+    function close(){
+      overlay.classList.remove('open');
+      document.removeEventListener('keydown',onKey);
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
+    function onKey(e){
+      if(e.key==='Escape'){close();return;}
+      if(e.key!=='Tab')return;
+      var f=focusables(),first=f[0],last=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+    }
+    overlay.querySelector('.popup-close').addEventListener('click',close);
+    overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+    var seen=null; try{seen=sessionStorage.getItem(KEY);}catch(e){}
+    if(!seen) setTimeout(open,600);
+  })();
+  </script>
 
   <script src="assets/js/main.js"></script>
 </body>
