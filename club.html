@@ -36,7 +36,7 @@
     .clearfix-float{clear:both;}
     @media(max-width:600px){.float-fig{float:none;display:block;width:100%;max-width:340px;margin:0 auto 16px;}}
     /* #5 — clip both gb-band photos to the same diagonal the divider uses (matches home). */
-    .gb-band{display:block;position:relative;height:clamp(200px,26vw,320px);overflow:hidden;} /* v1.36: taller so faces fit */
+    .gb-band{display:block;position:relative;height:clamp(132px,17vw,170px);overflow:hidden;} /* reverted to original size */
     .gb-half{position:absolute;inset:0;width:100%;height:100%;display:block;}
     .gb-girls{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);z-index:1;}
     .gb-boys{clip-path:polygon(53% 0,100% 0,100% 100%,47% 100%);z-index:1;}
@@ -48,7 +48,7 @@
       background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));box-shadow:none;}
     @media(max-width:700px){
       .gb-band{height:auto;}
-      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:180px;clip-path:none;} /* v1.36 */
+      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:128px;clip-path:none;}
       .gb-half .gb-label,.gb-girls .gb-label,.gb-boys .gb-label{left:50%;}
       .gb-divider{position:absolute;left:-1px;right:-1px;top:50%;bottom:auto;width:auto;height:3px;
         clip-path:none;transform:translateY(-50%) skewY(-4deg);
@@ -78,6 +78,8 @@
             <a href="club.html" role="menuitem">Club Overview</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees</a>
+            <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
           </span>
         </span>
         <span class="has-drop">
@@ -159,24 +161,7 @@
     </div>
   </section>
   <!-- ===== [CL-04] Club benefits (v1.36: 2-col grid per Agreement v3.5 §2) ===== -->
-  <section data-section="CL-04" class="bg-cream">
-    <div class="container">
-      <h2 class="section-title reveal">What Your Club Fee Includes</h2>
-      <p class="section-subtitle reveal">Every Colorado Boom player, every level.</p>
-      <div class="benefit-grid">
-        <div class="benefit reveal"><h3>Three Practices a Week</h3><p>Generally three 2-hour practices per week, plus a 30-minute mental or physical conditioning block.</p></div>
-        <div class="benefit reveal"><h3>RMR-Compliant Coaching</h3><p>Qualified head and assistant coaches for every team, recruited from top Colorado programs.</p></div>
-        <div class="benefit reveal"><h3>Uniforms Included</h3><p>The full Adidas team uniform package &mdash; competition jerseys (both colors), shorts, and warm-ups.</p></div>
-        <div class="benefit reveal"><h3>Boomtown Drop-In Access</h3><p>Drop-in play at Boomtown Fieldhouse for all club members, all season (when available).</p></div>
-        <div class="benefit reveal"><h3>Summer Grass League</h3><p>Summer grass-league participation included with membership.</p></div>
-        <div class="benefit reveal"><h3>Training Equipment</h3><p>Nets, balls, and training aids provided &mdash; players bring shoes, knee pads, and a ball for home reps.</p></div>
-        <div class="benefit reveal"><h3>Tournament Entry + Coaching</h3><p>Entry into designated league and level-appropriate tournaments, with coaching at every event.</p></div>
-        <div class="benefit reveal"><h3>One Location, No Late Nights</h3><p>Every practice at Boomtown Fieldhouse, wrapped by 7:30 PM &mdash; a schedule families can plan around.</p></div>
-      </div>
-    </div>
-  </section>
-  <!-- ===== [CL-04b] RMR Age Groups ===== -->
-  <section data-section="CL-04b" class="bg-dark">
+  <section id="age-groups" data-section="CL-04b" class="bg-dark">
     <div class="container">
       <h2 class="section-title">RMR Age Groups (2026&ndash;27)</h2>
       <p class="section-subtitle">USAV age is set by birth date, not grade. Use this to find your athlete's group.</p>
@@ -195,29 +180,29 @@
     </div>
   </section>
   <!-- ===== [CL-04c] Team Levels (v1.36: Agreement v3.5 naming + travel commitments) ===== -->
-  <section data-section="CL-04c" class="bg-white">
+  <section id="team-levels" data-section="CL-04c" class="bg-white">
     <div class="container">
       <h2 class="section-title reveal">Team Levels</h2>
       <p class="section-subtitle reveal">Same Base Club Fee at every level &mdash; the difference is the committed travel.</p>
       <div class="level-grid">
         <div class="level level--regional reveal">
           <div class="level-head"><span class="name">Regional</span><span class="ages">14U &amp; Below</span></div>
-          <div class="level-body"><p class="travel">No committed travel &middot; $0</p>
+          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
             <p>In-state RMR competition. <strong>RYL included for all 14U &amp; below teams</strong> (Sep&ndash;Oct for players not in high school volleyball). All Regional teams conclude in May.</p></div>
         </div>
         <div class="level level--regional reveal">
           <div class="level-head"><span class="name">Regional</span><span class="ages">15U+</span></div>
-          <div class="level-body"><p class="travel">No committed travel &middot; $0</p>
+          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
             <p>In-state RMR competition for high-school-age players &mdash; full club training with no committed out-of-state travel.</p></div>
         </div>
         <div class="level level--colorado reveal">
           <div class="level-head"><span class="name">Colorado</span><span class="ages">Ages 14+</span></div>
-          <div class="level-body"><p class="travel">2 committed travel events &middot; $1,000</p>
+          <div class="level-body"><p class="travel">Team Travel Fee: $1,000</p>
             <p>RMR season plus two committed travel tournaments. Travel Fee covers coaches&rsquo; travel and tournament fees only &mdash; family travel costs are separate.</p></div>
         </div>
         <div class="level level--national reveal">
           <div class="level-head"><span class="name">National</span><span class="ages">Ages 14+</span></div>
-          <div class="level-body"><p class="travel">3 committed travel events &middot; $1,500</p>
+          <div class="level-body"><p class="travel">Team Travel Fee: $1,500</p>
             <p>The most competitive track: three committed travel tournaments plus national-bid eligibility. Travel Fee covers coaches&rsquo; travel and tournament fees only &mdash; family travel costs are separate.</p></div>
         </div>
       </div>
@@ -242,6 +227,23 @@
     </div>
   </section>
   <!-- ===== [CL-06] Club Fees (v1.36: live per Player Agreement v3.5 + owner confirmation 2026-07-04) ===== -->
+  <section data-section="CL-04" class="bg-cream">
+    <div class="container">
+      <h2 class="section-title reveal">What Your Club Fee Includes</h2>
+      <p class="section-subtitle reveal">Every Colorado Boom player, every level.</p>
+      <div class="benefit-grid">
+        <div class="benefit reveal"><h3>Three Practices a Week</h3><p>Generally three 2-hour practices per week, plus a 30-minute mental or physical conditioning block.</p></div>
+        <div class="benefit reveal"><h3>RMR-Compliant Coaching</h3><p>Qualified coaches for every team, trained through the Colorado Boom coaches training program.</p></div>
+        <div class="benefit reveal"><h3>Uniforms Included</h3><p>The full Adidas team uniform package &mdash; competition jerseys (both colors), shorts, and warm-ups.</p></div>
+        <div class="benefit reveal"><h3>Boomtown Drop-In Access</h3><p>Drop-in play at Boomtown Fieldhouse for all club members, all season (when available).</p></div>
+        <div class="benefit reveal"><h3>Summer Grass League</h3><p>Summer grass-league participation included with membership.</p></div>
+        <div class="benefit reveal"><h3>Training Equipment</h3><p>Nets, balls, and training aids provided &mdash; players bring shoes, knee pads, and a ball for home reps.</p></div>
+        <div class="benefit reveal"><h3>Tournament Entry + Coaching</h3><p>Entry into designated league and level-appropriate tournaments, with coaching at every event.</p></div>
+        <div class="benefit reveal"><h3>One Location, No Late Nights</h3><p>Every practice at Boomtown Fieldhouse, wrapped by 7:30 PM &mdash; a schedule families can plan around.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== [CL-04b] RMR Age Groups ===== -->
   <section id="fees" data-section="CL-06" class="bg-white">
     <div class="container">
       <h2 class="section-title reveal">2026&ndash;27 Club Fees</h2>
@@ -252,6 +254,7 @@
           <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td><td>$4,500</td><td>$4,500</td></tr>
           <tr><td>Committed travel events</td><td>0</td><td>0</td><td>2</td><td>3</td></tr>
           <tr><td>Travel Fee (committed)</td><td>$0</td><td>$0</td><td>$1,000</td><td>$1,500</td></tr>
+          <tr><td>Uniforms</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
           <tr class="ryl-row"><td>Rocky Mountain Youth League (RYL)</td><td>Included</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
           <tr class="total-row"><td>Total Fee</td><td>$4,500</td><td>$4,500</td><td>$5,500</td><td>$6,000</td></tr>
         </tbody>
@@ -262,14 +265,14 @@
         <h3>Deposit &amp; Payment Options</h3>
         <ul>
           <li>A <strong>non-refundable deposit of $1,000</strong> (all team levels) is due at signing &mdash; applied toward total fees; it purchases uniforms and reserves the roster slot.</li>
-          <li><strong>Pay in full</strong> at signing (&minus;$100 discount) &middot; <strong>Quarterly</strong> (deposit, half in January, balance in April) &middot; <strong>Monthly</strong> installments per Schedule A.</li>
+          <li><strong>Pay in full</strong> at signing (&minus;$100 discount) &middot; <strong>Quarterly</strong> (deposit, half in January, balance in April) &middot; <strong>Monthly</strong> installments (available by request).</li>
           <li>Installments are due the <strong>first business day of the month</strong>; a 3-calendar-day grace period applies, then a $100 late fee.</li>
           <li><strong>Sibling discount:</strong> &minus;$300 per additional sibling enrolled in the same season (applies to the Base Club Fee).</li>
         </ul>
         <h3>Conditional Fees (only if triggered)</h3>
         <ul>
           <li><strong>Team-voted added tournaments:</strong> $500 per event, only for events the team approves by an 80% vote and only for participating families. <strong>Teams vote in late January/February</strong> &mdash; after evaluating team compatibility and skill &mdash; so added events can be registered before tournament deadlines. Regional, Colorado, and National teams all vote during this window.</li>
-          <li><strong>AAU Junior Nationals:</strong> an additional $1,000 per player if the team votes to attend.</li>
+          <li><strong>AAU Junior Nationals:</strong> an additional $1,000 per player if the team votes to attend &mdash; this extends the season into the end of June.</li>
           <li><strong>National Bid Fee:</strong> minimum $1,000 per rostered player if the team earns a national-championship bid. Bids are not optional and extend the season through the national event (typically late June).</li>
         </ul>
         <h3>Not Included</h3>
@@ -298,11 +301,11 @@
   <!-- ===== [CL-09] GIRLS / BOYS QUICK-SELECT BAND ===== -->
   <section class="gb-band" data-section="CL-09" aria-label="Choose a program">
     <a class="gb-half gb-girls" href="girls-club.html" data-block="CL-09.1" aria-label="Girls Club program">
-      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 8%; /* v1.36 face+shoulder */"></span>
+      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 28%; /* v1.37 new mirrored girls photo */"></span>
       <span class="gb-label">Girls<span class="gb-sub">Club &middot; 10U&ndash;18U</span></span>
     </a>
     <a class="gb-half gb-boys" href="boys-club.html" data-block="CL-09.2" aria-label="Boys Club program">
-      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:55% center; /* v1.36 face in frame */"></span>
+      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:center 35%;"></span>
       <span class="gb-label">Boys<span class="gb-sub">Club &middot; 13U&ndash;18U</span></span>
     </a>
     <span class="gb-divider" aria-hidden="true"></span>

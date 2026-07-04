@@ -35,7 +35,7 @@
   <style>
     /* [HMB] #5 — clip BOTH photos to the same diagonal the divider uses, so the
        photo seam and the highlight line always coincide (fixes straight-seam vs angled-line). */
-    .gb-band{display:block;position:relative;height:clamp(200px,26vw,320px);overflow:hidden;} /* v1.36: taller so faces fit (girls.jpg 1100x897) */
+    .gb-band{display:block;position:relative;height:clamp(132px,17vw,170px);overflow:hidden;} /* reverted to original size */
     .gb-half{position:absolute;inset:0;width:100%;height:100%;display:block;}
     .gb-girls{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);z-index:1;}
     .gb-boys{clip-path:polygon(53% 0,100% 0,100% 100%,47% 100%);z-index:1;}
@@ -47,7 +47,7 @@
       background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));box-shadow:none;}
     @media(max-width:700px){
       .gb-band{height:auto;}
-      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:180px;clip-path:none;} /* v1.36 */
+      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:128px;clip-path:none;}
       .gb-half .gb-label,.gb-girls .gb-label,.gb-boys .gb-label{left:50%;}
       .gb-divider{position:absolute;left:-1px;right:-1px;top:50%;bottom:auto;width:auto;height:3px;
         clip-path:none;transform:translateY(-50%) skewY(-4deg);
@@ -146,6 +146,8 @@
             <a href="club.html" role="menuitem">Club Overview</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees</a>
+            <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
           </span>
         </span>
         <span class="has-drop">
@@ -200,11 +202,11 @@
   <!-- ============ [HMB] GIRLS / BOYS QUICK-SELECT BAND ============ -->
   <section class="gb-band" data-section="HMB" aria-label="Choose a program">
     <a class="gb-half gb-girls" href="girls-club.html" data-block="HMB.1" aria-label="Girls Club program">
-      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 8%; /* v1.36 face+shoulder */"></span>
+      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 28%; /* v1.37 new mirrored girls photo */"></span>
       <span class="gb-label">Girls<span class="gb-sub">Club &middot; 10U&ndash;18U</span></span>
     </a>
     <a class="gb-half gb-boys" href="boys-club.html" data-block="HMB.2" aria-label="Boys Club program">
-      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:55% center; /* v1.36 face in frame */"></span>
+      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:center 45%;"></span>
       <span class="gb-label">Boys<span class="gb-sub">Club &middot; 13U&ndash;18U</span></span>
     </a>
     <span class="gb-divider" aria-hidden="true"></span>
