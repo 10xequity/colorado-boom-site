@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.36 · 2026-07-04 -->
+  <!-- BUILD v1.39 · 2026-07-14 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Tryouts July 2026.">
@@ -159,6 +159,7 @@
             <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
           </span>
         </span>
+        <a href="schedule.html">Club Calendar</a>
         <a href="coaching-staff.html">Coaching Staff</a>
         <span class="has-drop">
           <a href="parent-resources.html" aria-haspopup="true">Resources &#9662;</a>
@@ -169,6 +170,7 @@
           </span>
         </span>
         <a href="mailto:admin@coloradoboom.com">Contact</a>
+        <a href="https://coloradoboom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
         <a href="tryouts.html" class="btn btn-gold btn-shine">Tryout Now!</a>
       </nav>
     </div>
@@ -193,11 +195,14 @@
   <!-- ============ [ANN] ANNOUNCEMENT BAR (now below hero) ============ -->
   <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Announcement">
     <!-- EDIT: tryout dates -->
-    RMR Tryouts &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 10 &nbsp;&bull;&nbsp; Boys July 17 &nbsp;&bull;&nbsp; Girls 11U&ndash;14U Aug 21 &mdash;
+    RMR Tryouts &nbsp;&bull;&nbsp; Boys 13U&ndash;18U July 17 &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 18 &amp; 29 &nbsp;&bull;&nbsp; Girls 10U&ndash;14U Aug 21 &mdash;
     <!-- /EDIT -->
     <a href="tryouts.html">Register Now!</a>
     <span class="ann-note">Trying out? You’ll need a low-cost RMR tryout membership ($15) &mdash; applied toward your full membership when you commit. <a href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add your player to the RMR OCS</a></span>
   </div>
+
+  <!-- ============ [RB] RECRUITING BANNER (v1.39) ============ -->
+  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">We&rsquo;re Recruiting More <span class="rb-hl">17s &amp; 18s</span> &mdash; Every Position</div>
 
   <!-- ============ [HMB] GIRLS / BOYS QUICK-SELECT BAND ============ -->
   <section class="gb-band" data-section="HMB" aria-label="Choose a program">
@@ -362,6 +367,15 @@
     </div>
   </section>
 
+  <!-- ============ [HM-CAL] CLUB CALENDAR TEASER (v1.38) ============ -->
+  <section id="hm-cal" data-section="HM-CAL" class="bg-cream" aria-labelledby="hm-cal-title">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="section-title reveal" id="hm-cal-title">Club Calendar</h2>
+      <p class="section-subtitle reveal">Open gyms, training, and tryouts at Boomtown Fieldhouse &mdash; live and always current.</p>
+      <div class="cta-inline"><a href="schedule.html" class="btn btn-teal">View the Club Calendar</a> <a href="programs.html" class="btn btn-gold">Sign Up for a Program!</a></div>
+    </div>
+  </section>
+
   <!-- ============ [HM-08] CONTACT & MAP ============ -->
   <section id="hm-08-contact" data-section="HM-08" class="bg-white" aria-labelledby="hm-08-title">
     <div class="container">
@@ -418,6 +432,7 @@
           <h4>Quick Links</h4>
           <ul>
             <li><a href="tryouts.html">Open Gyms &amp; Tryouts</a></li>
+            <li><a href="schedule.html">Club Calendar</a></li>
             <li><a href="club.html">Club Information</a></li>
             <li><a href="girls-club.html">Girls Club</a></li>
             <li><a href="boys-club.html">Boys Club</a></li>
@@ -445,32 +460,40 @@
   </footer>
 
 
-  <!-- ============ [HM-POP] TRYOUT POPUP (v1.36) — shows once per session ============ -->
+  <!-- ============ [HM-POP] TRYOUT POPUP (v1.38) — shows once per session ============ -->
   <div class="popup-overlay" id="tryout-popup" data-section="HM-POP" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-describedby="popup-desc">
     <div class="popup">
       <button type="button" class="popup-close" aria-label="Close announcement">&times;</button>
       <div class="popup-head">
         <span class="venue">Boomtown Fieldhouse &middot; Aurora</span>
-        <h2 id="popup-title">Tryouts Begin This Week<br>Girls 15U&ndash;18U</h2>
+        <h2 id="popup-title">Boys Tryouts This Week<br>13U&ndash;18U</h2>
         <span class="kicker">Limited tryout spots &mdash; register fast</span>
       </div>
       <div class="popup-body">
         <table class="popup-sched">
           <caption>Tryout Sessions</caption>
           <tbody>
-            <tr class="wk"><td colspan="2">Week 1</td></tr>
-            <tr><td>Friday, July 10</td><td>4:00&ndash;5:30 PM</td></tr>
-            <tr><td>Saturday, July 11</td><td>10:00&ndash;11:30 AM</td></tr>
-            <tr class="wk"><td colspan="2">Week 2</td></tr>
-            <tr><td>Monday, July 13</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr class="wk"><td colspan="2">Boys 13U&ndash;18U &mdash; This Week</td></tr>
+            <tr><td>Friday, July 17</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr><td>Saturday, July 18</td><td>4:00&ndash;6:30 PM</td></tr>
+            <tr><td>Tuesday, July 21</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr class="wk"><td colspan="2">Boys &mdash; Make-Up Sessions</td></tr>
+            <tr><td>Wednesday, July 29</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr><td>Friday, July 31</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr class="wk"><td colspan="2">Girls 15U&ndash;18U &mdash; Remaining Sessions</td></tr>
             <tr><td>Saturday, July 18</td><td>10:00&ndash;11:30 AM</td></tr>
+            <tr><td>Wednesday, July 29</td><td>6:00&ndash;7:30 PM</td></tr>
+            <tr class="wk"><td colspan="2">Girls 10U&ndash;14U &mdash; August</td></tr>
+            <tr><td>Friday, August 21</td><td>4:00&ndash;5:30 PM</td></tr>
+            <tr><td>Saturday, August 22</td><td>10:00&ndash;11:30 AM</td></tr>
+            <tr><td>Monday, August 24</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr><td>Monday, August 31</td><td>5:30&ndash;7:00 PM</td></tr>
           </tbody>
         </table>
         <ul id="popup-desc">
-          <li>Girls 12U&ndash;14U who want to play up are welcome to attend.</li>
+          <li>Girls 10U&ndash;14U: register now for the August sessions below.</li>
           <li>Open team slots at every level &mdash; all skill levels welcome.</li>
           <li>Spots are limited &mdash; register before your first session.</li>
-          <li><strong>Returning &amp; offered players:</strong> offers go out July 9 &mdash; accept within 48 hours or the spot may be offered to another player.</li>
           <li>OCS registration required &mdash; add your player in the <a class="inline" href="https://rmr.vstarvolleyball.com/ocs/index.php" target="_blank" rel="noopener">RMR OCS portal</a> so offers can reach you.</li>
         </ul>
         <a class="popup-cta" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Register for Tryouts</a>
@@ -479,11 +502,11 @@
     </div>
   </div>
   <script>
-  /* [HM-POP] v1.36 — once per session; X / backdrop / Esc close; focus trapped */
+  /* [HM-POP] v1.38 — once per session; X / backdrop / Esc close; focus trapped */
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v136';
+    var KEY='cobo-popup-v138';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){

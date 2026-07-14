@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BUILD v1.39 · 2026-07-14 | NEW PAGE: Club Calendar — GymDesk schedule widget [SCH-01] + crawlable text schedule [SCH-02] + Event JSON-LD [SCH-03] -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Colorado Boom Volleyball Club calendar — live schedule of open gyms, training sessions, and tryouts at Boomtown Fieldhouse, Aurora CO.">
+  <meta name="theme-color" content="#0E7C86">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <title>Club Calendar | Colorado Boom Volleyball Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="canonical" href="https://coloradoboom.com/schedule.html">
+  <meta name="geo.region" content="US-CO">
+  <meta name="geo.placename" content="Aurora, Colorado">
+  <meta property="og:title" content="Club Calendar | Colorado Boom Volleyball Club">
+  <meta property="og:description" content="Live schedule of open gyms, training sessions, and tryouts at Boomtown Fieldhouse, Aurora CO.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://coloradoboom.com/schedule.html">
+  <meta property="og:image" content="https://coloradoboom.com/assets/img/tryouts.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Club Calendar | Colorado Boom Volleyball Club">
+  <meta name="twitter:description" content="Live schedule of open gyms, training sessions, and tryouts at Boomtown Fieldhouse, Aurora CO.">
+  <meta name="twitter:image" content="https://coloradoboom.com/assets/img/tryouts.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Club Calendar","item":"https://coloradoboom.com/schedule.html"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Event","name":"Colorado Boom Open Gym","description":"Open gym volleyball for boys and girls ages 10+ — open to any player, any club. $20 per session.","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-06-01T17:30:00-06:00","endDate":"2026-10-30T19:00:00-06:00","eventSchedule":{"@type":"Schedule","byDay":["https://schema.org/Monday","https://schema.org/Wednesday","https://schema.org/Friday"],"startTime":"17:30","endTime":"19:00","scheduleTimezone":"America/Denver"},"location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"offers":{"@type":"Offer","price":"20","priceCurrency":"USD","url":"https://forms.gle/5wyRdqmmUxUdhkK4A","availability":"https://schema.org/InStock"},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"image":"https://coloradoboom.com/assets/img/tryouts.jpg","url":"https://coloradoboom.com/schedule.html"}
+  </script>
+  <!-- ===== [SCH] v1.38 page styles — reserved-height frame, skeleton, fallback. NOTE: no `reveal` on the widget wrapper (IntersectionObserver zero-height trap, see [HM-06] history) ===== -->
+  <style>
+    .gd-cal{max-width:980px;margin:0 auto;}
+    .gd-frame{position:relative;min-height:640px;background:#fff;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.08);padding:12px;}
+    .gd-skeleton{position:absolute;inset:12px;display:flex;flex-direction:column;gap:14px;opacity:1;transition:opacity .2s ease-out;pointer-events:none;}
+    .gd-skeleton .bar{height:18px;border-radius:4px;background:linear-gradient(90deg,#eee 25%,#f7f7f7 37%,#eee 63%);background-size:400% 100%;animation:gd-shimmer 1.4s ease infinite;}
+    .gd-skeleton .bar.head{height:34px;width:45%;}
+    .gd-skeleton .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .gd-skeleton .row .bar{height:72px;}
+    @keyframes gd-shimmer{0%{background-position:100% 0;}100%{background-position:0 0;}}
+    @media(prefers-reduced-motion:reduce){.gd-skeleton .bar{animation:none;}.gd-skeleton{transition:none;}}
+    .gd-frame.loaded .gd-skeleton{opacity:0;}
+    .gd-fallback{display:none;text-align:center;padding:28px 16px;}
+    .gd-frame.failed .gd-fallback{display:block;}
+    .gd-frame.failed .gd-skeleton{opacity:0;}
+    .sched-legend{max-width:980px;margin:16px auto 0;font-size:14px;color:var(--gray-text);text-align:center;}
+  </style>
+</head>
+<body>
+<!--
+  ==============================================================
+  PAGE: Club Calendar (schedule.html) | CODE: SCH | Added: 2026-07-14 (batch v1.38)
+  [NAV] shared header · [ANN] shared announcement
+  [SCH-01] GymDesk live schedule widget (skeleton + fallback)
+  [SCH-02] Crawlable text schedule (weekly sessions + tryouts)
+  [SCH-03] Event JSON-LD (open gym, eventSchedule) — tryout SportsEvent
+           markup stays on tryouts.html only (no duplicate Event markup).
+  [FT] shared footer
+  ==============================================================
+-->
+
+  <!-- ============ [NAV] HEADER (shared on every page) ============ -->
+  <header class="header" data-section="NAV">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
+        <img class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <span class="has-drop two">
+          <a href="tryouts.html" class="nav-2line" aria-haspopup="true">Open Gyms &amp;<br>Tryouts &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="tryouts.html#open-gyms" role="menuitem">Open Gyms</a>
+            <a href="tryouts.html#tryouts" role="menuitem">Tryouts</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="club.html" aria-haspopup="true">Club &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="girls-club.html" role="menuitem">Girls Club</a>
+            <a href="boys-club.html" role="menuitem">Boys Club</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees</a>
+            <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="programs.html" aria-haspopup="true">Programs &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
+            <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
+            <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+          </span>
+        </span>
+        <a href="schedule.html" aria-current="page">Club Calendar</a>
+        <a href="coaching-staff.html">Coaching Staff</a>
+        <span class="has-drop">
+          <a href="parent-resources.html" aria-haspopup="true">Resources &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="parent-resources.html" role="menuitem">Parent Resources</a>
+            <a href="volleyball-rules.html" role="menuitem">Volleyball Rules</a>
+            <a href="volleyball-positions.html" role="menuitem">Volleyball Positions</a>
+          </span>
+        </span>
+        <a href="mailto:admin@coloradoboom.com">Contact</a>
+        <a href="https://coloradoboom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
+        <a href="tryouts.html" class="btn btn-gold btn-shine">Tryout Now!</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ [ANN] ANNOUNCEMENT BAR (shared) ============ -->
+  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Announcement">
+    RMR Tryouts &nbsp;&bull;&nbsp; Boys 13U&ndash;18U July 17 &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 18 &amp; 29 &nbsp;&bull;&nbsp; Girls 10U&ndash;14U Aug 21 &mdash; <a href="tryouts.html">Register Now!</a>
+    <span class="ann-note">Trying out? You&rsquo;ll need a low-cost RMR tryout membership ($15) &mdash; applied toward your full membership when you commit. <a href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add your player to the RMR OCS</a></span>
+  </div>
+
+  <!-- ============ [RB] RECRUITING BANNER (v1.39) ============ -->
+  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">We&rsquo;re Recruiting More <span class="rb-hl">17s &amp; 18s</span> &mdash; Every Position</div>
+
+  <!-- ===== [SCH-HERO] ===== -->
+  <section class="subhero subhero--dark" data-section="SCH-HERO">
+    <div class="container"><h1>Club Calendar</h1><p>Open gyms, training, and tryouts at Boomtown Fieldhouse &mdash; live and always current</p></div>
+  </section>
+
+  <!-- ===== [SCH-01] LIVE SCHEDULE (GymDesk widget) ===== -->
+  <section data-section="SCH-01" class="bg-white" id="calendar">
+    <div class="container">
+      <h2 class="section-title">Live Schedule</h2>
+      <p class="section-subtitle">Tap a session to see details and sign up. The calendar updates automatically.</p>
+      <div class="gd-cal">
+        <div class="gd-frame" id="gd-frame">
+          <div class="gd-skeleton" aria-hidden="true">
+            <div class="bar head"></div>
+            <div class="bar" style="width:70%"></div>
+            <div class="row"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+            <div class="row"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+            <div class="row"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+          </div>
+          <div class="gd-mount">
+            <script src="https://app.gymdesk.com/js/widgets.js"></script>
+            <div class="gymdesk-schedule" attr-gym="AmjPQ" attr-visible_schedule="DLgo1" attr-default_schedule="DLgo1" attr-program="all"></div>
+          </div>
+          <div class="gd-fallback" role="status">
+            <p>The interactive calendar didn&rsquo;t load. The full weekly schedule is just below &mdash; or email <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>.</p>
+            <a class="btn btn-teal" href="#weekly">See the Weekly Schedule</a>
+          </div>
+        </div>
+        <p class="sched-legend">Members: manage bookings and payments in the <a class="ulink" href="https://coloradoboom.gymdesk.com/login" target="_blank" rel="noopener">Club Login portal</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== [SCH-02] WEEKLY SCHEDULE (crawlable text) ===== -->
+  <section data-section="SCH-02" class="bg-cream" id="weekly">
+    <div class="container">
+      <h2 class="section-title">Weekly Summer Schedule</h2>
+      <p class="section-subtitle">All sessions at Boomtown Fieldhouse, 14200 E Alameda Ave, Aurora.</p>
+      <div class="tbl-wrap"><table class="sched">
+        <thead><tr><th>Program</th><th>Days</th><th>Time</th><th>Sign Up</th></tr></thead>
+        <tbody>
+          <tr><td>Open Gym &mdash; ages 10+, any club ($20/session)</td><td>Mon / Wed / Fri</td><td>5:30&ndash;7:00 PM</td><td><a class="ulink" href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener">Register</a></td></tr>
+          <tr><td>Group Training &amp; Developmental &mdash; ages 8&ndash;16</td><td>Tues / Thurs</td><td>5:00&ndash;6:30 PM</td><td><a class="ulink" href="https://forms.gle/nx3jtbQCTXsEVZKU8" target="_blank" rel="noopener">Register</a></td></tr>
+          <tr><td>14+ Advanced Skills &amp; Mechanics</td><td>Tues / Thurs</td><td>4:00&ndash;6:00 PM</td><td><a class="ulink" href="https://forms.gle/d4GT48VSgh4qve6Z6" target="_blank" rel="noopener">Sign Up</a></td></tr>
+          <tr><td>Advanced Summer Club Training &mdash; Coach Damon Sichler</td><td>Mon / Wed</td><td>7:00&ndash;8:30 PM</td><td><a class="ulink" href="https://forms.gle/CRPDPm7R5ZcdTQKWA" target="_blank" rel="noopener">Free Week</a></td></tr>
+        </tbody>
+      </table></div>
+      <h3 style="text-align:center;margin:34px 0 12px;">2026 Tryouts</h3>
+      <div class="tbl-wrap"><table class="sched">
+        <thead><tr><th>Group</th><th>Dates</th></tr></thead>
+        <tbody>
+          <tr><td>Boys 13U&ndash;18U</td><td>Jul 17, 18, 21, 29, 31</td></tr>
+          <tr><td>Girls 15U&ndash;18U (remaining make-ups)</td><td>Jul 18 &amp; Jul 29</td></tr>
+          <tr><td>Girls 10U&ndash;14U</td><td>Aug 21, 22, 24, 31</td></tr>
+        </tbody>
+      </table></div>
+      <p class="sched-note">Session times and details on the <a class="ulink" href="tryouts.html#tryouts">Tryouts page</a>. <strong>We&rsquo;re recruiting more 17s &amp; 18s &mdash; every position.</strong></p>
+      <div class="cta-inline" style="margin-top:18px;"><a href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener" class="btn btn-gold">Register for Tryouts</a> <a href="programs.html" class="btn btn-teal">Sign Up for a Program!</a></div>
+    </div>
+  </section>
+
+  <!-- ============ [FT] FOOTER (shared on every page) ============ -->
+  <footer data-section="FT">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+          <div class="footer-address">
+            <strong>Colorado Boom Volleyball Club</strong>
+            Boomtown Fieldhouse<br>14200 E Alameda Ave<br>Aurora, CO 80012
+            <span style="display:block;margin:8px 0;color:rgba(255,255,255,0.6);font-size:14px;">Serving Denver metro, Aurora, Centennial, Parker, Highlands Ranch &amp; beyond</span>
+            <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.facebook.com/profile.php?id=61590351960515" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.8v3h2.5V21h3.2z"/></svg></a>
+            <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" aria-label="Instagram @coboomvb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm0 1.8a3 3 0 100 6 3 3 0 000-6zm5-2.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="tryouts.html">Open Gyms &amp; Tryouts</a></li>
+            <li><a href="schedule.html">Club Calendar</a></li>
+            <li><a href="club.html">Club Information</a></li>
+            <li><a href="girls-club.html">Girls Club</a></li>
+            <li><a href="boys-club.html">Boys Club</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="parent-resources.html">Parent Resources</a></li>
+            <li><a href="mailto:admin@coloradoboom.com">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="girls-club.html">Club Volleyball</a></li>
+            <li><a href="https://forms.gle/nx3jtbQCTXsEVZKU8" target="_blank" rel="noopener">Developmental Training</a></li>
+            <li><a href="programs.html">Camps &amp; Clinics</a></li>
+            <li><a href="programs.html">Littles (Coming Soon)</a></li>
+            <li><a href="tryouts.html">Open Gym</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Colorado Boom Volleyball Club</div>
+        <nav aria-label="Legal"><a href="legal.html#terms">Terms</a><a href="legal.html#privacy">Privacy</a><a href="legal.html#accessibility">Accessibility</a></nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* [SCH-01] v1.38 — skeleton until the GymDesk widget injects content; fallback after 8s */
+  (function(){
+    var frame=document.getElementById('gd-frame');
+    if(!frame)return;
+    var mount=frame.querySelector('.gymdesk-schedule');
+    function loaded(){frame.classList.add('loaded');obs.disconnect();clearTimeout(t);}
+    var obs=new MutationObserver(function(){if(mount.childNodes.length)loaded();});
+    obs.observe(mount,{childList:true,subtree:true});
+    if(mount.childNodes.length)loaded();
+    var t=setTimeout(function(){if(!frame.classList.contains('loaded')){frame.classList.add('failed');obs.disconnect();}},8000);
+  })();
+  </script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

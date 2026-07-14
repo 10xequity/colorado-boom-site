@@ -47,6 +47,17 @@
       text-align:center; padding:10px 16px;
     }
 
+
+    /* [RB] recruiting banner (v1.39) */
+    .recruit-banner{position:relative;overflow:hidden;background:var(--black);color:#fff;text-align:center;
+      font-family:"Montserrat",sans-serif;font-weight:900;font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+      padding:11px 16px;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);text-shadow:0 1px 4px rgba(0,0,0,.6);}
+    .recruit-banner .rb-hl{color:var(--gold);}
+    .recruit-banner::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:32%;
+      background:linear-gradient(105deg,rgba(255,255,255,0) 0%,rgba(255,244,184,.42) 50%,rgba(255,255,255,0) 100%);
+      transform:skewX(-18deg);animation:rb-shimmer 3.2s ease-in-out infinite;pointer-events:none;}
+    @keyframes rb-shimmer{0%{left:-45%;}60%,100%{left:125%;}}
+    @media(prefers-reduced-motion:reduce){.recruit-banner::after{animation:none;display:none;}}
     /* Header / nav */
     header.nav{
       position:sticky; top:0; z-index:50;
@@ -159,7 +170,8 @@
 <body>
 
   <!-- [ANN] announcement -->
-  <div class="ann">2026 Tryouts Open — Register at Boomtown Fieldhouse</div>
+  <div class="ann">Tryouts &mdash; Boys 13U&ndash;18U Jul 17 &middot; Girls 15U&ndash;18U Jul 18 &amp; 29 &middot; Girls 10U&ndash;14U Aug 21</div>
+  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">We&rsquo;re Recruiting More <span class="rb-hl">17s &amp; 18s</span> &mdash; Every Position</div>
 
   <!-- [NAV] header -->
   <header class="nav">
@@ -171,6 +183,8 @@
         <a href="club.html">Club</a>
         <a href="programs.html">Programs</a>
         <a href="parent-resources.html">Parents</a>
+        <a href="schedule.html">Club Calendar</a>
+        <a class="btn-register" style="background:var(--black);color:#fff;box-shadow:0 6px 16px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.28);" href="https://coloradoboom.gymdesk.com/login" target="_blank" rel="noopener">Club Login</a>
         <a class="btn-register btn-shine" href="tryouts.html">Tryout Now!</a>
       </nav>
     </div>

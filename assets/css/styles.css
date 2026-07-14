@@ -482,3 +482,20 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
 .fee-note ul{margin:0;padding-left:22px;color:#111;}
 .fee-note li{margin-bottom:8px;font-size:15px;}
 .fee-flag{max-width:900px;margin:26px auto 0;padding:14px 18px;background:var(--cream);border-left:4px solid var(--gold);border-radius:var(--radius);font-size:14px;color:#111;}
+
+/* ===== v1.38 (2026-07-14) — Club Login nav button: black, heavy drop shadow ===== */
+.btn-login{box-shadow:0 6px 16px rgba(0,0,0,.55),0 2px 5px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.28);}
+.btn-login:hover{background:#000;box-shadow:0 8px 20px rgba(0,0,0,.65),0 2px 6px rgba(0,0,0,.5);}
+
+/* ===== v1.39 (2026-07-14) — [RB] recruiting banner: black, gold-trimmed, shimmer sweep ===== */
+.recruit-banner{position:relative;overflow:hidden;background:var(--black);color:#fff;text-align:center;
+  font-family:'Montserrat',sans-serif;font-weight:900;font-size:15px;letter-spacing:.14em;text-transform:uppercase;
+  padding:11px 16px;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  text-shadow:0 1px 4px rgba(0,0,0,.6);}
+.recruit-banner .rb-hl{color:var(--gold);}
+.recruit-banner::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:32%;
+  background:linear-gradient(105deg,rgba(255,255,255,0) 0%,rgba(255,244,184,.42) 50%,rgba(255,255,255,0) 100%);
+  transform:skewX(-18deg);animation:rb-shimmer 3.2s ease-in-out infinite;pointer-events:none;}
+@keyframes rb-shimmer{0%{left:-45%;}60%,100%{left:125%;}}
+@media(prefers-reduced-motion:reduce){.recruit-banner::after{animation:none;display:none;}}
+@media(max-width:600px){.recruit-banner{font-size:12px;letter-spacing:.1em;}}
