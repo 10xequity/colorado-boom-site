@@ -499,3 +499,44 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
 @keyframes rb-shimmer{0%{left:-45%;}60%,100%{left:125%;}}
 @media(prefers-reduced-motion:reduce){.recruit-banner::after{animation:none;display:none;}}
 @media(max-width:600px){.recruit-banner{font-size:12px;letter-spacing:.1em;}}
+
+/* ===== v1.40 (2026-07-14) — header alignment + refined nav CTAs (emil pass) ===== */
+/* Header content pulled in from the edges; nothing wraps */
+.header-inner{max-width:1080px;padding:10px 28px;gap:16px;}
+.nav{gap:16px;flex-wrap:nowrap;}
+.nav a{white-space:nowrap;}
+@media(min-width:981px) and (max-width:1180px){.nav{gap:12px;}.nav a{font-size:11px;letter-spacing:.02em;}}
+
+/* CTA pair: equal height, centered labels, consistent 10px gap, pinned right */
+.nav-ctas{display:inline-flex;align-items:center;gap:10px;margin-left:4px;flex-shrink:0;}
+.nav .nav-ctas .btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;
+  height:38px;min-width:122px;padding:0 18px;font-size:12px;letter-spacing:.08em;line-height:1;margin:0;}
+
+/* Tryout Now! — refined metallic gold, black text, crisp edge, press feedback */
+.nav .btn-gold{background:linear-gradient(180deg,#F7D54A 0%,#E9BC0A 46%,#D4A017 100%);color:var(--black);
+  border:1px solid #B8900A;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 6px rgba(0,0,0,.28);}
+.nav .btn-gold.btn-shine{animation:none;} /* retire the pulsing glow — calmer, more premium */
+@media(hover:hover) and (pointer:fine){
+  .nav .btn-gold:hover{filter:brightness(1.06);transform:translateY(-1px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 5px 14px rgba(229,184,0,.35);}
+}
+.nav .btn-gold:active{transform:scale(.97);}
+
+/* Club Login — black with gold outline, quiet depth */
+.nav .btn-login{background:linear-gradient(180deg,#1d1d1d 0%,#0a0a0a 100%);color:#fff;
+  border:1.5px solid var(--gold);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 4px 12px rgba(0,0,0,.45);}
+@media(hover:hover) and (pointer:fine){
+  .nav .btn-login:hover{border-color:#F2CA00;color:#F7D54A;transform:translateY(-1px);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 6px 16px rgba(0,0,0,.5),0 0 12px rgba(229,184,0,.22);}
+}
+.nav .btn-login:active{transform:scale(.97);}
+
+/* Announcement note: constrained width so long lines align under the headline */
+.announcement--xl .ann-note{max-width:900px;margin-left:auto;margin-right:auto;}
+
+/* Mobile: taller open menu (new items), buttons stacked full-width */
+@media(max-width:980px){
+  .nav.open{max-height:calc(100vh - 70px);overflow-y:auto;}
+  .nav-ctas{flex-direction:column;align-items:stretch;gap:10px;margin:12px 24px;}
+  .nav .nav-ctas .btn{width:100%;min-width:0;height:44px;margin:0;}
+}
