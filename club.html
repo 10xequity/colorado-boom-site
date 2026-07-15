@@ -1,542 +1,423 @@
-/* COBO styles.css — build v1.37 · 2026-07-04 */
-
-    /* ===== DESIGN TOKENS — locked per COBO Design System v2.0 ===== */
-    :root{
-      --teal:#0E7C86; --teal-dark:#065A62; --teal-light:#E4F2F3;
-      --gold:#E5B800; --gold-dark:#C49A00;
-      --cream:#FFF9F0; --black:#111111; --white:#FFFFFF;
-      --gray-text:#555555; --gray-meta:#AAAAAA;
-      --max-w:1140px; --section-py:56px; --section-py-mobile:40px; --radius:6px;
-      --ease-out:cubic-bezier(0.23,1,0.32,1);
-    }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
-    body{font-family:'Open Sans',system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.6;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;}
-    img{max-width:100%;display:block;}
-    a{color:inherit;text-decoration:none;}
-    button{font:inherit;cursor:pointer;border:0;background:transparent;}
-    h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;}
-    h1{font-size:clamp(36px,5.5vw,52px);font-weight:900;}
-    h2{font-size:clamp(28px,4vw,36px);font-weight:900;}
-    h3{font-size:clamp(20px,2.4vw,24px);font-weight:700;}
-    h4{font-size:20px;font-weight:700;text-transform:none;}
-    p{margin-bottom:12px;} p:last-child{margin-bottom:0;}
-    .container{max-width:var(--max-w);margin:0 auto;padding:0 24px;}
-    section{padding:var(--section-py) 0;}
-    @media(max-width:768px){section{padding:var(--section-py-mobile) 0;}}
-
-    /* ===== BUTTONS ===== */
-    .btn{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:0.05em;padding:14px 28px;border-radius:var(--radius);transition:transform 160ms var(--ease-out),background-color 160ms ease,color 160ms ease,box-shadow 200ms var(--ease-out);}
-    .btn:active{transform:scale(0.97);}
-    .btn-gold{background:var(--gold);color:var(--black);box-shadow:0 1px 0 var(--gold-dark) inset,0 2px 6px rgba(0,0,0,0.08);}
-    .btn-outline-white{background:transparent;color:var(--white);border:2px solid var(--white);padding:12px 26px;}
-    .btn-teal{background:var(--teal);color:var(--white);}
-    .btn-outline-dark{background:transparent;color:var(--black);border:2px solid var(--black);padding:12px 26px;}
-    @media(hover:hover) and (pointer:fine){
-      .btn-gold:hover{background:#f1c700;box-shadow:0 1px 0 var(--gold-dark) inset,0 4px 14px rgba(229,184,0,0.35);}
-      .btn-outline-white:hover{background:var(--white);color:var(--teal-dark);}
-      .btn-teal:hover{background:var(--teal-dark);}
-      .btn-outline-dark:hover{background:var(--black);color:var(--gold);}
-    }
-
-    /* ===== [NAV] HEADER — teal->black gradient, sticky ===== */
-    .header{position:sticky;top:0;z-index:100;background:radial-gradient(ellipse 56% 300% at 50% 50%,rgba(11,104,113,0.93) 0%,rgba(6,72,80,0.94) 30%,rgba(4,4,4,0.96) 70%,rgba(0,0,0,0.97) 100%);-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);box-shadow:0 2px 14px rgba(0,0,0,0.3);border-bottom:1px solid rgba(255,255,255,0.10);}
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 24px;max-width:var(--max-w);margin:0 auto;}
-    /* [7] logo = SVG mark (placeholder — swap with real logo file when available) */
-    .logo{display:inline-flex;align-items:center;flex-shrink:0;}
-    .logo-img{height:77px;width:auto;display:block;} @media(max-width:600px){.logo-img{height:48px;}}
-    /* [4] nav text shrunk to fit more evenly */
-    .nav{display:flex;align-items:center;gap:18px;}
-    .nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.03em;color:var(--white);padding:6px 0;position:relative;transition:color 160ms ease;}
-    .nav a::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform 200ms var(--ease-out);}
-    @media(hover:hover) and (pointer:fine){.nav a:hover::after{transform:scaleX(1);} .nav a.btn-gold:hover::after{display:none;}}
-    .nav .btn{font-size:12px;padding:9px 14px;} .nav .btn::after{display:none!important;}
-    /* [6] "Open Gyms & Tryouts" — 2 lines, centered */
-    .nav-2line{text-align:center;line-height:1.12;}
-    /* Club dropdown */
-    .has-drop{position:relative;}
-    .has-drop>a{display:inline-flex;align-items:center;gap:4px;}
-    .drop{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(6px);background:var(--teal-dark);min-width:160px;border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,0.3);padding:6px 0;opacity:0;visibility:hidden;transition:opacity 160ms ease,transform 160ms var(--ease-out);}
-    .has-drop:hover .drop,.has-drop:focus-within .drop{opacity:1;visibility:visible;transform:translateX(-50%) translateY(2px);}
-    .drop a{display:block;padding:9px 18px;font-size:12px;} .drop a::after{display:none;}
-    @media(hover:hover) and (pointer:fine){.drop a:hover{background:rgba(255,255,255,0.08);}}
-    .nav-toggle{display:none;color:var(--white);font-size:24px;padding:6px;}
-    @media(max-width:980px){
-      .nav{position:absolute;top:100%;left:0;right:0;background:var(--teal-dark);flex-direction:column;align-items:stretch;gap:0;padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,0.3);max-height:0;overflow:hidden;transition:max-height 260ms var(--ease-out);}
-      .nav.open{max-height:680px;}
-      .nav a{padding:14px 24px;border-bottom:1px solid rgba(255,255,255,0.08);}
-      .nav-2line{text-align:left;line-height:1.4;}  /* keep mobile list left-aligned */
-      .drop{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;background:rgba(0,0,0,0.18);padding:0;min-width:0;}
-      .drop a{padding-left:40px;}
-      /* [5] Register Now lives INSIDE the hamburger on mobile */
-      .nav .btn{margin:12px 24px;text-align:center;}
-      .nav-toggle{display:inline-block;}
-    }
-
-    /* ===== [ANN] ANNOUNCEMENT BAR — now BELOW hero; golden radial, even both sides ===== */
-    .announcement{background:radial-gradient(ellipse 66% 200% at 50% 50%,#FFE680 0%,#F2CA00 24%,#E5B800 40%,#C49A00 56%,#171717 80%,#000 100%);color:var(--black);text-align:center;padding:12px 24px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:0.08em;}
-    .announcement a{color:var(--white);text-shadow:0 1px 2px rgba(0,0,0,0.6);border-bottom:1px solid rgba(255,255,255,0.6);}
-
-    /* ===== [HM-01] HERO — +25% taller; uniform 20% black filter (no gradient) ===== */
-    .hero{position:relative;background:var(--teal-dark);color:var(--white);min-height:413px;height:clamp(413px,62vh,605px);display:flex;align-items:center;overflow:hidden;}
-    .hero-bg{position:absolute;inset:0;background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('../img/hero.jpg') center/cover no-repeat;}
-    .hero-content{position:relative;z-index:1;max-width:820px;margin:0 auto;width:100%;}
-    .hero h1{margin-bottom:34px;text-align:center;text-shadow:0 3px 10px rgba(0,0,0,0.7),0 6px 30px rgba(0,0,0,0.5),0 1px 2px rgba(0,0,0,0.85);}
-    /* [8] "Colorado Boom" +10%, "Volleyball Club" -20% */
-    .hero h1 .hl-1{font-size:1.32em;}
-    .hero h1 .hl-2{font-size:0.80em;display:inline-block;}
-    /* [8] tagline centered */
-    .hero p.tagline{font-family:'Montserrat',sans-serif;font-weight:500;font-size:clamp(16px,2vw,20px);margin:0 auto 24px;opacity:0.97;max-width:760px;text-align:center;text-wrap:balance;text-shadow:0 1px 6px rgba(0,0,0,0.5);}
-    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
-    .hero .btn-outline-white{text-shadow:0 1px 3px rgba(0,0,0,0.4);}
-
-    /* ===== SECTION BACKGROUNDS ===== */
-    .bg-cream{background:var(--cream);}
-    .bg-white{background:var(--white);}
-    .bg-dark{background:var(--black);color:var(--white);}
-    .bg-teal-d{background:radial-gradient(ellipse 60% 150% at 50% 50%,var(--teal) 0%,var(--teal-dark) 34%,#040404 100%);color:var(--white);}
-    .section-title{text-align:center;margin-bottom:8px;}
-    .section-subtitle{text-align:center;color:var(--gray-text);max-width:620px;margin:0 auto 40px;}
-    .bg-dark .section-subtitle,.bg-teal-d .section-subtitle{color:rgba(255,255,255,0.85);}
-
-    /* ===== [HM-02] 3 WAYS CARDS ===== */
-    .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    @media(max-width:880px){.cards-3{grid-template-columns:1fr;}}
-    .card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);display:flex;flex-direction:column;border:1px solid rgba(0,0,0,0.04);transition:transform 220ms var(--ease-out),box-shadow 220ms var(--ease-out);}
-    @media(hover:hover) and (pointer:fine){.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(0,0,0,0.10);}}
-    .card-img{aspect-ratio:16/10;background-color:var(--teal-light);background-size:cover;background-position:center;}
-    .card-body{padding:24px;display:flex;flex-direction:column;flex-grow:1;}
-    .card .badge{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;}
-    .card h3{margin-bottom:12px;} .card p{color:var(--gray-text);flex-grow:1;margin-bottom:20px;} .card .btn{align-self:flex-start;}
-
-    /* ===== [HM-04] WHY COLORADO BOOM — dark 2-col ===== */
-    .why-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
-    @media(max-width:880px){.why-grid{grid-template-columns:1fr;gap:28px;}}
-    .why-grid ul{list-style:none;padding:0;}
-    .why-grid li{position:relative;padding:14px 0 14px 32px;border-bottom:1px solid rgba(255,255,255,0.08);}
-    .why-grid li:last-child{border-bottom:0;}
-    .why-grid li::before{content:'';position:absolute;left:0;top:22px;width:14px;height:2px;background:var(--gold);}
-    .why-photo{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center;border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-
-    /* ===== [HM-05] TESTIMONIALS ===== */
-    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-    @media(max-width:880px){.quotes{grid-template-columns:1fr;}}
-    .quote{background:var(--white);border-radius:var(--radius);padding:28px;border-left:4px solid var(--teal);box-shadow:0 2px 12px rgba(0,0,0,0.04);}
-    .quote p{color:var(--gray-text);font-style:italic;margin-bottom:16px;}
-    .quote .attr{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.05em;text-transform:uppercase;color:var(--teal-dark);}
-
-    /* ===== [HM-07] FIELDHOUSE — single-line stats ===== */
-    .fieldhouse-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;}
-    @media(max-width:880px){.fieldhouse-grid{grid-template-columns:1fr;gap:28px;}}
-    .fieldhouse-photo{width:100%;aspect-ratio:4/3;background-size:cover;background-position:center;border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
-    .fieldhouse-text h2{text-align:left;margin-bottom:16px;}
-    .fieldhouse-text p{color:rgba(255,255,255,0.9);margin-bottom:24px;}
-    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;margin-top:16px;}
-    @media(max-width:600px){.stats{grid-template-columns:1fr;gap:16px;}}
-    .stat{padding:20px 8px;border-top:2px solid rgba(229,184,0,0.4);}
-    .stat-num{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(40px,5vw,56px);line-height:1;color:var(--gold);white-space:nowrap;letter-spacing:-0.02em;}
-    .stat-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-top:8px;}
-
-    /* ===== [HM-08] CONTACT & MAP — side by side ===== */
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
-    @media(max-width:880px){.contact-grid{grid-template-columns:1fr;}}
-    .map-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);min-height:340px;background:var(--teal-light);}
-    .map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;display:block;}
-    .contact-info{background:var(--white);border-radius:var(--radius);padding:32px;box-shadow:0 4px 20px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:center;}
-    .contact-info h3{margin-bottom:16px;color:var(--teal-dark);}
-    .contact-info dl{display:grid;grid-template-columns:110px 1fr;gap:12px 16px;margin-bottom:20px;}
-    .contact-info dt{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray-text);padding-top:2px;}
-    .contact-info dd{color:var(--black);}
-    .contact-info a{color:var(--teal);border-bottom:1px solid currentColor;}
-
-    /* ===== [HM-09] FINAL CTA — golden shine radial (gold center -> black edges) ===== */
-    .cta-band{background:radial-gradient(ellipse 78% 150% at 50% 50%,#FFF1A8 0%,#FFD21A 14%,#E5B800 32%,#C49A00 52%,#241c00 72%,#000 100%);color:var(--black);text-align:center;}
-    .cta-band h2{color:var(--black);margin-bottom:12px;text-shadow:0 1px 0 rgba(255,255,255,0.25);}
-    .cta-band p{margin-bottom:28px;max-width:600px;margin-left:auto;margin-right:auto;}
-    .cta-band .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-
-    /* ===== [FT] FOOTER — FB + IG only ===== */
-    footer{background:var(--black);color:var(--white);padding:48px 0 24px;}
-    .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:32px;}
-    @media(max-width:768px){.footer-grid{grid-template-columns:1fr;gap:32px;}}
-    footer h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-    footer ul{list-style:none;}
-    footer li{margin-bottom:8px;font-size:15px;color:rgba(255,255,255,0.78);}
-    footer a{color:rgba(255,255,255,0.78);transition:color 160ms ease;}
-    @media(hover:hover) and (pointer:fine){footer a:hover{color:var(--white);}}
-    .footer-address{font-size:15px;line-height:1.7;color:rgba(255,255,255,0.78);}
-    .footer-address strong{color:var(--white);display:block;margin-bottom:4px;font-size:16px;}
-    .socials{display:flex;gap:12px;margin-top:16px;}
-    .socials a{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.08);display:inline-flex;align-items:center;justify-content:center;transition:background 160ms ease,transform 160ms var(--ease-out);}
-    .socials a:active{transform:scale(0.94);}
-    @media(hover:hover) and (pointer:fine){.socials a:hover{background:var(--gold);} .socials a:hover svg{fill:var(--black);}}
-    .socials svg{width:18px;height:18px;fill:var(--white);transition:fill 160ms ease;}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,0.55);}
-    .footer-bottom nav{display:flex;gap:18px;flex-wrap:wrap;}
-
-    /* ===== SCROLL REVEAL + A11Y ===== */
-    .reveal{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease-out),transform 600ms var(--ease-out);}
-    .reveal.visible{opacity:1;transform:translateY(0);}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}.reveal{opacity:1;transform:none;}}
-    a:focus-visible,button:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px;}
-
-    /* [HM-04] Why Club Volleyball — teal section, cream boxes */
-    .why-club-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-    @media(max-width:880px){.why-club-grid{grid-template-columns:1fr;}}
-    .info-box{background:var(--cream);border-radius:var(--radius);padding:32px;box-shadow:0 6px 24px rgba(0,0,0,0.22);}
-    .info-box h3{color:var(--teal-dark);margin-bottom:14px;}
-    .info-box p{color:var(--gray-text);}
-    .info-box p+p{margin-top:12px;}
-    /* [HM-08] Instagram placeholder grid */
-    .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:720px;margin:0 auto;}
-    .ig-tile{aspect-ratio:1/1;border-radius:var(--radius);background:linear-gradient(135deg,var(--teal-light),#c8e6e8);display:flex;align-items:center;justify-content:center;}
-    .ig-tile svg{width:32px;height:32px;fill:var(--teal-dark);opacity:0.45;}
-    /* [FT] footer logo */
-    .footer-logo{height:64px;width:auto;display:block;margin-bottom:16px;}
-    /* two-line dropdown trigger */
-    .has-drop.two>a{line-height:1.12;}
-    /* why-coloradoboom portrait photo on white */
-    .why-photo.portrait{aspect-ratio:3/4;background-color:#fff;background-size:cover;background-position:center top;}
-    /* static button (no hover/active animation) */
-    .btn-static{transition:none;} .btn-static:active{transform:none;} .btn-static:hover{background:var(--teal);color:#fff;}
-    /* [HMB] Girls/Boys quick-select band (~30% shorter, geometric diagonal transition) */
-    .gb-band{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:0;height:clamp(132px,17vw,170px);}
-    .gb-half{position:relative;display:flex;align-items:center;justify-content:center;height:100%;overflow:hidden;text-decoration:none;}
-    .gb-half .gb-bg{position:absolute;inset:0;background-size:cover;transition:transform .55s var(--ease-out);}
-    .gb-girls::after,.gb-boys::after{content:"";position:absolute;inset:0;}
-    .gb-girls::after{background:linear-gradient(rgba(14,124,134,0.30),rgba(0,0,0,0.55));}
-    .gb-boys::after{background:linear-gradient(rgba(6,90,98,0.30),rgba(0,0,0,0.58));}
-    .gb-half .gb-label{position:relative;z-index:1;color:#fff;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(21px,3.1vw,34px);letter-spacing:0.10em;text-transform:uppercase;text-align:center;text-shadow:0 2px 12px rgba(0,0,0,0.75);}
-    .gb-half .gb-sub{display:block;font-size:11px;font-weight:700;letter-spacing:0.16em;opacity:0.92;margin-top:6px;}
-    /* geometric diagonal transition (replaces the gold line) */
-    .gb-divider{position:absolute;left:50%;top:-1px;bottom:-1px;width:3px;transform:translateX(-50%) skewX(-12deg);z-index:3;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,0.30),rgba(255,255,255,0));box-shadow:0 0 9px 3px rgba(0,0,0,0.4);}
-    
-    
-    @media(hover:hover) and (pointer:fine){.gb-half:hover .gb-bg{transform:scale(1.06);} .gb-half:focus-visible{outline:3px solid var(--white);outline-offset:-3px;}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BUILD v1.36 · 2026-07-04 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
+  <meta name="theme-color" content="#0E7C86">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <title>Club Information | Colorado Boom Volleyball Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="canonical" href="https://coloradoboom.com/club.html">
+  <meta name="geo.region" content="US-CO">
+  <meta name="geo.placename" content="Aurora, Colorado">
+  <meta property="og:title" content="Club Information | Colorado Boom Volleyball Club">
+  <meta property="og:description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://coloradoboom.com/club.html">
+  <meta property="og:image" content="https://coloradoboom.com/assets/img/club.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Club Information | Colorado Boom Volleyball Club">
+  <meta name="twitter:description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
+  <meta name="twitter:image" content="https://coloradoboom.com/assets/img/club.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Club","item":"https://coloradoboom.com/club.html"}]}
+  </script>
+  <!-- ===== v1.36 (2026-07-04): benefits grid [CL-04], level cards [CL-04c], Club Fees live [CL-06], uniform photo fix [CL-07], taller gb-band [CL-09], OCS Aug 20, ANN xl, nav item ===== -->
+  <!-- ===== v1.34 (2026-06-22): [CL-02] Who-We-Are figure sizing + [CL-09] gb-band diagonal align ===== -->
+  <style>
+    /* #1 — shrink the "Who We Are" photo and float it beside the text (no .float-fig rule existed,
+       so the image was rendering full-width and pushing copy down). */
+    .float-fig{float:right;width:min(40%,260px);height:auto;margin:4px 0 14px 24px;border-radius:var(--radius);box-shadow:0 8px 22px rgba(0,0,0,.14);}
+    .clearfix-float{clear:both;}
+    @media(max-width:600px){.float-fig{float:none;display:block;width:100%;max-width:340px;margin:0 auto 16px;}}
+    /* #5 — clip both gb-band photos to the same diagonal the divider uses (matches home). */
+    .gb-band{display:block;position:relative;height:clamp(132px,17vw,170px);overflow:hidden;} /* reverted to original size */
+    .gb-half{position:absolute;inset:0;width:100%;height:100%;display:block;}
+    .gb-girls{clip-path:polygon(0 0,53% 0,47% 100%,0 100%);z-index:1;}
+    .gb-boys{clip-path:polygon(53% 0,100% 0,100% 100%,47% 100%);z-index:1;}
+    .gb-half .gb-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max-content;max-width:46%;margin:0;}
+    .gb-girls .gb-label{left:25%;}
+    .gb-boys .gb-label{left:75%;}
+    .gb-divider{position:absolute;inset:0;width:auto;height:auto;left:0;top:0;transform:none;z-index:3;
+      clip-path:polygon(52.4% 0,53% 0,47% 100%,46.4% 100%);
+      background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.55),rgba(255,255,255,0));box-shadow:none;}
     @media(max-width:700px){
-      .gb-band{grid-template-columns:1fr;height:auto;}
-      .gb-half{height:auto;min-height:128px;}
-      .gb-divider{left:-1px;right:-1px;width:auto;top:50%;bottom:auto;height:3px;transform:translateY(-50%) skewY(-4deg);background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,0.30),rgba(255,255,255,0));box-shadow:0 0 9px 3px rgba(0,0,0,0.4);}
+      .gb-band{height:auto;}
+      .gb-half{position:relative;inset:auto;width:100%;height:auto;min-height:128px;clip-path:none;}
+      .gb-half .gb-label,.gb-girls .gb-label,.gb-boys .gb-label{left:50%;}
+      .gb-divider{position:absolute;left:-1px;right:-1px;top:50%;bottom:auto;width:auto;height:3px;
+        clip-path:none;transform:translateY(-50%) skewY(-4deg);
+        background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.30),rgba(255,255,255,0));}
     }
-  
-/* ===== shared subpage hero ===== */
-.subhero{position:relative;color:#fff;text-align:center;overflow:hidden;padding:clamp(56px,9vw,96px) 0;background:radial-gradient(ellipse 60% 170% at 50% 50%,var(--teal) 0%,var(--teal-dark) 45%,#060606 100%);}
-.subhero .sub-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
-.subhero.has-img::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(6,90,98,0.55),rgba(0,0,0,0.65));}
-.subhero .container{position:relative;z-index:1;}
-.subhero h1{text-shadow:0 2px 10px rgba(0,0,0,0.6);}
-.subhero p{max-width:680px;margin:12px auto 0;opacity:.92;font-family:'Montserrat',sans-serif;font-weight:500;}
-.nav a[aria-current="page"]{color:var(--gold);}
-.nav a[aria-current="page"]::after{transform:scaleX(1);}
-/* readable text column */
-.narrow{max-width:840px;margin:0 auto;}
-.prose p{color:var(--gray-text);margin-bottom:14px;}
-.bg-dark .prose p,.bg-teal-d .prose p{color:rgba(255,255,255,0.88);}
-.lead{font-size:19px;color:var(--gray-text);max-width:760px;margin:0 auto 8px;text-align:center;}
-.bg-dark .lead,.bg-teal-d .lead{color:rgba(255,255,255,0.9);}
-ul.checks{list-style:none;padding:0;max-width:760px;margin:18px auto 0;}
-ul.checks li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid rgba(0,0,0,0.08);}
-.bg-dark ul.checks li,.bg-teal-d ul.checks li{border-bottom:1px solid rgba(255,255,255,0.12);}
-ul.checks li::before{content:"";position:absolute;left:0;top:20px;width:14px;height:2px;background:var(--gold);}
-/* image placeholder (swap for real photo: see IMAGES.md) */
-.img-ph{aspect-ratio:16/10;background:linear-gradient(135deg,var(--teal-light),#c8e6e8);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;color:var(--teal-dark);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:0.04em;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-@media(max-width:820px){.grid-2,.grid-3{grid-template-columns:1fr;}}
-/* tryout schedule table */
-.tbl-wrap{overflow-x:auto;max-width:840px;margin:0 auto;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);}
-table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;}
-.sched th,.sched td{padding:13px 16px;text-align:left;border-bottom:1px solid #cccccc;}
-    .sched td{color:#222222;}
-.sched th{font-family:'Montserrat',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:0.06em;background:var(--teal);color:#fff;}
-.sched tr:last-child td{border-bottom:0;}
-/* FAQ accordion */
-.faq{max-width:840px;margin:0 auto;}
-.faq h3.tier{margin:8px 0 4px;color:var(--teal-dark);}
-.faq-item{border-bottom:1px solid #e2e2e2;}
-.faq-q{display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;text-align:left;padding:18px 0;font-family:'Montserrat',sans-serif;font-weight:700;font-size:17px;color:var(--black);background:none;cursor:pointer;}
-.faq-q .ic{font-size:24px;line-height:1;color:var(--teal);transition:transform .2s ease;flex-shrink:0;}
-.faq-item.open .faq-q .ic{transform:rotate(45deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.faq-a div{padding:0 0 18px;}
-.faq-a p{color:var(--gray-text);margin-bottom:10px;}
-.faq-item.open .faq-a{max-height:1400px;}
-/* coach card */
-.coach{background:#fff;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);overflow:hidden;text-align:center;}
-.coach .ph{aspect-ratio:1/1;background:linear-gradient(135deg,var(--teal-light),#c8e6e8);display:flex;align-items:center;justify-content:center;color:var(--teal-dark);font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;}
-.coach .b{padding:20px;}
-.coach .b h4{margin-bottom:4px;}
-.coach .b span{font-family:'Montserrat',sans-serif;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--teal);}
-.cta-inline{text-align:center;margin-top:28px;}
-@media(max-width:600px){.faq-q{font-size:15px;} .lead{font-size:17px;}}
+  </style>
+</head>
+<body>
+  <header class="header" data-section="NAV">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
+        <img class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <span class="has-drop two">
+          <a href="tryouts.html" class="nav-2line" aria-haspopup="true">Open Gyms &amp;<br>Tryouts &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="tryouts.html#open-gyms" role="menuitem">Open Gyms</a>
+            <a href="tryouts.html#tryouts" role="menuitem">Tryouts</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="club.html" aria-haspopup="true" aria-current="page">Club Info &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="girls-club.html" role="menuitem">Girls Club</a>
+            <a href="boys-club.html" role="menuitem">Boys Club</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees</a>
+            <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="programs.html" class="nav-2line" aria-haspopup="true">Volleyball<br>Programs &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
+            <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
+            <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+          </span>
+        </span>
+        <a href="schedule.html">Club Calendar</a>
+        <a href="coaching-staff.html">Staff</a>
+        <span class="has-drop">
+          <a href="parent-resources.html" aria-haspopup="true">Resources &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="parent-resources.html" role="menuitem">Parent Resources</a>
+            <a href="volleyball-rules.html" role="menuitem">Volleyball Rules</a>
+            <a href="volleyball-positions.html" role="menuitem">Volleyball Positions</a>
+          </span>
+        </span>
+        <a href="mailto:admin@coloradoboom.com">Contact</a>
+        <span class="nav-ctas">
+          <a href="tryouts.html" class="btn btn-gold btn-shine">Tryout Now!</a>
+          <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+  <!-- ============ [ANN] ANNOUNCEMENT BAR (shared) ============ -->
+  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Announcement">
+    RMR Tryouts &nbsp;&bull;&nbsp; Boys 13U&ndash;18U July 17 &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 18 &amp; 29 &nbsp;&bull;&nbsp; Girls 10U&ndash;14U Aug 21 &mdash; <a href="tryouts.html">Register Now!</a>
+    <span class="ann-note">Trying out? You’ll need a low-cost RMR tryout membership ($15) &mdash; applied toward your full membership when you commit. <a href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add your player to the RMR OCS</a></span>
+  </div>
 
-/* ---- v4 batch additions ---- */
-.bg-teal{background:var(--teal);color:#fff;}
-.club-transition{background:radial-gradient(ellipse 80% 160% at 50% 50%,var(--teal) 0%,var(--teal-dark) 55%,#063b41 100%);color:#fff;text-align:center;}
-.club-transition h2{color:#fff;margin-bottom:10px;}
-.club-transition p{max-width:640px;margin:0 auto 24px;color:rgba(255,255,255,.92);}
-.times-callout{max-width:660px;margin:6px auto 22px;background:#fff7e0;border:2px solid var(--gold);border-radius:14px;padding:20px 24px;text-align:center;}
-.bg-teal-d .times-callout,.club-transition .times-callout{background:rgba(255,255,255,.08);}
-.times-callout .big{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(20px,3.4vw,28px);line-height:1.25;}
-.times-callout .sub{display:block;margin-top:8px;font-weight:600;}
-.mship{max-width:680px;margin:0 auto;background:#fff;border:2px solid var(--gold);border-radius:16px;padding:30px 26px;text-align:center;box-shadow:0 12px 32px rgba(0,0,0,.07);}
-.mship .price{font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(34px,6vw,46px);color:var(--teal);line-height:1;}
-.mship .price small{display:block;font-size:15px;font-weight:600;color:var(--gray-text);margin-top:6px;}
-.mship ul{list-style:none;padding:0;margin:18px auto;max-width:460px;text-align:left;}
-.mship ul li{padding:9px 0 9px 28px;position:relative;border-bottom:1px solid rgba(0,0,0,.07);}
-.mship ul li:last-child{border-bottom:0;}
-.mship ul li::before{content:"";position:absolute;left:0;top:17px;width:14px;height:2px;background:var(--gold);}
-.fee-tba{max-width:580px;margin:0 auto;text-align:center;border:2px dashed var(--teal);border-radius:14px;padding:26px;background:#fff;}
-.fee-tba .tag{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--teal);background:#e6f3f4;padding:5px 12px;border-radius:999px;margin-bottom:12px;}
-.media-img{display:block;width:100%;max-width:760px;margin:22px auto 0;border-radius:14px;box-shadow:0 12px 30px rgba(0,0,0,.12);}
-.sched-note{max-width:760px;margin:14px auto 0;text-align:center;font-size:14px;color:var(--gray-text);}
-.bg-teal-d .sched-note,.bg-dark .sched-note{color:rgba(255,255,255,.75);}
-.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
+  <!-- ============ [RB] RECRUITING BANNER (v1.39) ============ -->
+  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">We&rsquo;re Recruiting More <span class="rb-hl">17s &amp; 18s</span> &mdash; Every Position</div>
+  <!-- ===== [CL-01] HERO ===== -->
+  <section class="subhero has-img" data-section="CL-01">
+    <span class="sub-bg" style="background-image:url('assets/img/club.jpg');background-position:center 40%;"></span>
+    <div class="container"><h1>Club Information</h1><p>Everything you need to know about a season with Colorado Boom &mdash; how we practice, what's included, and what to expect.</p></div>
+  </section>
+  <!-- ===== [CL-02] Club overview ===== -->
+  <section data-section="CL-02" class="bg-white">
+    <div class="container narrow prose">
+      <h2 class="section-title" style="text-align:left;">Who We Are</h2>
+      <img class="float-fig" src="assets/img/uniform.png" alt="Colorado Boom youth volleyball player in Adidas team uniform" title="Colorado Boom Adidas uniform" loading="lazy">
+      <p>Colorado Boom is a competitive club volleyball program based at Boomtown Fieldhouse in Aurora &mdash; girls 10U&ndash;18U and boys 13U&ndash;18U, sanctioned by USA Volleyball through the Rocky Mountain Region (RMR). We field National, Regional, Local, and Developmental teams so every committed player has a place to grow.</p>
+      <p>We are different. We focus on fundamentals and biomechanics first, in a dedicated training center built for the sport. Above all, we are committed to a culture that prioritizes the player&rsquo;s journey &mdash; development, character, and a love of the game that lasts.</p>
+      <p>Our model is built around one idea: more touches, more growth, in a schedule families can actually live with. One location, predictable times, and coaching that develops athletes for the long run.</p>
+      <div class="clearfix-float"></div>
+    </div>
+  </section>
+  <!-- ===== [CL-03] Practice philosophy + times ===== -->
+  <section data-section="CL-03" class="bg-teal-d">
+    <div class="container">
+      <h2 class="section-title">Practice Philosophy &amp; Schedule</h2>
+      <div class="times-callout phil-times">
+        <span class="big">Practice: 5:00&ndash;7:30 PM</span>
+        <span class="sub">Three days a week (M/W/F or T/Th/F) &middot; one location, all season</span>
+      </div>
+      <ul class="checks">
+        <li class="hl-line">Home for dinner. Every practice wraps by 7:30 PM &mdash; no late-night sessions.</li>
+        <li><strong>Families and players first.</strong> Predictable times and one location you can plan your life around.</li>
+        <li class="hl-line">2.5-hour sessions, 3 days/week (M/W/F or T/Th/F).</li>
+        <li>Integrated 30-minute conditioning block at the end of practice.</li>
+        <li>Friday: dedicated scrimmage and position-specific sessions.</li>
+        <li>One location always &mdash; no bouncing between facilities.</li>
+        <li>Makeup practices on alternate days.</li>
+        <li class="hl-line">Multi-sport athletes can reschedule to attend other days' practices.</li>
+        <li class="hl-line">Boomtown drop-in included for all club members.</li>
+      </ul>
+    </div>
+  </section>
+  <!-- ===== [CL-03b] Advanced Summer Club Training ===== -->
+  <section data-section="CL-03b" class="bg-white">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="section-title">Advanced Summer Club Training</h2>
+      <p class="section-subtitle">Off-season reps for competitive and committed players, led by Coach Damon Sichler &mdash; open gyms included.</p>
+      <div class="times-callout">
+        <span class="big">Mon / Wed &middot; 7:00&ndash;8:30 PM</span>
+        <span class="sub">High-rep, position-focused training at Boomtown Fieldhouse &mdash; open gyms included</span>
+        <span class="sub">Try a free week &mdash; register, walk in, or contact admin@coloradoboom.com.</span>
+      </div>
+      <div class="cta-inline"><a href="https://forms.gle/CRPDPm7R5ZcdTQKWA" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
+    </div>
+  </section>
+  <!-- ===== [CL-04] Club benefits (v1.36: 2-col grid per Agreement v3.5 §2) ===== -->
+  <section id="age-groups" data-section="CL-04b" class="bg-dark">
+    <div class="container">
+      <h2 class="section-title">RMR Age Groups (2026&ndash;27)</h2>
+      <p class="section-subtitle">USAV age is set by birth date, not grade. Use this to find your athlete's group.</p>
+      <div class="tbl-wrap"><table class="sched">
+        <thead><tr><th>Age Group</th><th>Birth Date Cutoff</th></tr></thead>
+        <tbody>
+          <tr><td>18 &amp; Under</td><td>Born on or after July 1, 2008</td></tr>
+          <tr><td>17 &amp; Under</td><td>Born on or after July 1, 2009</td></tr>
+          <tr><td>16 &amp; Under</td><td>Born on or after July 1, 2010</td></tr>
+          <tr><td>15 &amp; Under</td><td>Born on or after July 1, 2011</td></tr>
+          <tr><td>14 &amp; Under</td><td>Born on or after July 1, 2012</td></tr>
+          <tr><td>13 &amp; Under</td><td>Born on or after July 1, 2013</td></tr>
+          <tr><td>12 &amp; Under</td><td>Born on or after July 1, 2014</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+  <!-- ===== [CL-04c] Team Levels (v1.36: Agreement v3.5 naming + travel commitments) ===== -->
+  <section id="team-levels" data-section="CL-04c" class="bg-white">
+    <div class="container">
+      <h2 class="section-title reveal">Team Levels</h2>
+      <p class="section-subtitle reveal">Same Base Club Fee at every level &mdash; the difference is the committed travel.</p>
+      <div class="level-grid">
+        <div class="level level--regional reveal">
+          <div class="level-head"><span class="name">Regional</span><span class="ages">14U &amp; Below</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
+            <p>In-state RMR competition. <strong>RYL included for all 14U &amp; below teams</strong> (Sep&ndash;Oct for players not in high school volleyball). All Regional teams conclude in May.</p></div>
+        </div>
+        <div class="level level--regional reveal">
+          <div class="level-head"><span class="name">Regional</span><span class="ages">15U+</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
+            <p>In-state RMR competition for high-school-age players &mdash; full club training with no committed out-of-state travel.</p></div>
+        </div>
+        <div class="level level--colorado reveal">
+          <div class="level-head"><span class="name">Colorado</span><span class="ages">Ages 14+</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $1,000</p>
+            <p>RMR season plus two committed travel tournaments. Travel Fee covers coaches&rsquo; travel and tournament fees only &mdash; family travel costs are separate.</p></div>
+        </div>
+        <div class="level level--national reveal">
+          <div class="level-head"><span class="name">National</span><span class="ages">Ages 14+</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $1,500</p>
+            <p>The most competitive track: three committed travel tournaments plus national-bid eligibility. Travel Fee covers coaches&rsquo; travel and tournament fees only &mdash; family travel costs are separate.</p></div>
+        </div>
+      </div>
+      <p class="sched-note"><strong>Team tournament vote &mdash; late January/February.</strong> After evaluating team compatibility and skill, every team &mdash; Regional, Colorado, and National &mdash; votes on adding tournaments in time to meet registration deadlines. Added events are $500 per event (80% team vote; participating families only). <strong>AAU Junior Nationals is an additional $1,000 per player</strong> if the team votes to attend.</p>
+    </div>
+  </section>
+  <!-- ===== [CL-04d] Rocky Mountain Youth League ===== -->
+  <section data-section="CL-04d" class="bg-teal-d">
+    <div class="container narrow prose">
+      <h2 class="section-title">Rocky Mountain Youth League (RYL)</h2>
+      <p>RYL (formerly the Colorado Youth League) is the RMR's developmental league for athletes 14U and under &mdash; a relaxed, near-home stepping stone between rec and full club play. Teams compete on Sundays in the fall, mirroring club rules and format while keeping things accessible and fun.</p>
+      <p><strong>RYL is included for every Colorado Boom 14U-and-under team &mdash; girls and boys, 13U included &mdash; as part of the program and covered by your RMR membership.</strong> It gives our younger athletes real match reps before the club season begins.</p>
+      <div class="cta-inline"><a href="https://www.rmrvolleyball.org/page/show/9160754-rocky-mountain-youth-league" target="_blank" rel="noopener" class="btn btn-gold">RYL Details (RMR)</a></div>
+    </div>
+  </section>
+  <!-- ===== [CL-05] Season schedule pointer ===== -->
+  <section data-section="CL-05" class="bg-cream">
+    <div class="container narrow prose" style="text-align:center;">
+      <h2 class="section-title">Season Schedules</h2>
+      <p>Tournament calendars differ for girls and boys. View the full 2026&ndash;27 RMR schedule for each program:</p>
+      <div class="btn-row"><a href="girls-club.html#GC-05" class="btn btn-teal">Girls Schedule</a><a href="boys-club.html#BC-05" class="btn btn-teal">Boys Schedule</a><a href="https://www.rmrvolleyball.org/page/show/7504034-all-rmr-calendars" target="_blank" rel="noopener" class="btn btn-teal">RMR Calendars</a></div>
+    </div>
+  </section>
+  <!-- ===== [CL-06] Club Fees (v1.36: live per Player Agreement v3.5 + owner confirmation 2026-07-04) ===== -->
+  <section data-section="CL-04" class="bg-cream">
+    <div class="container">
+      <h2 class="section-title reveal">What Your Club Fee Includes</h2>
+      <p class="section-subtitle reveal">Every Colorado Boom player, every level.</p>
+      <div class="benefit-grid">
+        <div class="benefit reveal"><h3>Three Practices a Week</h3><p>Generally three 2-hour practices per week, plus a 30-minute mental or physical conditioning block.</p></div>
+        <div class="benefit reveal"><h3>RMR-Compliant Coaching</h3><p>Qualified coaches for every team, trained through the Colorado Boom coaches training program.</p></div>
+        <div class="benefit reveal"><h3>Uniforms Included</h3><p>The full Adidas team uniform package &mdash; competition jerseys (both colors), shorts, and warm-ups.</p></div>
+        <div class="benefit reveal"><h3>Boomtown Drop-In Access</h3><p>Drop-in play at Boomtown Fieldhouse for all club members, all season (when available).</p></div>
+        <div class="benefit reveal"><h3>Summer Grass League</h3><p>Summer grass-league participation included with membership.</p></div>
+        <div class="benefit reveal"><h3>Training Equipment</h3><p>Nets, balls, and training aids provided &mdash; players bring shoes, knee pads, and a ball for home reps.</p></div>
+        <div class="benefit reveal"><h3>Tournament Entry + Coaching</h3><p>Entry into designated league and level-appropriate tournaments, with coaching at every event.</p></div>
+        <div class="benefit reveal"><h3>One Location, No Late Nights</h3><p>Every practice at Boomtown Fieldhouse, wrapped by 7:30 PM &mdash; a schedule families can plan around.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== [CL-04b] RMR Age Groups ===== -->
+  <section id="fees" data-section="CL-06" class="bg-white">
+    <div class="container">
+      <h2 class="section-title reveal">2026&ndash;27 Club Fees</h2>
+      <p class="section-subtitle reveal">One Base Club Fee across every level &mdash; the difference is each level’s committed travel.</p>
+      <div class="tbl-wrap reveal"><table class="sched fee-table">
+        <thead><tr><th>Component</th><th>Regional<br>(14U &amp; below)</th><th>Regional<br>(15U+)</th><th>Colorado<br>(14+)</th><th>National<br>(14+)</th></tr></thead>
+        <tbody>
+          <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td><td>$4,500</td><td>$4,500</td></tr>
+          <tr><td>Committed travel events</td><td>0</td><td>0</td><td>2</td><td>3</td></tr>
+          <tr><td>Travel Fee (committed)</td><td>$0</td><td>$0</td><td>$1,000</td><td>$1,500</td></tr>
+          <tr><td>Uniforms</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr class="ryl-row"><td>Rocky Mountain Youth League (RYL)</td><td>Included</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
+          <tr class="total-row"><td>Total Fee</td><td>$4,500</td><td>$4,500</td><td>$5,500</td><td>$6,000</td></tr>
+        </tbody>
+      </table></div>
+      <p class="sched-note"><strong>RYL is included for every team 14U &amp; below.</strong> Players not in high school volleyball start with RYL in September&ndash;October; 14U players who play high school in the fall join the regular season in November. Amounts exclude payment-processing fees and applicable sales tax (approx. 3.75%, City of Aurora).</p>
 
-/* ---- v5 batch additions ---- */
-.subhero--dark::after{background:linear-gradient(rgba(0,0,0,0.42),rgba(0,0,0,0.72)) !important;}
-.subhero--lite::after{background:linear-gradient(rgba(0,0,0,0.21),rgba(0,0,0,0.36)) !important;}
-.hl{color:var(--gold);font-weight:800;}
-.bg-white .hl,.bg-cream .hl{color:#9a6b00;}
-.mship--teal{background:var(--teal);border-color:var(--gold);color:#fff;}
-.mship--teal .price{color:#fff;}
-.mship--teal .price small{color:rgba(255,255,255,.85);}
-.mship--teal ul li{border-bottom-color:rgba(255,255,255,.22);}
-.mship--teal p,.mship--teal .prose{color:rgba(255,255,255,.92);}
-.uni-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center;max-width:980px;margin:0 auto;}
-.uni-grid .media-img{margin-top:0;max-width:100%;}
-@media(max-width:760px){.uni-grid{grid-template-columns:1fr;}}
-.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-@media(max-width:880px){.res-grid{grid-template-columns:1fr;}}
-.res-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:14px;padding:24px;display:flex;flex-direction:column;box-shadow:0 4px 16px rgba(0,0,0,.05);}
-.res-card h3{font-size:18px;margin-bottom:8px;}
-.res-card p{color:var(--gray-text);font-size:15px;flex-grow:1;margin-bottom:16px;}
-.res-card .btn{align-self:flex-start;}
-.res-card.soon{opacity:.8;border-style:dashed;border-color:var(--teal);}
-.lift-box{max-width:820px;margin:0 auto;background:#fff7e0;border:2px solid var(--gold);border-radius:16px;padding:26px 28px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 10px 30px rgba(0,0,0,.06);}
-.lift-box .lt{flex:1;min-width:240px;}
-.lift-box h3{margin-bottom:6px;}
-.lift-box p{color:var(--gray-text);margin:0;}
-@media(max-width:600px){.mship,.times-callout,.fee-tba,.lift-box{padding-left:18px;padding-right:18px;}.lift-box .btn{width:100%;text-align:center;}}
+      <div class="fee-note reveal">
+        <h3>Deposit &amp; Payment Options</h3>
+        <ul>
+          <li>A <strong>non-refundable deposit of $1,000</strong> (all team levels) is due at signing &mdash; applied toward total fees; it purchases uniforms and reserves the roster slot.</li>
+          <li><strong>Pay in full</strong> at signing (&minus;$100 discount) &middot; <strong>Quarterly</strong> (deposit, half in January, balance in April) &middot; <strong>Monthly</strong> installments (available by request).</li>
+          <li>Installments are due the <strong>first business day of the month</strong>; a 3-calendar-day grace period applies, then a $100 late fee.</li>
+          <li><strong>Sibling discount:</strong> &minus;$300 per additional sibling enrolled in the same season (applies to the Base Club Fee).</li>
+        </ul>
+        <h3>Conditional Fees (only if triggered)</h3>
+        <ul>
+          <li><strong>Team-voted added tournaments:</strong> $500 per event, only for events the team approves by an 80% vote and only for participating families. <strong>Teams vote in late January/February</strong> &mdash; after evaluating team compatibility and skill &mdash; so added events can be registered before tournament deadlines. Regional, Colorado, and National teams all vote during this window.</li>
+          <li><strong>AAU Junior Nationals:</strong> an additional $1,000 per player if the team votes to attend &mdash; this extends the season into the end of June.</li>
+          <li><strong>National Bid Fee:</strong> minimum $1,000 per rostered player if the team earns a national-championship bid. Bids are not optional and extend the season through the national event (typically late June).</li>
+        </ul>
+        <h3>Not Included</h3>
+        <ul>
+          <li>Individual RMR/USAV membership; all family travel, lodging, and meals; shoes; replacement or extra uniform items; private lessons and optional add-ons.</li>
+        </ul>
+      </div>
 
-/* ---- v7 batch additions ---- */
-.hl-line{color:var(--gold);font-weight:700;}
-.bg-white .hl-line,.bg-cream .hl-line{color:#9a6b00;}
-.phil-times .big{color:var(--gold);}
-.bg-white .phil-times .big,.bg-cream .phil-times .big{color:#9a6b00;}
-.btn-black{background:var(--black);color:#fff;}
-.btn-black:hover{background:#000;}
-.cta-band .cta-buttons .btn{box-shadow:0 6px 18px rgba(0,0,0,.28);}
-.res-card{background:var(--teal);border:1px solid var(--teal-dark);color:#fff;}
-.res-card h3{color:#fff;}
-.res-card p{color:rgba(255,255,255,.92);}
-.res-card p a{color:var(--gold);}
-.bg-dark .faq-item{border-color:rgba(255,255,255,.16);}
-.bg-dark .faq-q{color:#fff;}
-.bg-dark .faq-q .ic{color:var(--gold);}
-.bg-dark .faq-a,.bg-dark .faq-a p{color:rgba(255,255,255,.85);}
-.uni-grid .uni-sticker{max-width:100%;max-height:430px;width:auto;margin:0 auto;display:block;filter:drop-shadow(0 14px 24px rgba(0,0,0,.22));}
-@media(max-width:760px){.uni-grid .uni-sticker{max-height:340px;}}
-
-/* ---- v8 ---- */
-.uni-grid{grid-template-columns:1fr 300px;align-items:center;}
-.uni-grid .uni-sticker{max-height:300px;}
-@media(max-width:760px){.uni-grid{grid-template-columns:1fr;}.uni-grid .uni-sticker{max-height:300px;}}
-.faq-q{color:var(--teal);}
-.bg-dark .faq-q{color:#6fd0db;}
-.bg-dark .tier{color:#fff;}
-
-/* ===== Stage-1 additions: new resource pages ===== */
-.bg-teal-l{background:#E4F2F3;}
-.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.06);}
-.jump-nav{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:center;}
-.jump-nav a{font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);border-bottom:2px solid transparent;padding:2px 0;}
-.jump-nav a:hover{border-bottom-color:var(--gold);color:var(--teal);}
-.ulink{color:var(--teal);text-decoration:underline;text-underline-offset:2px;}
-.ulink:hover{color:var(--teal-dark);}
-.bg-dark .ulink{color:#9fe3ea;}
-.vb-svg-wrap{display:flex;justify-content:center;}
-.vb-svg{width:100%;max-width:380px;height:auto;}
-/* lazy YouTube facade */
-.yt-facade{position:relative;aspect-ratio:16/9;border-radius:var(--radius);cursor:pointer;overflow:hidden;
-  background:radial-gradient(ellipse at center,var(--teal) 0%,var(--teal-dark) 70%,#040404 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;border:0;}
-.yt-facade:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
-.yt-play{width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--teal-dark);
-  display:flex;align-items:center;justify-content:center;font-size:28px;padding-left:6px;transition:transform .2s ease,background .2s ease;}
-.yt-facade:hover .yt-play{transform:scale(1.08);background:var(--gold);}
-.yt-cap{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:#fff;text-transform:uppercase;letter-spacing:.04em;text-shadow:0 1px 6px rgba(0,0,0,.4);}
-.yt-facade iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-.btn-outline-teal{background:transparent;color:var(--teal);border:2px solid var(--teal);padding:12px 26px;}
-.btn-outline-teal:hover{background:var(--teal);color:#fff;}
-
-
-/* ===== batch v1.33 ===== */
-
-/* Item 1 — subtle gold shine sweep on the header CTA */
-.btn-shine { position: relative; overflow: hidden; }
-.btn-shine::after {
-  content: "";
-  position: absolute; top: 0; left: -75%;
-  width: 50%; height: 100%;
-  background: linear-gradient(120deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.55) 50%,
-    rgba(255,255,255,0) 100%);
-  transform: skewX(-20deg);
-  animation: btn-shine-sweep 4.5s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes btn-shine-sweep {
-  0%   { left: -75%; }
-  18%  { left: 130%; }
-  100% { left: 130%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .btn-shine::after { animation: none; }
-}
-
-/* Item 3 — even-size the Financial Aid buttons */
-.btn-row.aid-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: stretch;
-}
-.btn-row.aid-buttons .btn {
-  flex: 1 1 0;
-  min-width: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.2;
-}
-@media (max-width: 768px) {
-  .btn-row.aid-buttons { flex-direction: column; }
-  .btn-row.aid-buttons .btn { flex: 1 1 auto; }
-}
-
-
-/* ===== batch v1.36 (2026-07-04) ===== */
-
-/* Task 10 — [ANN] announcement bar enlarged ~50% + RMR membership/OCS note line */
-.announcement--xl{padding:18px 24px;font-size:19px;letter-spacing:.06em;line-height:1.45;}
-.announcement--xl .ann-note{display:block;font-family:'Open Sans',sans-serif;font-size:13.5px;font-weight:600;text-transform:none;letter-spacing:.01em;margin-top:6px;color:#111;text-shadow:0 1px 0 rgba(255,255,255,.25);}
-@media(max-width:700px){.announcement--xl{font-size:14.5px;padding:14px 18px;}.announcement--xl .ann-note{font-size:12.5px;}}
-
-/* Task 4 — header CTA glow (extends .btn-shine; sweep unchanged) */
-.nav .btn-gold.btn-shine{animation:btn-glow 2.6s ease-in-out infinite;}
-@keyframes btn-glow{0%,100%{box-shadow:0 1px 0 var(--gold-dark) inset,0 2px 6px rgba(0,0,0,0.08);}50%{box-shadow:0 1px 0 var(--gold-dark) inset,0 0 16px rgba(229,184,0,0.7);}}
-@media(prefers-reduced-motion:reduce){.nav .btn-gold.btn-shine{animation:none;}}
-
-/* Task 4 — jump-nav "Tryouts" highlight pulse */
-.jump-nav a.jump-hot{color:var(--teal);border-bottom:2px solid var(--gold);font-weight:700;animation:jump-pulse 2.2s ease-in-out infinite;}
-@keyframes jump-pulse{0%,100%{border-bottom-color:var(--gold);}50%{border-bottom-color:rgba(229,184,0,0.15);}}
-@media(prefers-reduced-motion:reduce){.jump-nav a.jump-hot{animation:none;}}
-
-/* Task 5 — OCS buttons under [TO-NAV] */
-.ocs-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;padding:18px 24px 6px;background:var(--white);}
-.ocs-btns-note{max-width:820px;margin:0 auto;padding:0 24px 18px;text-align:center;font-size:13.5px;color:var(--gray-text);background:var(--white);}
-
-/* v1.37 — band height reverted to original; per-page inline CSS controls positions */
-
-/* Tasks 3+8 — club benefits grid (2-col, teal/gold alternation, hover lift) */
-.benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:980px;margin:0 auto;}
-.benefit{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.08);border-top:4px solid var(--teal);transition:transform .2s ease,box-shadow .2s ease;}
-.benefit:nth-child(even){border-top-color:var(--gold);}
-@media(hover:hover) and (pointer:fine){.benefit:hover{transform:translateY(-3px);box-shadow:0 6px 22px rgba(0,0,0,.13);}}
-.benefit h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:var(--teal-dark);margin:0 0 8px;}
-.benefit p{margin:0;font-size:15px;color:#111;}
-@media(max-width:760px){.benefit-grid{grid-template-columns:1fr;}}
-
-/* Task 7 — team levels: Regional teal · Colorado black · National metallic gold */
-.level-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1040px;margin:0 auto;}
-.level{background:#f7f9fa;border:1px solid #e3e7ea;border-radius:var(--radius);box-shadow:0 6px 18px rgba(0,0,0,.18);overflow:hidden;transition:transform .2s ease,box-shadow .2s ease;display:flex;flex-direction:column;}
-.level .level-body{background:#f7f9fa;}
-@media(hover:hover) and (pointer:fine){.level:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.24);}}
-.level-head{padding:16px 18px;text-align:center;}
-.level--regional .level-head{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);color:#fff;}
-.level--colorado .level-head{background:linear-gradient(135deg,#2a2a2a 0%,var(--black) 100%);color:#fff;border-bottom:3px solid var(--teal);}
-.level--national .level-head{background:linear-gradient(135deg,#D4A017 0%,#FFD700 28%,#FFF4B8 50%,#FFD700 72%,#D4A017 100%);color:var(--black);border-bottom:3px solid var(--black);}
-.level--national .level-head .name,.level--national .level-head .ages{text-shadow:0 1px 0 rgba(255,255,255,.5);}
-.level-head .name{display:block;font-family:'Montserrat',sans-serif;font-weight:900;font-size:19px;text-transform:uppercase;line-height:1.15;}
-.level-head .ages{display:block;font-family:'Montserrat',sans-serif;font-weight:600;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.9;margin-top:3px;}
-.level-body{padding:16px 18px 20px;}
-.level-body .travel{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;color:var(--teal-dark);margin:0 0 8px;text-align:center;}
-.level--colorado .level-body .travel{color:var(--black);}
-.level--national .level-body .travel{color:var(--gold-dark);}
-.level-body p{margin:0;font-size:14px;color:#111;}
-@media(max-width:960px){.level-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:560px){.level-grid{grid-template-columns:1fr;}}
-
-/* Task 3 — club fees table + notes */
-.fee-table td:not(:first-child),.fee-table th:not(:first-child){text-align:center;}
-.fee-table .total-row td{font-family:'Montserrat',sans-serif;font-weight:900;background:var(--teal-light);font-size:18px;color:#111;}
-.fee-table .ryl-row td{background:var(--cream);font-weight:600;}
-.fee-table tbody tr:hover{background:#fafafa;}
-.fee-table .ryl-row:hover td{background:var(--cream);}
-.fee-note{max-width:900px;margin:22px auto 0;}
-.fee-note h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;color:var(--teal-dark);margin:22px 0 6px;}
-.fee-note ul{margin:0;padding-left:22px;color:#111;}
-.fee-note li{margin-bottom:8px;font-size:15px;}
-.fee-flag{max-width:900px;margin:26px auto 0;padding:14px 18px;background:var(--cream);border-left:4px solid var(--gold);border-radius:var(--radius);font-size:14px;color:#111;}
-
-/* ===== v1.38 (2026-07-14) — Club Login nav button: black, heavy drop shadow ===== */
-.btn-login{box-shadow:0 6px 16px rgba(0,0,0,.55),0 2px 5px rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.28);}
-.btn-login:hover{background:#000;box-shadow:0 8px 20px rgba(0,0,0,.65),0 2px 6px rgba(0,0,0,.5);}
-
-/* ===== v1.39 (2026-07-14) — [RB] recruiting banner: black, gold-trimmed, shimmer sweep ===== */
-.recruit-banner{position:relative;overflow:hidden;background:var(--black);color:#fff;text-align:center;
-  font-family:'Montserrat',sans-serif;font-weight:900;font-size:15px;letter-spacing:.14em;text-transform:uppercase;
-  padding:11px 16px;border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
-  text-shadow:0 1px 4px rgba(0,0,0,.6);}
-.recruit-banner .rb-hl{color:var(--gold);}
-.recruit-banner::after{content:"";position:absolute;top:0;bottom:0;left:-45%;width:32%;
-  background:linear-gradient(105deg,rgba(255,255,255,0) 0%,rgba(255,244,184,.42) 50%,rgba(255,255,255,0) 100%);
-  transform:skewX(-18deg);animation:rb-shimmer 3.2s ease-in-out infinite;pointer-events:none;}
-@keyframes rb-shimmer{0%{left:-45%;}60%,100%{left:125%;}}
-@media(prefers-reduced-motion:reduce){.recruit-banner::after{animation:none;display:none;}}
-@media(max-width:600px){.recruit-banner{font-size:12px;letter-spacing:.1em;}}
-
-/* ===== v1.40 (2026-07-14) — header alignment + refined nav CTAs (emil pass) ===== */
-/* Header content pulled in from the edges; nothing wraps */
-.header-inner{max-width:1080px;padding:10px 28px;gap:16px;}
-.nav{gap:16px;flex-wrap:nowrap;}
-.nav a{white-space:nowrap;}
-@media(min-width:981px) and (max-width:1180px){.nav{gap:12px;}.nav a{font-size:11px;letter-spacing:.02em;}}
-
-/* CTA pair: equal height, centered labels, consistent 10px gap, pinned right */
-.nav-ctas{display:inline-flex;align-items:center;gap:10px;margin-left:4px;flex-shrink:0;}
-.nav .nav-ctas .btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;
-  height:38px;min-width:122px;padding:0 18px;font-size:12px;letter-spacing:.08em;line-height:1;margin:0;}
-
-/* Tryout Now! — refined metallic gold, black text, crisp edge, press feedback */
-.nav .btn-gold{background:linear-gradient(180deg,#F7D54A 0%,#E9BC0A 46%,#D4A017 100%);color:var(--black);
-  border:1px solid #B8900A;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 6px rgba(0,0,0,.28);}
-.nav .btn-gold.btn-shine{animation:none;} /* retire the pulsing glow — calmer, more premium */
-@media(hover:hover) and (pointer:fine){
-  .nav .btn-gold:hover{filter:brightness(1.06);transform:translateY(-1px);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 5px 14px rgba(229,184,0,.35);}
-}
-.nav .btn-gold:active{transform:scale(.97);}
-
-/* Club Login — black with gold outline, quiet depth */
-.nav .btn-login{background:linear-gradient(180deg,#1d1d1d 0%,#0a0a0a 100%);color:#fff;
-  border:1.5px solid var(--gold);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 4px 12px rgba(0,0,0,.45);}
-@media(hover:hover) and (pointer:fine){
-  .nav .btn-login:hover{border-color:#F2CA00;color:#F7D54A;transform:translateY(-1px);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 6px 16px rgba(0,0,0,.5),0 0 12px rgba(229,184,0,.22);}
-}
-.nav .btn-login:active{transform:scale(.97);}
-
-/* Announcement note: constrained width so long lines align under the headline */
-.announcement--xl .ann-note{max-width:900px;margin-left:auto;margin-right:auto;}
-
-/* Mobile: taller open menu (new items), buttons stacked full-width */
-@media(max-width:980px){
-  .nav.open{max-height:calc(100vh - 70px);overflow-y:auto;}
-  .nav-ctas{flex-direction:column;align-items:stretch;gap:10px;margin:12px 24px;}
-  .nav .nav-ctas .btn{width:100%;min-width:0;height:44px;margin:0;}
-}
+      <div class="fee-flag reveal">Fees shown are for the 2026&ndash;27 season only. The website may not always reflect the latest updates &mdash; <strong>your signed Player Agreement and Schedule A are the controlling source for fees and terms.</strong> Questions: <a href="mailto:admin@coloradoboom.com" class="ulink">admin@coloradoboom.com</a></div>
+    </div>
+  </section>
+  <!-- ===== [CL-07] Uniforms ===== -->
+  <section data-section="CL-07" class="bg-cream">
+    <div class="container narrow prose">
+      <h2 class="section-title">Uniforms</h2>
+      <div class="uni-grid has-photo">
+        <div class="prose">
+          <p>Colorado Boom outfits every team in <strong>Adidas</strong>. Each player receives a coordinated team uniform package &mdash; competition jerseys (both colors), shorts, and warm-ups &mdash; sized and numbered after roster placement. Players bring their own court shoes, knee pads, and a ball for at-home reps.</p>
+          <p>Full uniform details and sizing windows are shared with families once teams are set after tryouts.</p>
+        </div>
+        <!-- v1.36: team.jpg did not exist in assets/img (broken image). Interim: club.jpg. FLAG: AI-placeholder — replace with a real team photo (keep filename club.jpg or restore team.jpg). -->
+        <img class="uni-photo" src="assets/img/club.jpg" alt="Colorado Boom Volleyball Club team in Adidas uniforms" title="Colorado Boom team in Adidas uniforms" loading="lazy">
+      </div>
+    </div>
+  </section>
+  <!-- ===== [CL-09] GIRLS / BOYS QUICK-SELECT BAND ===== -->
+  <section class="gb-band" data-section="CL-09" aria-label="Choose a program">
+    <a class="gb-half gb-girls" href="girls-club.html" data-block="CL-09.1" aria-label="Girls Club program">
+      <span class="gb-bg" style="background-image:url('assets/img/girls.jpg');background-position:center 28%; /* v1.37 new mirrored girls photo */"></span>
+      <span class="gb-label">Girls<span class="gb-sub">Club &middot; 10U&ndash;18U</span></span>
+    </a>
+    <a class="gb-half gb-boys" href="boys-club.html" data-block="CL-09.2" aria-label="Boys Club program">
+      <span class="gb-bg" style="background-image:url('assets/img/boys.jpg');background-position:center 35%;"></span>
+      <span class="gb-label">Boys<span class="gb-sub">Club &middot; 13U&ndash;18U</span></span>
+    </a>
+    <span class="gb-divider" aria-hidden="true"></span>
+  </section>
+  <!-- ===== [CL-08] FAQ ===== -->
+  <section id="faq" data-section="CL-08" class="bg-dark">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Everything parents and players ask, in detail.</p>
+      <div class="faq">
+        <h3 class="tier">New to Club Volleyball</h3>
+        <div class="faq-item"><button class="faq-q">What is club volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>Club volleyball is organized, competitive volleyball played outside of the school system. Players join a club (like Colorado Boom), try out for a team within that club, and compete in tournaments throughout the season. Clubs are sanctioned by USA Volleyball (USAV) through regional bodies — in Colorado, that's the Rocky Mountain Region (RMR). Club teams practice multiple times per week and travel to compete in local, regional, and sometimes national tournaments.</p><p>Club volleyball is widely considered the primary pathway for players who want to develop advanced skills, compete at a high level, and pursue collegiate volleyball.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">How is club volleyball different from school or rec league volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>School volleyball (middle school and high school) runs during a single season — typically late summer through fall for girls in Colorado. Club volleyball runs the rest of the year, with seasons spanning November through June for girls and September through February (and June) for boys. The level of coaching, training intensity, and competition is generally higher in club than in school programs. Recreational leagues are less structured, with shorter commitments and no travel requirements.</p><p>Many athletes play both school and club volleyball. More than 90% of women's college volleyball players reported playing both club and high school volleyball, according to an NCAA survey.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What age can my child start playing club volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>Most clubs offer programs starting at 10U (10 and under) for girls. Boys programs typically start at 13U. Colorado Boom offers girls club teams from 10U to 18U and boys club teams from 13U to 18U. We also offer a Developmental Training program for ages 8–16 and are launching a Littles program for ages 6–9 in the 2026–27 season.</p><p>Age groups in USAV are determined by birth year, not by school grade. Check the current season's age definition chart on the RMR website to confirm which age group your child falls into.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What does a typical club volleyball season look like?<span class="ic">+</span></button><div class="faq-a"><div><p>For girls at Colorado Boom, the season runs November through June. Boys run September through February, with an optional June extension for teams attending the Boys Junior National Championships (JNC). During the season, expect 3 practices per week (2.5 hours each at Boomtown Fieldhouse) plus weekend tournaments. Tournaments are typically one-day local events early in the season, expanding to two-day regional events from March through June.</p><p>At Colorado Boom, all practices are held at Boomtown Fieldhouse from 5:00–7:30 PM. We aim to keep practice times and location consistent throughout the season.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">How much does club volleyball cost?<span class="ic">+</span></button><div class="faq-a"><div><p>Club volleyball costs vary widely depending on the club, competitive level, and region. Across Colorado clubs, seasonal fees typically range from around $1,500 to over $5,000. These fees generally cover coaching, facility time, tournament entry fees, and team administration. Additional costs include USAV/RMR membership (typically $50–$75), uniforms and equipment, and travel expenses (gas, hotels, meals) for away tournaments.</p><p>Colorado Boom’s 2026–27 fees are published in the Club Fees section on this page: $4,500 Base Club Fee at every level, plus a committed Travel Fee of $1,000 (Colorado) or $1,500 (National). Questions: admin@coloradoboom.com — we are happy to walk through the full breakdown so there are no surprises.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is USA Volleyball (USAV) and why does my child need a membership?<span class="ic">+</span></button><div class="faq-a"><div><p>USA Volleyball is the national governing body for volleyball in the United States. It oversees rules, sanctioned competitions, and athlete safety programs. All players, coaches, and officials participating in USAV-sanctioned events must hold a current USAV membership. The membership provides access to sanctioned tournaments, insurance coverage, standardized rules, and safety programs including SafeSport.</p><p>USAV membership is purchased through SportsEngine and is valid from September 1 through August 31 of the following year. Your club will guide you through the registration process after tryouts.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is the Rocky Mountain Region (RMR)?<span class="ic">+</span></button><div class="faq-a"><div><p>The Rocky Mountain Region is the regional governing body of USA Volleyball for Colorado. The RMR organizes the local tournament schedule (including Power Tournaments, the RMR Classic, and the RMR Showdown), manages memberships, handles team registrations, and oversees the competitive structure for junior club volleyball in the state. The RMR is one of the largest and fastest-growing regions in USAV, with over 10,000 registered members.</p><p>Learn more at rmrvolleyball.org.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">Do I need a USAV membership just to attend tryouts?<span class="ic">+</span></button><div class="faq-a"><div><p>If your child was not a USAV/RMR member during the previous season, they will need to purchase a low-cost tryout membership before attending tryouts. This membership covers tryout participation only — it does not allow for practices, tournaments, or other sanctioned events. The good news: the tryout membership fee is applied toward the full-season membership if your child joins a club. If your child was a member in the prior season, their membership is valid through August 31 and no additional tryout membership is needed.</p><p>Tryout memberships are purchased through SportsEngine on the RMR website.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What should my child bring to tryouts?<span class="ic">+</span></button><div class="faq-a"><div><p>Bring knee pads, athletic shoes (court shoes preferred — no running shoes), a water bottle, and comfortable athletic clothing. Volleyball-specific shoes are helpful but not required for tryouts. Arrive early, be ready to warm up, and come with a positive attitude. Coaches evaluate skill, athleticism, coachability, and effort — not just experience level.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What if my child has never played volleyball before?<span class="ic">+</span></button><div class="faq-a"><div><p>All skill levels are welcome at Colorado Boom tryouts. Our program includes developmental-level teams for players who are still building foundational skills. We also offer a Developmental Training program (ages 8–16) that meets Mon–Thurs from 5:00–6:30 PM — players can pick 1 or 2 days per week, pay monthly, and cancel anytime. It's a low-commitment entry point designed as a pathway into club teams.</p><p>If your child is curious about volleyball but not ready for tryouts, drop into one of our open gyms (Mon/Wed/Fri, 5–7 PM all summer). No commitment required.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">How are teams formed after tryouts?<span class="ic">+</span></button><div class="faq-a"><div><p>Coaches evaluate athletes across multiple tryout sessions and form teams based on skill level, position needs, and competitive level (Regional, Colorado, or National). Colorado Boom offers multiple tryout dates within each tryout window so athletes have more than one opportunity to be evaluated. Team placement decisions are typically communicated within two weeks of the final tryout session.</p><p>In the RMR, clubs use the Online Commitment System (OCS) to send official offers. For 15U–18U athletes, offers to returning and offered players go out July 9 — the day before tryouts begin. For 10U–14U athletes, offers begin August 20. Players have 48 hours to accept their team-level placement; after that, the spot may be released and offered to another player. Once you accept an offer through the OCS, your child is committed to that club for the season.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">Can my child switch clubs mid-season?<span class="ic">+</span></button><div class="faq-a"><div><p>No. Once a player accepts an offer through the RMR's Online Commitment System, that commitment is binding for the full season. Players cannot try out for or play with another club unless they are formally released by their current club. Clubs are not required to grant releases. This policy is consistent across USAV regions and exists to protect team stability for all players.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What does a tournament day look like?<span class="ic">+</span></button><div class="faq-a"><div><p>Most local tournaments are single-day events that start early in the morning (often 7–8 AM check-in). The format typically starts with pool play — your team plays several matches against other teams in your pool. Results from pool play determine seeding for bracket play in the afternoon. Expect to be at the facility for a full day (6–8 hours). Bring both jersey colors, snacks, water, and a folding chair.</p><p>Many RMR tournaments charge a gate fee (typically $10 per day) for spectators. Tournament schedules and court assignments are posted on Advanced Event Systems (AES) a few days before the event.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">How much travel is involved?<span class="ic">+</span></button><div class="faq-a"><div><p>Travel varies by competitive level. Regional teams compete at facilities across Colorado — from the Denver metro to Colorado Springs, Fort Collins, and Castle Rock — with no committed out-of-state travel. Colorado teams add two committed travel tournaments, and National teams add three, including multi-day qualifiers and showcases that may be out of state (common destinations include Kansas City, Dallas, Las Vegas, and Orlando for nationals). Plan for hotel stays and additional meal costs at away tournaments.</p><p>At Colorado Boom, many of our regular-season tournaments are held at facilities within an hour of Boomtown Fieldhouse.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What equipment does my child need?<span class="ic">+</span></button><div class="faq-a"><div><p>Essential gear: volleyball shoes (court shoes with gum rubber soles — not running shoes), knee pads, and a water bottle. Your club will provide team jerseys and may require specific shorts, warm-ups, or backpacks as part of the uniform package. A personal volleyball for at-home practice is recommended but not required. Ankle braces are common among players with previous ankle injuries.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is SafeSport?<span class="ic">+</span></button><div class="faq-a"><div><p>SafeSport is the athlete safety program required by USA Volleyball. All coaches, club directors, and officials must complete SafeSport training and pass a background check. Players who are 18 or will turn 18 before August 31 of the current season must also complete SafeSport certification. The program covers abuse prevention, reporting protocols, and athlete welfare. Colorado also enacted its own youth sports coach safety training law effective July 2025, adding a state-level requirement on top of the USAV mandate.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">Can my child play other sports during club volleyball season?<span class="ic">+</span></button><div class="faq-a"><div><p>Yes. Colorado Boom supports multi-sport athletes. We offer flexibility with alternate practice days so athletes can balance volleyball with other sports commitments. Your child may practice with a different team group on alternate days to accommodate scheduling conflicts. We believe multi-sport participation builds better overall athletes, and we work with families to make it manageable.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">Where are Colorado Boom practices held?<span class="ic">+</span></button><div class="faq-a"><div><p>All practices are held at Boomtown Fieldhouse inside FieldhouseUSA, located at 14200 E Alameda Ave, Aurora, CO 80012. We practice 3 days per week from 5:00–7:30 PM (including a 30-minute conditioning block). We keep practice times and location as consistent as possible — no bouncing between gyms or late-night practice slots. The facility has 13 full-size courts and is centrally located for families across the south and east Denver metro, including Aurora, Centennial, Parker, Highlands Ranch, and Lone Tree.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== [CL-08b] FAQ (returning families) ===== -->
+  <section data-section="CL-08b" class="bg-white">
+    <div class="container">
+      <div class="faq">
+        <h3 class="tier">For Returning Players &amp; Veteran Families</h3>
+        <div class="faq-item"><button class="faq-q">What is the difference between Regional, Colorado, and National teams?<span class="ic">+</span></button><div class="faq-a"><div><p>These are Colorado Boom’s competitive levels for 2026–27. Regional teams (14U &amp; below, and 15U+) compete in-state with no committed travel; teams 14U &amp; below also include the Rocky Mountain Youth League (RYL). Colorado teams (14+) add two committed travel tournaments ($1,000 Travel Fee). National teams (14+) add three committed travel tournaments ($1,500 Travel Fee) and are eligible for national-championship bids. The Base Club Fee is the same at every level — only the committed Travel Fee differs, and it covers coaches’ travel and tournament fees, not family travel.</p><p>Specific team details and tournament schedules for the 2026–27 season will be posted once rosters are finalized after tryouts. See the Club Fees section above for the full breakdown.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What are RMR Power Tournaments?<span class="ic">+</span></button><div class="faq-a"><div><p>Power Tournaments are the RMR's regular-season tournament series — typically six events throughout the season. They are held on Sundays at assigned sites across Colorado (you don't get to choose your facility). The RMR posts site assignments and format schedules on TM2sign.com no later than the Wednesday before the event. All match play begins at 8:00 AM. Teams are responsible for cleaning up their area at the end of the day — the RMR has been known to fine teams for leaving a mess.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What are bid tournaments and qualifiers?<span class="ic">+</span></button><div class="faq-a"><div><p>Bid tournaments (also called Junior National Qualifiers or JNQs) are multi-day events where teams compete for bids to the USAV Junior National Championships. Teams earn bids based on their performance at these events. The RMR awards regional bids toward both the Girls and Boys Junior National Championships. Qualifier events are typically two- or three-day tournaments held at large convention center-style venues, often out of state. They represent the highest level of competition available to junior club teams.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">How does college recruiting work with club volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>Club volleyball is the primary pathway to college volleyball. According to an NCAA survey, more than 90% of women's college volleyball players reported playing club volleyball. College coaches evaluate recruits by watching them compete at club tournaments and showcases, often over the course of two or three years before making contact.</p><p>For NCAA Division I and II programs, coaches cannot directly contact recruits until June 15 after the athlete's sophomore year of high school. Before that date, coaches can only send generic materials like camp invitations and recruiting questionnaires. There are no restrictions on when a recruit can reach out to college coaches — the contact rules apply only to coaches.</p><p>NAIA, NCAA Division III, and NJCAA programs have fewer contact restrictions and typically begin recruiting later, often after the athlete has taken the SAT or ACT.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is the NCAA Eligibility Center?<span class="ic">+</span></button><div class="faq-a"><div><p>College-bound student-athletes who want to compete at an NCAA Division I or Division II school must register with the NCAA Eligibility Center (formerly the NCAA Clearinghouse). This certification confirms that the athlete meets academic eligibility requirements — including GPA, core course requirements, and standardized test scores. Registration should be completed before the athlete takes an official campus visit. You can register at the NCAA Eligibility Center website (web3.ncaa.org/ecwr3/).</p><p>NAIA schools have their own eligibility center. Start the process early — ideally by the end of sophomore year.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">When should we start thinking about college recruiting?<span class="ic">+</span></button><div class="faq-a"><div><p>Begin building awareness in 8th or 9th grade: attend camps, create a target list of schools, and start compiling a skills video. By sophomore year, register with the NCAA Eligibility Center and begin reaching out to coaches at schools that interest you. The June 15 date after sophomore year is when D1/D2 coaches can begin direct contact, so be prepared before that window opens.</p><p>Your club coaches are a valuable resource in this process — college coaches often communicate with club coaches and directors when evaluating recruits. Talk to your club coaching staff about your recruiting goals early and ask for honest feedback on your competitive level.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is the difference between USAV and AAU volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>USAV (USA Volleyball) and AAU (Amateur Athletic Union) are separate organizations that both sanction junior volleyball. USAV is the national governing body recognized by the U.S. Olympic Committee and FIVB (the international federation). AAU operates its own tournament circuit. Many clubs participate in USAV-sanctioned events; some also enter AAU events. The RMR is a USAV region, so all Colorado Boom teams compete under USAV/RMR sanctioning. Some Colorado clubs hold dual memberships and compete in both USAV and AAU events.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is the RMR Online Commitment System (OCS)?<span class="ic">+</span></button><div class="faq-a"><div><p>The OCS is the RMR's official system for managing club offers and player commitments. After tryouts, clubs send offers to players through the OCS. For 15U–18U athletes, offers to returning and offered players go out at 10:00 AM on July 9. For 10U–14U athletes, offers begin at 10:00 AM on August 20. Players have 48 hours to accept; after 48 hours the spot may be offered to another player. Clubs cannot require verbal commitments before the official OCS offer is sent. Once a player accepts an offer through the OCS, they are committed to that club for the season and cannot try out for or play with another club.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What are guest passes at RMR tournaments?<span class="ic">+</span></button><div class="faq-a"><div><p>The RMR requires guest passes for spectators at sanctioned events. These passes are specific to individuals and help ensure that only people associated with teams are present at tournament sites. Most RMR tournaments charge a gate fee of around $10 per day. The passes are part of a broader safety initiative as volleyball's popularity has grown and facilities are managing larger crowds.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">Does Colorado Boom offer beach volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>Colorado Boom offers year-round indoor and outdoor programs, including a grass league as part of our Developmental Training program and outdoor doubles play through our partner Boomtown Athletics during the summer. Beach volleyball is growing rapidly in Colorado and nationally. The RMR offers beach-specific memberships and sanctions local beach events. Full regular-season USAV members do not need a separate beach membership — it is included.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What does Colorado Boom's practice structure look like compared to other clubs?<span class="ic">+</span></button><div class="faq-a"><div><p>Colorado Boom practices run 2.5 hours, 3 days per week (Mon/Wed/Fri or Tue/Thu/Fri depending on team). Every practice includes an integrated 30-minute conditioning block at the end. Fridays are dedicated to scrimmage and position-specific work. All practices are held at the same location (Boomtown Fieldhouse) at the same time (5:00–7:30 PM) — no late-night sessions and no facility changes. Drop-in play at Boomtown is included for all club members, and makeup practices are available on alternate days. For 17U teams, we also run additional Boomtown 6s tournaments during the season.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== [CL-10] Final CTA ===== -->
+  <section data-section="CL-10" class="cta-band">
+    <div class="container">
+      <h2>Ready to Join Colorado Boom?</h2>
+      <p>Start at an open gym, come to tryouts, and meet the staff who'll coach your athlete this season.</p>
+      <div class="cta-buttons"><a href="tryouts.html" class="btn btn-teal">Open Gyms &amp; Tryouts</a><a href="coaching-staff.html" class="btn btn-black">Meet the Coaches</a></div>
+    </div>
+  </section>
+<footer data-section="FT">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+          <div class="footer-address">
+            <strong>Colorado Boom Volleyball Club</strong>
+            Boomtown Fieldhouse<br>14200 E Alameda Ave<br>Aurora, CO 80012
+            <span style="display:block;margin:8px 0;color:rgba(255,255,255,0.6);font-size:14px;">Serving Denver metro, Aurora, Centennial, Parker, Highlands Ranch &amp; beyond</span>
+            <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.facebook.com/profile.php?id=61590351960515" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.8v3h2.5V21h3.2z"/></svg></a>
+            <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" aria-label="Instagram @coboomvb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm0 1.8a3 3 0 100 6 3 3 0 000-6zm5-2.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="tryouts.html">Open Gyms &amp; Tryouts</a></li>
+            <li><a href="schedule.html">Club Calendar</a></li>
+            <li><a href="club.html">Club Information</a></li>
+            <li><a href="girls-club.html">Girls Club</a></li>
+            <li><a href="boys-club.html">Boys Club</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="parent-resources.html">Parent Resources</a></li>
+            <li><a href="mailto:admin@coloradoboom.com">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="girls-club.html">Club Volleyball</a></li>
+            <li><a href="https://forms.gle/nx3jtbQCTXsEVZKU8" target="_blank" rel="noopener">Developmental Training</a></li>
+            <li><a href="programs.html">Camps &amp; Clinics</a></li>
+            <li><a href="programs.html">Littles (Coming Soon)</a></li>
+            <li><a href="tryouts.html">Open Gym</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Colorado Boom Volleyball Club</div>
+        <nav aria-label="Legal"><a href="legal.html#terms">Terms</a><a href="legal.html#privacy">Privacy</a><a href="legal.html#accessibility">Accessibility</a></nav>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
