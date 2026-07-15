@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.40 · 2026-07-14 | NEW PAGE: Club Calendar — GymDesk schedule widget [SCH-01] + crawlable text schedule [SCH-02] + Event JSON-LD [SCH-03] -->
+  <!-- BUILD v1.42 · 2026-07-14 | NEW PAGE: Club Calendar — GymDesk schedule widget [SCH-01] + crawlable text schedule [SCH-02] + Event JSON-LD [SCH-03] -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club calendar — live schedule of open gyms, training sessions, and tryouts at Boomtown Fieldhouse, Aurora CO.">
@@ -33,16 +33,26 @@
   <!-- ===== [SCH] v1.38 page styles — reserved-height frame, skeleton, fallback. NOTE: no `reveal` on the widget wrapper (IntersectionObserver zero-height trap, see [HM-06] history) ===== -->
   <style>
     .gd-cal{max-width:980px;margin:0 auto;}
-    .gd-frame{position:relative;min-height:640px;background:#fff;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.08);padding:12px;}
+    /* v1.42: dark presentation — GymDesk widget renders dark (theme set account-side), so the
+       band embraces it: black section, gold-trimmed near-black frame. Works light or dark. */
+    .sch-dark{background:var(--black);}
+    .sch-dark .section-title,.sch-dark .section-subtitle{color:#fff;}
+    .gd-members{max-width:980px;margin:0 auto 16px;padding:12px 18px;text-align:center;color:#fff;font-size:15px;
+      background:rgba(255,255,255,.05);border:1px solid rgba(229,184,0,.4);border-radius:var(--radius);}
+    .gd-members a{color:#F7D54A;font-weight:700;text-decoration:underline;text-underline-offset:2px;}
+    .gd-frame{position:relative;min-height:640px;background:linear-gradient(180deg,#181818,#0c0c0c);border:1px solid rgba(229,184,0,.35);
+      border-radius:var(--radius);box-shadow:0 10px 30px rgba(0,0,0,.5);padding:12px;}
     .gd-skeleton{position:absolute;inset:12px;display:flex;flex-direction:column;gap:14px;opacity:1;transition:opacity .2s ease-out;pointer-events:none;}
-    .gd-skeleton .bar{height:18px;border-radius:4px;background:linear-gradient(90deg,#eee 25%,#f7f7f7 37%,#eee 63%);background-size:400% 100%;animation:gd-shimmer 1.4s ease infinite;}
+    .gd-skeleton .bar{height:18px;border-radius:4px;background:linear-gradient(90deg,#242424 25%,#303030 37%,#242424 63%);background-size:400% 100%;animation:gd-shimmer 1.4s ease infinite;}
     .gd-skeleton .bar.head{height:34px;width:45%;}
     .gd-skeleton .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
     .gd-skeleton .row .bar{height:72px;}
     @keyframes gd-shimmer{0%{background-position:100% 0;}100%{background-position:0 0;}}
     @media(prefers-reduced-motion:reduce){.gd-skeleton .bar{animation:none;}.gd-skeleton{transition:none;}}
     .gd-frame.loaded .gd-skeleton{opacity:0;}
-    .gd-fallback{display:none;text-align:center;padding:28px 16px;}
+    .gd-fallback{display:none;text-align:center;padding:28px 16px;color:#fff;}
+    .gd-fallback a.btn{margin-top:6px;}
+    .gd-fallback p a{color:#F7D54A;}
     .gd-frame.failed .gd-fallback{display:block;}
     .gd-frame.failed .gd-skeleton{opacity:0;}
     .sched-legend{max-width:980px;margin:16px auto 0;font-size:14px;color:var(--gray-text);text-align:center;}
@@ -88,7 +98,7 @@
           </span>
         </span>
         <span class="has-drop">
-          <a href="programs.html" aria-haspopup="true">VB Programs &#9662;</a>
+          <a href="programs.html" class="nav-2line" aria-haspopup="true">Volleyball<br>Programs &#9662;</a>
           <span class="drop" role="menu">
             <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
             <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
@@ -109,7 +119,7 @@
         <a href="mailto:admin@coloradoboom.com">Contact</a>
         <span class="nav-ctas">
           <a href="tryouts.html" class="btn btn-gold btn-shine">Tryout Now!</a>
-          <a href="https://coloradoboom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
+          <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
         </span>
       </nav>
     </div>
@@ -125,16 +135,18 @@
   <div class="recruit-banner" role="region" aria-label="Recruiting announcement">We&rsquo;re Recruiting More <span class="rb-hl">17s &amp; 18s</span> &mdash; Every Position</div>
 
   <!-- ===== [SCH-HERO] ===== -->
-  <section class="subhero subhero--dark" data-section="SCH-HERO">
+  <section class="subhero subhero--dark has-img" data-section="SCH-HERO">
+    <span class="sub-bg" style="background-image:url('assets/img/camps.jpg');background-position:center 55%;" role="img" aria-label="Colorado Boom players training at Boomtown Fieldhouse"></span>
     <div class="container"><h1>Club Calendar</h1><p>Open gyms, training, and tryouts at Boomtown Fieldhouse &mdash; live and always current</p></div>
   </section>
 
   <!-- ===== [SCH-01] LIVE SCHEDULE (GymDesk widget) ===== -->
-  <section data-section="SCH-01" class="bg-white" id="calendar">
+  <section data-section="SCH-01" class="sch-dark" id="calendar">
     <div class="container">
       <h2 class="section-title">Live Schedule</h2>
       <p class="section-subtitle">Tap a session to see details and sign up. The calendar updates automatically.</p>
       <div class="gd-cal">
+        <p class="gd-members">Members: manage bookings and payments in the <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">Club Login portal</a>.</p>
         <div class="gd-frame" id="gd-frame">
           <div class="gd-skeleton" aria-hidden="true">
             <div class="bar head"></div>
@@ -152,7 +164,6 @@
             <a class="btn btn-teal" href="#weekly">See the Weekly Schedule</a>
           </div>
         </div>
-        <p class="sched-legend">Members: manage bookings and payments in the <a class="ulink" href="https://coloradoboom.gymdesk.com/login" target="_blank" rel="noopener">Club Login portal</a>.</p>
       </div>
     </div>
   </section>
