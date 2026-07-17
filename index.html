@@ -101,7 +101,7 @@
 <body>
 <!--
   ==============================================================
-  PAGE: Home (index.html)   |   CODE: HM   |   Updated: 2026-07-04 (batch v1.36: [HM-POP] tryout popup, [HMB] taller band + face/shoulder reframe, [ANN] xl + OCS note, nav Advanced Skills item, drop-in wording)
+  PAGE: Home (index.html)   |   CODE: HM   |   Updated: 2026-07-16 (batch v1.44: popup boys Sat Jul 18 4:00–5:30 PM; prev v1.36: [HM-POP] tryout popup, [HMB] taller band + face/shoulder reframe, [ANN] xl + OCS note, nav Advanced Skills item, drop-in wording)
   REFERENCE NUMBERING (code-only, never shown on the page):
   --------------------------------------------------------------
   [NAV]    Header / nav (SHARED) -> logo; Open Gyms & Tryouts (drop);
@@ -477,7 +477,7 @@
           <tbody>
             <tr class="wk"><td colspan="2">Boys 13U&ndash;18U &mdash; This Week</td></tr>
             <tr><td>Friday, July 17</td><td>5:30&ndash;7:00 PM</td></tr>
-            <tr><td>Saturday, July 18</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr><td>Saturday, July 18</td><td>4:00&ndash;5:30 PM</td></tr>
             <tr><td>Tuesday, July 21</td><td>5:30&ndash;7:00 PM</td></tr>
             <tr class="wk"><td colspan="2">Boys &mdash; Make-Up Sessions</td></tr>
             <tr><td>Wednesday, July 29</td><td>5:30&ndash;7:00 PM</td></tr>
@@ -504,11 +504,11 @@
     </div>
   </div>
   <script>
-  /* [HM-POP] v1.38 — once per session; X / backdrop / Esc close; focus trapped */
+  /* [HM-POP] v1.44 (2026-07-16): boys Sat Jul 18 → 4:00–5:30 PM — once per session; X / backdrop / Esc close; focus trapped */
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v138';
+    var KEY='cobo-popup-v144';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){
