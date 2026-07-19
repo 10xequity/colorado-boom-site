@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--  BUILD: v1.44 (2026-07-16) | change: boys Sat Jul 18 5:30-7:00 -> 4:00-5:30 PM (matches popup). Prev v1.43 (2026-07-14) | change: boys Sat Jul 18 4:00-6:30 -> 5:30-7:00 PM. Prev v1.42 (2026-07-14) | change: Club Login nav btn, Club Calendar nav+footer link, ANN dates+recruiting line, 11U->10U-14U labels, THIS-WEEK callout refresh. Prev v1.37 (2026-07-12) | change: boys tryouts collapsed to single combined session 13U–18U (Jul 17 5:30–7:00 PM, Jul 18 4:00–6:30 PM, Jul 21/29/31 5:30–7:00 PM). Prev v1.36: tryouts-first reorder, OCS buttons under TO-NAV, THIS-WEEK callout, jump-nav pulse, OCS 11U-14U offer date Aug 20, ANN xl + membership note, nav Advanced Skills item. -->
+  <!--  BUILD: v1.45 (2026-07-19) | change: dropped past July sessions (Jul 10-18); schedule tables + ANN + THIS-WEEK callout pruned to upcoming (Boys Jul 21/29/31, Girls 15U-18U Jul 29, Girls 10U-14U Aug); OCS 15U-18U offer note updated; schema startDate -> Jul 21. Prev v1.44 (2026-07-16) | change: boys Sat Jul 18 5:30-7:00 -> 4:00-5:30 PM (matches popup). Prev v1.43 (2026-07-14) | change: boys Sat Jul 18 4:00-6:30 -> 5:30-7:00 PM. Prev v1.42 (2026-07-14) | change: Club Login nav btn, Club Calendar nav+footer link, ANN dates+recruiting line, 11U->10U-14U labels, THIS-WEEK callout refresh. Prev v1.37 (2026-07-12) | change: boys tryouts collapsed to single combined session 13U–18U (Jul 17 5:30–7:00 PM, Jul 18 4:00–6:30 PM, Jul 21/29/31 5:30–7:00 PM). Prev v1.36: tryouts-first reorder, OCS buttons under TO-NAV, THIS-WEEK callout, jump-nav pulse, OCS 11U-14U offer date Aug 20, ANN xl + membership note, nav Advanced Skills item. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="2026 tryouts and summer open gyms for Colorado Boom Volleyball Club at Boomtown Fieldhouse, Aurora CO.">
@@ -25,7 +25,7 @@
   <meta name="twitter:description" content="2026 tryouts and summer open gyms for Colorado Boom Volleyball Club at Boomtown Fieldhouse, Aurora CO.">
   <meta name="twitter:image" content="https://coloradoboom.com/assets/img/tryouts.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SportsEvent","name":"Colorado Boom Volleyball Tryouts 2026","sport":"Volleyball","startDate":"2026-07-10","endDate":"2026-08-31","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"url":"https://coloradoboom.com/tryouts.html"}
+  {"@context":"https://schema.org","@type":"SportsEvent","name":"Colorado Boom Volleyball Tryouts 2026","sport":"Volleyball","startDate":"2026-07-21","endDate":"2026-08-31","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"url":"https://coloradoboom.com/tryouts.html"}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Tryouts & Open Gyms","item":"https://coloradoboom.com/tryouts.html"}]}
@@ -91,7 +91,7 @@
   </header>
   <!-- ============ [ANN] ANNOUNCEMENT BAR (shared) ============ -->
   <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Announcement">
-    RMR Tryouts &nbsp;&bull;&nbsp; Boys 13U&ndash;18U July 17 &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 18 &amp; 29 &nbsp;&bull;&nbsp; Girls 10U&ndash;14U Aug 21 &mdash; <a href="tryouts.html">Register Now!</a>
+    RMR Tryouts &nbsp;&bull;&nbsp; Boys 13U&ndash;18U July 21 &nbsp;&bull;&nbsp; Girls 15U&ndash;18U July 29 &nbsp;&bull;&nbsp; Girls 10U&ndash;14U Aug 21 &mdash; <a href="tryouts.html">Register Now!</a>
     <span class="ann-note">Trying out? You’ll need a low-cost RMR tryout membership ($15) &mdash; applied toward your full membership when you commit. <a href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add your player to the RMR OCS</a></span>
   </div>
 
@@ -127,17 +127,13 @@
       <!-- v1.36 THIS-WEEK callout -->
       <div class="times-callout" style="border-color:var(--gold);background:#fff7e0;">
         <span class="big">Club Tryouts Are THIS WEEK</span>
-        <span class="sub">Boys 13U&ndash;18U start Fri, Jul 17 &middot; Girls 15U&ndash;18U make-up sessions Jul 18 &amp; 29 &middot; Girls 10U&ndash;14U begin Aug 21</span>
+        <span class="sub">Boys 13U&ndash;18U Tue, Jul 21 &middot; Girls 15U&ndash;18U Jul 29 &middot; Girls 10U&ndash;14U begin Aug 21</span>
         <span class="sub">Can’t make the first session? The later dates below double as make-up tryouts.</span>
       </div>
       <h3 style="text-align:center;margin:6px 0 12px;"><a class="ulink" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Girls 15U&ndash;18U Tryouts</a></h3>
       <div class="tbl-wrap"><table class="sched">
         <thead><tr><th>Date</th><th>Time</th></tr></thead>
         <tbody>
-          <tr><td>Fri, Jul 10</td><td>4:00&ndash;5:30 PM</td></tr>
-          <tr><td>Sat, Jul 11</td><td>10:00&ndash;11:30 AM</td></tr>
-          <tr><td>Mon, Jul 13</td><td>5:30&ndash;7:00 PM</td></tr>
-          <tr><td>Sat, Jul 18</td><td>10:00&ndash;11:30 AM</td></tr>
           <tr><td>Wed, Jul 29</td><td>6:00&ndash;7:30 PM</td></tr>
         </tbody>
       </table></div>
@@ -155,8 +151,6 @@
       <div class="tbl-wrap"><table class="sched">
         <thead><tr><th>Date</th><th>Time</th></tr></thead>
         <tbody>
-          <tr><td>Fri, Jul 17</td><td>5:30&ndash;7:00 PM</td></tr>
-          <tr><td>Sat, Jul 18</td><td>4:00&ndash;5:30 PM</td></tr>
           <tr><td>Tue, Jul 21</td><td>5:30&ndash;7:00 PM</td></tr>
           <tr><td>Wed, Jul 29</td><td>5:30&ndash;7:00 PM</td></tr>
           <tr><td>Fri, Jul 31</td><td>5:30&ndash;7:00 PM</td></tr>
@@ -173,7 +167,7 @@
       <p class="section-subtitle">After tryouts, club offers come through the Rocky Mountain Region's Online Commitment System (&ldquo;the Portal&rdquo;).</p>
       <ul class="checks">
         <li>Offers arrive by email from <strong>offers@rmr.vstarvolleyball.com</strong> &mdash; add it to your contacts now so it doesn't land in spam.</li>
-        <li><strong>Returning and offered players:</strong> offers go out <strong>10am, July 9</strong> (15U&ndash;18U) &mdash; the day before tryouts begin July 10. Offers for 10U&ndash;14U begin <strong>10am, Aug 20</strong>.</li>
+        <li><strong>Returning and offered players:</strong> 15U&ndash;18U offers have gone out &mdash; accept within 48 hours if you received one. Offers for 10U&ndash;14U begin <strong>10am, Aug 20</strong>.</li>
         <li><strong>You have 48 hours to accept</strong> your team-level placement. After 48 hours, the spot may no longer be available and can be offered to another player.</li>
         <li><strong>Accepting an offer commits your athlete to that club for the season</strong> &mdash; they can't try out for or play with another club after that.</li>
         <li>The OCS is separate from membership: you'll still join USAV/RMR, sign waivers, and pay dues.</li>
