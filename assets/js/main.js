@@ -68,3 +68,22 @@
     window.scrollTo({top:0,behavior:rm?'auto':'smooth'});
   });
 })();
+
+
+// ===== ANALYTICS (v1.50) =====================================================
+// Google Analytics: paste your Measurement ID (looks like "G-ABC1234XYZ")
+// between the quotes below. Leave it empty to keep Google Analytics switched off.
+// Cloudflare Web Analytics needs NOTHING here — it is switched on from the
+// Cloudflare dashboard and injected automatically, because this domain is
+// proxied through Cloudflare. Running both at once is fine.
+(function(){
+  var GA_MEASUREMENT_ID = '';
+  if(!GA_MEASUREMENT_ID) return;
+  var s=document.createElement('script');
+  s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA_MEASUREMENT_ID;
+  document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config',GA_MEASUREMENT_ID);
+})();

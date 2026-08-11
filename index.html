@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.43 · 2026-07-14 -->
+  <!-- BUILD v1.50 · 2026-08-11 — banner stack split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast (was 1.88:1); popup gains a top Register button on the teal band; header widened + 2-line nav items left-aligned + Tryout Now shine fixed; analytics hook added to main.js -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Girls Club & RYL tryouts August 2026.">
   <meta name="theme-color" content="#0E7C86">
-  <!-- STAGING: hide from Google during review. REMOVE this line at launch. -->
   <link rel="icon" type="image/png" href="assets/img/logo.png">
   <title>Colorado Boom Volleyball Club | Where Potential Booms — Aurora, CO</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,16 +195,31 @@
   </section>
 
   <!-- ============ [ANN] ANNOUNCEMENT BAR (now below hero) ============ -->
-  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Announcement">
+  <!-- ============ [ANN] ANNOUNCEMENT BAR — v1.50: concise gold CTA ============ -->
+  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Tryout announcement">
     <!-- EDIT: tryout dates -->
-    Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U &nbsp;&bull;&nbsp; Aug 21, 22, 24 &amp; 31 &nbsp;&bull;&nbsp; 15U&ndash;18U hitters, middles &amp; setters welcome to try out &mdash;
+    Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U &nbsp;&bull;&nbsp; Official Tryouts Aug 21, 22, 24 &amp; 31 &mdash;
     <!-- /EDIT -->
-    <a href="tryouts.html">Register Now!</a>
-    <span class="ann-note">Trying out? New RMR players need a low-cost tryout/RYL membership ($20 &mdash; $15 of it applies toward your full membership when you commit); returning 25&ndash;26 members are covered through Aug 31. <a href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add your player to the RMR OCS</a></span>
+    <a href="tryouts.html#tryouts">Register Now!</a>
+    <span class="ann-note">Pre-evaluations &amp; open gym happening now &mdash; Mon / Wed / Fri &middot; 5:30&ndash;7:00 PM through August &middot; register or walk in &middot; RYL tryouts run the same dates</span>
   </div>
 
-  <!-- ============ [RB] RECRUITING BANNER (v1.39) ============ -->
-  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">We&rsquo;re Recruiting More <span class="rb-hl">17s &amp; 18s</span> &mdash; Every Position</div>
+  <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
+  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">
+    Recruiting <span class="rb-hl">17s &amp; 18s</span> &mdash; Middles &amp; Pin Hitters &nbsp;&bull;&nbsp; Regional <span class="rb-hl">15s &amp; 16s</span> &mdash; Hitters &amp; Middles
+    <span class="rb-sub">Ongoing tryouts at open gym &middot; private evaluations: <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></span>
+  </div>
+
+  <!-- ============ [OCSR] OCS BAR — v1.50 (new): membership + offers, moved out of the gold CTA ============ -->
+  <div class="ocs-bar" data-section="OCSR" role="region" aria-label="RMR OCS membership and offers">
+    <div class="ocs-bar-inner">
+      <p class="ocs-bar-text"><span class="ocs-tag">RMR OCS</span> &mdash; offers release <strong>9:00 PM, Aug 20</strong> for pre-evaluated players; accept within 48 hours. New RMR players need a $20 tryout/RYL membership ($15 applies toward your full membership when you commit); returning 25&ndash;26 members are covered through Aug 31.</p>
+      <span class="ocs-bar-btns">
+        <a class="btn btn-teal" href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add Player to OCS</a>
+        <a class="btn btn-black" href="https://rmr.vstarvolleyball.com/ocs/index.php" target="_blank" rel="noopener">OCS Login &middot; Accept Offer</a>
+      </span>
+    </div>
+  </div>
 
   <!-- ============ [HMB] GIRLS / BOYS QUICK-SELECT BAND ============ -->
   <section class="gb-band" data-section="HMB" aria-label="Choose a program">
@@ -472,6 +486,7 @@
         <span class="venue">Boomtown Fieldhouse &middot; Aurora</span>
         <h2 id="popup-title">Girls Club &amp; RYL Tryouts<br>10U&ndash;14U &middot; August</h2>
         <span class="kicker">Limited tryout spots &mdash; register fast</span>
+        <a class="popup-cta popup-cta--top" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Register for Tryouts</a>
       </div>
       <div class="popup-body">
         <table class="popup-sched">
@@ -486,7 +501,8 @@
         </table>
         <ul id="popup-desc">
           <li>Tryouts for Club teams and the RYL fall league, concurrently &mdash; 10U&ndash;14U, all positions.</li>
-          <li>Girls 15U&ndash;18U: filling a few team spots &mdash; come to any session above or email <a class="inline" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a> to schedule an evaluation.</li>
+          <li>Girls 10U&ndash;14U: pre-evaluations at open gym now (Mon/Wed/Fri 5:30&ndash;7:00 PM) &mdash; register or walk in. Offers for pre-evaluated players release 9:00 PM, Aug 20.</li>
+          <li>Girls 15U&ndash;18U: ongoing tryouts at open gym &mdash; 17s &amp; 18s need middles &amp; pin hitters; Regional 15s &amp; 16s have spots for hitters &amp; middles. Private evaluations: <a class="inline" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>.</li>
           <li>Open team slots at every level &mdash; all skill levels welcome.</li>
           <li>Spots are limited &mdash; register before your first session.</li>
           <li>OCS registration required &mdash; add your player in the <a class="inline" href="https://rmr.vstarvolleyball.com/ocs/index.php" target="_blank" rel="noopener">RMR OCS portal</a> so offers can reach you. Offers begin 9:00 PM, Aug 20.</li>
@@ -501,7 +517,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v147';
+    var KEY='cobo-popup-v150';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){
