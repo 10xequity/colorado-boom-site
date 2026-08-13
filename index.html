@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.50 · 2026-08-11 — banner stack split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast (was 1.88:1); popup gains a top Register button on the teal band; header widened + 2-line nav items left-aligned + Tryout Now shine fixed; analytics hook added to main.js -->
+  <!-- BUILD v1.51 · 2026-08-12 — open evaluations (Mon Aug 17 & Wed Aug 19, 5:30-7:00 PM, 10U-14U) added to the banner and popup; official Fri Aug 21 session moved to 4:30-6:30 PM. Prev v1.50 · 2026-08-11 — banner stack split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast (was 1.88:1); popup gains a top Register button on the teal band; header widened + 2-line nav items left-aligned + Tryout Now shine fixed; analytics hook added to main.js -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Girls Club & RYL tryouts August 2026.">
@@ -201,7 +201,7 @@
     Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U &nbsp;&bull;&nbsp; Official Tryouts Aug 21, 22, 24 &amp; 31 &mdash;
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">Pre-evaluations &amp; open gym happening now &mdash; Mon / Wed / Fri &middot; 5:30&ndash;7:00 PM through August &middot; register or walk in &middot; RYL tryouts run the same dates</span>
+    <span class="ann-note">Open Evaluations &mdash; Mon Aug 17 &amp; Wed Aug 19 &middot; 5:30&ndash;7:00 PM &middot; 10U&ndash;14U &middot; register or walk in. Any Mon / Wed / Fri open gym through August works too &middot; RYL tryouts run the same dates</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -490,10 +490,13 @@
       </div>
       <div class="popup-body">
         <table class="popup-sched">
-          <caption>Tryout Sessions</caption>
+          <caption>Evaluations &amp; Tryouts</caption>
           <tbody>
-            <tr class="wk"><td colspan="2">Girls 10U&ndash;14U &mdash; Club &amp; RYL Tryouts</td></tr>
-            <tr><td>Friday, August 21</td><td>4:00&ndash;5:30 PM</td></tr>
+            <tr class="wk"><td colspan="2">Open Evaluations &mdash; Girls 10U&ndash;14U</td></tr>
+            <tr><td>Monday, August 17</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr><td>Wednesday, August 19</td><td>5:30&ndash;7:00 PM</td></tr>
+            <tr class="wk"><td colspan="2">Official Tryouts &mdash; Girls 10U&ndash;14U (Club &amp; RYL)</td></tr>
+            <tr><td>Friday, August 21</td><td>4:30&ndash;6:30 PM</td></tr>
             <tr><td>Saturday, August 22</td><td>10:00&ndash;11:30 AM</td></tr>
             <tr><td>Monday, August 24</td><td>5:30&ndash;7:00 PM</td></tr>
             <tr><td>Monday, August 31</td><td>5:30&ndash;7:00 PM</td></tr>
@@ -501,7 +504,7 @@
         </table>
         <ul id="popup-desc">
           <li>Tryouts for Club teams and the RYL fall league, concurrently &mdash; 10U&ndash;14U, all positions.</li>
-          <li>Girls 10U&ndash;14U: pre-evaluations at open gym now (Mon/Wed/Fri 5:30&ndash;7:00 PM) &mdash; register or walk in. Offers for pre-evaluated players release 9:00 PM, Aug 20.</li>
+          <li>Girls 10U&ndash;14U: open evaluations <strong>Mon Aug 17</strong> &amp; <strong>Wed Aug 19</strong> &mdash; register or walk in. Any Mon/Wed/Fri open gym works too. Offers for evaluated players release 9:00 PM, Aug 20.</li>
           <li>Girls 15U&ndash;18U: ongoing tryouts at open gym &mdash; 17s &amp; 18s need middles &amp; pin hitters; Regional 15s &amp; 16s have spots for hitters &amp; middles. Private evaluations: <a class="inline" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>.</li>
           <li>Open team slots at every level &mdash; all skill levels welcome.</li>
           <li>Spots are limited &mdash; register before your first session.</li>
@@ -517,7 +520,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v150';
+    var KEY='cobo-popup-v151';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){
