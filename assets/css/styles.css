@@ -583,3 +583,9 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
    so the gold reads against dark rather than against white */
 .popup-head{padding-bottom:22px;}
 .popup-cta--top{margin:16px 0 0;}
+
+
+/* ===== batch v1.52 (2026-08-14) ===== */
+/* Secondary-scale button. The pre-evaluation CTA is a step below the gold
+   "Register for Tryouts" primary, so it reads as the earlier, lighter commitment. */
+.btn-sm{font-size:13px;padding:9px 18px;letter-spacing:.06em;}
