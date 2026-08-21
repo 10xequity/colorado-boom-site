@@ -12,7 +12,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
     html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
     body{font-family:'Open Sans',system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.6;color:var(--black);background:var(--white);-webkit-font-smoothing:antialiased;}
-    img{max-width:100%;display:block;}
+    img{max-width:100%;height:auto;display:block;} /* height:auto keeps aspect ratio once width/height attrs are set (CLS fix) */
     a{color:inherit;text-decoration:none;}
     button{font:inherit;cursor:pointer;border:0;background:transparent;}
     h1,h2,h3,h4{font-family:'Montserrat',sans-serif;text-transform:uppercase;line-height:1.1;letter-spacing:-0.01em;}
@@ -534,11 +534,22 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
 /* Announcement note: constrained width so long lines align under the headline */
 .announcement--xl .ann-note{max-width:900px;margin-left:auto;margin-right:auto;}
 
-/* Mobile: taller open menu (new items), buttons stacked full-width */
+/* Mobile open menu (v1.55): fits the *visible* viewport. `dvh` fixes the iOS/Android 100vh
+   trap where 100vh is taller than the visible area, so the menu's bottom — the Tryout / Club
+   Login CTAs — hid behind the browser toolbar and could not be scrolled to. The vh line is the
+   fallback for engines without dvh. CTAs are pulled to the TOP (order:-1) so a returning member
+   reaches Club Login the instant the menu opens, without scrolling the whole list. */
 @media(max-width:980px){
-  .nav.open{max-height:calc(100vh - 70px);overflow-y:auto;}
-  .nav-ctas{flex-direction:column;align-items:stretch;gap:10px;margin:12px 24px;}
-  .nav .nav-ctas .btn{width:100%;min-width:0;height:44px;margin:0;}
+  .nav.open{max-height:calc(100vh - 70px);max-height:calc(100dvh - 70px);overflow-y:auto;overscroll-behavior:contain;}
+  .nav-ctas{order:-1;flex-direction:column;align-items:stretch;gap:10px;margin:10px 24px 4px;}
+  .nav .nav-ctas .btn{width:100%;min-width:0;height:46px;margin:0;}
+}
+
+/* v1.55: always-visible member Login in the header bar — mobile only. Desktop keeps the full
+   "Club Login" in the nav CTAs, so this compact one is hidden ≥981px. */
+.header-login{display:none;}
+@media(max-width:980px){
+  .header-login{display:inline-flex;align-items:center;justify-content:center;height:38px;padding:0 15px;font-size:12px;margin-left:auto;margin-right:8px;white-space:nowrap;}
 }
 
 

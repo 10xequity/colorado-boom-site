@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.36 · 2026-07-04 -->
+  <!-- BUILD v1.55 · 2026-08-20 · batch: age-scoped Team Levels & Fees split — NEW [CL-04a] 11U-14U (Girls Club) block; [CL-04c] rescoped to 15U-18U (Regional 14U card removed); [CL-06] fee table to 3 cols + pay-in-full -$100 discount removed; FAQ fee bands, level-difference answer, and 11U-14U 5:15 start note. Prev v1.36 · 2026-07-04 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
@@ -54,14 +54,24 @@
         clip-path:none;transform:translateY(-50%) skewY(-4deg);
         background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.30),rgba(255,255,255,0));}
     }
+    /* v1.55 — age-scoped level/fee split: 3-up level grids + info card. Reuses brand tokens; no new colors or fonts. */
+    .level-grid--3{grid-template-columns:repeat(3,1fr);max-width:820px;}
+    @media(max-width:960px){.level-grid--3{grid-template-columns:1fr 1fr;}}
+    @media(max-width:560px){.level-grid--3{grid-template-columns:1fr;}}
+    .level--info{background:#fff;border:1px solid var(--teal);}
+    .level--info .level-head{background:#fff;color:var(--teal-dark);border-bottom:2px solid var(--teal);}
+    .level--info .level-body{background:#fff;}
+    .level--info .addon-h{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);margin:0 0 4px;}
+    .level--info .addon-h + p{margin:0 0 12px;}
   </style>
 </head>
 <body>
   <header class="header" data-section="NAV">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
-        <img class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+        <img width="372" height="240" class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
       </a>
+      <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black header-login" aria-label="Club member login">Login</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
       <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="index.html">Home</a>
@@ -78,7 +88,8 @@
             <a href="club.html" role="menuitem">Club Overview</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
-            <a href="club.html#team-levels" role="menuitem">Club Fees</a>
+            <a href="club.html#age-11-14" role="menuitem">Club Fees &mdash; 11U&ndash;14U</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees &mdash; 15U&ndash;18U</a>
             <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
           </span>
         </span>
@@ -117,7 +128,7 @@
     Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U &nbsp;&bull;&nbsp; Official Tryouts Aug 21, 22, 24 &amp; 31 &mdash;
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">Open Evaluations &mdash; Mon Aug 17 &amp; Wed Aug 19 &middot; 5:30&ndash;7:00 PM &middot; 10U&ndash;14U &middot; register or walk in. Any Mon / Wed / Fri open gym through August works too &middot; RYL tryouts run the same dates</span>
+    <span class="ann-note">10U&ndash;14U &middot; Register now or walk in at any Mon / Wed / Fri open gym through August &middot; RYL tryouts run the same dates</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -145,7 +156,7 @@
   <section data-section="CL-02" class="bg-white">
     <div class="container narrow prose">
       <h2 class="section-title" style="text-align:left;">Who We Are</h2>
-      <img class="float-fig" src="assets/img/uniform.png" alt="Colorado Boom youth volleyball player in Adidas team uniform" title="Colorado Boom Adidas uniform" loading="lazy">
+      <img width="560" height="1198" class="float-fig" src="assets/img/uniform.png" alt="Colorado Boom youth volleyball player in Adidas team uniform" title="Colorado Boom Adidas uniform" loading="lazy">
       <p>Colorado Boom is a competitive club volleyball program based at Boomtown Fieldhouse in Aurora &mdash; girls 10U&ndash;18U and boys 13U&ndash;18U, sanctioned by USA Volleyball through the Rocky Mountain Region (RMR). We field National, Regional, Local, and Developmental teams so every committed player has a place to grow.</p>
       <p>We are different. We focus on fundamentals and biomechanics first, in a dedicated training center built for the sport. Above all, we are committed to a culture that prioritizes the player&rsquo;s journey &mdash; development, character, and a love of the game that lasts.</p>
       <p>Our model is built around one idea: more touches, more growth, in a schedule families can actually live with. One location, predictable times, and coaching that develops athletes for the long run.</p>
@@ -205,34 +216,85 @@
       </table></div>
     </div>
   </section>
-  <!-- ===== [CL-04c] Team Levels (v1.36: Agreement v3.5 naming + travel commitments) ===== -->
+  <!-- ===== [CL-04a] Team Levels & Fees — 11U–14U (Girls Club) — NEW v1.55: younger age band leads ===== -->
+  <section id="age-11-14" data-section="CL-04a" class="bg-cream">
+    <div class="container">
+      <h2 class="section-title reveal">Team Levels &amp; Fees &mdash; 11U&ndash;14U <span style="font-weight:600;font-size:.62em;color:var(--teal-dark);white-space:nowrap;">(Girls Club)</span></h2>
+      <p class="section-subtitle reveal">Two committed tracks for our younger athletes &mdash; RYL is included at both. National is offered at 14U only; 11U&ndash;13U compete at the Colorado level.</p>
+      <div class="btn-row reveal" style="justify-content:center;margin:0 0 26px;" role="group" aria-label="Jump to fees by age group">
+        <a href="#age-11-14" class="btn btn-teal" aria-current="true">11U&ndash;14U (Girls Club)</a>
+        <a href="#team-levels" class="btn btn-outline-teal">15U&ndash;18U</a>
+      </div>
+      <div class="level-grid level-grid--3 reveal">
+        <div class="level level--colorado reveal">
+          <div class="level-head"><span class="name">Colorado</span><span class="ages">11U&ndash;14U</span></div>
+          <div class="level-body">
+            <p class="travel">Team Travel Fee: $375</p>
+            <p style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:#111;text-align:center;margin:0 0 10px;">Total Fee: $4,875</p>
+            <p>In-state RMR competition plus one committed travel event (Casper Rumble). RYL included. Base Club Fee $4,500 + $375 committed Travel Fee &mdash; the Travel Fee covers coaches&rsquo; travel and tournament fees only; family travel is separate.</p>
+          </div>
+        </div>
+        <div class="level level--national reveal">
+          <div class="level-head"><span class="name">National</span><span class="ages">14U only</span></div>
+          <div class="level-body">
+            <p class="travel">Team Travel Fee: $1,000</p>
+            <p style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:#111;text-align:center;margin:0 0 10px;">Total Fee: $5,500</p>
+            <p>Our most competitive 14U track &mdash; two committed travel events, RYL included. <strong>Offered at 14U only; 11U&ndash;13U compete at the Colorado level.</strong> Base Club Fee $4,500 + $1,000 committed Travel Fee.</p>
+          </div>
+        </div>
+        <div class="level level--info reveal">
+          <div class="level-head"><span class="name">Add-On Training</span><span class="ages">Optional</span></div>
+          <div class="level-body">
+            <p class="addon-h">Add-On Skills Training</p>
+            <p>Optional monthly skills training on top of RYL, to prepare for the middle-school or club season. $150/month for club members (from September) or $295/month community. <a href="programs.html#add-on-training" class="ulink">Details &amp; sign-up</a>.</p>
+            <p class="addon-h">14U girls: Girls League</p>
+            <p>Our Girls League (14U&ndash;18U, Oct&ndash;Aug, $80 for 8 weeks) is open to 14U players too &mdash; see the <a href="programs.html#girls-league" class="ulink">Programs</a> page.</p>
+          </div>
+        </div>
+      </div>
+      <div class="tbl-wrap reveal"><table class="sched fee-table">
+        <thead><tr><th>Component</th><th>Colorado<br>(11U&ndash;14U)</th><th>National<br>(14U)</th></tr></thead>
+        <tbody>
+          <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td></tr>
+          <tr><td>Committed travel events</td><td>1</td><td>2</td></tr>
+          <tr><td>Travel Fee (committed)</td><td>$375</td><td>$1,000</td></tr>
+          <tr><td>Uniforms</td><td>Included</td><td>Included</td></tr>
+          <tr class="ryl-row"><td>Rocky Mountain Youth League (RYL)</td><td>Included</td><td>Included</td></tr>
+          <tr class="total-row"><td>Total Fee</td><td>$4,875</td><td>$5,500</td></tr>
+        </tbody>
+      </table></div>
+      <p class="sched-note"><strong>RYL is included for every 11U&ndash;14U team.</strong> A deposit of <strong>$1,000</strong> (non-refundable, applied toward the total) is due at signing. Amounts exclude payment-processing fees and applicable Aurora sales tax (approx. 3.75%).</p>
+      <p class="sched-note">Practice for this group is <strong>5:15&ndash;7:30 PM</strong>, three days a week (M/W/F or T/Th/F). Players are welcome to arrive early to warm up &mdash; the 5:15 start gives athletes coming straight from school room to settle in, so no one feels rushed or stressed about being late. <strong>Coaching assignments are released in September.</strong> Tryouts: <strong>Girls 11U&ndash;14U &mdash; Aug 21</strong> (see the <a href="tryouts.html#tryouts" class="ulink">Tryouts</a> page for current times and locations).</p>
+    </div>
+  </section>
+  <!-- ===== [CL-04c] Team Levels — 15U–18U (v1.55: rescoped from the Agreement v3.5 four-level block) ===== -->
   <section id="team-levels" data-section="CL-04c" class="bg-white">
     <div class="container">
-      <h2 class="section-title reveal">Team Levels</h2>
+      <h2 class="section-title reveal">Team Levels &mdash; 15U&ndash;18U</h2>
       <p class="section-subtitle reveal">Same Base Club Fee at every level &mdash; the difference is the committed travel.</p>
-      <div class="level-grid">
+      <div class="btn-row reveal" style="justify-content:center;margin:0 0 26px;" role="group" aria-label="Jump to fees by age group">
+        <a href="#age-11-14" class="btn btn-outline-teal">11U&ndash;14U (Girls Club)</a>
+        <a href="#team-levels" class="btn btn-teal" aria-current="true">15U&ndash;18U</a>
+      </div>
+      <div class="level-grid level-grid--3 reveal">
         <div class="level level--regional reveal">
-          <div class="level-head"><span class="name">Regional</span><span class="ages">14U &amp; Below</span></div>
-          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
-            <p>In-state RMR competition. <strong>RYL included for all 14U &amp; below teams</strong> (Sep&ndash;Oct for players not in high school volleyball). All Regional teams conclude in May.</p></div>
-        </div>
-        <div class="level level--regional reveal">
-          <div class="level-head"><span class="name">Regional</span><span class="ages">15U+</span></div>
+          <div class="level-head"><span class="name">Regional</span><span class="ages">15U&ndash;18U</span></div>
           <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
             <p>In-state RMR competition for high-school-age players &mdash; full club training with no committed out-of-state travel.</p></div>
         </div>
         <div class="level level--colorado reveal">
-          <div class="level-head"><span class="name">Colorado</span><span class="ages">Ages 14+</span></div>
+          <div class="level-head"><span class="name">Colorado</span><span class="ages">15U&ndash;18U</span></div>
           <div class="level-body"><p class="travel">Team Travel Fee: $1,000</p>
             <p>RMR season plus two committed travel tournaments. Travel Fee covers coaches&rsquo; travel and tournament fees only &mdash; family travel costs are separate.</p></div>
         </div>
         <div class="level level--national reveal">
-          <div class="level-head"><span class="name">National</span><span class="ages">Ages 14+</span></div>
+          <div class="level-head"><span class="name">National</span><span class="ages">15U&ndash;18U</span></div>
           <div class="level-body"><p class="travel">Team Travel Fee: $1,500</p>
             <p>The most competitive track: three committed travel tournaments plus national-bid eligibility. Travel Fee covers coaches&rsquo; travel and tournament fees only &mdash; family travel costs are separate.</p></div>
         </div>
       </div>
       <p class="sched-note"><strong>Team tournament vote &mdash; late January/February.</strong> After evaluating team compatibility and skill, every team &mdash; Regional, Colorado, and National &mdash; votes on adding tournaments in time to meet registration deadlines. Added events are $500 per event (80% team vote; participating families only). <strong>AAU Junior Nationals is an additional $1,000 per player</strong> if the team votes to attend.</p>
+      <p class="sched-note"><strong>Girls League (Girls 14U&ndash;18U):</strong> a flexible Oct&ndash;Aug option &mdash; $80 for 8 weeks. Details on the <a href="programs.html#girls-league" class="ulink">Programs</a> page.</p>
     </div>
   </section>
   <!-- ===== [CL-04d] Rocky Mountain Youth League ===== -->
@@ -272,26 +334,25 @@
   <!-- ===== [CL-04b] RMR Age Groups ===== -->
   <section id="fees" data-section="CL-06" class="bg-white">
     <div class="container">
-      <h2 class="section-title reveal">2026&ndash;27 Club Fees</h2>
+      <h2 class="section-title reveal">2026&ndash;27 Club Fees &mdash; 15U&ndash;18U</h2>
       <p class="section-subtitle reveal">One Base Club Fee across every level &mdash; the difference is each level’s committed travel.</p>
       <div class="tbl-wrap reveal"><table class="sched fee-table">
-        <thead><tr><th>Component</th><th>Regional<br>(14U &amp; below)</th><th>Regional<br>(15U+)</th><th>Colorado<br>(14+)</th><th>National<br>(14+)</th></tr></thead>
+        <thead><tr><th>Component</th><th>Regional<br>(15U&ndash;18U)</th><th>Colorado<br>(15U&ndash;18U)</th><th>National<br>(15U&ndash;18U)</th></tr></thead>
         <tbody>
-          <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td><td>$4,500</td><td>$4,500</td></tr>
-          <tr><td>Committed travel events</td><td>0</td><td>0</td><td>2</td><td>3</td></tr>
-          <tr><td>Travel Fee (committed)</td><td>$0</td><td>$0</td><td>$1,000</td><td>$1,500</td></tr>
-          <tr><td>Uniforms</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
-          <tr class="ryl-row"><td>Rocky Mountain Youth League (RYL)</td><td>Included</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td></tr>
-          <tr class="total-row"><td>Total Fee</td><td>$4,500</td><td>$4,500</td><td>$5,500</td><td>$6,000</td></tr>
+          <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td><td>$4,500</td></tr>
+          <tr><td>Committed travel events</td><td>0</td><td>2</td><td>3</td></tr>
+          <tr><td>Travel Fee (committed)</td><td>$0</td><td>$1,000</td><td>$1,500</td></tr>
+          <tr><td>Uniforms</td><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr class="total-row"><td>Total Fee</td><td>$4,500</td><td>$5,500</td><td>$6,000</td></tr>
         </tbody>
       </table></div>
-      <p class="sched-note"><strong>RYL is included for every team 14U &amp; below.</strong> Players not in high school volleyball start with RYL in September&ndash;October; 14U players who play high school in the fall join the regular season in November. Amounts exclude payment-processing fees and applicable sales tax (approx. 3.75%, City of Aurora).</p>
+      <p class="sched-note"><strong>Looking for 11U&ndash;14U?</strong> Younger-team levels, fees, and RYL are in the <a href="#age-11-14" class="ulink">11U&ndash;14U section</a> above. Amounts exclude payment-processing fees and applicable sales tax (approx. 3.75%, City of Aurora).</p>
 
       <div class="fee-note reveal">
         <h3>Deposit &amp; Payment Options</h3>
         <ul>
           <li>A <strong>non-refundable deposit of $1,000</strong> (all team levels) is due at signing &mdash; applied toward total fees; it purchases uniforms and reserves the roster slot.</li>
-          <li><strong>Pay in full</strong> at signing (&minus;$100 discount) &middot; <strong>Quarterly</strong> (deposit, half in January, balance in April) &middot; <strong>Monthly</strong> installments (available by request).</li>
+          <li><strong>Quarterly</strong> (deposit, half in January, balance in April) &middot; <strong>Monthly</strong> installments (available by request).</li>
           <li>Installments are due the <strong>first business day of the month</strong>; a 3-calendar-day grace period applies, then a $100 late fee.</li>
           <li><strong>Sibling discount:</strong> &minus;$300 per additional sibling enrolled in the same season (applies to the Base Club Fee).</li>
         </ul>
@@ -320,7 +381,7 @@
           <p>Full uniform details and sizing windows are shared with families once teams are set after tryouts.</p>
         </div>
         <!-- v1.36: team.jpg did not exist in assets/img (broken image). Interim: club.jpg. FLAG: AI-placeholder — replace with a real team photo (keep filename club.jpg or restore team.jpg). -->
-        <img class="uni-photo" src="assets/img/club.jpg" alt="Colorado Boom Volleyball Club team in Adidas uniforms" title="Colorado Boom team in Adidas uniforms" loading="lazy">
+        <img width="1162" height="843" class="uni-photo" src="assets/img/club.jpg" alt="Colorado Boom Volleyball Club team in Adidas uniforms" title="Colorado Boom team in Adidas uniforms" loading="lazy">
       </div>
     </div>
   </section>
@@ -347,7 +408,8 @@
         <div class="faq-item"><button class="faq-q">How is club volleyball different from school or rec league volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>School volleyball (middle school and high school) runs during a single season — typically late summer through fall for girls in Colorado. Club volleyball runs the rest of the year, with seasons spanning November through June for girls and September through February (and June) for boys. The level of coaching, training intensity, and competition is generally higher in club than in school programs. Recreational leagues are less structured, with shorter commitments and no travel requirements.</p><p>Many athletes play both school and club volleyball. More than 90% of women's college volleyball players reported playing both club and high school volleyball, according to an NCAA survey.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">What age can my child start playing club volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>Most clubs offer programs starting at 10U (10 and under) for girls. Boys programs typically start at 13U. Colorado Boom offers girls club teams from 10U to 18U and boys club teams from 13U to 18U. We also offer a Developmental Training program for ages 8–16 and are launching a Littles program for ages 6–9 in the 2026–27 season.</p><p>Age groups in USAV are determined by birth year, not by school grade. Check the current season's age definition chart on the RMR website to confirm which age group your child falls into.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">What does a typical club volleyball season look like?<span class="ic">+</span></button><div class="faq-a"><div><p>For girls at Colorado Boom, the season runs November through June. Boys run September through February, with an optional June extension for teams attending the Boys Junior National Championships (JNC). During the season, expect 3 practices per week (2.5 hours each at Boomtown Fieldhouse) plus weekend tournaments. Tournaments are typically one-day local events early in the season, expanding to two-day regional events from March through June.</p><p>At Colorado Boom, all practices are held at Boomtown Fieldhouse from 5:00–7:30 PM. We aim to keep practice times and location consistent throughout the season.</p></div></div></div>
-        <div class="faq-item"><button class="faq-q">How much does club volleyball cost?<span class="ic">+</span></button><div class="faq-a"><div><p>Club volleyball costs vary widely depending on the club, competitive level, and region. Across Colorado clubs, seasonal fees typically range from around $1,500 to over $5,000. These fees generally cover coaching, facility time, tournament entry fees, and team administration. Additional costs include USAV/RMR membership (typically $50–$75), uniforms and equipment, and travel expenses (gas, hotels, meals) for away tournaments.</p><p>Colorado Boom’s 2026–27 fees are published in the Club Fees section on this page: $4,500 Base Club Fee at every level, plus a committed Travel Fee of $1,000 (Colorado) or $1,500 (National). Questions: admin@coloradoboom.com — we are happy to walk through the full breakdown so there are no surprises.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">Why do 11U–14U practices start at 5:15 instead of 5:00?<span class="ic">+</span></button><div class="faq-a"><div><p>Our 11U–14U (Girls Club) teams practice 5:15–7:30 PM, three days a week. The 15-minute-later start is intentional: it gives younger athletes coming straight from school a little breathing room so no one feels rushed or stressed about being late. Players are always welcome to arrive early to warm up. All other Colorado Boom teams practice 5:00–7:30 PM.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">How much does club volleyball cost?<span class="ic">+</span></button><div class="faq-a"><div><p>Club volleyball costs vary widely depending on the club, competitive level, and region. Across Colorado clubs, seasonal fees typically range from around $1,500 to over $5,000. These fees generally cover coaching, facility time, tournament entry fees, and team administration. Additional costs include USAV/RMR membership (typically $50–$75), uniforms and equipment, and travel expenses (gas, hotels, meals) for away tournaments.</p><p>Colorado Boom’s 2026–27 fees are published in the Club Fees section on this page. For 11U–14U: Colorado is $4,875 and National (14U only) is $5,500 — RYL included at both. For 15U–18U: Regional is $4,500, Colorado $5,500, and National $6,000. Every total is the same $4,500 Base Club Fee plus that level’s committed Travel Fee. Questions: admin@coloradoboom.com — we are happy to walk through the full breakdown so there are no surprises.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">What is USA Volleyball (USAV) and why does my child need a membership?<span class="ic">+</span></button><div class="faq-a"><div><p>USA Volleyball is the national governing body for volleyball in the United States. It oversees rules, sanctioned competitions, and athlete safety programs. All players, coaches, and officials participating in USAV-sanctioned events must hold a current USAV membership. The membership provides access to sanctioned tournaments, insurance coverage, standardized rules, and safety programs including SafeSport.</p><p>USAV membership is purchased through SportsEngine and is valid from September 1 through August 31 of the following year. Your club will guide you through the registration process after tryouts.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">What is the Rocky Mountain Region (RMR)?<span class="ic">+</span></button><div class="faq-a"><div><p>The Rocky Mountain Region is the regional governing body of USA Volleyball for Colorado. The RMR organizes the local tournament schedule (including Power Tournaments, the RMR Classic, and the RMR Showdown), manages memberships, handles team registrations, and oversees the competitive structure for junior club volleyball in the state. The RMR is one of the largest and fastest-growing regions in USAV, with over 10,000 registered members.</p><p>Learn more at rmrvolleyball.org.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">Do I need a USAV membership just to attend tryouts?<span class="ic">+</span></button><div class="faq-a"><div><p>If your child was not a USAV/RMR member during the previous season, they will need to purchase a low-cost tryout membership before attending tryouts. This membership covers tryout participation only — it does not allow for practices, tournaments, or other sanctioned events. The good news: the tryout membership fee is applied toward the full-season membership if your child joins a club. If your child was a member in the prior season, their membership is valid through August 31 and no additional tryout membership is needed.</p><p>Tryout memberships are purchased through SportsEngine on the RMR website.</p></div></div></div>
@@ -369,7 +431,7 @@
     <div class="container">
       <div class="faq">
         <h3 class="tier">For Returning Players &amp; Veteran Families</h3>
-        <div class="faq-item"><button class="faq-q">What is the difference between Regional, Colorado, and National teams?<span class="ic">+</span></button><div class="faq-a"><div><p>These are Colorado Boom’s competitive levels for 2026–27. Regional teams (14U &amp; below, and 15U+) compete in-state with no committed travel; teams 14U &amp; below also include the Rocky Mountain Youth League (RYL). Colorado teams (14+) add two committed travel tournaments ($1,000 Travel Fee). National teams (14+) add three committed travel tournaments ($1,500 Travel Fee) and are eligible for national-championship bids. The Base Club Fee is the same at every level — only the committed Travel Fee differs, and it covers coaches’ travel and tournament fees, not family travel.</p><p>Specific team details and tournament schedules for the 2026–27 season will be posted once rosters are finalized after tryouts. See the Club Fees section above for the full breakdown.</p></div></div></div>
+        <div class="faq-item"><button class="faq-q">What is the difference between Regional, Colorado, and National teams?<span class="ic">+</span></button><div class="faq-a"><div><p>These are Colorado Boom’s competitive levels for 2026–27, and they work a little differently by age. <strong>For 11U–14U, teams play at the Colorado or National level — National is offered at 14U only, and 11U–13U play Colorado.</strong> Colorado (11U–14U) is in-state RMR play plus one committed travel event ($375 Travel Fee, $4,875 total); National (14U) adds a second committed event ($1,000 Travel Fee, $5,500 total); RYL is included at both. <strong>For 15U–18U, teams play Regional, Colorado, or National.</strong> Regional is in-state with no committed travel ($4,500 total); Colorado adds two committed travel tournaments ($1,000 Travel Fee, $5,500 total); National adds three ($1,500 Travel Fee, $6,000 total) and is eligible for national-championship bids. The Base Club Fee is the same $4,500 at every level — only the committed Travel Fee differs, and it covers coaches’ travel and tournament fees, not family travel.</p><p>Specific team details and tournament schedules for the 2026–27 season will be posted once rosters are finalized after tryouts. See the Club Fees section above for the full breakdown.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">What are RMR Power Tournaments?<span class="ic">+</span></button><div class="faq-a"><div><p>Power Tournaments are the RMR's regular-season tournament series — typically six events throughout the season. They are held on Sundays at assigned sites across Colorado (you don't get to choose your facility). The RMR posts site assignments and format schedules on TM2sign.com no later than the Wednesday before the event. All match play begins at 8:00 AM. Teams are responsible for cleaning up their area at the end of the day — the RMR has been known to fine teams for leaving a mess.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">What are bid tournaments and qualifiers?<span class="ic">+</span></button><div class="faq-a"><div><p>Bid tournaments (also called Junior National Qualifiers or JNQs) are multi-day events where teams compete for bids to the USAV Junior National Championships. Teams earn bids based on their performance at these events. The RMR awards regional bids toward both the Girls and Boys Junior National Championships. Qualifier events are typically two- or three-day tournaments held at large convention center-style venues, often out of state. They represent the highest level of competition available to junior club teams.</p></div></div></div>
         <div class="faq-item"><button class="faq-q">How does college recruiting work with club volleyball?<span class="ic">+</span></button><div class="faq-a"><div><p>Club volleyball is the primary pathway to college volleyball. According to an NCAA survey, more than 90% of women's college volleyball players reported playing club volleyball. College coaches evaluate recruits by watching them compete at club tournaments and showcases, often over the course of two or three years before making contact.</p><p>For NCAA Division I and II programs, coaches cannot directly contact recruits until June 15 after the athlete's sophomore year of high school. Before that date, coaches can only send generic materials like camp invitations and recruiting questionnaires. There are no restrictions on when a recruit can reach out to college coaches — the contact rules apply only to coaches.</p><p>NAIA, NCAA Division III, and NJCAA programs have fewer contact restrictions and typically begin recruiting later, often after the athlete has taken the SAT or ACT.</p></div></div></div>
@@ -395,7 +457,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+          <img width="372" height="240" class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
           <div class="footer-address">
             <strong>Colorado Boom Volleyball Club</strong>
             Boomtown Fieldhouse<br>14200 E Alameda Ave<br>Aurora, CO 80012

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.53 · 2026-08-14 — price removed from the pre-evaluation CTA. Prev v1.52 · 2026-08-14 — pre-evaluation registration form linked from the popup (teal-on-white, secondary scale) beside the Aug 17/19 dates. Prev v1.51 · 2026-08-12 — open evaluations (Mon Aug 17 & Wed Aug 19, 5:30-7:00 PM, 10U-14U) added to the banner and popup; official Fri Aug 21 session moved to 4:30-6:30 PM. Prev v1.50 · 2026-08-11 — banner stack split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast (was 1.88:1); popup gains a top Register button on the teal band; header widened + 2-line nav items left-aligned + Tryout Now shine fixed; analytics hook added to main.js -->
+  <!-- BUILD v1.55 · 2026-08-20 — popup: expired Aug 17 & 19 open-evaluation rows removed (kept on schedule.html as historical); popup sessionStorage key bumped v151->v155 so returning visitors see the update. Prev v1.53 · 2026-08-14 — price removed from the pre-evaluation CTA. Prev v1.52 · 2026-08-14 — pre-evaluation registration form linked from the popup (teal-on-white, secondary scale) beside the Aug 17/19 dates. Prev v1.51 · 2026-08-12 — open evaluations (Mon Aug 17 & Wed Aug 19, 5:30-7:00 PM, 10U-14U) added to the banner and popup; official Fri Aug 21 session moved to 4:30-6:30 PM. Prev v1.50 · 2026-08-11 — banner stack split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast (was 1.88:1); popup gains a top Register button on the teal band; header widened + 2-line nav items left-aligned + Tryout Now shine fixed; analytics hook added to main.js -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club — elite youth volleyball training in Aurora, Colorado. 13-court facility, RMR & USAV sanctioned. Girls 10U-18U, Boys 13U-18U. Girls Club & RYL tryouts August 2026.">
@@ -134,8 +134,9 @@
   <header class="header" data-section="NAV">
     <div class="header-inner">
       <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
-        <img class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+        <img width="372" height="240" class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
       </a>
+      <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black header-login" aria-label="Club member login">Login</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
       <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="index.html" aria-current="page">Home</a>
@@ -152,7 +153,8 @@
             <a href="club.html" role="menuitem">Club Overview</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
-            <a href="club.html#team-levels" role="menuitem">Club Fees</a>
+            <a href="club.html#age-11-14" role="menuitem">Club Fees &mdash; 11U&ndash;14U</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees &mdash; 15U&ndash;18U</a>
             <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
           </span>
         </span>
@@ -208,7 +210,7 @@
     Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U &nbsp;&bull;&nbsp; Official Tryouts Aug 21, 22, 24 &amp; 31 &mdash;
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">Open Evaluations &mdash; Mon Aug 17 &amp; Wed Aug 19 &middot; 5:30&ndash;7:00 PM &middot; 10U&ndash;14U &middot; register or walk in. Any Mon / Wed / Fri open gym through August works too &middot; RYL tryouts run the same dates</span>
+    <span class="ann-note">10U&ndash;14U &middot; Register now or walk in at any Mon / Wed / Fri open gym through August &middot; RYL tryouts run the same dates</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -440,7 +442,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+          <img width="372" height="240" class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
           <div class="footer-address">
             <strong>Colorado Boom Volleyball Club</strong>
             Boomtown Fieldhouse<br>14200 E Alameda Ave<br>Aurora, CO 80012
@@ -499,10 +501,6 @@
         <table class="popup-sched">
           <caption>Evaluations &amp; Tryouts</caption>
           <tbody>
-            <tr class="wk"><td colspan="2">Open Evaluations &mdash; Girls 10U&ndash;14U</td></tr>
-            <tr><td>Monday, August 17</td><td>5:30&ndash;7:00 PM</td></tr>
-            <tr><td>Wednesday, August 19</td><td>5:30&ndash;7:00 PM</td></tr>
-            <tr><td colspan="2" class="popup-eval-cell"><a class="popup-cta popup-cta--eval" href="https://forms.gle/61d5snUgDeM5Qzuv5" target="_blank" rel="noopener">Register for Open Evaluations</a></td></tr>
             <tr class="wk"><td colspan="2">Official Tryouts &mdash; Girls 10U&ndash;14U (Club &amp; RYL)</td></tr>
             <tr><td>Friday, August 21</td><td>4:30&ndash;6:30 PM</td></tr>
             <tr><td>Saturday, August 22</td><td>10:00&ndash;11:30 AM</td></tr>
@@ -512,7 +510,7 @@
         </table>
         <ul id="popup-desc">
           <li>Tryouts for Club teams and the RYL fall league, concurrently &mdash; 10U&ndash;14U, all positions.</li>
-          <li>Girls 10U&ndash;14U: open evaluations <strong>Mon Aug 17</strong> &amp; <strong>Wed Aug 19</strong> &mdash; register or walk in. Any Mon/Wed/Fri open gym works too. Offers for evaluated players release 9:00 PM, Aug 20.</li>
+          <li>Girls 10U&ndash;14U: official tryouts <strong>Aug 21&ndash;31</strong> (dates below) &mdash; register, or walk in at any Mon/Wed/Fri open gym. Offers for evaluated players release 9:00 PM, Aug 20.</li>
           <li>Girls 15U&ndash;18U: ongoing tryouts at open gym &mdash; 17s &amp; 18s need middles &amp; pin hitters; Regional 15s &amp; 16s have spots for hitters &amp; middles. Private evaluations: <a class="inline" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>.</li>
           <li>Open team slots at every level &mdash; all skill levels welcome.</li>
           <li>Spots are limited &mdash; register before your first session.</li>
@@ -528,7 +526,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v151';
+    var KEY='cobo-popup-v155';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){

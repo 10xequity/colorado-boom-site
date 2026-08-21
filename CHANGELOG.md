@@ -10,6 +10,68 @@ reconstruct later.
 
 ---
 
+## v1.55 — 2026-08-20 · Club fees split by age band (11U–14U vs 15U–18U)
+`club.html`, `programs.html`
+
+The 2026–27 Membership & FAQ packet re-scoped club pricing by age. `club.html` carried one
+four-level fee model for all ages, but the 11U–14U and 15U–18U bands now price differently, and
+the single "National = $X" figure no longer held across ages.
+
+- **NEW `[CL-04a]` "Team Levels & Fees — 11U–14U (Girls Club)"** above the older-band block:
+  Colorado (11U–14U · 1 travel · $375 fee · **$4,875**) and National (**14U only** · 2 travel ·
+  $1,000 fee · **$5,500**), RYL included at both, plus an Add-On Training info card. Its own
+  two-column fee table, $1,000 deposit line, and a 5:15–7:30 PM practice note.
+- **`[CL-04c]` rescoped to 15U–18U.** Removed the "Regional — 14U & below" card (14U now lives in
+  the new block) and relabeled the remaining three cards to 15U–18U. **This retires the only
+  $0-committed-travel tier for young players** — the old Regional 14U-&-below ($4,500, no travel)
+  has no equivalent in the new 11U–14U band, where Colorado ($4,875, one committed Casper Rumble
+  event) is the entry level. Surfaced to the owner as a flag, not assumed.
+- **`[CL-06]` fee table cut 4→3 columns** (Regional / Colorado / National, all 15U–18U); RYL row
+  dropped. **Removed "Pay in full at signing (−$100 discount)"** per owner — no pay-in-full
+  discount anywhere on the site now (it existed only here). Deposit, quarterly/monthly, and the
+  −$300 sibling discount kept.
+- **FAQ:** "How much does club volleyball cost?" now lists both bands; the Regional/Colorado/
+  National answer states National is 14U-only within 11U–14U and 11U–13U play Colorado; a new FAQ
+  explains the 11U–14U 5:15 start (early warm-up welcome; eases the from-school commute).
+- **`programs.html`:** NEW `[PG-02g]` Girls League (#girls-league · **Girls 14U–18U** · Oct–Aug ·
+  $80/8wk) with the Google-Form registration link; NEW `[PG-02t]` Add-On Skills Training
+  (#add-on-training) as a **two-area club-member-vs-community model** (member rate from September;
+  community $150/mo) using the new signup form. `club.html` links to both from the age-band blocks.
+
+**Follow-up in the same batch (owner feedback 2026-08-20):**
+- **Mobile nav fix** (`styles.css`) — the open menu used `max-height:calc(100vh - 70px)`; on mobile
+  `100vh` exceeds the visible viewport, so the bottom CTAs (Tryout / **Club Login**) hid behind the
+  browser toolbar and could not be scrolled to. Switched to `dvh` (vh fallback kept) and pulled the
+  CTAs to the top of the menu (`order:-1`) so members reach Club Login immediately. Centralized, so
+  it fixes every page.
+- **Homepage popup** (`index.html`) — removed the expired Aug 17 & 19 open-evaluation rows (kept on
+  `schedule.html` as historical); bumped the popup key `v151→v155` so returning visitors see it.
+- **`club.html` age-band jump buttons** on both fee blocks (`#age-11-14` ⇄ `#team-levels`).
+
+**Second follow-up (owner feedback 2026-08-20, evening) — site-wide sweeps:**
+- **Add-On pricing corrected:** club-member **$150/mo** (the discount), community/non-club **$295/mo**
+  (full). `programs.html` cards + `club.html` info card.
+- **Banner date sweep (11 pages):** the shared `[ANN]` note advertised the now-past Aug 17 & 19
+  open evaluations; replaced with open-gym + RYL wording. Scripted with a positive control and a
+  per-page anchor assertion. `legal.html` has its own banner and was already clean. The standalone
+  `[TO-EVAL]` open-evaluations section on `tryouts.html` (headline Aug 17 & 19, now past) was
+  **removed** per owner: its jump-nav entry dropped and its two cross-references re-pointed to open
+  gym / tryouts ("join us at tryouts"). `schedule.html` keeps the dates as the intentional
+  historical record. All 11 swept pages are stamped `v1.55`.
+- **Mobile Login (11 pages) + `styles.css`:** a compact "Login" button added to the header bar,
+  shown only ≤980px (desktop keeps Club Login in the nav CTAs) so members reach the portal without
+  opening the menu.
+- **Club Fees menu split (11 pages):** the Club Info dropdown's single "Club Fees" link became
+  "Club Fees — 11U–14U" (`#age-11-14`) and "Club Fees — 15U–18U" (`#team-levels`).
+- **Image CLS fix (all pages):** global `img` rule gained `height:auto`, and intrinsic
+  `width`/`height` were written onto all 27 static `<img>` tags (6 unique images) so the browser
+  reserves space and stops layout shift on load.
+
+Not committed — changes left in the working tree for manual upload (GitHub access is read-only
+this pass).
+
+---
+
 ## v1.54 — 2026-08-15 · Financial aid rewritten for RMR's work-study model
 Commit `6027187` · `parent-resources.html`
 
