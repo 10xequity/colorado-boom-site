@@ -10,6 +10,23 @@ reconstruct later.
 
 ---
 
+## v1.56 — 2026-08-21 · Programs-page polish + removed the added Login button
+`programs.html`, `assets/css/styles.css`, all pages (nav)
+
+Owner review of the live v1.55 deploy flagged five visual items:
+- **Removed the mobile "Login" button** added to the header in v1.55 — not wanted. (The existing
+  "Club Login" nav CTA stays.) Removed from all 11 shared-nav pages and its CSS dropped.
+- **Programs background gap:** Add-On Skills Training and Advanced Skills were both `bg-cream`,
+  running together with no separation. Advanced switched to `bg-white` so sections alternate again.
+- **Developmental "training" photo looked stretched:** the source is a very wide 1400×630 panorama
+  that renders as a thin strip (worst on mobile). Cropped to a natural 16:9 via `object-fit:cover`.
+- **Hanging lines:** added `text-wrap: balance` (headings/subtitles) and `text-wrap: pretty`
+  (body copy) so single-word orphans stop wrapping onto their own line.
+
+Verified in a headless browser at mobile (390px) and desktop (1250px) before publishing.
+
+---
+
 ## v1.55 — 2026-08-20 · Club fees split by age band (11U–14U vs 15U–18U)
 `club.html`, `programs.html`
 

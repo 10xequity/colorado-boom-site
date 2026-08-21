@@ -40,6 +40,9 @@
     @media(hover:hover) and (pointer:fine){.camp-flyer:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.18);}}
     .camp-flyer:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
     .camp-meta{max-width:760px;margin:0 auto 20px;text-align:center;}
+    /* v1.56: the developmental gym shot is a very wide 1400x630 panorama that renders as a thin
+       strip (looks "stretched"); crop it to a natural 16:9 so it reads as a proper photo. */
+    #dev-training .media-img{aspect-ratio:16/9;object-fit:cover;object-position:center 40%;}
   </style>
 </head>
 <body>
@@ -49,7 +52,6 @@
       <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
         <img width="372" height="240" class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
       </a>
-      <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black header-login" aria-label="Club member login">Login</a>
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
       <nav class="nav" id="primary-nav" aria-label="Primary">
         <a href="index.html">Home</a>
@@ -201,7 +203,7 @@
     </div>
   </section>
   <!-- ===== [PG-02b] Advanced Skills + Damon (v1.34, #4) ===== -->
-  <section id="advanced" data-section="PG-02b" class="bg-cream">
+  <section id="advanced" data-section="PG-02b" class="bg-white">
     <div class="container narrow" style="text-align:center;">
       <h2 class="section-title">Advanced Skills &amp; Club Training</h2>
       <p class="section-subtitle">For older and committed players ready for higher-rep, position-specific work.</p>
