@@ -10,6 +10,28 @@ reconstruct later.
 
 ---
 
+## v1.58 — 2026-08-22 · Refresh dates that have passed
+all pages
+
+As of Aug 22, the Aug 20 offer release and the Aug 21 tryout session have passed. Updated site-wide:
+- **Announcement banner** (12 pages): "Aug 21, 22, 24 & 31" → "Aug 22, 24 & 31".
+- **OCS bar** (11 pages) + FAQs + popup: the passed "offers release 9:00 PM, Aug 20 … accept within
+  48 hours" line is now evergreen ("offers are sent through the RMR OCS after tryouts,
+  pre-evaluated players first").
+- **tryouts.html**: removed the Fri Aug 21 session from the this-week callout, the tryout table,
+  and the "join us at tryouts" cross-link; offer bullets made evergreen.
+- **index.html popup**: removed the Aug 21 row; popup key bumped `v155→v156` so returning visitors
+  see the update.
+- **club.html**: 11U-14U tryout note "Aug 21" → "Aug 22, 24 & 31"; two offer FAQs made evergreen.
+- Forward-looking "Aug 21-31" window → "Aug 22-31" (home hero, popup, programs RYL note).
+
+Left as-is on purpose: `schedule.html` calendar and the `girls-club.html` season table (historical
+record), the tryouts `SportsEvent` schema `startDate` (2026-08-21 — the event's actual start;
+`endDate` Aug 31 is future), and build-comment history. Kept today (Aug 22) and future (Aug 24, 31);
+RYL Sep-Oct and the Nov-June season are future.
+
+---
+
 ## v1.57 — 2026-08-22 · All training signups point to one form
 all pages
 
