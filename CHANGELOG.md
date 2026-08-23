@@ -10,6 +10,28 @@ reconstruct later.
 
 ---
 
+## v1.60 — 2026-08-23 · Copy-review fixes
+`club.html`, `girls-club.html`, `boys-club.html`, `parent-resources.html`, `index.html`, `programs.html`
+
+A full-site copy review turned up factual / consistency issues (the training sections were excluded —
+being redesigned; the schedule calendar left historical). Fixed:
+- **Open-gym time** on `club.html` read "5–7 PM"; every other page says **5:30–7:00 PM** — corrected.
+- **Girls / Boys program overview** still listed the retired 4-level fee model ("Regional (14U & below)"
+  …), contradicting the age-scoped Club Fees. **Girls** rewritten to the 11U–14U / 15U–18U model;
+  **boys** made general and pointed to Club Fees / contact (boys pricing is not yet defined on the
+  Club Fees page — flagged).
+- Homepage popup leftovers from removed evaluations: caption "Evaluations & Tryouts" → "Official
+  Tryouts"; "(dates below)" → "(dates above)"; popup key `v157→v158`.
+- `girls-club.html` season table "Aug 21–31" → "Aug 24–31" (matches remaining tryouts).
+- "all summer" → "through August" (home); "Needs Based" → "Need-Based"; camp "Dates TBD" →
+  "to be announced".
+
+Flagged for the owner (not changed): RYL framed girls-only on `programs.html` but boys-included on
+club/tryouts; Girls League "Oct–Aug / $80 for 8 weeks" window is unclear; coach-photo placeholders;
+whether to add 10U/11U rows to the RMR age table; the "Quarterly" payment label.
+
+---
+
 ## v1.59 — 2026-08-23 · Date correction (Aug 22 passed) + training price made consistent
 `tryouts.html`, `index.html`, `club.html`, `programs.html`, all banners
 
