@@ -10,6 +10,23 @@ reconstruct later.
 
 ---
 
+## v1.57 — 2026-08-22 · All training signups point to one form
+all pages
+
+Per owner: consolidate every training-program signup onto a single Google Form
+(`forms.gle/yvnstZ89psTTLmux7`, the Add-On Training form). Repointed **22 buttons across 11 pages**,
+replacing three separate forms:
+- Developmental Training — `nx3jtbQCTXsEVZKU8`
+- 14+ Advanced Skills / Membership — `d4GT48VSgh4qve6Z6`
+- Advanced Summer Club Training (free week) — `CRPDPm7R5ZcdTQKWA`
+
+Left unchanged: Open Gym (`5wyRdqmmUxUdhkK4A`), Tryouts (`2fEhY72d9GdU5Q8H7`), and the
+parent-resources apply form. **Prices unchanged** (Add-On $150 members / $295 community; the 14+
+membership $295/month) — link swap only, per owner. Note: each program section still carries its own
+name, schedule, and price; they now just share one signup form.
+
+---
+
 ## v1.56 — 2026-08-21 · Programs-page polish + removed the added Login button
 `programs.html`, `assets/css/styles.css`, all pages (nav)
 
