@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v1.61 — 2026-08-23 · Copy-review follow-ups (owner answers)
+`club.html`, `programs.html`, `boys-club.html`
+
+- **Girls League** window reversed **Oct–Aug → Aug–Oct**; added "open to any Colorado Boom club
+  player" (Programs + the two club.html references).
+- **Payment schedule** corrected: Quarterly is now **deposit at signing, then September, December &
+  March** (was "half in January, balance in April").
+- **Boys program overview** made generic — dropped the girls-only Club Fees link; boys fees are by
+  contact for now, per owner.
+
+Confirmed no change: open gym "through August" (changes in Sept); RYL stays girls-focused (it's open
+to boys, but no need to mention); no 10U/11U age-table rows (they play up); coach photos to be added
+later once the owner has them.
+
+---
+
 ## v1.60 — 2026-08-23 · Copy-review fixes
 `club.html`, `girls-club.html`, `boys-club.html`, `parent-resources.html`, `index.html`, `programs.html`
 
