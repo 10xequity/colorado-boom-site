@@ -10,6 +10,19 @@ reconstruct later.
 
 ---
 
+## v1.59 — 2026-08-23 · Date correction (Aug 22 passed) + training price made consistent
+`tryouts.html`, `index.html`, `club.html`, `programs.html`, all banners
+
+- **Today is Sun Aug 23**, so the Sat Aug 22 session has passed. Removed it site-wide: banner
+  (12 pages) now "Aug 24 & 31"; tryouts table + this-week callout + "join us" cross-link; homepage
+  popup row (key bumped `v156→v157`); club 11U-14U note; forward-looking "Aug 22-31" window →
+  "Aug 24-31". **Remaining tryouts: Aug 24 & 31.** schedule.html calendar stays historical.
+- **Training price made consistent** per owner: the tryouts "Summer Membership" showed $295/month
+  only; now shows **$150–$295** ($150 club members / $295 community) to match the Add-On section.
+  (The full unified-program presentation is a separate demo, pending owner review.)
+
+---
+
 ## v1.58 — 2026-08-22 · Refresh dates that have passed
 all pages
 
