@@ -117,6 +117,15 @@ in `index.html`, the calendar in `schedule.html`, and the season tables in `girl
 `boys-club.html`. Also check the FAQ answers in `club.html` and `parent-resources.html` — those
 mention offer timing, and one lives inside JSON-LD that Google reads for search results.
 
+**Dated notices that should retire on their own** (v1.66) → tag the element with
+`data-show-until="YYYY-MM-DD"` (hidden the day *after* that date) or `data-show-from="YYYY-MM-DD"`
+(revealed *on* that day — author it `hidden style="display:none"` so it stays hidden until then).
+The engine in `main.js` evaluates these on load in **America/Denver** time. Wrap only the expiring
+words, not a whole block, so what remains still reads — the `[ANN]` banner wraps just
+"· Official Tryouts Aug 24 & 31", so on Sep 1 it becomes "Girls Club & RYL Tryouts · 10U–14U ·
+Register Now!". Fail-safe: a malformed date is left as authored, and with JS off the `until` text
+stays visible (never a blank gap).
+
 **A color or spacing value** → `assets/css/styles.css`, `:root` variables.
 
 **The home Instagram feed** → `[HM-06]` renders from a **Cloudflare Worker** at

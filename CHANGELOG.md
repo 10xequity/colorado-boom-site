@@ -10,6 +10,82 @@ reconstruct later.
 
 ---
 
+## v1.67 — 2026-08-24 · Site-wide line-balancing (hanging lines)
+`assets/css/styles.css`
+
+Per owner: review short 1–3 word trailing lines ("hanging lines"). v1.56 applied
+`text-wrap:balance/pretty` to a few classes; extended it to **every** heading (`h1–h4` →
+balance) and body block (`p, li, dd, figcaption, blockquote` → pretty). The browser now
+redistributes words so a lonely last word gets pulled up. **Why not just widen columns:**
+line length drives readability (~60–75 characters is the target), so widening to fix a widow
+would hurt more than it helps — balancing fixes the symptom without changing measure.
+Progressive enhancement; engines without `text-wrap` wrap as before.
+
+---
+
+## v1.66 — 2026-08-24 · Date-based auto-hide engine
+`assets/js/main.js`, all 12 pages (`[ANN]`)
+
+Answers the recurring date-upkeep problem (dates had to be hand-edited every few days). New
+in `main.js`: a small engine that shows/hides elements by date on each page load, judged in
+**America/Denver** time so it flips at local midnight regardless of the visitor's timezone.
+- `data-show-until="YYYY-MM-DD"` — hides the element the day **after** that date.
+- `data-show-from="YYYY-MM-DD"` — reveals it on that date (author the element `hidden` +
+  `style="display:none"` so it stays hidden until then, no flash).
+- **Fail-safe:** a bad/missing date is left as authored; with JS off, `until` content stays
+  visible (never a blank gap) and `from` content stays hidden.
+
+Applied to the `[ANN]` banner on all 12 pages: only the expiring phrase
+"· Official Tryouts Aug 24 & 31" is wrapped in `data-show-until="2026-08-31"`. On **Sep 1** it
+retires itself, leaving "Girls Club & RYL Tryouts · 10U–14U · Register Now!" — no gap, no
+invented off-season copy. Verified: wrapped exactly once per page, `main.js` passes
+`node --check`, hide fires 2026-09-01 and shows through 2026-08-31. **To reuse:** tag any dated
+block with the attributes above (e.g. the `[ANN]` `.ann-note` "through August" line next).
+
+---
+
+## v1.65 — 2026-08-24 · De-AI copy pass (remove em-dash overuse + AI-isms)
+all 12 pages
+
+Per owner: strip AI writing tells and em dashes, use correct punctuation. Ran a scripted,
+verified pass (exact replacements + positive controls, the method in EDITING_GUIDE) across
+rendered body text: **~290 em dashes → punctuation** (colons for headings/labels, commas/periods
+in prose). Testimonial attributions keep their em dash (conventional, correct). Shared blocks
+(NAV/ANN/RB/OCSR/FT) changed identically on every page. Head metadata cleaned on
+index/legal/schedule (title/description/og/twitter). Homepage: rewrote the fragment-cascade
+paragraph ("We're different. … the player's journey…") into natural prose; dropped "elite" from
+the tagline and meta. **Why scripted:** a naive find/replace has shipped bugs here before;
+the pass skipped `<head>`, comments, `<script>`/`<style>`, protected attributions, and verified
+zero rendered em dashes remained. Facts, dates, prices, links, IDs, and JSON-LD unchanged.
+
+---
+
+## v1.64 — 2026-08-24 · Club phone in metadata + quiet contact row
+`index.html`
+
+Per owner: list the phone for Google but keep email primary and the number something a visitor
+has to look for. Filled the empty `"telephone"` in the SportsClub/LocalBusiness JSON-LD
+(**+1-720-773-0067**) — the on-site metadata Google reads. Added a plain **Phone** row to the
+homepage `[HM-08]` contact block below Email (tel: link, no button) with the note "Email is the
+fastest way to reach us." **Deliberately not** in the nav or footer, so it stays out of the
+always-visible chrome. (The Google Business **Profile** itself is edited at business.google.com,
+not on the site.)
+
+---
+
+## v1.63 — 2026-08-24 · Programs reorder + recolor
+`programs.html`
+
+Per owner: Girls League above RYL; Open Gym after RYL. New order: Skills Training → **Girls
+League → RYL → Open Gym** → Camps → Littles → Outdoor. Recolored to keep the light/dark
+alternation intact (no two adjacent sections share a ground, the v1.56 lesson): Girls League &
+Open Gym → `bg-teal-d`; RYL & Outdoor → `bg-white`, with button swaps for contrast
+(RYL/Outdoor → `btn-outline-teal`, Open Gym → `btn-outline-white`). Jump-nav reordered to match.
+Anchor IDs unchanged so the shared nav's `#dev-training`/`#ryl`/`#camps`/`#littles` links still
+resolve. Shared blocks untouched (git diff confirmed only programs.html changed).
+
+---
+
 ## v1.62 — 2026-08-23 · Unified "Skills Training Membership" on Programs
 `programs.html`
 

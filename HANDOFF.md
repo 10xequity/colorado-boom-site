@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-08-23 · **Live build** v1.62 · **Status** Active
+**Updated** 2026-08-24 · **Live build** v1.67 · **Status** Active
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
 `EDITING_GUIDE.md` (how to edit), `DEPLOY_GITHUB.md` (how to publish), and `CHANGELOG.md` (why each
@@ -35,9 +35,18 @@ Pages redeploys automatically ~1 minute after the push.
   upload a file with the **same name** into `assets/img/`. Full detail in `DEPLOY_GITHUB.md`.
 - **Command line:** `git push origin Main`.
 
-## 4. Current state (v1.62, 2026-08-23)
+## 4. Current state (v1.67, 2026-08-24)
 
-Everything through **v1.62** is live. Highlights (full history in `CHANGELOG.md`):
+Everything through **v1.67** is live. Highlights (full history in `CHANGELOG.md`):
+
+- **2026-08-24 batch (v1.63–v1.67):** Programs sections reordered (Skills Training → **Girls
+  League → RYL → Open Gym** → Camps → Littles → Outdoor) and recolored for the light/dark
+  alternation; club **phone +1-720-773-0067** added to the LocalBusiness JSON-LD and a quiet
+  homepage contact row (email stays primary, phone is not in nav/footer); a **site-wide de-AI
+  pass** removed ~290 em dashes plus AI-isms and fixed punctuation; a **date auto-hide engine**
+  (`data-show-until` / `data-show-from` in `main.js`) now retires dated notices on their own —
+  the `[ANN]` tryout-date phrase drops itself on **Sep 1**; and `text-wrap` line-balancing was
+  extended site-wide to remove hanging lines.
 
 - **Club fees are age-scoped** — an **11U–14U (Girls Club)** section and a **15U–18U** section on
   `club.html`; no pay-in-full discount. Fee math: 11U–14U Colorado $4,875 / National(14U) $5,500;
@@ -58,8 +67,11 @@ Everything through **v1.62** is live. Highlights (full history in `CHANGELOG.md`
 1. **Tryouts page "Summer Membership" box** (`tryouts.html` `[TO-03]`) — a separate membership box
    that still lists **open gyms + tryout fees** and older session times. Decide: align it to the new
    Skills Training Membership (drop those, update times), or keep it as a distinct seasonal offer.
-2. **Recurring date upkeep.** Tryouts **Aug 24 & 31** are still upcoming. **After Aug 31**, switch the
-   site to off-season / next-season messaging. Date-bearing spots to update each time:
+2. **Recurring date upkeep** — now partly automated (v1.66). The `[ANN]` banner's tryout-date
+   phrase ("· Official Tryouts Aug 24 & 31") auto-hides on **Sep 1** via `data-show-until`, so it
+   no longer needs manual removal. To automate any other dated notice, wrap it with
+   `data-show-until="YYYY-MM-DD"` (hide after) or `data-show-from="YYYY-MM-DD"` (reveal on).
+   Spots NOT yet tagged and still manual:
    - `[ANN]` gold banner — **all 12 pages** (identical text; sweep with a script).
    - `[OCSR]` OCS bar — 11 pages.
    - Home popup `[HM-POP]` in `index.html` — **bump the `cobo-popup-vNNN` key** (currently `v158`)
@@ -87,7 +99,9 @@ Everything through **v1.62** is live. Highlights (full history in `CHANGELOG.md`
 | Tryouts form | `forms.gle/2fEhY72d9GdU5Q8H7` · Open gym `forms.gle/5wyRdqmmUxUdhkK4A` |
 | Girls League form | `docs.google.com/forms/d/e/1FAIpQLScVc0co2_2f36uQCu1Mj1n2SySxPNOlFN2mGqcMIs3kL1wbSw/viewform` |
 | Club member login | `https://colorado-boom.gymdesk.com/login` |
-| Contact email | admin@coloradoboom.com |
+| Contact email | admin@coloradoboom.com (primary contact everywhere) |
+| Phone | +1-720-773-0067 — LocalBusiness JSON-LD (index) + a quiet homepage `[HM-08]` row only; NOT in nav/footer, per owner |
+| Auto-hide dated content | `data-show-until` / `data-show-from` attributes; engine in `main.js`, judged in America/Denver |
 | Open gym | Mon/Wed/Fri 5:30–7:00 PM (through August; Sept dates TBA) |
 | `legal.html` | Has its **own** header/banner (not the shared block) — always edit it by hand |
 
