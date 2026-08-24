@@ -598,3 +598,13 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
 /* Secondary-scale button. The pre-evaluation CTA is a step below the gold
    "Register for Tryouts" primary, so it reads as the earlier, lighter commitment. */
 .btn-sm{font-size:13px;padding:9px 18px;letter-spacing:.06em;}
+
+/* ===== v1.67 — site-wide line-balancing (extends the v1.56 pass) =====
+   Kills "hanging lines" (a last line of only 1-3 words) and single-word orphans
+   on every heading and paragraph, not just the handful of classes v1.56 covered.
+   `balance` evens out multi-line headings; `pretty` pulls a lonely last word up
+   into the line above in body copy. Progressive enhancement: engines without
+   text-wrap support ignore these and wrap as before. Nothing is widened, so line
+   length and readability are unchanged - the words are just redistributed. */
+h1,h2,h3,h4{text-wrap:balance;}
+p,li,dd,figcaption,blockquote{text-wrap:pretty;}
