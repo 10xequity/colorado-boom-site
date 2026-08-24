@@ -1,3 +1,27 @@
+    // ===== Date-based visibility (v1.66) — auto-remove dated content ============
+    // Tag any element with a date and it appears/disappears on its own, judged in
+    // the club's timezone (America/Denver), so dated notices retire themselves with
+    // no manual edit or push:
+    //   data-show-until="YYYY-MM-DD"  hides the element the day AFTER that date
+    //   data-show-from="YYYY-MM-DD"   reveals it on that date (author the element
+    //                                 with  hidden style="display:none"  so it stays
+    //                                 hidden until then)
+    // Fail-safe: a bad/missing date is left as authored. With JS off, "until"
+    // content stays visible (never a blank gap) and "from" content stays hidden.
+    (function(){
+      var valid=/^\d{4}-\d{2}-\d{2}$/, today;
+      try{ today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Denver'}).format(new Date()); }
+      catch(e){ today=new Date().toISOString().slice(0,10); }
+      document.querySelectorAll('[data-show-until]').forEach(function(el){
+        var d=el.getAttribute('data-show-until');
+        if(valid.test(d)&&today>d){ el.setAttribute('hidden',''); el.style.display='none'; }
+      });
+      document.querySelectorAll('[data-show-from]').forEach(function(el){
+        var d=el.getAttribute('data-show-from'); if(!valid.test(d)) return;
+        if(today>=d){ el.removeAttribute('hidden'); el.style.display=''; }
+        else { el.setAttribute('hidden',''); el.style.display='none'; }
+      });
+    })();
     // Mobile nav toggle
     (function(){
       var t=document.querySelector('.nav-toggle'),n=document.getElementById('primary-nav');
