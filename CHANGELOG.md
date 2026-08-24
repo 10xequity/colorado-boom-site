@@ -10,6 +10,25 @@ reconstruct later.
 
 ---
 
+## v1.62 — 2026-08-23 · Unified "Skills Training Membership" on Programs
+`programs.html`
+
+Per owner (demo approved): the training options are one program, so consolidated **[PG-02]
+Developmental + [PG-02t] Add-On + [PG-02b] Advanced Skills** into one **Skills Training Membership**:
+- One membership, tiered price **$150 club members / $295 open enrollment** per month (site's
+  `.mship--teal` box, single training signup form).
+- Three included sessions, each linking to a full description below (`#s-dev` / `#s-adv` /
+  `#s-damon`): Developmental (Tues/Thurs 5:00–6:30), Advanced 14+ (Tues/Wed/Thurs 5:00–7:00),
+  Coach Damon (Mon/Wed 7:00–8:30). Open gyms & tryout fees are no longer listed as included, per owner.
+- Kept `id="dev-training"` so the shared nav "Developmental Training" link still resolves; trimmed the
+  page jump-nav (removed Add-On + Advanced; renamed Developmental → Skills Training).
+- Verified in a headless browser at desktop (1250px) and mobile (390px) before publishing.
+
+**Flagged:** the Tryouts page still has a separate "Summer Membership" box listing open gyms + tryout
+fees and older session times — align it to this membership, or is it a distinct offer?
+
+---
+
 ## v1.61 — 2026-08-23 · Copy-review follow-ups (owner answers)
 `club.html`, `programs.html`, `boys-club.html`
 
