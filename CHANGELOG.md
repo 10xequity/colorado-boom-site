@@ -11,23 +11,29 @@ reconstruct later.
 ---
 
 ## v1.69 — 2026-08-29 · September tryouts + uniform fitting, open gym Wed/Fri, teams page detail
-All 12 full-nav pages (), ,  (), , ,
-, , , 
+All 12 full-nav pages (`[ANN]`), `legal.html`, `index.html` (`[HM-POP]`), `tryouts.html`,
+`schedule.html`, `programs.html`, `club.html`, `girls-club.html`, `teams.html`
+
 - **New tryout dates**: Sun **Sept 13, 6:00–7:00 PM** and Sun **Sept 20, 1:00–2:00 PM**, plus a
   **uniform fitting Sept 13** (time still TBA). Added to the announcement bar, the home popup, the
   Tryouts page table, the Club Calendar table, and the girls-club season timeline. The popup's
-  sessionStorage key was bumped to  so returning visitors see it again.
-- **Passed dates removed**: Aug 17/19/21/22/**24** are gone from every surface. **Aug 31 was kept**
-  — it had not happened yet at build time (built Sat Aug 29) — and carries   so it retires itself rather than needing another edit. Deleting a still-upcoming tryout would have
-  cost the club a session's registrations.
+  sessionStorage key was bumped to `cobo-popup-v169` so returning visitors see it again.
+- **Passed dates removed**: Aug 17/19/21/22/**24** are gone from every surface. **Aug 31 was kept** —
+  it had not happened yet at build time (built Sat Aug 29) — and carries
+  `data-show-until="2026-08-31"` so it retires itself rather than needing another edit. Deleting a
+  still-upcoming tryout would have cost the club a session's registrations.
 - **Open gym is now Wed / Fri only** (was Mon/Wed/Fri), swept across the announcement note, Tryouts
   page (open-gym + 15U–18U ongoing callouts), Programs, Club Calendar, home contact panel, and the
   club FAQ. Team *practice* days (M/W/F or T/Th/F per team) are a different thing and were left alone.
-- **teams.html**: every team gained a **Practice Times** collapsible (content to follow). Tournament
-  names spelled out and located —  → **RMR End of Year Regionals**, Hype Nation Rumble →
-  **(Casper WY)**, PNQ → **(Philadelphia PA)**; Colorado events stay unqualified per owner. Coach
-  names now render at the end of the team name ("15 National - Tara"), driven by one field per team
-  in the page's team list, so filling the remaining 12 is a one-word edit each.
+- **`teams.html`**: every team gained a **Practice Times** collapsible (content to follow).
+  Tournament names spelled out and located — `EOYR` → **RMR End of Year Regionals**, Hype Nation
+  Rumble → **(Casper WY)**, PNQ → **(Philadelphia PA)**; Colorado events stay unqualified per owner.
+  Coach names now render at the end of the team name ("15 National - Tara"), driven by one field per
+  team in the page's team list, so filling the remaining 12 is a one-word edit each.
+
+**Build note:** the first attempt at this entry was written through a bash double-quoted string and
+backtick code spans were silently eaten by command substitution. Long prose belongs in a file written
+by the build script, never inlined into a shell string.
 
 ---
 
