@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.68-draft · 2026-08-29 · DRAFT [PG-06] NEW Private & Group Lessons section (#private-lessons) after Outdoor; "Private/Group Lessons" added to the Volleyball Programs dropdown + page jump-nav. Pricing boxes are themselves mailto links (no inner buttons); how-it-works boxes black; no gray text in new section. Remove the draft band at publish. -->
   <!-- BUILD v1.63 · 2026-08-23 · [PG] Reordered program sections to Skills Training -> Girls League -> RYL -> Open Gym -> Camps -> Littles -> Outdoor (per owner: Girls League above RYL, Open Gym after RYL). Recolored to preserve light/dark alternation: Girls League & Open Gym now bg-teal-d; RYL & Outdoor now bg-white (with btn-outline swaps for contrast). De-AI copy pass on PG sections: em dashes -> punctuation, "unlock" removed. Shared blocks unchanged. -->
   <!-- BUILD v1.62 · 2026-08-23 · [PG-02] Developmental + [PG-02t] Add-On + [PG-02b] Advanced consolidated into one "Skills Training Membership" ($150 club members / $295 open enrollment; Dev Tue/Thu, Advanced Tue/Wed/Thu 5-7, Coach Damon Mon/Wed); each session described below with #s-dev/#s-adv/#s-damon anchors; jump-nav trimmed; id="dev-training" kept so shared nav still resolves. Prev v1.55 · 2026-08-20 · batch: NEW [PG-02g] Girls League (#girls-league, Girls 14U-18U, Oct-Aug, $80/8wk, Google-Form registration) moved from club fees per owner; NEW [PG-02t] Add-On Skills Training (#add-on-training, $150/mo club members vs $295/mo community, new signup form); jump-nav links. Prev v1.47 · 2026-07-30 · batch: ANN 15U-18U line. Prev v1.46 · batch: NEW [PG-02r] RYL section (#ryl) — Girls 14U & under, Sep-Oct Sundays, $500 RYL-only / included for club players, combined Aug 21-31 tryouts, $20 RYL membership; jump-nav + main-nav + footer RYL links; ANN rewrite. Prev v1.36 · 2026-07-04 -->
   <!-- BUILD: v1.35 (2026-06-22) | change: 14+ Advanced Skills box CTA -> membership Google Form (forms.gle/d4GT48VSgh4qve6Z6), same form as Summer Membership. Prev was mailto placeholder. -->
@@ -45,8 +46,36 @@
        strip (looks "stretched"); crop it to a natural 16:9 so it reads as a proper photo. */
     #dev-training .media-img{aspect-ratio:16/9;object-fit:cover;object-position:center 40%;}
   </style>
+  <style>
+    /* ===== v1.68-draft: [PG-06] Private & Group Lessons + draft band ===== */
+    .draft-band{background:#111;color:var(--gold);text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-bottom:2px dashed var(--gold);}
+    #private-lessons .section-subtitle{color:#fff;}
+    .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin:8px auto 0;align-items:stretch;}
+    @media(max-width:820px){.price-grid{grid-template-columns:1fr;}}
+    /* the whole box is the mailto link — no inner button */
+    a.lesson-card{max-width:none;margin:0;display:flex;flex-direction:column;text-align:center;color:#111;cursor:pointer;transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out);}
+    @media(hover:hover) and (pointer:fine){a.lesson-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.28);}}
+    a.lesson-card:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+    .lesson-card h3{color:var(--teal-dark);margin-bottom:10px;}
+    .lesson-card .price small{color:#111;}
+    .lesson-card ul li{color:#111;}
+    .lesson-go{display:block;margin-top:auto;padding-top:16px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.03em;text-transform:uppercase;color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px;}
+    .lessons-note{max-width:760px;margin:16px auto 0;text-align:center;font-size:14px;color:#fff;}
+    .hiw-title{text-align:center;text-transform:uppercase;color:#fff;margin:44px 0 6px;}
+    .hiw-sub{text-align:center;color:#fff;margin-bottom:0;}
+    /* how-it-works: black interior boxes */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:960px;margin:26px auto 0;}
+    @media(max-width:820px){.steps{grid-template-columns:1fr;}}
+    .step{background:var(--black);border:1px solid rgba(255,255,255,.22);border-radius:var(--radius);padding:24px;box-shadow:0 8px 22px rgba(0,0,0,.35);}
+    .step .n{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--gold);color:var(--black);font-family:'Montserrat',sans-serif;font-weight:900;font-size:16px;align-items:center;justify-content:center;margin-bottom:12px;}
+    .step h3{font-size:17px;color:#fff;margin-bottom:6px;}
+    .step p{font-size:14.5px;color:#fff;margin:0;}
+    .step a{color:var(--gold);text-decoration:underline;text-underline-offset:2px;}
+  </style>
 </head>
 <body>
+  <!-- DRAFT: delete this band before publishing -->
+  <div class="draft-band" role="status">Draft &middot; new Private &amp; Group Lessons section below (see jump bar) &middot; not published</div>
   <!-- ============ [NAV] HEADER (shared on every page) ============ -->
   <header class="header" data-section="NAV">
     <div class="header-inner">
@@ -78,6 +107,7 @@
           <a href="programs.html" class="nav-2line" aria-haspopup="true" aria-current="page">Volleyball<br>Programs &#9662;</a>
           <span class="drop" role="menu">
             <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
+            <a href="programs.html#private-lessons" role="menuitem">Private/Group Lessons</a>
             <a href="programs.html#ryl" role="menuitem">RYL: Youth League</a>
             <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
             <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
@@ -143,6 +173,7 @@
       <a href="#camps">Camps &amp; Clinics</a>
       <a href="#littles">Littles</a>
       <a href="#outdoor">Outdoor</a>
+      <a href="#private-lessons">Private Lessons</a>
     </nav>
   </div>
   <!-- ===== [PG-02] Skills Training Membership (v1.62: unified all-inclusive training, per owner) ===== -->
@@ -254,6 +285,44 @@
       <p class="section-subtitle">Keep playing all summer through our partner Boomtown Athletics: grass doubles, junior 4s, and sand tournaments.</p>
       <div class="btn-row" style="margin-top:8px;"><a href="https://docs.google.com/spreadsheets/d/11gSs2akMUBsRrR-80HPU8n7HJz5v-oT6HfGmsnFkn-w/edit?usp=sharing" target="_blank" rel="noopener" class="btn btn-gold">View Schedule &amp; Register</a><a href="https://www.boomtownvb.com" target="_blank" rel="noopener" class="btn btn-outline-teal">boomtownvb.com</a></div>
       <p class="sched-note">Outdoor programs are run by Boomtown Athletics (@boomtownvb). Dates and divisions are subject to change.</p>
+    </div>
+  </section>
+  <!-- ===== [PG-06] Private & Group Lessons (v1.68-draft) — whole pricing box = mailto link ===== -->
+  <section id="private-lessons" data-section="PG-06" class="bg-teal-d">
+    <div class="container">
+      <h2 class="section-title">Private &amp; Group Lessons</h2>
+      <p class="section-subtitle">Focused reps with a club coach: skill work, position training, and game IQ. Click a box to email us and book.</p>
+      <div class="price-grid">
+        <a class="mship lesson-card" href="mailto:admin@coloradoboom.com?subject=Private%20Lesson%20Request%20%E2%80%94%201-on-1">
+          <h3>Private 1-on-1</h3>
+          <div class="price">$80<small>minimum &middot; one player, one coach</small></div>
+          <ul>
+            <li>The coach&rsquo;s full attention, every rep</li>
+            <li>A plan built around the player&rsquo;s position and goals</li>
+            <li>Scheduled by email around your calendar</li>
+          </ul>
+          <span class="lesson-go">Email admin@coloradoboom.com &rarr;</span>
+        </a>
+        <a class="mship lesson-card" href="mailto:admin@coloradoboom.com?subject=Group%20Training%20Request">
+          <h3>Group Training</h3>
+          <div class="price">$50<small>per player &middot; groups of 2 or more</small></div>
+          <ul>
+            <li>Bring a teammate, sibling, or friends</li>
+            <li>Shared reps with the same coaching focus</li>
+            <li>Great for serve-receive pairs and position groups</li>
+          </ul>
+          <span class="lesson-go">Email admin@coloradoboom.com &rarr;</span>
+        </a>
+      </div>
+      <p class="lessons-note">Rates are per session. We confirm the coach, time, and total by email before anything is booked.</p>
+      <h3 class="hiw-title">How It Works</h3>
+      <p class="section-subtitle hiw-sub">Three steps from email to court time.</p>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Email Us</h3><p>Send the player&rsquo;s name, age, experience, and what they want to work on to <a href="mailto:admin@coloradoboom.com?subject=Private%20Lesson%20Request">admin@coloradoboom.com</a>.</p></div>
+        <div class="step"><span class="n">2</span><h3>Get Matched</h3><p>We pair the player with the right Boom coach for their position and goals, and propose available times.</p></div>
+        <div class="step"><span class="n">3</span><h3>Train</h3><p>Meet your coach at Boomtown Fieldhouse. Book a single session or set up a regular weekly slot.</p></div>
+      </div>
+      <div class="cta-inline" style="margin-top:32px;"><a href="mailto:admin@coloradoboom.com?subject=Private%20Lesson%20Request" class="btn btn-gold">Request a Lesson</a></div>
     </div>
   </section>
   <!-- ============ [FT] FOOTER (shared on every page) ============ -->
