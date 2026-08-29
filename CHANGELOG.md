@@ -10,6 +10,35 @@ reconstruct later.
 
 ---
 
+## v1.68 — 2026-08-29 · Teams page (new), Private & Group Lessons, Damon paused to Nov, no-gray pass
+`teams.html` (NEW), `assets/img/teams-hero.jpg` (NEW), `programs.html`, `club.html`, `tryouts.html`,
+`schedule.html`, `sitemap.xml`, `assets/css/styles.css`, nav dropdowns on all full-nav pages
+
+- **NEW `teams.html`** — all 14 girls teams for 2026–27 with owner-provided tournament schedules.
+  Each team is a collapsible card (coaches line + Roster + Schedule); a **sticky two-row jump nav**
+  follows the scroll and smooth-scrolls to (and auto-opens) the target team — plain anchor jumps
+  don't open a closed `<details>`, so links are JS-driven with a computed offset for the two sticky
+  bars. Duplicate teams (two 14 Colorado, two 16 Colorado) share one jump link until coach names
+  arrive to tell them apart (owner convention: "15 National - Tara", hyphen not parentheses).
+  Rosters/most coaches say "to be announced" — **no placeholder names went live**. Hero = new team
+  photo; "Follow us on Instagram @coboomvb" under the title. Linked from Club Info > Our Teams.
+- **`programs.html` [PG-06]** — new Private & Group Lessons section after Camps ($80 minimum
+  1-on-1, $50/player groups of 2+). The whole pricing box is the mailto link (owner: no redundant
+  inner buttons); How-It-Works boxes are black. Section order now Camps → Private Lessons →
+  Outdoor → Littles, and the Programs dropdown was realigned to match page order (off-page
+  Advanced Skills item last) with the new Private/Group Lessons item — dropdown updated on every
+  full-nav page.
+- **Coach Damon training paused until November** (programs, club, tryouts, schedule): current
+  Mon/Wed listings replaced by "returns in November · Wed / Fri" notes that retire themselves
+  Oct 31 (`data-show-until`), while the full Wed/Fri listings + signup CTAs are authored hidden
+  and **restore themselves Nov 1** (`data-show-from`) — no future edit needed. Original copy kept
+  in [KEEP] comments.
+- **No-gray text pass** (`styles.css`): owner directive "stop using gray text throughout the
+  website" — `--gray-text` #555→#111, `--gray-meta` #AAA→#444, `.sched td` #222→#111. Tokens kept
+  so one edit governs the site.
+
+---
+
 ## v1.67 — 2026-08-24 · Site-wide line-balancing (hanging lines)
 `assets/css/styles.css`
 

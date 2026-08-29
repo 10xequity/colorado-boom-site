@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.68 · 2026-08-29 · [SC] Damon weekly row paused until Nov (interim "returns in November" row retires Oct 31; Wed/Fri row auto-restores Nov 1); nav: Our Teams item + Programs dropdown realigned w/ Private/Group Lessons. -->
   <!-- BUILD v1.47 · 2026-07-30 | change: added 15U-18U tryout row (same Aug dates); note -> 15U-18U ongoing, position-flex line. Prev v1.46 | change: tryout table -> Girls 10U-14U Club & RYL only (boys + 15U-18U concluded/removed); ANN rewrite; tryout membership $20; RYL nav+footer links. Prev v1.43 · 2026-07-14 | NEW PAGE: Club Calendar — GymDesk schedule widget [SCH-01] + crawlable text schedule [SCH-02] + Event JSON-LD [SCH-03] -->
   <!-- BUILD v1.55 (2026-08-20) | site-wide sweep: [ANN] expired Aug 17/19 eval dates removed; mobile Login button added to header bar; Club Fees menu split into 11U-14U / 15U-18U; width/height added to images (CLS fix). See CHANGELOG.md. -->
   <meta charset="UTF-8">
@@ -92,6 +93,7 @@
           <a href="club.html" aria-haspopup="true">Club Info &#9662;</a>
           <span class="drop" role="menu">
             <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="teams.html" role="menuitem">Our Teams</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
             <a href="club.html#age-11-14" role="menuitem">Club Fees: 11U&ndash;14U</a>
@@ -105,8 +107,9 @@
             <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
             <a href="programs.html#ryl" role="menuitem">RYL: Youth League</a>
             <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
-            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
+            <a href="programs.html#private-lessons" role="menuitem">Private/Group Lessons</a>
             <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
           </span>
         </span>
         <a href="schedule.html" aria-current="page">Club Calendar</a>
@@ -200,7 +203,9 @@
           <tr><td>Open Gym, ages 10+, any club ($20/session)</td><td>Mon / Wed / Fri</td><td>5:30&ndash;7:00 PM</td><td><a class="ulink" href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener">Register</a></td></tr>
           <tr><td>Group Training &amp; Developmental, ages 8&ndash;16</td><td>Tues / Thurs</td><td>5:00&ndash;6:30 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Register</a></td></tr>
           <tr><td>14+ Advanced Skills &amp; Mechanics</td><td>Tues / Thurs</td><td>4:00&ndash;6:00 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Sign Up</a></td></tr>
-          <tr><td>Advanced Summer Club Training, Coach Damon Sichler</td><td>Mon / Wed</td><td>7:00&ndash;8:30 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Free Week</a></td></tr>
+          <!-- [KEEP] Damon training paused until Nov 2026 (was Mon/Wed). Interim row retires Oct 31; Wed/Fri row restores Nov 1 via main.js date engine. -->
+          <tr data-show-until="2026-10-31"><td>Advanced Club Training, Coach Damon Sichler (returns in November)</td><td>Wed / Fri</td><td>7:00&ndash;8:30 PM</td><td>Starts Nov</td></tr>
+          <tr data-show-from="2026-11-01" hidden style="display:none"><td>Advanced Club Training, Coach Damon Sichler</td><td>Wed / Fri</td><td>7:00&ndash;8:30 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Free Week</a></td></tr>
         </tbody>
       </table></div>
       <h3 style="text-align:center;margin:34px 0 12px;">2026 Tryouts</h3>

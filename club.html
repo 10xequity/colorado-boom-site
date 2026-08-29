@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.68 · 2026-08-29 · [CL-03b] Damon advanced club training paused until Nov (auto-note now, Wed/Fri listing auto-restores Nov 1); nav: Our Teams item + Programs dropdown realigned w/ Private/Group Lessons. -->
   <!-- BUILD v1.55 · 2026-08-20 · batch: age-scoped Team Levels & Fees split — NEW [CL-04a] 11U-14U (Girls Club) block; [CL-04c] rescoped to 15U-18U (Regional 14U card removed); [CL-06] fee table to 3 cols + pay-in-full -$100 discount removed; FAQ fee bands, level-difference answer, and 11U-14U 5:15 start note. Prev v1.36 · 2026-07-04 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,6 +86,7 @@
           <a href="club.html" aria-haspopup="true" aria-current="page">Club Info &#9662;</a>
           <span class="drop" role="menu">
             <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="teams.html" role="menuitem">Our Teams</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
             <a href="club.html#age-11-14" role="menuitem">Club Fees: 11U&ndash;14U</a>
@@ -98,8 +100,9 @@
             <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
             <a href="programs.html#ryl" role="menuitem">RYL: Youth League</a>
             <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
-            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
+            <a href="programs.html#private-lessons" role="menuitem">Private/Group Lessons</a>
             <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
           </span>
         </span>
         <a href="schedule.html">Club Calendar</a>
@@ -186,14 +189,16 @@
   <!-- ===== [CL-03b] Advanced Summer Club Training ===== -->
   <section data-section="CL-03b" class="bg-white">
     <div class="container narrow" style="text-align:center;">
-      <h2 class="section-title">Advanced Summer Club Training</h2>
+      <h2 class="section-title">Advanced Club Training</h2>
       <p class="section-subtitle">Off-season reps for competitive and committed players, led by Coach Damon Sichler: open gyms included.</p>
+      <!-- [KEEP] Damon training paused until Nov 2026 (was Mon/Wed). Note retires Oct 31; Wed/Fri listing + CTA restore Nov 1 via main.js date engine. -->
       <div class="times-callout">
-        <span class="big">Mon / Wed &middot; 7:00&ndash;8:30 PM</span>
+        <span class="big" data-show-until="2026-10-31">Returns in November &middot; Wed / Fri &middot; 7:00&ndash;8:30 PM</span>
+        <span class="big" data-show-from="2026-11-01" hidden style="display:none">Wed / Fri &middot; 7:00&ndash;8:30 PM</span>
         <span class="sub">High-rep, position-focused training at Boomtown Fieldhouse: open gyms included</span>
-        <span class="sub">Try a free week: register, walk in, or contact admin@coloradoboom.com.</span>
+        <span class="sub" data-show-from="2026-11-01" hidden style="display:none">Try a free week: register, walk in, or contact admin@coloradoboom.com.</span>
       </div>
-      <div class="cta-inline"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
+      <div class="cta-inline" data-show-from="2026-11-01" hidden style="display:none"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
     </div>
   </section>
   <!-- ===== [CL-04] Club benefits (v1.36: 2-col grid per Agreement v3.5 §2) ===== -->

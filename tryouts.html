@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.68 · 2026-08-29 · [TO] Damon advanced club training paused until Nov (auto-note now, Wed/Fri callout auto-restores Nov 1); nav: Our Teams item + Programs dropdown realigned w/ Private/Group Lessons. -->
   <!--  BUILD: v1.55 (2026-08-20) | change: removed the expired [TO-EVAL] open-evaluations section (Aug 17 & 19 concluded) + its jump-nav entry; the two cross-references now point to open gym / tryouts ("join us at tryouts"). Site-wide sweep also applied here: [ANN] eval dates removed, mobile Login button, Club Fees menu split (11U-14U / 15U-18U), image width/height for CLS. Prev v1.53 (2026-08-14) | change: price removed from the pre-evaluation section and CTA. Prev v1.52 (2026-08-14) | change: open-evaluation content lifted out of [TO-04] into its own [TO-EVAL] section above it (evaluations happen before tryouts), now with the live registration form and $20; jump nav gains Evaluations. Prev v1.51 (2026-08-12) | change: open evaluations added for Girls 10U-14U (Mon Aug 17 & Wed Aug 19, 5:30-7:00 PM) as headline dates, with the standing any-open-gym offer kept; official Fri Aug 21 session 4:00-5:30 PM -> 4:30-6:30 PM. Prev v1.50 (2026-08-11) | change: banners split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast; 15U-18U reframed to ongoing open-gym tryouts (17s/18s middles+pins; Regional 15s/16s hitters+middles) with the past-dates table removed; 10U-14U pre-evals + walk-in wording; RYL non-HS note incl. boys RYL-only; expired July copy removed. Prev v1.47 (2026-07-30) | change: 15U-18U tryout table added (same Aug 21/22/24/31 dates as 10U-14U) - recruiting hitters/middles/setters; callout + notes reworded (concurrent Club+RYL); position-flexibility line added. Prev v1.46 | change: boys + girls 15U-18U tryout tables removed (all sessions past; boys program dates dropped per owner); page reframed as Girls 10U-14U Club & RYL tryouts; OCS 10U-14U offers -> 9:00 PM Aug 20; schema startDate -> Aug 21; tryout membership note $15 -> $20 (verified rmrvolleyball.org); RYL cross-links. Prev v1.45 (2026-07-19) | change: dropped past July sessions (Jul 10-18); schedule tables + ANN + THIS-WEEK callout pruned to upcoming (Boys Jul 21/29/31, Girls 15U-18U Jul 29, Girls 10U-14U Aug); OCS 15U-18U offer note updated; schema startDate -> Jul 21. Prev v1.44 (2026-07-16) | change: boys Sat Jul 18 5:30-7:00 -> 4:00-5:30 PM (matches popup). Prev v1.43 (2026-07-14) | change: boys Sat Jul 18 4:00-6:30 -> 5:30-7:00 PM. Prev v1.42 (2026-07-14) | change: Club Login nav btn, Club Calendar nav+footer link, ANN dates+recruiting line, 11U->10U-14U labels, THIS-WEEK callout refresh. Prev v1.37 (2026-07-12) | change: boys tryouts collapsed to single combined session 13U–18U (Jul 17 5:30–7:00 PM, Jul 18 4:00–6:30 PM, Jul 21/29/31 5:30–7:00 PM). Prev v1.36: tryouts-first reorder, OCS buttons under TO-NAV, THIS-WEEK callout, jump-nav pulse, OCS 11U-14U offer date Aug 20, ANN xl + membership note, nav Advanced Skills item. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,6 +57,7 @@
           <a href="club.html" aria-haspopup="true">Club Info &#9662;</a>
           <span class="drop" role="menu">
             <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="teams.html" role="menuitem">Our Teams</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
             <a href="club.html#age-11-14" role="menuitem">Club Fees: 11U&ndash;14U</a>
@@ -69,8 +71,9 @@
             <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
             <a href="programs.html#ryl" role="menuitem">RYL: Youth League</a>
             <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
-            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
+            <a href="programs.html#private-lessons" role="menuitem">Private/Group Lessons</a>
             <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
           </span>
         </span>
         <a href="schedule.html">Club Calendar</a>
@@ -257,12 +260,17 @@
       </div>
       <div class="cta-inline" style="margin-top:0;"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-teal">Sign Up</a></div>
 
-      <div class="times-callout" style="margin-top:26px;">
-        <span class="big">Advanced Summer Club Training: Coach Damon Sichler</span>
-        <span class="sub">Mon / Wed &middot; 7:00&ndash;8:30 PM: high-rep training for competitive and committed players (open gyms included)</span>
+      <!-- [KEEP] Damon training paused until Nov 2026 (was Mon/Wed). Note retires Oct 31; Wed/Fri callout + CTA restore Nov 1 via main.js date engine. -->
+      <div class="times-callout" style="margin-top:26px;" data-show-until="2026-10-31">
+        <span class="big">Advanced Club Training: Coach Damon Sichler</span>
+        <span class="sub">Returns in November &middot; Wed / Fri &middot; 7:00&ndash;8:30 PM</span>
+      </div>
+      <div class="times-callout" style="margin-top:26px;display:none;" data-show-from="2026-11-01" hidden>
+        <span class="big">Advanced Club Training: Coach Damon Sichler</span>
+        <span class="sub">Wed / Fri &middot; 7:00&ndash;8:30 PM: high-rep training for competitive and committed players (open gyms included)</span>
         <span class="sub">Try a free week: register, walk in, or contact admin@coloradoboom.com.</span>
       </div>
-      <div class="cta-inline"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
+      <div class="cta-inline" data-show-from="2026-11-01" hidden style="display:none"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
     </div>
   </section>
   <!-- ===== [TO-03] SUMMER MEMBERSHIP ===== -->

@@ -5,7 +5,7 @@
       --teal:#0E7C86; --teal-dark:#065A62; --teal-light:#E4F2F3;
       --gold:#E5B800; --gold-dark:#C49A00;
       --cream:#FFF9F0; --black:#111111; --white:#FFFFFF;
-      --gray-text:#555555; --gray-meta:#AAAAAA;
+      --gray-text:#111111; --gray-meta:#444444; /* v1.68: owner directive — no gray body text; tokens kept so one edit governs site-wide */
       --max-w:1140px; --section-py:56px; --section-py-mobile:40px; --radius:6px;
       --ease-out:cubic-bezier(0.23,1,0.32,1);
     }
@@ -247,7 +247,7 @@ ul.checks li::before{content:"";position:absolute;left:0;top:20px;width:14px;hei
 .tbl-wrap{overflow-x:auto;max-width:840px;margin:0 auto;border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,0.06);}
 table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;}
 .sched th,.sched td{padding:13px 16px;text-align:left;border-bottom:1px solid #cccccc;}
-    .sched td{color:#222222;}
+    .sched td{color:#111111;}
 .sched th{font-family:'Montserrat',sans-serif;text-transform:uppercase;font-size:12px;letter-spacing:0.06em;background:var(--teal);color:#fff;}
 .sched tr:last-child td{border-bottom:0;}
 /* FAQ accordion */
