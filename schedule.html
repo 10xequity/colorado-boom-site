@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.69 · 2026-08-29 · [SC] 2026 Tryouts table: passed Aug 17/19/21/22/24 rows removed, Aug 31 auto-retires, Sept 13 & 20 + uniform fitting added; open gym rows now Wed/Fri. -->
   <!-- BUILD v1.68 · 2026-08-29 · [SC] Damon weekly row paused until Nov (interim "returns in November" row retires Oct 31; Wed/Fri row auto-restores Nov 1); nav: Our Teams item + Programs dropdown realigned w/ Private/Group Lessons. -->
   <!-- BUILD v1.47 · 2026-07-30 | change: added 15U-18U tryout row (same Aug dates); note -> 15U-18U ongoing, position-flex line. Prev v1.46 | change: tryout table -> Girls 10U-14U Club & RYL only (boys + 15U-18U concluded/removed); ANN rewrite; tryout membership $20; RYL nav+footer links. Prev v1.43 · 2026-07-14 | NEW PAGE: Club Calendar — GymDesk schedule widget [SCH-01] + crawlable text schedule [SCH-02] + Event JSON-LD [SCH-03] -->
   <!-- BUILD v1.55 (2026-08-20) | site-wide sweep: [ANN] expired Aug 17/19 eval dates removed; mobile Login button added to header bar; Club Fees menu split into 11U-14U / 15U-18U; width/height added to images (CLS fix). See CHANGELOG.md. -->
@@ -135,10 +136,10 @@
   <!-- ============ [ANN] ANNOUNCEMENT BAR — v1.50: concise gold CTA ============ -->
   <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Tryout announcement">
     <!-- EDIT: tryout dates -->
-    Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U<span data-show-until="2026-08-31"> &nbsp;&bull;&nbsp; Official Tryouts Aug 24 &amp; 31</span>
+    Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U<span data-show-until="2026-08-31"> &nbsp;&bull;&nbsp; Mon Aug 31</span> &nbsp;&bull;&nbsp; Tryouts Sept 13 &amp; 20
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">10U&ndash;14U &middot; Register now or walk in at any Mon / Wed / Fri open gym through August &middot; RYL tryouts run the same dates</span>
+    <span class="ann-note">10U&ndash;14U &middot; Sun Sept 13, 6:00&ndash;7:00 PM &middot; Sun Sept 20, 1:00&ndash;2:00 PM &middot; Uniform fitting Sept 13 &middot; Or walk in at any Wed / Fri open gym &middot; RYL tryouts run the same dates</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -195,12 +196,12 @@
   <!-- ===== [SCH-02] WEEKLY SCHEDULE (crawlable text) ===== -->
   <section data-section="SCH-02" class="bg-cream" id="weekly">
     <div class="container">
-      <h2 class="section-title">Weekly Summer Schedule</h2>
+      <h2 class="section-title">Weekly Schedule</h2>
       <p class="section-subtitle">All sessions at Boomtown Fieldhouse, 14200 E Alameda Ave, Aurora.</p>
       <div class="tbl-wrap"><table class="sched">
         <thead><tr><th>Program</th><th>Days</th><th>Time</th><th>Sign Up</th></tr></thead>
         <tbody>
-          <tr><td>Open Gym, ages 10+, any club ($20/session)</td><td>Mon / Wed / Fri</td><td>5:30&ndash;7:00 PM</td><td><a class="ulink" href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener">Register</a></td></tr>
+          <tr><td>Open Gym, ages 10+, any club ($20/session)</td><td>Wed / Fri</td><td>5:30&ndash;7:00 PM</td><td><a class="ulink" href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener">Register</a></td></tr>
           <tr><td>Group Training &amp; Developmental, ages 8&ndash;16</td><td>Tues / Thurs</td><td>5:00&ndash;6:30 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Register</a></td></tr>
           <tr><td>14+ Advanced Skills &amp; Mechanics</td><td>Tues / Thurs</td><td>4:00&ndash;6:00 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Sign Up</a></td></tr>
           <!-- [KEEP] Damon training paused until Nov 2026 (was Mon/Wed). Interim row retires Oct 31; Wed/Fri row restores Nov 1 via main.js date engine. -->
@@ -212,9 +213,11 @@
       <div class="tbl-wrap"><table class="sched">
         <thead><tr><th>Group</th><th>Dates</th></tr></thead>
         <tbody>
-          <tr><td>Girls 10U&ndash;14U, Open Evaluations</td><td>Mon Aug 17 &amp; Wed Aug 19 &middot; 5:30&ndash;7:00 PM</td></tr>
-          <tr><td>Girls 10U&ndash;14U, Official Club &amp; RYL (all positions)</td><td>Aug 21, 22, 24 &amp; 31</td></tr>
-          <tr><td>Girls 15U&ndash;18U, ongoing tryouts at open gym</td><td>Mon / Wed / Fri &middot; 5:30&ndash;7:00 PM</td></tr>
+          <tr data-show-until="2026-08-31"><td>Girls 10U&ndash;14U, Official Club &amp; RYL (all positions)</td><td>Mon Aug 31 &middot; 5:30&ndash;7:00 PM</td></tr>
+          <tr><td>Girls 10U&ndash;14U, Official Club &amp; RYL (all positions)</td><td>Sun Sept 13 &middot; 6:00&ndash;7:00 PM</td></tr>
+          <tr><td>Girls 10U&ndash;14U, Official Club &amp; RYL (all positions)</td><td>Sun Sept 20 &middot; 1:00&ndash;2:00 PM</td></tr>
+          <tr><td>Uniform Fitting</td><td>Sun Sept 13</td></tr>
+          <tr><td>Girls 15U&ndash;18U, ongoing tryouts at open gym</td><td>Wed / Fri &middot; 5:30&ndash;7:00 PM</td></tr>
         </tbody>
       </table></div>
       <p class="sched-note">Session times and details on the <a class="ulink" href="tryouts.html#tryouts">Tryouts page</a>. <strong>Girls 15U&ndash;18U tryouts are ongoing</strong>: 17s &amp; 18s: middles &amp; pin hitters &middot; Regional 15s &amp; 16s: hitters &amp; middles. Willing to try a different position? We&rsquo;ll train you. Email <a class="ulink" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>.</p>
