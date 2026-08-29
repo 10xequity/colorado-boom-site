@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- BUILD v1.68-draft · 2026-08-29 · NEW DRAFT [TM] Teams page: 16 sample teams (14 girls / 2 boys), per-team jump nav, collapsible roster + schedule per team (native details/summary, no main.js changes). Unlinked from nav + noindex until the owner publishes. Sample data throughout. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- DRAFT: remove the noindex line below when this page goes live -->
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and schedules for every 2026-27 squad.">
+  <meta name="theme-color" content="#0E7C86">
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <title>Our Teams | Colorado Boom Volleyball Club</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="canonical" href="https://coloradoboom.com/teams.html">
+  <meta name="geo.region" content="US-CO">
+  <meta name="geo.placename" content="Aurora, Colorado">
+  <meta property="og:title" content="Our Teams | Colorado Boom Volleyball Club">
+  <meta property="og:description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and schedules for every 2026-27 squad.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://coloradoboom.com/teams.html">
+  <meta property="og:image" content="https://coloradoboom.com/assets/img/programs.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Teams | Colorado Boom Volleyball Club">
+  <meta name="twitter:description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and schedules for every 2026-27 squad.">
+  <meta name="twitter:image" content="https://coloradoboom.com/assets/img/programs.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Our Teams","item":"https://coloradoboom.com/teams.html"}]}
+  </script>
+  <style>
+    /* [TM] draft band */
+    .draft-band{background:#111;color:var(--gold);text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-bottom:2px dashed var(--gold);}
+    /* [TM-NAV] jump nav */
+    .page-jump{padding:16px 0 20px;border-bottom:1px solid rgba(0,0,0,.07);}
+    .jump-row{margin-top:8px;}
+    .jump-row .jl{font-family:'Montserrat',sans-serif;font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-text);border-bottom:0;cursor:default;}
+    .jump-tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px;}
+    /* [TM] team cards (collapsible via native details/summary) */
+    .team{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:var(--radius);box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:14px;scroll-margin-top:130px;overflow:hidden;}
+    .team>summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;transition:background 160ms ease;}
+    .team>summary::-webkit-details-marker{display:none;}
+    @media(hover:hover) and (pointer:fine){.team>summary:hover{background:var(--cream);}}
+    summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:3px;}
+    .team-name{font-family:'Montserrat',sans-serif;font-weight:900;font-size:18px;text-transform:uppercase;color:var(--teal-dark);}
+    .lv{font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 12px;}
+    .lv-regional{background:var(--teal);color:#fff;}
+    .lv-colorado{background:var(--black);color:#fff;}
+    .lv-national{background:linear-gradient(135deg,#D4A017 0%,#FFD700 35%,#FFF4B8 52%,#FFD700 70%,#D4A017 100%);color:var(--black);}
+    .team-coach{font-size:14px;color:var(--gray-text);margin-left:auto;}
+    .team-ic{font-size:26px;font-weight:400;line-height:1;color:var(--teal);transition:transform .2s ease;}
+    .team[open]>summary .team-ic{transform:rotate(45deg);}
+    .team-body{padding:0 20px 6px;border-top:1px solid rgba(0,0,0,.07);}
+    .tsub{border-bottom:1px solid rgba(0,0,0,.07);}
+    .tsub:last-child{border-bottom:0;}
+    .tsub>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:14px 0;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;letter-spacing:.03em;text-transform:uppercase;color:var(--teal);}
+    .tsub>summary::-webkit-details-marker{display:none;}
+    .tsub .cnt{font-family:'Open Sans',sans-serif;font-weight:600;font-size:13px;letter-spacing:0;text-transform:none;color:var(--gray-text);}
+    .tsub .sic{font-size:22px;line-height:1;color:var(--teal);transition:transform .2s ease;}
+    .tsub[open]>summary .sic{transform:rotate(45deg);}
+    .roster{list-style:none;padding:0 0 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:6px 16px;}
+    .roster li{display:flex;align-items:baseline;gap:10px;padding:7px 12px;background:var(--cream);border-radius:4px;font-size:15px;}
+    .roster .num{font-family:'Montserrat',sans-serif;font-weight:900;color:var(--teal);min-width:22px;text-align:right;font-variant-numeric:tabular-nums;}
+    .roster .pos{margin-left:auto;font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;letter-spacing:.06em;color:var(--gray-text);}
+    .tsub .tbl-wrap{margin:0 0 12px;}
+    .team-sched-note{font-size:13px;color:var(--gray-meta);padding-bottom:14px;margin:0;}
+    @media(max-width:680px){.team-coach{margin-left:0;flex-basis:100%;}}
+  </style>
+</head>
+<body>
+  <!-- DRAFT: delete this band before publishing -->
+  <div class="draft-band" role="status">Draft page &middot; sample data for layout review &middot; not linked or published</div>
+  <!-- ============ [NAV] HEADER (shared on every page) ============ -->
+  <header class="header" data-section="NAV">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Colorado Boom Volleyball Club home">
+        <img width="372" height="240" class="logo-img" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+      </a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">&#9776;</button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <span class="has-drop two">
+          <a href="tryouts.html" class="nav-2line" aria-haspopup="true">Open Gyms &amp;<br>Tryouts &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="tryouts.html#open-gyms" role="menuitem">Open Gyms</a>
+            <a href="tryouts.html#tryouts" role="menuitem">Tryouts</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="club.html" aria-haspopup="true">Club Info &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="club.html" role="menuitem">Club Overview</a>
+            <a href="girls-club.html" role="menuitem">Girls Club</a>
+            <a href="boys-club.html" role="menuitem">Boys Club</a>
+            <a href="club.html#age-11-14" role="menuitem">Club Fees: 11U&ndash;14U</a>
+            <a href="club.html#team-levels" role="menuitem">Club Fees: 15U&ndash;18U</a>
+            <a href="club.html#age-groups" role="menuitem">RMR Age Group</a>
+          </span>
+        </span>
+        <span class="has-drop">
+          <a href="programs.html" class="nav-2line" aria-haspopup="true">Volleyball<br>Programs &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="programs.html#dev-training" role="menuitem">Developmental Training</a>
+            <a href="programs.html#ryl" role="menuitem">RYL: Youth League</a>
+            <a href="programs.html#camps" role="menuitem">Camps &amp; Clinics</a>
+            <a href="tryouts.html#advanced-skills" role="menuitem">Advanced Skills &amp; Club Training</a>
+            <a href="programs.html#littles" role="menuitem">Littles (Coming Soon)</a>
+          </span>
+        </span>
+        <a href="schedule.html">Club Calendar</a>
+        <a href="coaching-staff.html">Staff</a>
+        <span class="has-drop">
+          <a href="parent-resources.html" aria-haspopup="true">Resources &#9662;</a>
+          <span class="drop" role="menu">
+            <a href="parent-resources.html" role="menuitem">Parent Resources</a>
+            <a href="volleyball-rules.html" role="menuitem">Volleyball Rules</a>
+            <a href="volleyball-positions.html" role="menuitem">Volleyball Positions</a>
+          </span>
+        </span>
+        <a href="mailto:admin@coloradoboom.com">Contact</a>
+        <span class="nav-ctas">
+          <a href="tryouts.html" class="btn btn-gold btn-shine">Tryout Now!</a>
+          <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
+        </span>
+      </nav>
+    </div>
+  </header>
+  <!-- ============ [ANN] ANNOUNCEMENT BAR (shared) ============ -->
+  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Tryout announcement">
+    <!-- EDIT: tryout dates -->
+    Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U<span data-show-until="2026-08-31"> &nbsp;&bull;&nbsp; Official Tryouts Aug 24 &amp; 31</span>
+    <!-- /EDIT -->
+    <a href="tryouts.html#tryouts">Register Now!</a>
+    <span class="ann-note">10U&ndash;14U &middot; Register now or walk in at any Mon / Wed / Fri open gym through August &middot; RYL tryouts run the same dates</span>
+  </div>
+
+  <!-- ============ [RB] RECRUITING BANNER (shared) ============ -->
+  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">
+    Recruiting <span class="rb-hl">17s &amp; 18s</span>: Middles &amp; Pin Hitters &nbsp;&bull;&nbsp; Regional <span class="rb-hl">15s &amp; 16s</span>: Hitters &amp; Middles
+    <span class="rb-sub">Ongoing tryouts at open gym &middot; private evaluations: <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></span>
+  </div>
+
+  <!-- ============ [OCSR] OCS BAR (shared) ============ -->
+  <div class="ocs-bar" data-section="OCSR" role="region" aria-label="RMR OCS membership and offers">
+    <div class="ocs-bar-inner">
+      <p class="ocs-bar-text"><span class="ocs-tag">RMR OCS</span>: offers are sent through the RMR OCS as tryouts wrap, pre-evaluated players first; accept within 48 hours. New RMR players need a $20 tryout/RYL membership ($15 applies toward your full membership when you commit); returning 25&ndash;26 members are covered through Aug 31.</p>
+      <span class="ocs-bar-btns">
+        <a class="btn btn-teal" href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add Player to OCS</a>
+        <a class="btn btn-black" href="https://rmr.vstarvolleyball.com/ocs/index.php" target="_blank" rel="noopener">OCS Login &middot; Accept Offer</a>
+      </span>
+    </div>
+  </div>
+  <!-- ===== [TM-01] HERO ===== -->
+  <section class="subhero has-img subhero--dark" data-section="TM-01" id="top">
+    <span class="sub-bg" style="background-image:url('assets/img/hero.jpg');background-position:center 40%;"></span>
+    <div class="container"><h1>Our Teams</h1><p>2026&ndash;27 club teams: coaches, rosters, and schedules for every Colorado Boom squad.</p></div>
+  </section>
+  <!-- ===== [TM-NAV] Jump nav — one link per team ===== -->
+  <div class="page-jump bg-white" data-section="TM-NAV">
+    <nav class="jump-nav jump-row container" aria-label="Girls teams on this page">
+      <span class="jl">Girls</span>
+      <a href="#g11-teal">11U Teal</a>
+      <a href="#g12-black">12U Black</a>
+      <a href="#g12-teal">12U Teal</a>
+      <a href="#g13-black">13U Black</a>
+      <a href="#g13-teal">13U Teal</a>
+      <a href="#g14-gold">14U Gold</a>
+      <a href="#g14-black">14U Black</a>
+      <a href="#g14-teal">14U Teal</a>
+      <a href="#g15-gold">15U Gold</a>
+      <a href="#g15-teal">15U Teal</a>
+      <a href="#g16-gold">16U Gold</a>
+      <a href="#g16-black">16U Black</a>
+      <a href="#g17-gold">17U Gold</a>
+      <a href="#g18-gold">18U Gold</a>
+    </nav>
+    <nav class="jump-nav jump-row container" aria-label="Boys teams on this page">
+      <span class="jl">Boys</span>
+      <a href="#b14-black">14U Black</a>
+      <a href="#b16-gold">16U Gold</a>
+    </nav>
+    <div class="jump-tools container">
+      <button type="button" id="expand-all" class="btn btn-outline-teal btn-sm">Expand All Teams</button>
+      <button type="button" id="collapse-all" class="btn btn-outline-teal btn-sm">Collapse All Teams</button>
+    </div>
+  </div>
+  <!-- ===== [TM-02] Girls teams ===== -->
+  <section id="girls-teams" data-section="TM-02" class="bg-cream">
+    <div class="container">
+      <h2 class="section-title">Girls Teams</h2>
+      <p class="section-subtitle">Tap a team to see its coaches, roster, and schedule. Rosters post here as they are finalized.</p>
+      <details class="team" id="g11-teal">
+        <summary>
+          <span class="team-name">Girls 11U Teal</span>
+          <span class="lv lv-regional">Regional</span>
+          <span class="team-coach">Head Coach: Alex Sample &middot; Assistant: Morgan Example</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Avery Sample <span class="pos">S</span></li>
+          <li><span class="num">2</span> Jordan Draftwell <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Rowan Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Dakota Example <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Morgan Stubbs <span class="pos">L</span></li>
+          <li><span class="num">8</span> Taylor Test <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Harper Templeton <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Reese Loremson <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Cameron Mockford <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Logan Datason <span class="pos">S</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Colorado Convention Center</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g12-black">
+        <summary>
+          <span class="team-name">Girls 12U Black</span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-coach">Head Coach: Jordan Test &middot; Assistant: Riley Draft</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 11 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Finley Example <span class="pos">S</span></li>
+          <li><span class="num">2</span> Quinn Stubbs <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Bailey Test <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Kendall Templeton <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Sawyer Loremson <span class="pos">L</span></li>
+          <li><span class="num">8</span> Emerson Mockford <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Peyton Datason <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Avery Demo <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Jordan Specimen <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Rowan Sample <span class="pos">S</span></li>
+          <li><span class="num">17</span> Dakota Draftwell <span class="pos">MB</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g12-teal">
+        <summary>
+          <span class="team-name">Girls 12U Teal</span>
+          <span class="lv lv-regional">Regional</span>
+          <span class="team-coach">Head Coach: Casey Demo &middot; Assistant: Taylor Mockup</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 12 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Morgan Templeton <span class="pos">S</span></li>
+          <li><span class="num">2</span> Taylor Loremson <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Harper Mockford <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Reese Datason <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Cameron Demo <span class="pos">L</span></li>
+          <li><span class="num">8</span> Logan Specimen <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Skyler Sample <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Finley Draftwell <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Quinn Fillmore <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Bailey Example <span class="pos">S</span></li>
+          <li><span class="num">17</span> Kendall Stubbs <span class="pos">MB</span></li>
+          <li><span class="num">21</span> Sawyer Test <span class="pos">DS</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Denver Coliseum</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g13-black">
+        <summary>
+          <span class="team-name">Girls 13U Black</span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-coach">Head Coach: Morgan Example &middot; Assistant: Jamie Placeholder</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Sawyer Datason <span class="pos">S</span></li>
+          <li><span class="num">2</span> Emerson Demo <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Peyton Specimen <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Avery Sample <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Jordan Draftwell <span class="pos">L</span></li>
+          <li><span class="num">8</span> Rowan Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Dakota Example <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Morgan Stubbs <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Taylor Test <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Harper Templeton <span class="pos">S</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g13-teal">
+        <summary>
+          <span class="team-name">Girls 13U Teal</span>
+          <span class="lv lv-regional">Regional</span>
+          <span class="team-coach">Head Coach: Riley Draft &middot; Assistant: Drew Specimen</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 11 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Cameron Sample <span class="pos">S</span></li>
+          <li><span class="num">2</span> Logan Draftwell <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Skyler Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Finley Example <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Quinn Stubbs <span class="pos">L</span></li>
+          <li><span class="num">8</span> Bailey Test <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Kendall Templeton <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Sawyer Loremson <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Emerson Mockford <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Peyton Datason <span class="pos">S</span></li>
+          <li><span class="num">17</span> Avery Demo <span class="pos">MB</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Colorado Convention Center</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g14-gold">
+        <summary>
+          <span class="team-name">Girls 14U Gold</span>
+          <span class="lv lv-national">National</span>
+          <span class="team-coach">Head Coach: Taylor Mockup &middot; Assistant: Cameron Stub</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 12 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Jordan Example <span class="pos">S</span></li>
+          <li><span class="num">2</span> Rowan Stubbs <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Dakota Test <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Morgan Templeton <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Taylor Loremson <span class="pos">L</span></li>
+          <li><span class="num">8</span> Harper Mockford <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Reese Datason <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Cameron Demo <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Logan Specimen <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Skyler Sample <span class="pos">S</span></li>
+          <li><span class="num">17</span> Finley Draftwell <span class="pos">MB</span></li>
+          <li><span class="num">21</span> Quinn Fillmore <span class="pos">DS</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g14-black">
+        <summary>
+          <span class="team-name">Girls 14U Black</span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-coach">Head Coach: Jamie Placeholder &middot; Assistant: Robin Dataset</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Quinn Templeton <span class="pos">S</span></li>
+          <li><span class="num">2</span> Bailey Loremson <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Kendall Mockford <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Sawyer Datason <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Emerson Demo <span class="pos">L</span></li>
+          <li><span class="num">8</span> Peyton Specimen <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Avery Sample <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Jordan Draftwell <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Rowan Fillmore <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Dakota Example <span class="pos">S</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Denver Coliseum</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g14-teal">
+        <summary>
+          <span class="team-name">Girls 14U Teal</span>
+          <span class="lv lv-regional">Regional</span>
+          <span class="team-coach">Head Coach: Drew Specimen &middot; Assistant: Alex Sample</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 11 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Taylor Datason <span class="pos">S</span></li>
+          <li><span class="num">2</span> Harper Demo <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Reese Specimen <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Cameron Sample <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Logan Draftwell <span class="pos">L</span></li>
+          <li><span class="num">8</span> Skyler Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Finley Example <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Quinn Stubbs <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Bailey Test <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Kendall Templeton <span class="pos">S</span></li>
+          <li><span class="num">17</span> Sawyer Loremson <span class="pos">MB</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g15-gold">
+        <summary>
+          <span class="team-name">Girls 15U Gold</span>
+          <span class="lv lv-national">National</span>
+          <span class="team-coach">Head Coach: Cameron Stub &middot; Assistant: Jordan Test</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 12 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Emerson Sample <span class="pos">S</span></li>
+          <li><span class="num">2</span> Peyton Draftwell <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Avery Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Jordan Example <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Rowan Stubbs <span class="pos">L</span></li>
+          <li><span class="num">8</span> Dakota Test <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Morgan Templeton <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Taylor Loremson <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Harper Mockford <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Reese Datason <span class="pos">S</span></li>
+          <li><span class="num">17</span> Cameron Demo <span class="pos">MB</span></li>
+          <li><span class="num">21</span> Logan Specimen <span class="pos">DS</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Colorado Convention Center</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g15-teal">
+        <summary>
+          <span class="team-name">Girls 15U Teal</span>
+          <span class="lv lv-regional">Regional</span>
+          <span class="team-coach">Head Coach: Robin Dataset &middot; Assistant: Casey Demo</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Logan Example <span class="pos">S</span></li>
+          <li><span class="num">2</span> Skyler Stubbs <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Finley Test <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Quinn Templeton <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Bailey Loremson <span class="pos">L</span></li>
+          <li><span class="num">8</span> Kendall Mockford <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Sawyer Datason <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Emerson Demo <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Peyton Specimen <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Avery Sample <span class="pos">S</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g16-gold">
+        <summary>
+          <span class="team-name">Girls 16U Gold</span>
+          <span class="lv lv-national">National</span>
+          <span class="team-coach">Head Coach: Alex Sample &middot; Assistant: Morgan Example</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 11 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Rowan Templeton <span class="pos">S</span></li>
+          <li><span class="num">2</span> Dakota Loremson <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Morgan Mockford <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Taylor Datason <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Harper Demo <span class="pos">L</span></li>
+          <li><span class="num">8</span> Reese Specimen <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Cameron Sample <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Logan Draftwell <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Skyler Fillmore <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Finley Example <span class="pos">S</span></li>
+          <li><span class="num">17</span> Quinn Stubbs <span class="pos">MB</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Denver Coliseum</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g16-black">
+        <summary>
+          <span class="team-name">Girls 16U Black</span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-coach">Head Coach: Jordan Test &middot; Assistant: Riley Draft</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 12 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Bailey Datason <span class="pos">S</span></li>
+          <li><span class="num">2</span> Kendall Demo <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Sawyer Specimen <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Emerson Sample <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Peyton Draftwell <span class="pos">L</span></li>
+          <li><span class="num">8</span> Avery Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Jordan Example <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Rowan Stubbs <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Dakota Test <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Morgan Templeton <span class="pos">S</span></li>
+          <li><span class="num">17</span> Taylor Loremson <span class="pos">MB</span></li>
+          <li><span class="num">21</span> Harper Mockford <span class="pos">DS</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g17-gold">
+        <summary>
+          <span class="team-name">Girls 17U Gold</span>
+          <span class="lv lv-national">National</span>
+          <span class="team-coach">Head Coach: Casey Demo &middot; Assistant: Taylor Mockup</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Harper Sample <span class="pos">S</span></li>
+          <li><span class="num">2</span> Reese Draftwell <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Cameron Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Logan Example <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Skyler Stubbs <span class="pos">L</span></li>
+          <li><span class="num">8</span> Finley Test <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Quinn Templeton <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Bailey Loremson <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Kendall Mockford <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Sawyer Datason <span class="pos">S</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Colorado Convention Center</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="g18-gold">
+        <summary>
+          <span class="team-name">Girls 18U Gold</span>
+          <span class="lv lv-national">National</span>
+          <span class="team-coach">Head Coach: Morgan Example &middot; Assistant: Jamie Placeholder</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 11 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Peyton Example <span class="pos">S</span></li>
+          <li><span class="num">2</span> Avery Stubbs <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Jordan Test <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Rowan Templeton <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Dakota Loremson <span class="pos">L</span></li>
+          <li><span class="num">8</span> Morgan Mockford <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Taylor Datason <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Harper Demo <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Reese Specimen <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Cameron Sample <span class="pos">S</span></li>
+          <li><span class="num">17</span> Logan Draftwell <span class="pos">MB</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+    </div>
+  </section>
+  <!-- ===== [TM-03] Boys teams ===== -->
+  <section id="boys-teams" data-section="TM-03" class="bg-white">
+    <div class="container">
+      <h2 class="section-title">Boys Teams</h2>
+      <p class="section-subtitle">Boys club teams for the 2026&ndash;27 season.</p>
+      <details class="team" id="b14-black">
+        <summary>
+          <span class="team-name">Boys 14U Black</span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-coach">Head Coach: Riley Draft &middot; Assistant: Drew Specimen</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 12 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Skyler Templeton <span class="pos">S</span></li>
+          <li><span class="num">2</span> Finley Loremson <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Quinn Mockford <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Bailey Datason <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Kendall Demo <span class="pos">L</span></li>
+          <li><span class="num">8</span> Sawyer Specimen <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Emerson Sample <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Peyton Draftwell <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Avery Fillmore <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Jordan Example <span class="pos">S</span></li>
+          <li><span class="num">17</span> Rowan Stubbs <span class="pos">MB</span></li>
+          <li><span class="num">21</span> Dakota Test <span class="pos">DS</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Denver Coliseum</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="b16-gold">
+        <summary>
+          <span class="team-name">Boys 16U Gold</span>
+          <span class="lv lv-national">National</span>
+          <span class="team-coach">Head Coach: Taylor Mockup &middot; Assistant: Cameron Stub</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <ul class="roster">
+          <li><span class="num">1</span> Dakota Datason <span class="pos">S</span></li>
+          <li><span class="num">2</span> Morgan Demo <span class="pos">OH</span></li>
+          <li><span class="num">3</span> Taylor Specimen <span class="pos">MB</span></li>
+          <li><span class="num">5</span> Harper Sample <span class="pos">OH</span></li>
+          <li><span class="num">7</span> Reese Draftwell <span class="pos">L</span></li>
+          <li><span class="num">8</span> Cameron Fillmore <span class="pos">MB</span></li>
+          <li><span class="num">10</span> Logan Example <span class="pos">OPP</span></li>
+          <li><span class="num">11</span> Skyler Stubbs <span class="pos">DS</span></li>
+          <li><span class="num">12</span> Finley Test <span class="pos">OH</span></li>
+          <li><span class="num">15</span> Quinn Templeton <span class="pos">S</span></li>
+            </ul>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule</span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Date</th><th scope="col">Event</th><th scope="col">Location</th></tr></thead>
+                <tbody>
+              <tr><td>Sat, Jan 9, 2027</td><td>RMR League Play 1</td><td>Colorado Convention Center</td></tr>
+              <tr><td>Sat, Jan 23, 2027</td><td>RMR League Play 2</td><td>Boomtown Fieldhouse, Aurora</td></tr>
+              <tr><td>Sat&ndash;Sun, Feb 13&ndash;14, 2027</td><td>Mile High Classic</td><td>Denver Coliseum</td></tr>
+              <tr><td>Sat, Mar 6, 2027</td><td>RMR League Play 3</td><td>Gold Crown Fieldhouse, Lakewood</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="team-sched-note">Sample dates for layout only. Each team&rsquo;s real schedule loads with its roster.</p>
+          </details>
+        </div>
+      </details>
+      <div class="cta-inline"><a href="mailto:admin@coloradoboom.com?subject=Team%20Question" class="btn btn-teal">Questions About a Team? Email Us</a></div>
+    </div>
+  </section>
+  <!-- ============ [FT] FOOTER (shared on every page) ============ -->
+  <footer data-section="FT">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img width="372" height="240" class="footer-logo" src="assets/img/logo.png" alt="Colorado Boom Volleyball Club">
+          <div class="footer-address">
+            <strong>Colorado Boom Volleyball Club</strong>
+            Boomtown Fieldhouse<br>14200 E Alameda Ave<br>Aurora, CO 80012
+            <span style="display:block;margin:8px 0;color:rgba(255,255,255,0.6);font-size:14px;">Serving Denver metro, Aurora, Centennial, Parker, Highlands Ranch &amp; beyond</span>
+            <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a>
+          </div>
+          <div class="socials" aria-label="Social links">
+            <a href="https://www.facebook.com/profile.php?id=61590351960515" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.7c0-.9.3-1.5 1.5-1.5H17V4.5c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.8v3h2.5V21h3.2z"/></svg></a>
+            <a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener" aria-label="Instagram @coboomvb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.5 1 .5.5.8.9 1 1.5.2.4.3 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-1 1.5-.5.5-.9.8-1.5 1-.4.2-1 .3-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.5-1-.5-.5-.8-.9-1-1.5-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 1-1.5.5-.5.9-.8 1.5-1 .4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.2a4.8 4.8 0 110 9.6 4.8 4.8 0 010-9.6zm0 1.8a3 3 0 100 6 3 3 0 000-6zm5-2.1a1.1 1.1 0 11-2.2 0 1.1 1.1 0 012.2 0z"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="tryouts.html">Open Gyms &amp; Tryouts</a></li>
+            <li><a href="schedule.html">Club Calendar</a></li>
+            <li><a href="club.html">Club Information</a></li>
+            <li><a href="girls-club.html">Girls Club</a></li>
+            <li><a href="boys-club.html">Boys Club</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="parent-resources.html">Parent Resources</a></li>
+            <li><a href="mailto:admin@coloradoboom.com">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="girls-club.html">Club Volleyball</a></li>
+            <li><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Developmental Training</a></li>
+            <li><a href="programs.html#ryl">RYL: Youth League</a></li>
+            <li><a href="programs.html">Camps &amp; Clinics</a></li>
+            <li><a href="programs.html">Littles (Coming Soon)</a></li>
+            <li><a href="tryouts.html">Open Gym</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 Colorado Boom Volleyball Club</div>
+        <nav aria-label="Legal"><a href="legal.html#terms">Terms</a><a href="legal.html#privacy">Privacy</a><a href="legal.html#accessibility">Accessibility</a></nav>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+  <!-- [TM] page script: open a team from a jump link; expand/collapse all -->
+  <script>
+  (function(){
+    function openFromHash(){
+      if(!location.hash) return;
+      var el=document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if(el&&el.tagName==='DETAILS'){el.open=true;}
+    }
+    window.addEventListener('hashchange',openFromHash);
+    openFromHash();
+    function setAll(v){document.querySelectorAll('details.team,details.tsub').forEach(function(d){d.open=v;});}
+    var ex=document.getElementById('expand-all'),co=document.getElementById('collapse-all');
+    if(ex)ex.addEventListener('click',function(){setAll(true);});
+    if(co)co.addEventListener('click',function(){setAll(false);});
+  })();
+  </script>
+</body>
+</html>
