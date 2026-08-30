@@ -10,6 +10,24 @@ reconstruct later.
 
 ---
 
+## v1.72 — 2026-08-29 · Uniform fitting time; 12U/18U pulled; Damon retitled
+`teams.html`, `coaching-staff.html`, all 12 full-nav pages (`[ANN]`), `index.html` (`[HM-POP]`),
+`tryouts.html`, `schedule.html`, `girls-club.html`
+
+- **Uniform fitting is Sunday Sept 13, 5:00–8:00 PM** — the last "Time TBA" on the site is gone.
+  Published on the announcement note (12 pages), the home popup table and bullet, the Tryouts page
+  note, the Club Calendar row, and the girls-club season timeline. The popup's sessionStorage key was
+  **deliberately not bumped**: the tryout dates people already dismissed it over have not changed, so
+  re-opening it for everyone would be noise.
+- **12U Colorado and 18U National are no longer public** — the owner is still deciding those rosters.
+  Both were coach-OPEN with no schedule. The public team count is back to **14** and the jump nav
+  rebalanced to two rows of seven. Their markup lives in git at `3b3c8c5` if they return.
+- **Damon Sichler is now Assistant Club Director** (was Girls Club Director) on the staff page.
+- Confirmed by the owner and left as built: **Ken = Kyn Van**, and 15 National - Sidney Reese's
+  "OPEN (Katie)" assistant stays unassigned.
+
+---
+
 ## v1.71 — 2026-08-29 · Full team/coach roster; club leadership on the staff page
 `teams.html`, `coaching-staff.html`
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.71 · 2026-08-29 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
+  <!-- BUILD v1.72 · 2026-08-29 · [TM] 12U Colorado and 18U National pulled from public view (owner: rosters still being decided) — their markup is in git at 3b3c8c5 if they come back. 14 teams live; jump nav rebalanced to two rows of seven. Prev v1.71 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and 2026-27 tournament schedules for every squad.">
@@ -153,7 +153,7 @@
     Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U<span data-show-until="2026-08-31"> &nbsp;&bull;&nbsp; Mon Aug 31</span> &nbsp;&bull;&nbsp; Tryouts Sept 13 &amp; 20
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">10U&ndash;14U &middot; Sun Sept 13, 6:00&ndash;7:00 PM &middot; Sun Sept 20, 1:00&ndash;2:00 PM &middot; Uniform fitting Sept 13 &middot; Or walk in at any Wed / Fri open gym &middot; RYL tryouts run the same dates</span>
+    <span class="ann-note">10U&ndash;14U &middot; Sun Sept 13, 6:00&ndash;7:00 PM &middot; Sun Sept 20, 1:00&ndash;2:00 PM &middot; Uniform fitting Sept 13, 5:00&ndash;8:00 PM &middot; Or walk in at any Wed / Fri open gym &middot; RYL tryouts run the same dates</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -184,7 +184,6 @@
   <!-- ===== [TM-NAV] Sticky jump nav: two rows of eight ===== -->
   <div class="page-jump" data-section="TM-NAV">
     <nav class="jump-nav jump-row container" aria-label="Teams on this page">
-      <a href="#t12-colorado">12 Colorado</a>
       <a href="#t13-colorado">13 Colorado</a>
       <a href="#t14-national">14 National</a>
       <a href="#t14-colorado-krise">14 Colorado - Krise</a>
@@ -201,7 +200,6 @@
       <a href="#t16-regional">16 Regional</a>
       <a href="#t17-national">17 National</a>
       <a href="#t17-colorado">17 Colorado</a>
-      <a href="#t18-national">18 National</a>
     </nav>
     <div class="jump-tools container">
       <button type="button" id="expand-all" class="btn btn-gold btn-sm">Expand All Teams</button>
@@ -212,29 +210,6 @@
   <section id="teams" data-section="TM-02" class="bg-teal-d">
     <div class="container">
       <p class="section-subtitle" style="margin-bottom:26px;">Tap a team to see its coaches, roster, practice times, and schedule.</p>
-      <details class="team" id="t12-colorado">
-        <summary>
-          <span class="team-head">
-            <span class="team-name">12 Colorado</span>
-          </span>
-          <span class="lv lv-colorado">Colorado</span>
-          <span class="team-ic" aria-hidden="true">+</span>
-        </summary>
-        <div class="team-body">
-          <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
-          </details>
-          <details class="tsub">
-            <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
-          </details>
-          <details class="tsub">
-            <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Schedule will be posted here soon.</p>
-          </details>
-        </div>
-      </details>
       <details class="team" id="t13-colorado">
         <summary>
           <span class="team-head">
@@ -803,29 +778,6 @@
                 </tbody>
               </table>
             </div>
-          </details>
-        </div>
-      </details>
-      <details class="team" id="t18-national">
-        <summary>
-          <span class="team-head">
-            <span class="team-name">18 National</span>
-          </span>
-          <span class="lv lv-national">National</span>
-          <span class="team-ic" aria-hidden="true">+</span>
-        </summary>
-        <div class="team-body">
-          <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
-          </details>
-          <details class="tsub">
-            <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
-          </details>
-          <details class="tsub">
-            <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Schedule will be posted here soon.</p>
           </details>
         </div>
       </details>
