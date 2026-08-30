@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v1.78 — 2026-08-30 · Practice window 5:15–7:30; 14 National adds a Monday slot
+`teams.html`
+
+- **Every team's practice window moves from 5:00–7:00 PM to 5:15–7:30 PM.** This matches the
+  practice window already documented on `club.html` ("Practice for this group is 5:15–7:30 PM"),
+  so the two pages now agree.
+- **14 National – Tara adds Monday 6:30–8:45 PM**, kept at its own time rather than rewritten to the
+  standard window — the owner flagged it as a deliberate exception. The team now reads
+  "Mon · 6:30–8:45 PM / Wed · 5:15–7:30 PM" on two lines.
+- Court numbers remain omitted throughout, per the standing instruction; the build still fails if
+  "court" reaches a practice string.
+
+---
+
 ## v1.77 — 2026-08-30 · Coaching-staff intro back on black
 `coaching-staff.html`
 
