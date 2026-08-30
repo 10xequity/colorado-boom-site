@@ -10,6 +10,25 @@ reconstruct later.
 
 ---
 
+## v1.70 — 2026-08-29 · Coaching roster added; unassigned teams show no coach line
+`coaching-staff.html`, `teams.html`
+
+- **`coaching-staff.html`**: the three generic placeholder cards (Head Coach / Girls Program, etc.)
+  are replaced with the real 2026–27 roster supplied by the owner: **Will Ly, Kyn Van, Claire Kwok,
+  Jae Spain, Randy Vang**. Titles and team assignments were **not** supplied, so none were invented —
+  each card carries the name and a photo placeholder only. Add a `<span>` under a name to give it a
+  role or team. Section heading changed from "Staff Roster Coming Soon" to "2026–27 Coaching Staff",
+  and the meta description was updated to match.
+- **`teams.html`**: per owner, a team with no assigned coach now shows **no coach line at all**
+  rather than "Coaches: To be announced" — 12 of 14 teams. The two assigned teams
+  (15 National - Tara, 15 National - Sidney) are unchanged. Filling a coach in the page's team list
+  restores the line automatically.
+- **Still pending:** the team-to-coach mapping. The owner's message referenced an OPEN/assigned
+  roster that did not come through, so the five names are on the staff page but not yet attached to
+  teams. Tara and Sidney are first-name-only and are therefore not on the staff page yet.
+
+---
+
 ## v1.69 — 2026-08-29 · September tryouts + uniform fitting, open gym Wed/Fri, teams page detail
 All 12 full-nav pages (`[ANN]`), `legal.html`, `index.html` (`[HM-POP]`), `tryouts.html`,
 `schedule.html`, `programs.html`, `club.html`, `girls-club.html`, `teams.html`
