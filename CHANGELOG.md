@@ -10,6 +10,34 @@ reconstruct later.
 
 ---
 
+## v1.76 — 2026-08-30 · Practice times, "Zhu", popup scroll-lock, cream coach grid at 4-up
+`teams.html`, `coaching-staff.html`, `index.html`
+
+- **Practice times filled in for all 14 teams.** The brief opened with "IGNORE THE COURT
+  ASSIGNMENTS, THEY ARE NOT VALID. Do not assign courts." and then listed courts anyway; the
+  explicit instruction won, so every court was dropped — including the per-day courts on
+  15 National - Tara ("Mon (Court 3) & Tue (Court 6)" became "Mon & Tue"). A build guard fails if
+  the word "court" appears in any practice string.
+- **Micheal Zhu is referenced as "Zhu"** throughout: both team names (13 Colorado - Zhu,
+  16 Colorado - Zhu), the coach lines, the jump labels, and his staff card and anchor
+  (`#coach-zhu`). A guard fails if "Micheal" survives anywhere visible.
+- **The home popup no longer slides on mobile.** Three causes, all fixed: the page behind was
+  never scroll-locked (measured: the page scrolled 500px while the dialog was open), a scroll
+  gesture inside the panel chained out to the page, and `92vh` is taller than the *visible*
+  viewport on phones where the toolbar overlays it, which pushed the dialog's bottom under the
+  browser chrome and read as off-centre. Now: scroll lock on open, `overscroll-behavior:contain`,
+  and `dvh` with the `vh` line kept as the fallback — the same fix this codebase already applied
+  to the mobile nav in v1.55.
+- **Coaching staff: only the Club Leadership band is black**; the intro and both coach grids are
+  cream. Gold moved to the one heading still on black — gold on cream is 1.9:1 and unreadable.
+- **Four coaches per row** (was three), stepping to 3 / 2 / 1 as the viewport narrows, with a 4:3
+  photo box since the cards are now narrower.
+- **Spacing:** the ad-hoc inline section padding added while the staff area was one black block
+  (`padding-top:0`, `padding-bottom:18px`) is removed, so the three bands use the site's standard
+  section rhythm; the trailing grid no longer carries a bottom margin into the section padding.
+
+---
+
 ## v1.75 — 2026-08-29 · Mobile + contrast fixes from a measured audit
 `assets/css/styles.css`, `index.html`, `coaching-staff.html`
 

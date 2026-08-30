@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.74 · 2026-08-29 · [TM] Coach names shortened to first names and linked to their card on the Coaching Staff page; team cards cream (was white); sticky jump bar black with white links + gold rule; ItemList/SportsTeam structured data. Prev v1.72 · 2026-08-29 · [TM] 12U Colorado and 18U National pulled from public view (owner: rosters still being decided) — their markup is in git at 3b3c8c5 if they come back. 14 teams live; jump nav rebalanced to two rows of seven. Prev v1.71 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
+  <!-- BUILD v1.76 · 2026-08-30 · [TM] practice times filled in for all 14 teams (court assignments deliberately omitted per instruction); Micheal Zhu referenced as "Zhu" in team names, coach lines and jump labels. Prev v1.74 · 2026-08-29 · [TM] Coach names shortened to first names and linked to their card on the Coaching Staff page; team cards cream (was white); sticky jump bar black with white links + gold rule; ItemList/SportsTeam structured data. Prev v1.72 · 2026-08-29 · [TM] 12U Colorado and 18U National pulled from public view (owner: rosters still being decided) — their markup is in git at 3b3c8c5 if they come back. 14 teams live; jump nav rebalanced to two rows of seven. Prev v1.71 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and 2026-27 tournament schedules for every squad.">
@@ -76,6 +76,7 @@
     .coach-link:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
     .team-ic{font-size:26px;font-weight:400;line-height:1;color:var(--teal);transition:transform .2s ease;justify-self:end;}
     .team[open]>summary .team-ic{transform:rotate(45deg);}
+    .team:last-of-type{margin-bottom:0;}
     .team-body{padding:0 20px 6px;border-top:1px solid rgba(0,0,0,.07);}
     .tsub{border-bottom:1px solid rgba(0,0,0,.07);}
     .tsub:last-child{border-bottom:0;}
@@ -197,7 +198,7 @@
   <!-- ===== [TM-NAV] Sticky jump nav: two rows of eight ===== -->
   <div class="page-jump" data-section="TM-NAV">
     <nav class="jump-nav jump-row container" aria-label="Teams on this page">
-      <a href="#t13-colorado">13 Colorado - Micheal</a>
+      <a href="#t13-colorado">13 Colorado - Zhu</a>
       <a href="#t14-national">14 National - Tara</a>
       <a href="#t14-colorado-krise">14 Colorado - Kimberly</a>
       <a href="#t14-colorado-erly">14 Colorado - Mel</a>
@@ -208,7 +209,7 @@
     <nav class="jump-nav jump-row container" aria-label="More teams on this page">
       <a href="#t15-regional">15 Regional - Brian</a>
       <a href="#t16-national">16 National - Damon</a>
-      <a href="#t16-colorado-zhu">16 Colorado - Micheal</a>
+      <a href="#t16-colorado-zhu">16 Colorado - Zhu</a>
       <a href="#t16-colorado-peterson">16 Colorado - Brian</a>
       <a href="#t16-regional">16 Regional - Will</a>
       <a href="#t17-national">17 National - Jawn</a>
@@ -226,8 +227,8 @@
       <details class="team" id="t13-colorado">
         <summary>
           <span class="team-head">
-            <span class="team-name">13 Colorado - Micheal</span>
-            <span class="team-coach">Head Coach: <a class="coach-link" href="coaching-staff.html#coach-micheal-zhu">Micheal</a> &middot; Assistant: <a class="coach-link" href="coaching-staff.html#coach-makayla-clemons">Makayla</a></span>
+            <span class="team-name">13 Colorado - Zhu</span>
+            <span class="team-coach">Head Coach: <a class="coach-link" href="coaching-staff.html#coach-zhu">Zhu</a> &middot; Assistant: <a class="coach-link" href="coaching-staff.html#coach-makayla-clemons">Makayla</a></span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -239,7 +240,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Tue &amp; Thu &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -279,7 +280,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -319,7 +320,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -360,7 +361,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Tue &amp; Thu &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -401,7 +402,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Tue &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -443,7 +444,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -485,7 +486,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Tue &amp; Thu &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -526,7 +527,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Tue &amp; Thu &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -566,7 +567,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -594,8 +595,8 @@
       <details class="team" id="t16-colorado-zhu">
         <summary>
           <span class="team-head">
-            <span class="team-name">16 Colorado - Micheal</span>
-            <span class="team-coach">Head Coach: <a class="coach-link" href="coaching-staff.html#coach-micheal-zhu">Micheal</a> &middot; Assistant: <a class="coach-link" href="coaching-staff.html#coach-makayla-clemons">Makayla</a></span>
+            <span class="team-name">16 Colorado - Zhu</span>
+            <span class="team-coach">Head Coach: <a class="coach-link" href="coaching-staff.html#coach-zhu">Zhu</a> &middot; Assistant: <a class="coach-link" href="coaching-staff.html#coach-makayla-clemons">Makayla</a></span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -607,7 +608,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -647,7 +648,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -687,7 +688,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Tue &amp; Thu &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -727,7 +728,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -769,7 +770,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Practice times will be posted here soon.</p>
+            <p class="roster-tba">Mon &amp; Wed &middot; 5:00&ndash;7:00 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>

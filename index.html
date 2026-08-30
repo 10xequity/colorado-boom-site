@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.75 · 2026-08-29 · [HM-POP] week-row labels moved from --gold-dark (2.64:1 on white, a contrast failure) to --teal-dark (7.7:1). Prev v1.74 · [HM-08] Visit Us on a black band with a cream information panel; Boomtown Fieldhouse links to boomtownathletics.com; sanctioning split into RMR / USAV and AAU, each linked; open gym now "Wed / Fri (Sept-Oct)" and the subtitle no longer says "three days a week, through August". -->
+  <!-- BUILD v1.76 · 2026-08-30 · [HM-POP] mobile: page behind is now scroll-locked while the dialog is open (the "sliding"), overscroll-behavior stops scroll chaining out of the panel, and max-height/height use dvh so the dialog centres in the *visible* viewport rather than under the browser toolbar; tighter padding under 600px. Prev v1.75 · [HM-POP] week-row labels moved from --gold-dark (2.64:1 on white, a contrast failure) to --teal-dark (7.7:1). Prev v1.74 · [HM-08] Visit Us on a black band with a cream information panel; Boomtown Fieldhouse links to boomtownathletics.com; sanctioning split into RMR / USAV and AAU, each linked; open gym now "Wed / Fri (Sept-Oct)" and the subtitle no longer says "three days a week, through August". -->
   <!-- BUILD v1.72 · 2026-08-29 · [ANN]+[HM-POP] Uniform fitting time confirmed: Sept 13, 5:00-8:00 PM (was "Time TBA"). Popup session key deliberately NOT bumped — the tryout dates people already saw are unchanged. -->
   <!-- BUILD v1.69 · 2026-08-29 · [ANN]+[HM-POP] Sept 13 (6-7 PM) & Sept 20 (1-2 PM) tryouts + Sept 13 uniform fitting; passed Aug 24 date removed, Aug 31 auto-retires; open gym now Wed/Fri only; popup session key bumped to v169 so returning visitors see it again. -->
   <!-- BUILD v1.55 · 2026-08-20 — popup: expired Aug 17 & 19 open-evaluation rows removed (kept on schedule.html as historical); popup sessionStorage key bumped v151->v155 so returning visitors see the update. Prev v1.53 · 2026-08-14 — price removed from the pre-evaluation CTA. Prev v1.52 · 2026-08-14 — pre-evaluation registration form linked from the popup (teal-on-white, secondary scale) beside the Aug 17/19 dates. Prev v1.51 · 2026-08-12 — open evaluations (Mon Aug 17 & Wed Aug 19, 5:30-7:00 PM, 10U-14U) added to the banner and popup; official Fri Aug 21 session moved to 4:30-6:30 PM. Prev v1.50 · 2026-08-11 — banner stack split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast (was 1.88:1); popup gains a top Register button on the teal band; header widened + 2-line nav items left-aligned + Tryout Now shine fixed; analytics hook added to main.js -->
@@ -72,9 +72,10 @@
     /* ===== [HM-POP] v1.36 (2026-07-04) — one-per-session tryout popup ===== */
     .popup-overlay{position:fixed;inset:0;z-index:1000;background:rgba(6,90,98,.55);backdrop-filter:blur(2px);
       display:flex;align-items:center;justify-content:center;padding:20px;
+      height:100vh;height:100dvh;overscroll-behavior:contain;
       opacity:0;visibility:hidden;transition:opacity .22s ease,visibility .22s ease;}
     .popup-overlay.open{opacity:1;visibility:visible;}
-    .popup{position:relative;width:min(540px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:var(--radius);
+    .popup{position:relative;width:min(540px,100%);max-height:92vh;max-height:92dvh;overflow:auto;overscroll-behavior:contain;background:#fff;border-radius:var(--radius);
       box-shadow:0 24px 64px rgba(0,0,0,.35);transform:translateY(14px) scale(.985);transition:transform .24s ease;}
     .popup-overlay.open .popup{transform:none;}
     .popup-head{background:linear-gradient(90deg,var(--black) 0%,var(--teal-dark) 26%,var(--teal) 50%,var(--teal-dark) 74%,var(--black) 100%);
@@ -106,6 +107,10 @@
     .popup-close:hover{background:rgba(255,255,255,.32);}
     .popup-close:focus-visible,.popup-cta:focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
     @media(prefers-reduced-motion:reduce){.popup-overlay,.popup{transition:none;}}
+    @media(max-width:600px){.popup-overlay{padding:10px;}.popup-head{padding:18px 44px 16px;}.popup-body{padding:16px 18px 20px;}}
+    /* while the popup is open the page behind must not scroll — that "sliding" was the
+       background moving under the dialog when a scroll gesture reached it */
+    html.popup-lock,body.popup-lock{overflow:hidden;}
 
     /* [HM-POP] v1.52 — pre-evaluation CTA: teal on white, secondary scale */
     .popup-sched td.popup-eval-cell{text-align:center;padding:12px 10px 14px;border-bottom:1px solid #e4e4e4;}
@@ -547,12 +552,16 @@
     function open(){
       lastFocus=document.activeElement;
       overlay.classList.add('open');
+      document.documentElement.classList.add('popup-lock');
+      document.body.classList.add('popup-lock');
       focusables()[0].focus();
       document.addEventListener('keydown',onKey);
       try{sessionStorage.setItem(KEY,'1');}catch(e){}
     }
     function close(){
       overlay.classList.remove('open');
+      document.documentElement.classList.remove('popup-lock');
+      document.body.classList.remove('popup-lock');
       document.removeEventListener('keydown',onKey);
       if(lastFocus&&lastFocus.focus)lastFocus.focus();
     }

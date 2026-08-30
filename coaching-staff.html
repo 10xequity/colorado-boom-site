@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.74 · 2026-08-29 · [CO-02]+[CO-02b]+[CO-03] Whole staff area is now black; main header gold, sub-headers white. Every coach card carries an id (coach-first-last) so Our Teams can deep-link to a coach; :target draws a gold ring. Prev v1.73 · [CO-02b] Leadership: the SECTION is now black (the photo area went back to the standard light placeholder — the black was on the wrong element); nameplate teal-dark with a GOLD name and white title; section heading gold. [CO-03] Now on the teal gradient and split into Coaches / Assistant Coaches, the assistants on cream nameplates; CTA gold for contrast. Prev v1.72 · [CO-02b] Damon Sichler retitled Assistant Club Director (was Girls Club Director). Prev v1.71 · [CO-02b] NEW Club Leadership block (Tara Tucker, Club Operations Director; Damon Sichler, Girls Club Director) at the top, black card + teal nameplate per owner. [CO-03] Coach cards now generated from the team roster with role + team assignments. Prev v1.70 · [CO-02]+[CO-03] Real coaching roster added (Will Ly, Kyn Van, Claire Kwok, Jae Spain, Randy Vang) replacing the three generic placeholder cards; no titles or team assignments invented — add <span> under a name once known. Photos still placeholders. -->
+  <!-- BUILD v1.76 · 2026-08-30 · [CO-02]+[CO-03] cream (only [CO-02b] Club Leadership stays black); coach grids now four per row (3/2/1 as the viewport narrows); gold moved to the one heading still on black; ad-hoc section padding removed so the bands use the standard rhythm; Micheal Zhu referenced as "Zhu". Prev v1.74 · [CO-02]+[CO-02b]+[CO-03] Whole staff area is now black; main header gold, sub-headers white. Every coach card carries an id (coach-first-last) so Our Teams can deep-link to a coach; :target draws a gold ring. Prev v1.73 · [CO-02b] Leadership: the SECTION is now black (the photo area went back to the standard light placeholder — the black was on the wrong element); nameplate teal-dark with a GOLD name and white title; section heading gold. [CO-03] Now on the teal gradient and split into Coaches / Assistant Coaches, the assistants on cream nameplates; CTA gold for contrast. Prev v1.72 · [CO-02b] Damon Sichler retitled Assistant Club Director (was Girls Club Director). Prev v1.71 · [CO-02b] NEW Club Leadership block (Tara Tucker, Club Operations Director; Damon Sichler, Girls Club Director) at the top, black card + teal nameplate per owner. [CO-03] Coach cards now generated from the team roster with role + team assignments. Prev v1.70 · [CO-02]+[CO-03] Real coaching roster added (Will Ly, Kyn Van, Claire Kwok, Jae Spain, Randy Vang) replacing the three generic placeholder cards; no titles or team assignments invented — add <span> under a name once known. Photos still placeholders. -->
   <!-- BUILD v1.36 · 2026-07-04 · batch: ANN xl + OCS note, nav Advanced Skills item -->
   <!-- BUILD v1.55 (2026-08-20) | site-wide sweep: [ANN] expired Aug 17/19 eval dates removed; mobile Login button added to header bar; Club Fees menu split into 11U-14U / 15U-18U; width/height added to images (CLS fix). See CHANGELOG.md. -->
   <meta charset="UTF-8">
@@ -25,10 +25,18 @@
        standard light placeholder so the card reads as a card, not a hole. */
     .lead-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:680px;margin:0 auto;}
     @media(max-width:600px){.lead-grid{grid-template-columns:1fr;}}
-    /* main header gold, sub-headers white (owner) */
-    .staff-main{color:var(--gold);}
-    .bg-dark .staff-title{color:#fff;}
+    /* Only the leadership band is dark now, so the one heading that sits on black
+       carries the gold; headings on the cream bands use the default dark ink (gold on
+       cream is 1.9:1 and unreadable). */
+    .bg-dark .staff-title{color:var(--gold);}
     .bg-dark .prose p{color:#fff;}
+    /* four coaches per row, stepping down with the viewport */
+    .grid-coaches{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+    @media(max-width:1100px){.grid-coaches{grid-template-columns:repeat(3,1fr);}}
+    @media(max-width:820px){.grid-coaches{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:520px){.grid-coaches{grid-template-columns:1fr;}}
+    /* the 4-up cards are narrower, so the photo box no longer needs to be square */
+    .grid-coaches .coach .ph{aspect-ratio:4/3;font-size:12px;}
     /* anchored coach cards must clear the sticky site header */
     .coach[id]{scroll-margin-top:120px;}
     .coach[id]:target{outline:3px solid var(--gold);outline-offset:4px;}
@@ -39,9 +47,12 @@
     .coach--lead .b h4{color:var(--gold);}
     .coach--lead .b span{color:#fff;letter-spacing:.06em;}
     /* [CO-03] assistant coaches: cream nameplate */
-    .coach--asst .b{background:var(--cream);}
+    /* the section is cream now, so a cream nameplate alone would bleed into the page and
+       the card would look unfinished; a teal rule terminates it while keeping the cream. */
+    .coach--asst .b{background:var(--cream);border-top:2px solid var(--teal);}
     .staff-title{margin-bottom:18px;font-size:22px;}
-    .staff-title + .grid-3{margin-bottom:38px;}
+    .staff-title + .grid-coaches{margin-bottom:34px;}
+    .staff-title + .grid-coaches:last-of-type{margin-bottom:0;}
     /* team assignments under a coach's name */
     .coach .b span{display:block;line-height:1.5;}
   </style>
@@ -151,14 +162,14 @@
     <div class="container"><h1>Coaching Staff</h1><p>Experienced coaches from top Colorado clubs: expertise in biomechanics, skill development, and competitive strategy.</p></div>
   </section>
   <!-- ===== [CO-02] Coming soon ===== -->
-  <section data-section="CO-02" class="bg-dark" style="padding-bottom:18px;">
+  <section data-section="CO-02" class="bg-cream">
     <div class="container narrow prose" style="text-align:center;">
-      <h2 class="section-title staff-main">2026&ndash;27 Coaching Staff</h2>
+      <h2 class="section-title">2026&ndash;27 Coaching Staff</h2>
       <p>Colorado Boom recruits coaches from top Colorado club programs, including coaches with national-tournament experience. Every coach&rsquo;s team assignments are listed below and on the <a class="ulink" href="teams.html">Our Teams</a> page. Full bios with photos will follow.</p>
     </div>
   </section>
   <!-- ===== [CO-02b] Club leadership — black section, teal nameplate, gold name (v1.73) ===== -->
-  <section data-section="CO-02b" class="bg-dark" style="padding-top:18px;padding-bottom:18px;">
+  <section data-section="CO-02b" class="bg-dark">
     <div class="container">
       <h3 class="section-title staff-title">Club Leadership</h3>
       <div class="lead-grid">
@@ -168,10 +179,10 @@
     </div>
   </section>
   <!-- ===== [CO-03] Coaching staff on the teal gradient — Coaches, then Assistant Coaches on cream nameplates (v1.73) ===== -->
-  <section data-section="CO-03" class="bg-dark" style="padding-top:18px;">
+  <section data-section="CO-03" class="bg-cream">
     <div class="container">
       <h3 class="section-title staff-title">Coaches</h3>
-      <div class="grid-3">
+      <div class="grid-coaches">
         <div class="coach" id="coach-mel-erly"><div class="ph" data-img="coach-1.jpg">[ Coach photo ]</div><div class="b"><h4>Mel Erly</h4><span>Head Coach &middot; 14 Colorado</span></div></div>
         <div class="coach" id="coach-kimberly-krise"><div class="ph" data-img="coach-2.jpg">[ Coach photo ]</div><div class="b"><h4>Kimberly Krise</h4><span>Head Coach &middot; 14 Colorado</span></div></div>
         <div class="coach" id="coach-will-ly"><div class="ph" data-img="coach-3.jpg">[ Coach photo ]</div><div class="b"><h4>Will Ly</h4><span>Head Coach &middot; 16 Regional &middot; 17 Colorado</span></div></div>
@@ -179,10 +190,10 @@
         <div class="coach" id="coach-sidney-reese"><div class="ph" data-img="coach-5.jpg">[ Coach photo ]</div><div class="b"><h4>Sidney Reese</h4><span>Head Coach &middot; 15 National</span></div></div>
         <div class="coach" id="coach-jae-spain"><div class="ph" data-img="coach-6.jpg">[ Coach photo ]</div><div class="b"><h4>Jae Spain</h4><span>Head Coach &middot; 15 Colorado</span></div></div>
         <div class="coach" id="coach-jawn-suzuki"><div class="ph" data-img="coach-7.jpg">[ Coach photo ]</div><div class="b"><h4>Jawn Suzuki</h4><span>Head Coach &middot; 17 National</span></div></div>
-        <div class="coach" id="coach-micheal-zhu"><div class="ph" data-img="coach-8.jpg">[ Coach photo ]</div><div class="b"><h4>Micheal Zhu</h4><span>Head Coach &middot; 13 Colorado &middot; 16 Colorado</span></div></div>
+        <div class="coach" id="coach-zhu"><div class="ph" data-img="coach-8.jpg">[ Coach photo ]</div><div class="b"><h4>Zhu</h4><span>Head Coach &middot; 13 Colorado &middot; 16 Colorado</span></div></div>
       </div>
       <h3 class="section-title staff-title">Assistant Coaches</h3>
-      <div class="grid-3">
+      <div class="grid-coaches">
         <div class="coach coach--asst" id="coach-makayla-clemons"><div class="ph" data-img="asst-1.jpg">[ Coach photo ]</div><div class="b"><h4>Makayla Clemons</h4><span>Assistant Coach &middot; 13 Colorado &middot; 16 Colorado</span></div></div>
         <div class="coach coach--asst" id="coach-rudy-garcia"><div class="ph" data-img="asst-2.jpg">[ Coach photo ]</div><div class="b"><h4>Rudy Garcia</h4><span>Assistant Coach &middot; 14 Colorado</span></div></div>
         <div class="coach coach--asst" id="coach-alicia-hall"><div class="ph" data-img="asst-3.jpg">[ Coach photo ]</div><div class="b"><h4>Alicia Hall</h4><span>Assistant Coach &middot; 14 National &middot; 15 National</span></div></div>
