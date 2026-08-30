@@ -10,6 +10,57 @@ reconstruct later.
 
 ---
 
+## v1.75 — 2026-08-29 · Mobile + contrast fixes from a measured audit
+`assets/css/styles.css`, `index.html`, `coaching-staff.html`
+
+Found by auditing eight pages at 390px wide and measuring every text node against the
+surface actually painted behind it, rather than against intended colours.
+
+- **The home page scrolled sideways on phones** — a real defect, and **pre-existing** (the live
+  site showed the same 435px content in a 375px viewport before this batch). Cause: grid items
+  default to `min-width:auto`, so the contact panel's value column could not shrink below the
+  min-content width of "admin@coloradoboom.com" (~221px); with the 110px label column and 32px
+  padding the panel came to 411px. Fix: grid children may shrink, the address wraps, and the
+  label/value pairs stack below 600px.
+- **Jump-nav links were 27px tall** on phones, under touch guidance in a dense two-row bar.
+  Padding raises the hit area to ~45px without moving the text.
+- **Current-page nav link** was gold on the teal-dark mobile menu at **4.23:1**, just under the
+  4.5:1 minimum for 12px text. Now the lighter gold already used in the CTA gradient: **6.03:1**.
+- **Popup week-row labels** ("Official Tryouts…", "Uniform Fitting") were `--gold-dark` on white at
+  **2.64:1**, a clear failure. Now `--teal-dark` at **7.70:1**.
+- Fuller meta description on the coaching-staff page (77 → 158 characters).
+
+Checked and **not** changed: the staff page's gold CTA reads ~10:1 on black; the audit's "1:1"
+readings were the measuring script defaulting to white where it could not read a gradient or
+photo backdrop, not real failures. Instrument error, confirmed element by element.
+
+---
+
+## v1.74 — 2026-08-29 · Staff page all-black, teams cross-linked to coaches, Visit Us rebuilt
+`coaching-staff.html`, `teams.html`, `index.html`
+
+- **Coaching staff is now one black area** (intro, Club Leadership and the coach grid all
+  `bg-dark`). The **main header is gold** ("2026–27 Coaching Staff") and the **sub-headers are white**
+  ("Club Leadership", "Coaches", "Assistant Coaches"). Leadership keeps its teal-dark nameplate with
+  the gold name; assistants keep cream nameplates.
+- **Our Teams links through to each coach.** Every coach card on the staff page gained an id
+  (`coach-first-last`); each coach name on the teams page is now a link to it, and the target card
+  draws a gold focus ring so you land on the right person. Link targets are validated at build time —
+  a coach on a team with no staff card fails the build.
+- **Coach names on the teams page are first names only** ("17 National - Jawn"), in the team title,
+  the jump-nav label and the coach line. Full names stay on the staff page. The build asserts the
+  shortened labels are still unique.
+- **Team cards are cream** (were white) and the **sticky team nav is black** with white links and a
+  gold rule. The site default link colour for that bar (teal-dark) would have been **1.6:1** on black;
+  white is **18:1**.
+- **[HM-08] Visit Us** is a black band with a cream information panel. **Boomtown Fieldhouse** now
+  links to boomtownathletics.com; sanctioning is split into **RMR / USAV** and **AAU** with each
+  linked (AAU resolves to aausports.org/volleyball — verified, not guessed); open gym reads
+  **Wed / Fri (Sept–Oct)** and the "three days a week, through August" subtitle is gone.
+- **SEO:** teams.html gained `ItemList` / `SportsTeam` structured data for all 14 teams.
+
+---
+
 ## v1.73 — 2026-08-29 · Coaching-staff colour rework
 `coaching-staff.html`
 

@@ -608,3 +608,28 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
    length and readability are unchanged - the words are just redistributed. */
 h1,h2,h3,h4{text-wrap:balance;}
 p,li,dd,figcaption,blockquote{text-wrap:pretty;}
+
+/* ===== v1.75 (2026-08-29) — mobile audit fixes =====
+   The [HM-08] contact panel forced a horizontal scroll on phones: grid items default to
+   min-width:auto, so the 1fr column could not shrink below the min-content width of
+   "admin@coloradoboom.com" (~221px). With the 110px label column and 32px padding that
+   made the panel 411px wide inside a 375px viewport. Fix: let grid children shrink, let
+   the long address wrap, and stack the label/value pairs on small screens. */
+.contact-grid > *{min-width:0;}
+.contact-info dd{min-width:0;overflow-wrap:anywhere;}
+.map-wrap{min-width:0;}
+@media(max-width:600px){
+  .contact-info{padding:22px;}
+  .contact-info dl{grid-template-columns:1fr;gap:2px 0;}
+  .contact-info dt{padding-top:12px;}
+  .contact-info dt:first-of-type{padding-top:0;}
+}
+/* Jump-nav links were 27px tall on phones — under the 44px touch guidance and easy to
+   mis-tap in a dense two-row bar. Padding raises the hit area without moving the text. */
+@media(max-width:768px){
+  .jump-nav a{padding:9px 0;}
+  .jump-nav{gap:6px 16px;}
+}
+/* The current-page nav link is gold on the teal-dark mobile menu: 4.23:1 at 12px, just
+   under the 4.5:1 minimum. The lighter gold already used in the CTA gradient clears it. */
+.nav a[aria-current="page"]{color:#F7D54A;}
