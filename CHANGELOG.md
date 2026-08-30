@@ -10,6 +10,27 @@ reconstruct later.
 
 ---
 
+## v1.73 — 2026-08-29 · Coaching-staff colour rework
+`coaching-staff.html`
+
+- **Club Leadership: the black moved from the card to the section.** The previous build painted
+  the *photo area* black, which is not what was asked — the **section band** is black now
+  (`bg-dark`) and the photo placeholder is back to the standard light treatment, so the cards read
+  as cards rather than holes in the page.
+- **Header text reversed to gold and white**: the "Club Leadership" heading is gold on the black
+  band, and on the nameplate the **name is gold** with the **title in white**. The nameplate moved
+  from `--teal` to `--teal-dark` for one reason: gold on `--teal` is **2.7:1**, a contrast failure,
+  while gold on `--teal-dark` is **4.16:1**, which clears the 3:1 bar for large text (the name is
+  20px bold). The build now fails if any of these five pairings drops below its threshold.
+- **Coaches now sit on the teal gradient** (`bg-teal-d`, was cream), and the single "Coaching Staff"
+  grid is split into **Coaches** (8) and **Assistant Coaches** (6). The split is derived from the
+  existing card markup, not retyped, so no name can drift.
+- **Assistant coaches get cream nameplates** (`--cream`), which is what distinguishes them from the
+  head coaches' white ones. The "Interested in Coaching?" button went gold — teal-on-teal would
+  have disappeared into the new background.
+
+---
+
 ## v1.72 — 2026-08-29 · Uniform fitting time; 12U/18U pulled; Damon retitled
 `teams.html`, `coaching-staff.html`, all 12 full-nav pages (`[ANN]`), `index.html` (`[HM-POP]`),
 `tryouts.html`, `schedule.html`, `girls-club.html`
