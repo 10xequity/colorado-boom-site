@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.76 · 2026-08-30 · [CO-02]+[CO-03] cream (only [CO-02b] Club Leadership stays black); coach grids now four per row (3/2/1 as the viewport narrows); gold moved to the one heading still on black; ad-hoc section padding removed so the bands use the standard rhythm; Micheal Zhu referenced as "Zhu". Prev v1.74 · [CO-02]+[CO-02b]+[CO-03] Whole staff area is now black; main header gold, sub-headers white. Every coach card carries an id (coach-first-last) so Our Teams can deep-link to a coach; :target draws a gold ring. Prev v1.73 · [CO-02b] Leadership: the SECTION is now black (the photo area went back to the standard light placeholder — the black was on the wrong element); nameplate teal-dark with a GOLD name and white title; section heading gold. [CO-03] Now on the teal gradient and split into Coaches / Assistant Coaches, the assistants on cream nameplates; CTA gold for contrast. Prev v1.72 · [CO-02b] Damon Sichler retitled Assistant Club Director (was Girls Club Director). Prev v1.71 · [CO-02b] NEW Club Leadership block (Tara Tucker, Club Operations Director; Damon Sichler, Girls Club Director) at the top, black card + teal nameplate per owner. [CO-03] Coach cards now generated from the team roster with role + team assignments. Prev v1.70 · [CO-02]+[CO-03] Real coaching roster added (Will Ly, Kyn Van, Claire Kwok, Jae Spain, Randy Vang) replacing the three generic placeholder cards; no titles or team assignments invented — add <span> under a name once known. Photos still placeholders. -->
+  <!-- BUILD v1.77 · 2026-08-30 · [CO-02] intro block back on black with a gold heading and white body text; [CO-02b] sub-header returns to white so the gold/white hierarchy holds across the two dark bands; facing paddings halved so the pair reads as one block. [CO-03] stays cream. Prev v1.76 · [CO-02]+[CO-03] cream (only [CO-02b] Club Leadership stays black); coach grids now four per row (3/2/1 as the viewport narrows); gold moved to the one heading still on black; ad-hoc section padding removed so the bands use the standard rhythm; Micheal Zhu referenced as "Zhu". Prev v1.74 · [CO-02]+[CO-02b]+[CO-03] Whole staff area is now black; main header gold, sub-headers white. Every coach card carries an id (coach-first-last) so Our Teams can deep-link to a coach; :target draws a gold ring. Prev v1.73 · [CO-02b] Leadership: the SECTION is now black (the photo area went back to the standard light placeholder — the black was on the wrong element); nameplate teal-dark with a GOLD name and white title; section heading gold. [CO-03] Now on the teal gradient and split into Coaches / Assistant Coaches, the assistants on cream nameplates; CTA gold for contrast. Prev v1.72 · [CO-02b] Damon Sichler retitled Assistant Club Director (was Girls Club Director). Prev v1.71 · [CO-02b] NEW Club Leadership block (Tara Tucker, Club Operations Director; Damon Sichler, Girls Club Director) at the top, black card + teal nameplate per owner. [CO-03] Coach cards now generated from the team roster with role + team assignments. Prev v1.70 · [CO-02]+[CO-03] Real coaching roster added (Will Ly, Kyn Van, Claire Kwok, Jae Spain, Randy Vang) replacing the three generic placeholder cards; no titles or team assignments invented — add <span> under a name once known. Photos still placeholders. -->
   <!-- BUILD v1.36 · 2026-07-04 · batch: ANN xl + OCS note, nav Advanced Skills item -->
   <!-- BUILD v1.55 (2026-08-20) | site-wide sweep: [ANN] expired Aug 17/19 eval dates removed; mobile Login button added to header bar; Club Fees menu split into 11U-14U / 15U-18U; width/height added to images (CLS fix). See CHANGELOG.md. -->
   <meta charset="UTF-8">
@@ -25,11 +25,16 @@
        standard light placeholder so the card reads as a card, not a hole. */
     .lead-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:680px;margin:0 auto;}
     @media(max-width:600px){.lead-grid{grid-template-columns:1fr;}}
-    /* Only the leadership band is dark now, so the one heading that sits on black
-       carries the gold; headings on the cream bands use the default dark ink (gold on
-       cream is 1.9:1 and unreadable). */
-    .bg-dark .staff-title{color:var(--gold);}
+    /* [CO-02] and [CO-02b] are both dark: the main header carries the gold (10.06:1 on
+       black) and the sub-header sits in white (18.9:1). Headings on the cream [CO-03] band
+       keep the default dark ink — gold on cream is 1.9:1 and unreadable. */
+    .staff-main{color:var(--gold);}
+    .bg-dark .staff-title{color:#fff;}
     .bg-dark .prose p{color:#fff;}
+    /* The two dark bands read as one black block, so their facing paddings are halved —
+       stacked section padding would otherwise leave ~112px of empty black at the join. */
+    [data-section="CO-02"]{padding-bottom:26px;}
+    [data-section="CO-02b"]{padding-top:26px;}
     /* four coaches per row, stepping down with the viewport */
     .grid-coaches{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
     @media(max-width:1100px){.grid-coaches{grid-template-columns:repeat(3,1fr);}}
@@ -162,9 +167,9 @@
     <div class="container"><h1>Coaching Staff</h1><p>Experienced coaches from top Colorado clubs: expertise in biomechanics, skill development, and competitive strategy.</p></div>
   </section>
   <!-- ===== [CO-02] Coming soon ===== -->
-  <section data-section="CO-02" class="bg-cream">
+  <section data-section="CO-02" class="bg-dark">
     <div class="container narrow prose" style="text-align:center;">
-      <h2 class="section-title">2026&ndash;27 Coaching Staff</h2>
+      <h2 class="section-title staff-main">2026&ndash;27 Coaching Staff</h2>
       <p>Colorado Boom recruits coaches from top Colorado club programs, including coaches with national-tournament experience. Every coach&rsquo;s team assignments are listed below and on the <a class="ulink" href="teams.html">Our Teams</a> page. Full bios with photos will follow.</p>
     </div>
   </section>

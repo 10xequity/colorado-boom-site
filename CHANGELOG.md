@@ -10,6 +10,21 @@ reconstruct later.
 
 ---
 
+## v1.77 — 2026-08-30 · Coaching-staff intro back on black
+`coaching-staff.html`
+
+- The **[CO-02] intro block returns to a black band**, with the "2026–27 Coaching Staff" heading in
+  **gold** (10.06:1) and the paragraph beneath it in **white** (18.9:1). The in-paragraph link to
+  Our Teams uses the site's existing on-dark link colour at 11.6:1.
+- **[CO-02b] Club Leadership's heading goes back to white.** With two dark bands again, the owner's
+  earlier hierarchy holds: the main header carries the gold, sub-headers are white. Gold on gold
+  would have flattened the two.
+- **[CO-03] Coaches stays cream**, so the page now runs dark intro → dark leadership → cream coaches.
+- Because [CO-02] and [CO-02b] are adjacent and both dark, they read as **one** black block; their
+  facing paddings are halved (56px each → 26px) so the join does not leave ~112px of empty black.
+
+---
+
 ## v1.76 — 2026-08-30 · Practice times, "Zhu", popup scroll-lock, cream coach grid at 4-up
 `teams.html`, `coaching-staff.html`, `index.html`
 
