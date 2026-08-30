@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.70 · 2026-08-29 · [CO-02]+[CO-03] Real coaching roster added (Will Ly, Kyn Van, Claire Kwok, Jae Spain, Randy Vang) replacing the three generic placeholder cards; no titles or team assignments invented — add <span> under a name once known. Photos still placeholders. -->
+  <!-- BUILD v1.71 · 2026-08-29 · [CO-02b] NEW Club Leadership block (Tara Tucker, Club Operations Director; Damon Sichler, Girls Club Director) at the top, black card + teal nameplate per owner. [CO-03] Coach cards now generated from the team roster with role + team assignments. Prev v1.70 · [CO-02]+[CO-03] Real coaching roster added (Will Ly, Kyn Van, Claire Kwok, Jae Spain, Randy Vang) replacing the three generic placeholder cards; no titles or team assignments invented — add <span> under a name once known. Photos still placeholders. -->
   <!-- BUILD v1.36 · 2026-07-04 · batch: ANN xl + OCS note, nav Advanced Skills item -->
   <!-- BUILD v1.55 (2026-08-20) | site-wide sweep: [ANN] expired Aug 17/19 eval dates removed; mobile Login button added to header bar; Club Fees menu split into 11U-14U / 15U-18U; width/height added to images (CLS fix). See CHANGELOG.md. -->
   <meta charset="UTF-8">
@@ -14,6 +14,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    /* [CO-02b] club leadership: black card body, teal nameplate */
+    .lead-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:680px;margin:0 auto;}
+    @media(max-width:600px){.lead-grid{grid-template-columns:1fr;}}
+    .coach--lead{background:var(--black);border:1px solid rgba(0,0,0,.2);box-shadow:0 10px 26px rgba(0,0,0,.28);}
+    .coach--lead .ph{background:linear-gradient(135deg,#242424 0%,#0a0a0a 100%);color:var(--gold);}
+    .coach--lead .b{background:var(--teal);}
+    .coach--lead .b h4{color:#fff;}
+    .coach--lead .b span{color:#fff;letter-spacing:.06em;}
+    /* team assignments under a coach's name stay readable on the cream card */
+    .coach .b span{display:block;line-height:1.5;}
+  </style>
   <link rel="canonical" href="https://coloradoboom.com/coaching-staff.html">
   <meta name="geo.region" content="US-CO">
   <meta name="geo.placename" content="Aurora, Colorado">
@@ -123,18 +135,38 @@
   <section data-section="CO-02" class="bg-white">
     <div class="container narrow prose" style="text-align:center;">
       <h2 class="section-title">2026&ndash;27 Coaching Staff</h2>
-      <p>Colorado Boom recruits coaches from top Colorado club programs, including coaches with national-tournament experience. Team assignments are being finalized and will be posted on the <a class="ulink" href="teams.html">Our Teams</a> page. Full bios with photos will follow.</p>
+      <p>Colorado Boom recruits coaches from top Colorado club programs, including coaches with national-tournament experience. Every coach&rsquo;s team assignments are listed below and on the <a class="ulink" href="teams.html">Our Teams</a> page. Full bios with photos will follow.</p>
     </div>
   </section>
-  <!-- ===== [CO-03] Coach cards — names only until roles/team assignments are supplied ===== -->
+  <!-- ===== [CO-02b] Club leadership — black card, teal nameplate (v1.71) ===== -->
+  <section data-section="CO-02b" class="bg-white" style="padding-top:0;">
+    <div class="container">
+      <h3 class="section-title" style="font-size:22px;margin-bottom:18px;">Club Leadership</h3>
+      <div class="lead-grid">
+        <div class="coach coach--lead"><div class="ph" data-img="lead-1.jpg">[ Photo ]</div><div class="b"><h4>Tara Tucker</h4><span>Club Operations Director</span></div></div>
+        <div class="coach coach--lead"><div class="ph" data-img="lead-2.jpg">[ Photo ]</div><div class="b"><h4>Damon Sichler</h4><span>Girls Club Director</span></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== [CO-03] Coaching staff — generated from the team roster (v1.71) ===== -->
   <section data-section="CO-03" class="bg-cream">
     <div class="container">
+      <h3 class="section-title" style="font-size:22px;margin-bottom:18px;">Coaching Staff</h3>
       <div class="grid-3">
-        <div class="coach"><div class="ph" data-img="coach-1.jpg">[ Coach photo ]</div><div class="b"><h4>Will Ly</h4></div></div>
-        <div class="coach"><div class="ph" data-img="coach-2.jpg">[ Coach photo ]</div><div class="b"><h4>Kyn Van</h4></div></div>
-        <div class="coach"><div class="ph" data-img="coach-3.jpg">[ Coach photo ]</div><div class="b"><h4>Claire Kwok</h4></div></div>
-        <div class="coach"><div class="ph" data-img="coach-4.jpg">[ Coach photo ]</div><div class="b"><h4>Jae Spain</h4></div></div>
-        <div class="coach"><div class="ph" data-img="coach-5.jpg">[ Coach photo ]</div><div class="b"><h4>Randy Vang</h4></div></div>
+        <div class="coach"><div class="ph" data-img="coach-1.jpg">[ Coach photo ]</div><div class="b"><h4>Mel Erly</h4><span>Head Coach &middot; 14 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-2.jpg">[ Coach photo ]</div><div class="b"><h4>Kimberly Krise</h4><span>Head Coach &middot; 14 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-3.jpg">[ Coach photo ]</div><div class="b"><h4>Will Ly</h4><span>Head Coach &middot; 16 Regional &middot; 17 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-4.jpg">[ Coach photo ]</div><div class="b"><h4>Brian Peterson</h4><span>Head Coach &middot; 15 Regional &middot; 16 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-5.jpg">[ Coach photo ]</div><div class="b"><h4>Sidney Reese</h4><span>Head Coach &middot; 15 National</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-6.jpg">[ Coach photo ]</div><div class="b"><h4>Jae Spain</h4><span>Head Coach &middot; 15 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-7.jpg">[ Coach photo ]</div><div class="b"><h4>Jawn Suzuki</h4><span>Head Coach &middot; 17 National</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-8.jpg">[ Coach photo ]</div><div class="b"><h4>Micheal Zhu</h4><span>Head Coach &middot; 13 Colorado &middot; 16 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-9.jpg">[ Coach photo ]</div><div class="b"><h4>Makayla Clemons</h4><span>Assistant Coach &middot; 13 Colorado &middot; 16 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-10.jpg">[ Coach photo ]</div><div class="b"><h4>Rudy Garcia</h4><span>Assistant Coach &middot; 14 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-11.jpg">[ Coach photo ]</div><div class="b"><h4>Alicia Hall</h4><span>Assistant Coach &middot; 14 National &middot; 15 National</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-12.jpg">[ Coach photo ]</div><div class="b"><h4>Claire Kwok</h4><span>Assistant Coach &middot; 15 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-13.jpg">[ Coach photo ]</div><div class="b"><h4>Kyn Van</h4><span>Assistant Coach &middot; 16 Regional &middot; 17 Colorado</span></div></div>
+        <div class="coach"><div class="ph" data-img="coach-14.jpg">[ Coach photo ]</div><div class="b"><h4>Randy Vang</h4><span>Assistant Coach &middot; 16 National &middot; 17 National</span></div></div>
       </div>
       <div class="cta-inline"><a href="mailto:admin@coloradoboom.com" class="btn btn-teal">Interested in Coaching? Contact Us</a></div>
     </div>

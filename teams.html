@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.70 · 2026-08-29 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
+  <!-- BUILD v1.71 · 2026-08-29 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and 2026-27 tournament schedules for every squad.">
@@ -38,6 +38,9 @@
     .jump-row::-webkit-scrollbar{display:none;}
     @media(min-width:900px){.jump-row{justify-content:center;overflow-x:visible;}}
     .jump-row a{white-space:nowrap;}
+    /* two rows of eight need more room than the 1140px body column */
+    .page-jump .container{max-width:1460px;}
+    @media(min-width:900px){.jump-row{gap:10px 16px;}}
     .jump-tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
     .jump-tools .btn{font-size:12px;padding:8px 16px;}
     .jump-tools .btn-black{border:1px solid #000;}
@@ -178,37 +181,65 @@
       <p class="hero-follow"><a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener">Follow us on Instagram &middot; @coboomvb</a></p>
     </div>
   </section>
-  <!-- ===== [TM-NAV] Sticky jump nav: two rows, one link per team ===== -->
+  <!-- ===== [TM-NAV] Sticky jump nav: two rows of eight ===== -->
   <div class="page-jump" data-section="TM-NAV">
     <nav class="jump-nav jump-row container" aria-label="Teams on this page">
+      <a href="#t12-colorado">12 Colorado</a>
       <a href="#t13-colorado">13 Colorado</a>
       <a href="#t14-national">14 National</a>
-      <a href="#t14-colorado-a">14 Colorado</a>
-      <a href="#t15-national-tara">15 National - Tara</a>
-      <a href="#t15-national-sidney">15 National - Sidney</a>
+      <a href="#t14-colorado-krise">14 Colorado - Krise</a>
+      <a href="#t14-colorado-erly">14 Colorado - Erly</a>
+      <a href="#t15-national-tucker">15 National - Tucker</a>
+      <a href="#t15-national-reese">15 National - Reese</a>
       <a href="#t15-colorado">15 Colorado</a>
     </nav>
     <nav class="jump-nav jump-row container" aria-label="More teams on this page">
       <a href="#t15-regional">15 Regional</a>
       <a href="#t16-national">16 National</a>
-      <a href="#t16-colorado-a">16 Colorado</a>
+      <a href="#t16-colorado-zhu">16 Colorado - Zhu</a>
+      <a href="#t16-colorado-peterson">16 Colorado - Peterson</a>
       <a href="#t16-regional">16 Regional</a>
       <a href="#t17-national">17 National</a>
       <a href="#t17-colorado">17 Colorado</a>
+      <a href="#t18-national">18 National</a>
     </nav>
     <div class="jump-tools container">
       <button type="button" id="expand-all" class="btn btn-gold btn-sm">Expand All Teams</button>
       <button type="button" id="collapse-all" class="btn btn-black btn-sm">Collapse All Teams</button>
     </div>
   </div>
-  <!-- ===== [TM-02] All teams (one continuous list) ===== -->
+  <!-- ===== [TM-02] All teams (one continuous list, 12U to 18U) ===== -->
   <section id="teams" data-section="TM-02" class="bg-teal-d">
     <div class="container">
       <p class="section-subtitle" style="margin-bottom:26px;">Tap a team to see its coaches, roster, practice times, and schedule.</p>
+      <details class="team" id="t12-colorado">
+        <summary>
+          <span class="team-head">
+            <span class="team-name">12 Colorado</span>
+          </span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Roster will be posted here soon.</p>
+          </details>
+          <details class="tsub">
+            <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Practice times will be posted here soon.</p>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Schedule will be posted here soon.</p>
+          </details>
+        </div>
+      </details>
       <details class="team" id="t13-colorado">
         <summary>
           <span class="team-head">
-            <span class="team-name">13 Colorado</span>
+            <span class="team-name">13 Colorado - Micheal Zhu</span>
+            <span class="team-coach">Head Coach: Micheal Zhu &middot; Assistant: Makayla Clemons</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -247,7 +278,8 @@
       <details class="team" id="t14-national">
         <summary>
           <span class="team-head">
-            <span class="team-name">14 National</span>
+            <span class="team-name">14 National - Tara Tucker</span>
+            <span class="team-coach">Head Coach: Tara Tucker &middot; Assistant: Alicia Hall</span>
           </span>
           <span class="lv lv-national">National</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -283,10 +315,11 @@
           </details>
         </div>
       </details>
-      <details class="team" id="t14-colorado-a">
+      <details class="team" id="t14-colorado-krise">
         <summary>
           <span class="team-head">
-            <span class="team-name">14 Colorado</span>
+            <span class="team-name">14 Colorado - Kimberly Krise</span>
+            <span class="team-coach">Head Coach: Kimberly Krise &middot; Assistant: Rudy Garcia</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -323,10 +356,11 @@
           </details>
         </div>
       </details>
-      <details class="team" id="t14-colorado-b">
+      <details class="team" id="t14-colorado-erly">
         <summary>
           <span class="team-head">
-            <span class="team-name">14 Colorado</span>
+            <span class="team-name">14 Colorado - Mel Erly</span>
+            <span class="team-coach">Head Coach: Mel Erly</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -363,11 +397,11 @@
           </details>
         </div>
       </details>
-      <details class="team" id="t15-national-tara">
+      <details class="team" id="t15-national-tucker">
         <summary>
           <span class="team-head">
-            <span class="team-name">15 National - Tara</span>
-            <span class="team-coach">Head Coach: Tara</span>
+            <span class="team-name">15 National - Tara Tucker</span>
+            <span class="team-coach">Head Coach: Tara Tucker &middot; Assistant: Alicia Hall</span>
           </span>
           <span class="lv lv-national">National</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -405,11 +439,11 @@
           </details>
         </div>
       </details>
-      <details class="team" id="t15-national-sidney">
+      <details class="team" id="t15-national-reese">
         <summary>
           <span class="team-head">
-            <span class="team-name">15 National - Sidney</span>
-            <span class="team-coach">Head Coach: Sidney</span>
+            <span class="team-name">15 National - Sidney Reese</span>
+            <span class="team-coach">Head Coach: Sidney Reese</span>
           </span>
           <span class="lv lv-national">National</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -450,7 +484,8 @@
       <details class="team" id="t15-colorado">
         <summary>
           <span class="team-head">
-            <span class="team-name">15 Colorado</span>
+            <span class="team-name">15 Colorado - Jae Spain</span>
+            <span class="team-coach">Head Coach: Jae Spain &middot; Assistant: Claire Kwok</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -490,7 +525,8 @@
       <details class="team" id="t15-regional">
         <summary>
           <span class="team-head">
-            <span class="team-name">15 Regional</span>
+            <span class="team-name">15 Regional - Brian Peterson</span>
+            <span class="team-coach">Head Coach: Brian Peterson</span>
           </span>
           <span class="lv lv-regional">Regional</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -529,7 +565,8 @@
       <details class="team" id="t16-national">
         <summary>
           <span class="team-head">
-            <span class="team-name">16 National</span>
+            <span class="team-name">16 National - Damon Sichler</span>
+            <span class="team-coach">Head Coach: Damon Sichler &middot; Assistant: Randy Vang</span>
           </span>
           <span class="lv lv-national">National</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -566,10 +603,11 @@
           </details>
         </div>
       </details>
-      <details class="team" id="t16-colorado-a">
+      <details class="team" id="t16-colorado-zhu">
         <summary>
           <span class="team-head">
-            <span class="team-name">16 Colorado</span>
+            <span class="team-name">16 Colorado - Micheal Zhu</span>
+            <span class="team-coach">Head Coach: Micheal Zhu &middot; Assistant: Makayla Clemons</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -605,10 +643,11 @@
           </details>
         </div>
       </details>
-      <details class="team" id="t16-colorado-b">
+      <details class="team" id="t16-colorado-peterson">
         <summary>
           <span class="team-head">
-            <span class="team-name">16 Colorado</span>
+            <span class="team-name">16 Colorado - Brian Peterson</span>
+            <span class="team-coach">Head Coach: Brian Peterson</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -647,7 +686,8 @@
       <details class="team" id="t16-regional">
         <summary>
           <span class="team-head">
-            <span class="team-name">16 Regional</span>
+            <span class="team-name">16 Regional - Will Ly</span>
+            <span class="team-coach">Head Coach: Will Ly &middot; Assistant: Kyn Van</span>
           </span>
           <span class="lv lv-regional">Regional</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -686,7 +726,8 @@
       <details class="team" id="t17-national">
         <summary>
           <span class="team-head">
-            <span class="team-name">17 National</span>
+            <span class="team-name">17 National - Jawn Suzuki</span>
+            <span class="team-coach">Head Coach: Jawn Suzuki &middot; Assistant: Randy Vang</span>
           </span>
           <span class="lv lv-national">National</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -727,7 +768,8 @@
       <details class="team" id="t17-colorado">
         <summary>
           <span class="team-head">
-            <span class="team-name">17 Colorado</span>
+            <span class="team-name">17 Colorado - Will Ly</span>
+            <span class="team-coach">Head Coach: Will Ly &middot; Assistant: Kyn Van</span>
           </span>
           <span class="lv lv-colorado">Colorado</span>
           <span class="team-ic" aria-hidden="true">+</span>
@@ -761,6 +803,29 @@
                 </tbody>
               </table>
             </div>
+          </details>
+        </div>
+      </details>
+      <details class="team" id="t18-national">
+        <summary>
+          <span class="team-head">
+            <span class="team-name">18 National</span>
+          </span>
+          <span class="lv lv-national">National</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Roster will be posted here soon.</p>
+          </details>
+          <details class="tsub">
+            <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Practice times will be posted here soon.</p>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Schedule will be posted here soon.</p>
           </details>
         </div>
       </details>

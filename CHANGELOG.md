@@ -10,6 +10,31 @@ reconstruct later.
 
 ---
 
+## v1.71 — 2026-08-29 · Full team/coach roster; club leadership on the staff page
+`teams.html`, `coaching-staff.html`
+
+- **`teams.html` now carries the owner's full roster: 16 teams**, up from 14. **12U Colorado** and
+  **18U National** are new — both have OPEN coaching and no schedule yet, so they show a name, a
+  level tile, and "Schedule will be posted here soon."
+- **Every team name ends with its head coach** ("13 Colorado - Micheal Zhu"), and the line beneath
+  reads "Head Coach: X · Assistant: Y". The roster's numeric suffixes (Colorado 1 / 2, National 1 / 2)
+  were dropped in favour of the coach name, per the owner's earlier instruction. **OPEN and PENDING
+  render as nothing at all** — a build-time guard fails if either string reaches the page.
+- **Jump nav is now two rows of eight**, which the 16-team roster makes exact. Labels carry a coach
+  surname only where two teams share a name (14 Colorado, 15 National, 16 Colorado); the nav
+  container was widened to 1460px so neither row scrolls sideways.
+- **`coaching-staff.html`**: new **Club Leadership** block at the top — **Tara Tucker, Club
+  Operations Director** and **Damon Sichler, Girls Club Director** — on black cards with teal
+  nameplates. Below it the coach cards are now generated from the same roster data, each showing
+  the coach's role and the teams they take (14 coaches). One source of truth: editing the
+  roster updates both pages.
+- **Name resolution:** the roster's first-name-only coaches were matched to the owner's name list
+  five-for-five — Will → Will Ly, Claire → Claire Kwok, Jae → Jae Spain, Randy → Randy Vang, and
+  **Ken → Kyn Van** (the one inference; flagged for confirmation). "OPEN (Katie)" and "PENDING" were
+  both treated as unassigned.
+
+---
+
 ## v1.70 — 2026-08-29 · Coaching roster added; unassigned teams show no coach line
 `coaching-staff.html`, `teams.html`
 
