@@ -10,6 +10,46 @@ reconstruct later.
 
 ---
 
+## v1.83 — 2026-08-31 · Positions spelled out; RYL schedule, Makayla's 12s, name calls
+`teams.html`, `ryl-teams.html`, `programs.html`
+
+- **Positions are spelled out on every roster tile, both pages** — Pin Hitter, Setter, Middle,
+  Right Side, Libero, Defensive Specialist, Outside Hitter, Utility; multi-position players keep
+  the slash ("Libero / Defensive Specialist"). Verified against real volleyball titles; "Middle"
+  (not "Middle Blocker") per the owner's own naming. **Paige Stewart is a Pin Hitter** per the
+  owner, on both pages (she had been PIN/M on club, Right Side on RYL).
+
+- **Official 2026 RYL schedule on every RYL card**, taken from the RMR's RYL page
+  (rmrvolleyball.org, page 9160754): RYL #1 Sun Sept 20, #2 Sun Sept 27, #3 Sun Oct 4 (3:30 PM
+  start), #4 Sun Oct 11 — 8:30 AM starts unless noted — and a two-day Championships Sat–Sun
+  Oct 17–18 (times TBD; three events played = eligible). The league schedules by event, not by
+  team, so all five cards carry the same table plus the 8:30–1:00 / locations-by-RMR note.
+  Because the fifth event is a Saturday–Sunday championship, the "five Sunday tournaments" copy
+  on `programs.html` was measurably wrong and now reads "four one-day Sunday tournaments plus a
+  two-day championship weekend"; its lead says "five league events".
+
+- **RYL practice counts:** owner confirms RYL is two practices a week and club is three.
+  **Mel's RYL team: 5:30–7:00 PM per the owner — the days (Tue & Thu) are ASSUMED** to match the
+  other RYL Colorado teams; correct in one line if wrong. The club **12 Colorado - Kula adds
+  Friday** (Tue, Thu & Fri), which was the one club team still on two days. `programs.html`'s
+  RYL blurb now says "two team practices per week".
+
+- **RYL 12 Colorado is coached by Makayla Clemons** — title "12 Colorado - Makayla", coach line
+  linked to her staff card, jump label updated. Her staff card keeps listing club assignments
+  only (13/16 Colorado), consistent with the other RYL coaches' cards.
+
+- **Name calls (owner asked for best guesses, checked against club data on file):**
+  - **Elliana Foster** on both pages — the RYL sheet carries the fuller form; "Ellian" reads as a
+    truncation. GUESS: no roster export contains her.
+  - **Aimee Aviles Ramirez** replaces the RYL sheet's "Aimee Weinand" — Jae's RYL team is 8/10
+    identical to club 14 Colorado - Kimberly, whose only unaccounted libero-type is Aviles
+    Ramirez; "Weinand" sits two rows under Alyssa Weinand and reads as autopilot. EVIDENCED but
+    not certain.
+  - **Kiarya McCready** — the OCS export on file has a Cassia McCready (same family email
+    pattern), so the family spells it McCready. EVIDENCED.
+  - **Kept:** Ezzeddine, Penney (no source found for either variant; the already-live club
+    spellings stand), Betanya Molla (confirmed by the March members report), Brooklynn Coursey.
+
 ## v1.82 — 2026-08-31 · Roster tiles, RYL Teams page, one tryout message (10U–18U)
 `teams.html`, NEW `ryl-teams.html`, `coaching-staff.html`, `tryouts.html`, and the ANN banner + nav on every page
 

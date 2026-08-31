@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-08-31 · **Live build** v1.82 · **Status** Active
+**Updated** 2026-08-31 · **Live build** v1.83 · **Status** Active
 **Supersedes** the 2026-08-24 handoff (v1.67)
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
@@ -39,7 +39,7 @@ Pages redeploys automatically ~1 minute after the push.
   upload a file with the **same name** into `assets/img/`. Full detail in `DEPLOY_GITHUB.md`.
 - **Command line:** `git push origin Main`.
 
-## 4. Current state (v1.82, 2026-08-31)
+## 4. Current state (v1.83, 2026-08-31)
 
 Everything through **v1.76** is live (`5f2e028`). Full history in `CHANGELOG.md`. The 2026-08-29/30
 work added two whole areas and changed several site-wide facts:
@@ -55,10 +55,12 @@ work added two whole areas and changed several site-wide facts:
   (v1.82, owner). **Jersey numbers**: add `<span class="pnum">12</span>` as a tile's first child
   and a gold corner badge renders it. ⚠ The Mel roster arrived labeled "16 Colorado - Mel" (no
   such team) and is published under 14 Colorado - Mel — still unconfirmed; see CHANGELOG v1.81.
-- **`ryl-teams.html` is live** (v1.82) — five RYL fall-league teams, tile rosters, per-team
-  practice days. 12 Colorado's roster is deliberately withheld (owner); 14 Colorado - Mel's RYL
-  practice days were not supplied. ⚠ CHANGELOG v1.82 lists player-name spellings that differ
-  between the owner's two roster sheets — one spelling is live, owner should confirm.
+- **`ryl-teams.html` is live** — five RYL teams, tile rosters (positions spelled out, v1.83),
+  per-team practice days (all two a week; club teams are three), the official RMR event schedule
+  on every card, and Makayla Clemons coaching the 12s. 12 Colorado's roster is deliberately
+  withheld (owner). ⚠ Mel's RYL practice DAYS are an assumption (Tue & Thu at the owner's
+  5:30–7:00); ⚠ name best-guesses (Elliana Foster, Aimee Aviles Ramirez, Kiarya McCready) are
+  reasoned in CHANGELOG v1.83 — owner should confirm.
 - **Tryouts message is combined** (v1.82): "Girls Club Tryouts · 10U-18U", no RYL mention and no
   age split on tryouts.html; the 15U-18U "ongoing" block became the black "Try Out at Any Open
   Gym" band (`#open-gym-tryouts`). The ANN banner everywhere and the home popup follow suit. Each is a collapsible card: coach line, then **Roster**,
