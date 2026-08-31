@@ -10,6 +10,56 @@ reconstruct later.
 
 ---
 
+## v1.82 — 2026-08-31 · Roster tiles, RYL Teams page, one tryout message (10U–18U)
+`teams.html`, NEW `ryl-teams.html`, `coaching-staff.html`, `tryouts.html`, and the ANN banner + nav on every page
+
+- **Rosters are tile grids now, not tables.** Four tiles across (3, then 2, as the viewport
+  narrows), each tile a white card with a teal top rule: player name in bold, position in teal
+  small caps beneath — the same visual grammar as the coach cards. The grid is ready for jersey
+  numbers: adding `<span class="pnum">12</span>` as a tile's first child renders a gold corner
+  badge, no other edit needed.
+
+- **16 Colorado - Zhu's roster is pulled** back to "posted here soon" per the owner. The other
+  four club rosters stay up, as tiles.
+
+- **Coach lines carry full names** ("Head Coach: Tara Tucker"); team *titles* keep the
+  first-name convention ("14 National - Tara") per the owner. Zhu remains "Zhu" — the standing
+  convention for him. Assistants got last names too: a line reading "Tara Tucker · Assistant:
+  Alicia" would have looked half-done.
+
+- **NEW `ryl-teams.html`** — the fall-league mirror of Our Club Teams, generated from it so the
+  two pages share card, tile and jump-bar patterns; in the Club Info menu and sitemap. Five
+  teams: **12 Colorado** (roster withheld per owner — card kept, practice published),
+  **13 Colorado - Zhu**, **14 National - Tara** (9 players, Wed & Fri 6:30–8:00 PM),
+  **14 Colorado - Jae**, **14 Colorado - Mel** (practice days not supplied — shows "posted
+  soon"; the other Colorado teams are Tue & Thu 5:30–7:00 PM). Positions are full words
+  (Setter, Outside…) as supplied. No Schedule panels — RYL is five RMR-scheduled Sunday
+  tournaments — and no jersey-number note, since numbers were only promised for club rosters.
+  The roster sheet's margin notes were not published.
+
+- **⚠ Name spellings the owner should confirm.** The RYL sheet spells four already-published
+  players differently; the site keeps ONE spelling per player (the club page's, already live):
+  **Ezzeddine** (sheet: Ezzedine), **Penney** (Penny), **Brooklynn** (Booklynn), **Betanya**
+  (Batanya), and **Ellian Foster** (sheet: Elliana). Also as-supplied but worth a glance:
+  **Aimee Weinand** (the club page has Aimee *Aviles Ramirez* and a separate Alyssa Weinand —
+  same player renamed, or a different one?), and **Kiarya Mccready** (Mccready or McCready?).
+
+- **Coach cards deep-link to their teams.** Every team assignment on the staff page
+  ("Head Coach · 14 Colorado") is now a link to that team's card, which auto-opens on arrival —
+  the reverse of the coach links the teams page already had. 22 links across 15 cards.
+
+- **One tryout message: "Girls Club Tryouts · 10U–18U."** Per the owner, the tryout page no
+  longer mentions RYL tryouts and no longer splits 10U–14U from 15U–18U: one heading, one date
+  table, one register button. The 15U–18U "ongoing tryouts" block (heading, callout, recruiting
+  checks) is replaced by a **black template band, "Try Out at Any Open Gym"** (10U–18U,
+  Wed/Fri 5:30–7:00) — the position-needs copy lives on in the [RB] recruiting banner, which is
+  unchanged. The ANN banner on every page, the home-page popup, the open-gym and OCS age
+  mentions, and girls-club's cross-reference all follow (the `#ongoing-1518` anchor is gone;
+  girls-club points at `#open-gym-tryouts`). The RYL *program* section on `programs.html` stays,
+  now pointing at the new RYL Teams page — and its stale "three practices per week (5:00–7:00)"
+  claim, contradicted by the owner's practice days, was replaced by a pointer to the per-team
+  days.
+
 ## v1.81 — 2026-08-31 · "Our Club Teams": Nov 2 start, Friday practices, 12s team, first five rosters
 `teams.html`, `coaching-staff.html`, nav on all 12 pages
 

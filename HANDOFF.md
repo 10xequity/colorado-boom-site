@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-08-31 · **Live build** v1.81 · **Status** Active
+**Updated** 2026-08-31 · **Live build** v1.82 · **Status** Active
 **Supersedes** the 2026-08-24 handoff (v1.67)
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
@@ -11,7 +11,7 @@ change was made, newest first).
 
 ## 1. What this is & where it lives
 
-- **coloradoboom.com** — a plain static site (HTML/CSS/JS, no build step), **13 pages**.
+- **coloradoboom.com** — a plain static site (HTML/CSS/JS, no build step), **14 pages**.
 - **Source of truth:** GitHub repo **`10xequity/colorado-boom-site`**, branch **`Main`** (capital M).
 - **Hosting:** GitHub Pages, fronted by **Cloudflare** (caches ~10 min, so changes take a few
   minutes to appear — hard-refresh with Ctrl/Cmd+Shift+R).
@@ -39,7 +39,7 @@ Pages redeploys automatically ~1 minute after the push.
   upload a file with the **same name** into `assets/img/`. Full detail in `DEPLOY_GITHUB.md`.
 - **Command line:** `git push origin Main`.
 
-## 4. Current state (v1.81, 2026-08-31)
+## 4. Current state (v1.82, 2026-08-31)
 
 Everything through **v1.76** is live (`5f2e028`). Full history in `CHANGELOG.md`. The 2026-08-29/30
 work added two whole areas and changed several site-wide facts:
@@ -50,13 +50,18 @@ work added two whole areas and changed several site-wide facts:
   November 2, 2026."** Every team practices **three days a week** (Friday added in v1.81, standard
   window 5:15–7:30 PM) — except **12 Colorado - Kula** (new in v1.81, coach Kula Tanuvasa), which is
   **Tue & Thu** per the owner.
-- **Five rosters are live** (14 National - Tara, 14 Colorado - Kimberly, 14 Colorado - Mel,
-  16 Colorado - Zhu, 16 National - Damon), 10 players each, positions only — **jersey numbers to be
-  added when assigned** (swap the note under each table for a # column, or add a # cell per row).
-  ⚠ The Mel roster arrived labeled "16 Colorado - Mel" (a team that doesn't exist) and was published
-  under 14 Colorado - Mel — confirm with the owner; see CHANGELOG v1.81.
-- **Coming: an RYL teams tab** — the owner will send details separately; stage it on the `drafts`
-  branch (with `noindex` + draft band) before it ships. Each is a collapsible card: coach line, then **Roster**,
+- **Four club rosters are live as tile grids** (14 National - Tara, 14 Colorado - Kimberly,
+  14 Colorado - Mel, 16 National - Damon); 16 Colorado - Zhu was pulled back to "posted soon"
+  (v1.82, owner). **Jersey numbers**: add `<span class="pnum">12</span>` as a tile's first child
+  and a gold corner badge renders it. ⚠ The Mel roster arrived labeled "16 Colorado - Mel" (no
+  such team) and is published under 14 Colorado - Mel — still unconfirmed; see CHANGELOG v1.81.
+- **`ryl-teams.html` is live** (v1.82) — five RYL fall-league teams, tile rosters, per-team
+  practice days. 12 Colorado's roster is deliberately withheld (owner); 14 Colorado - Mel's RYL
+  practice days were not supplied. ⚠ CHANGELOG v1.82 lists player-name spellings that differ
+  between the owner's two roster sheets — one spelling is live, owner should confirm.
+- **Tryouts message is combined** (v1.82): "Girls Club Tryouts · 10U-18U", no RYL mention and no
+  age split on tryouts.html; the 15U-18U "ongoing" block became the black "Try Out at Any Open
+  Gym" band (`#open-gym-tryouts`). The ANN banner everywhere and the home popup follow suit. Each is a collapsible card: coach line, then **Roster**,
   **Practice Times** and **Schedule** sub-panels.
 - Team names end with the head coach's **first name** — "17 National - Jawn".
 - A **sticky two-row jump bar** (black, white links) scrolls to and auto-opens a team. Plain anchors

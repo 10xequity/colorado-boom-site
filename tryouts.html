@@ -3,7 +3,7 @@
 <head>
   <!-- BUILD v1.81 · 2026-08-31 · nav: "Our Teams" renamed "Our Club Teams" (site-wide). -->
   <!-- BUILD v1.72 · 2026-08-29 · [TO-04] Uniform fitting time confirmed: Sept 13, 5:00-8:00 PM. -->
-  <!-- BUILD v1.69 · 2026-08-29 · [TO-04] Sept 13 (6-7 PM) & Sept 20 (1-2 PM) tryouts replace the passed Aug 24 date (Aug 31 auto-retires); Sept 13 uniform-fitting note; [TO-02] open gym now Wed/Fri only. -->
+  <!-- BUILD v1.82 · 2026-08-31 · [TO-04] one tryout message per owner: "Girls Club Tryouts · 10U-18U" — the RYL mentions and the 10U-14U vs 15U-18U split are gone from this page (RYL still has its own program section and the new ryl-teams.html). NEW [TO-04b] black band "Try Out at Any Open Gym" (10U-18U, Wed/Fri 5:30-7) replaces the 15U-18U "ongoing tryouts" h3 + callout + recruiting checks (the position needs stay in the [RB] banner). The #ongoing-1518 anchor is gone; girls-club.html now points at #open-gym-tryouts. ANN combined the same way; [TO-02]/[TO-07] age mentions follow. Nav gains RYL Teams. Prev BUILD v1.69 · 2026-08-29 · [TO-04] Sept 13 (6-7 PM) & Sept 20 (1-2 PM) tryouts replace the passed Aug 24 date (Aug 31 auto-retires); Sept 13 uniform-fitting note; [TO-02] open gym now Wed/Fri only. -->
   <!-- BUILD v1.68 · 2026-08-29 · [TO] Damon advanced club training paused until Nov (auto-note now, Wed/Fri callout auto-restores Nov 1); nav: Our Teams item + Programs dropdown realigned w/ Private/Group Lessons. -->
   <!--  BUILD: v1.55 (2026-08-20) | change: removed the expired [TO-EVAL] open-evaluations section (Aug 17 & 19 concluded) + its jump-nav entry; the two cross-references now point to open gym / tryouts ("join us at tryouts"). Site-wide sweep also applied here: [ANN] eval dates removed, mobile Login button, Club Fees menu split (11U-14U / 15U-18U), image width/height for CLS. Prev v1.53 (2026-08-14) | change: price removed from the pre-evaluation section and CTA. Prev v1.52 (2026-08-14) | change: open-evaluation content lifted out of [TO-04] into its own [TO-EVAL] section above it (evaluations happen before tryouts), now with the live registration form and $20; jump nav gains Evaluations. Prev v1.51 (2026-08-12) | change: open evaluations added for Girls 10U-14U (Mon Aug 17 & Wed Aug 19, 5:30-7:00 PM) as headline dates, with the standing any-open-gym offer kept; official Fri Aug 21 session 4:00-5:30 PM -> 4:30-6:30 PM. Prev v1.50 (2026-08-11) | change: banners split (gold CTA / recruiting needs / cream OCS bar); "Register Now!" recoloured for contrast; 15U-18U reframed to ongoing open-gym tryouts (17s/18s middles+pins; Regional 15s/16s hitters+middles) with the past-dates table removed; 10U-14U pre-evals + walk-in wording; RYL non-HS note incl. boys RYL-only; expired July copy removed. Prev v1.47 (2026-07-30) | change: 15U-18U tryout table added (same Aug 21/22/24/31 dates as 10U-14U) - recruiting hitters/middles/setters; callout + notes reworded (concurrent Club+RYL); position-flexibility line added. Prev v1.46 | change: boys + girls 15U-18U tryout tables removed (all sessions past; boys program dates dropped per owner); page reframed as Girls 10U-14U Club & RYL tryouts; OCS 10U-14U offers -> 9:00 PM Aug 20; schema startDate -> Aug 21; tryout membership note $15 -> $20 (verified rmrvolleyball.org); RYL cross-links. Prev v1.45 (2026-07-19) | change: dropped past July sessions (Jul 10-18); schedule tables + ANN + THIS-WEEK callout pruned to upcoming (Boys Jul 21/29/31, Girls 15U-18U Jul 29, Girls 10U-14U Aug); OCS 15U-18U offer note updated; schema startDate -> Jul 21. Prev v1.44 (2026-07-16) | change: boys Sat Jul 18 5:30-7:00 -> 4:00-5:30 PM (matches popup). Prev v1.43 (2026-07-14) | change: boys Sat Jul 18 4:00-6:30 -> 5:30-7:00 PM. Prev v1.42 (2026-07-14) | change: Club Login nav btn, Club Calendar nav+footer link, ANN dates+recruiting line, 11U->10U-14U labels, THIS-WEEK callout refresh. Prev v1.37 (2026-07-12) | change: boys tryouts collapsed to single combined session 13U–18U (Jul 17 5:30–7:00 PM, Jul 18 4:00–6:30 PM, Jul 21/29/31 5:30–7:00 PM). Prev v1.36: tryouts-first reorder, OCS buttons under TO-NAV, THIS-WEEK callout, jump-nav pulse, OCS 11U-14U offer date Aug 20, ANN xl + membership note, nav Advanced Skills item. -->
   <meta charset="UTF-8">
@@ -37,6 +37,12 @@
   <!-- ===== v1.34 (2026-06-22): [TO-NAV] jump nav + [TO-02] 14+ Advanced Skills box ===== -->
   <style>
     .page-jump{padding:18px 0;border-bottom:1px solid rgba(0,0,0,.07);}
+      /* [TO-04b] the base .times-callout is a cream box; on the black band it goes to the
+       translucent treatment the teal-d sections already use, with white text and a white
+       link (the default teal link fails contrast on black) */
+    .bg-dark .times-callout{background:rgba(255,255,255,.08);}
+    .bg-dark .times-callout .big,.bg-dark .times-callout .sub{color:#fff;}
+    .bg-dark .times-callout .ulink{color:#fff;}
   </style>
 </head>
 <body>
@@ -61,6 +67,7 @@
           <span class="drop" role="menu">
             <a href="club.html" role="menuitem">Club Overview</a>
             <a href="teams.html" role="menuitem">Our Club Teams</a>
+            <a href="ryl-teams.html" role="menuitem">RYL Teams</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
             <a href="club.html#age-11-14" role="menuitem">Club Fees: 11U&ndash;14U</a>
@@ -101,10 +108,10 @@
   <!-- ============ [ANN] ANNOUNCEMENT BAR — v1.50: concise gold CTA ============ -->
   <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Tryout announcement">
     <!-- EDIT: tryout dates -->
-    Girls Club &amp; RYL Tryouts &nbsp;&bull;&nbsp; 10U&ndash;14U<span data-show-until="2026-08-31"> &nbsp;&bull;&nbsp; Mon Aug 31</span> &nbsp;&bull;&nbsp; Tryouts Sept 13 &amp; 20
+    Girls Club Tryouts &nbsp;&bull;&nbsp; 10U&ndash;18U &nbsp;&bull;&nbsp; Tryouts Sept 13 &amp; 20
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">10U&ndash;14U &middot; Sun Sept 13, 6:00&ndash;7:00 PM &middot; Sun Sept 20, 1:00&ndash;2:00 PM &middot; Uniform fitting Sept 13, 5:00&ndash;8:00 PM &middot; Or walk in at any Wed / Fri open gym &middot; RYL tryouts run the same dates</span>
+    <span class="ann-note">10U&ndash;18U &middot; Sun Sept 13, 6:00&ndash;7:00 PM &middot; Sun Sept 20, 1:00&ndash;2:00 PM &middot; Uniform fitting Sept 13, 5:00&ndash;8:00 PM &middot; Or walk in at any Wed / Fri open gym</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -152,12 +159,11 @@
       <p class="section-subtitle">Multiple sessions, all skill levels welcome. We look for a team-first mentality, high volleyball IQ, and work ethic.</p>
       <!-- v1.36 THIS-WEEK callout -->
       <div class="times-callout" style="border-color:var(--gold);background:#fff7e0;">
-        <span class="big">Girls Club &amp; RYL Tryouts: September</span>
-        <span class="sub">Girls 10U&ndash;14U (all positions) &middot; Sun Sept 13 &middot; Sun Sept 20: one tryout covers Club teams <em>and</em> the RYL fall league</span>
+        <span class="big">Girls Club Tryouts: September</span>
+        <span class="sub">Girls 10U&ndash;18U (all positions) &middot; Sun Sept 13 &middot; Sun Sept 20</span>
         <span class="sub">Not evaluated yet? Come to any Wed / Fri open gym before you commit &middot; offers are sent through the RMR OCS after tryouts, pre-evaluated players first.</span>
-        <span class="sub">15U&ndash;18U: ongoing tryouts at open gym: 17s &amp; 18s need middles &amp; pin hitters &middot; Regional 15s &amp; 16s have spots for hitters &amp; middles</span>
       </div>
-      <h3 style="text-align:center;margin:6px 0 12px;"><a class="ulink" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Girls 10U&ndash;14U: Official Club &amp; RYL Tryouts (all positions)</a></h3>
+      <h3 style="text-align:center;margin:6px 0 12px;"><a class="ulink" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Girls 10U&ndash;18U: Official Club Tryouts (all positions)</a></h3>
       <div class="tbl-wrap"><table class="sched">
         <thead><tr><th>Date</th><th>Time</th></tr></thead>
         <tbody>
@@ -167,21 +173,22 @@
         </tbody>
       </table></div>
       <p class="sched-note"><strong>Uniform fitting:</strong> Sunday, September 13, 5:00&ndash;8:00 PM at Boomtown Fieldhouse, for players joining a 2026&ndash;27 team.</p>
-      <p class="sched-note">Tryouts for Club teams and the RYL fall league run concurrently, these sessions place players on 2026&ndash;27 club teams <em>and</em> our RYL fall-league teams. Can&rsquo;t make the first session? The later dates double as make-up tryouts.</p>
-      <p class="sched-note"><strong>RYL only?</strong> The RYL is the region&rsquo;s fall youth league for players not yet in high school. Girls <em>and</em> boys who just want RYL try out at these same sessions, boys are welcome to join the RYL without joining club. <a class="ulink" href="programs.html#ryl">Learn about the RYL</a>.</p>
-      <h3 id="ongoing-1518" style="text-align:center;margin:30px 0 12px;"><a class="ulink" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Girls 15U&ndash;18U: Ongoing Tryouts</a></h3>
-      <div class="times-callout">
-        <span class="big">Try Out at Any Open Gym</span>
-        <span class="sub">Wed / Fri &middot; 5:30&ndash;7:00 PM</span>
-        <span class="sub">Register below or just walk in &middot; private evaluations: <a class="ulink" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></span>
-      </div>
-      <ul class="checks" style="max-width:660px;">
-        <li><strong>17s &amp; 18s:</strong> we need middles and pin hitters (outside &amp; right-side).</li>
-        <li><strong>Regional 15s &amp; 16s:</strong> open team spots for hitters and middles.</li>
-        <li><strong>Willing to try a different position?</strong> Tell us, we&rsquo;ll train you.</li>
-      </ul>
+      <p class="sched-note">These sessions place players on 2026&ndash;27 club teams. Can&rsquo;t make the first session? The later dates double as make-up tryouts.</p>
       <p class="sched-note">Not sure which division your athlete is in? Age groups follow USA Volleyball birth-year cutoffs, check the age chart at <a class="ulink" href="https://usavolleyball.org/play/junior/" target="_blank" rel="noopener">USAV Junior</a>. All sessions at Boomtown Fieldhouse, Aurora.</p>
       <div class="cta-inline" style="margin-top:18px;"><a href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener" class="btn btn-gold">Register for Tryouts</a></div>
+    </div>
+  </section>
+  <!-- ===== [TO-04b] OPEN-GYM TRYOUTS (v1.82) — the separate 15U-18U "ongoing tryouts" block
+       becomes one all-ages black band per owner: no age split on this page, 10U-18U ===== -->
+  <section data-section="TO-04b" class="bg-dark" id="open-gym-tryouts">
+    <div class="container narrow" style="text-align:center;">
+      <h2 class="section-title" style="color:var(--gold);">Try Out at Any Open Gym</h2>
+      <p class="section-subtitle">Girls 10U&ndash;18U &middot; every Wed / Fri open gym doubles as a tryout &middot; register or just walk in</p>
+      <div class="times-callout">
+        <span class="big">Wed / Fri &middot; 5:30&ndash;7:00 PM</span>
+        <span class="sub">Private evaluations: <a class="ulink" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></span>
+      </div>
+      <div class="cta-inline"><a href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener" class="btn btn-gold">Register for Open Gym</a></div>
     </div>
   </section>
   <!-- ===== [TO-07] OCS / GOT AN OFFER ===== -->
@@ -191,7 +198,7 @@
       <p class="section-subtitle">After tryouts, club offers come through the Rocky Mountain Region's Online Commitment System (&ldquo;the Portal&rdquo;).</p>
       <ul class="checks">
         <li>Offers arrive by email from <strong>offers@rmr.vstarvolleyball.com</strong>: add it to your contacts now so it doesn't land in spam.</li>
-        <li><strong>10U&ndash;14U offers</strong> are sent through the OCS as tryouts progress, pre-evaluated players receive offers first.</li>
+        <li><strong>10U&ndash;18U offers</strong> are sent through the OCS as tryouts progress, pre-evaluated players receive offers first.</li>
         <li><strong>You have 48 hours to accept</strong> your team-level placement. After 48 hours, the spot may no longer be available and can be offered to another player.</li>
         <li><strong>Accepting an offer commits your athlete to that club for the season</strong>: they can't try out for or play with another club after that.</li>
         <li>The OCS is separate from membership: you'll still join USAV/RMR, sign waivers, and pay dues.</li>
@@ -250,7 +257,7 @@
       <p class="section-subtitle">Boys &amp; girls, ages 10+: open to any player, any club. Drop in and play.</p>
       <div class="times-callout">
         <span class="big">Wed / Fri &middot; 5:30&ndash;7:00 PM</span>
-        <span class="sub">Girls 10U&ndash;14U: join us at tryouts: <a class="ulink" href="#tryouts">Sun Sept 13 &amp; 20</a></span>
+        <span class="sub">Girls 10U&ndash;18U: join us at tryouts: <a class="ulink" href="#tryouts">Sun Sept 13 &amp; 20</a></span>
         <span class="sub">Group Training &amp; Developmental: Tues / Thurs &middot; 5:00&ndash;6:30 PM</span>
       </div>
       <p class="prose">$20 per session. Boomtown drop-in included 7&ndash;11 PM (players under 14 need parental supervision). Registration preferred, walk-ins welcome.</p>
