@@ -10,6 +10,59 @@ reconstruct later.
 
 ---
 
+## v1.80 — 2026-08-31 · First real coach photos; photo boxes go portrait
+`coaching-staff.html`, `assets/css` (page-local), `assets/img/`, `IMAGES.md`
+
+Ships the work stamped v1.79 on the branch plus the backdrop change below; v1.79 was never on
+Main, so it has no entry of its own.
+
+- **Three cards get real photos**: Damon Sichler in Club Leadership `[CO-02b]`, Mel Erly and
+  Sidney Reese in Coaches `[CO-03]`. The other 13 cards keep the teal gradient placeholder, so
+  the page is now visibly part-populated rather than uniformly empty.
+
+- **The photo box changed from 4:3 landscape to 4:5 portrait**, for both the leadership pair and
+  the coach grid. The 4:3 box was chosen back when every box was an empty gradient, where the
+  ratio only affected page rhythm. With a real head-and-shoulders photo in it, 4:3 is actively
+  wrong: the face lands small and the remaining two-thirds of the frame fills with whatever was
+  behind the coach. Portrait is the shape the photo wants. Using one ratio for both grids also
+  retires an inconsistency — leadership was 1:1 and coaches 4:3 for no stated reason.
+
+- **Photos are cropped, never upscaled.** Each is cut from a 6048x4032 original and delivered at
+  1000x1250; the smallest source crop was 1791px wide, so every file is a downscale. Delivered
+  files carry 3.0–3.9x the CSS pixel size, which stays sharp past retina.
+
+- **Exposure is set from the face, not the frame.** The first pass used grey-world white balance,
+  which assumes the average of a scene is neutral. On these shots the average is warm skin against
+  a black backdrop, so it "corrected" the skin toward grey and left all three looking drained. The
+  studio shots (Mel, Damon) now get no white balance at all — only a small warmth nudge and a
+  contrast curve — and each face is metered on its own skin patch. Sidney's gym shot keeps a light
+  balance pass because it has a genuine warm cast off the wood floor, and her face was lifted about
+  1.5x from an underexposed original.
+
+- **Photo files are named after the card, not numbered.** `coach-mel-erly.jpg`, not `coach-1.jpg`.
+  The cards already carry ids of that form for deep-linking from Our Teams, so the file name and
+  the anchor now agree, and a roster reorder no longer renumbers every remaining file. The 13
+  placeholder `data-img` attributes were renamed to match; nothing reads that attribute, it is a
+  note to whoever adds the next photo. `IMAGES.md` documents the convention and the 4:5 spec.
+
+- **Sidney Reese's backdrop is composited, not photographed.** Hers was the only one of the three
+  shot in the gym rather than against the black backdrop, so her card carried a red wall and a lit
+  wood floor while the other two were plain black — in a grid of sixteen that reads as a mistake.
+  The library has no black-backdrop frame of her (only five such frames exist at all, and every one
+  is Mel or Damon), so she was cut out and placed on a backdrop built to match: warm charcoal
+  ranging 15–40, a soft light spill behind the head, and fine grain, all measured off the real Mel
+  and Damon frames rather than guessed. The cutout is a machine matte with the edges tightened and
+  pulled toward the new dark ground, so no bright gym pixel survives in her hair.
+
+  **This means her card is a composite and the other two are not.** It is a faithful likeness and
+  nothing about her was altered, but if the club ever states its photos are unretouched, that claim
+  does not cover this one. The original gym frame is untouched on OneDrive.
+
+  The cheaper fix for the remaining thirteen: photograph them against the same black backdrop and
+  no compositing is needed. `IMAGES.md` now says so.
+
+- The photo supplied as "Sydney" is **Sidney Reese** — confirmed by the owner, 2026-08-31.
+
 ## v1.78 — 2026-08-30 · Practice window 5:15–7:30; 14 National adds a Monday slot
 `teams.html`
 
