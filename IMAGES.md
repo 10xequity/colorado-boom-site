@@ -39,3 +39,14 @@ reordered or a coach can leave without every remaining file needing to be renumb
 centred and filling roughly 80% of the frame height, cropped just below the chest. The card
 frame is 4:5, so a photo already at that ratio is shown whole and uncropped; anything else
 gets centre-cropped to fit. Keep files under ~250KB.
+
+**Shoot against the black backdrop.** The three photos on the page now share a plain dark
+charcoal background, and the grid only looks like a set because they match. A coach photographed
+in the gym stands out badly next to them — the wall colour and the lit floor pull the eye away
+from the face. Sidney Reese's was shot in the gym and had to be cut out and placed on a rebuilt
+backdrop to fit in; it worked, but it is slow, it is a composite rather than a photograph, and
+long hair is the case where that technique is most likely to look wrong. Ten minutes against the
+black backdrop avoids all of it.
+
+Aim for: coach facing the camera, head and shoulders, lit from the front, standing far enough off
+the backdrop that no shadow falls on it.

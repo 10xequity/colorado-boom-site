@@ -10,8 +10,11 @@ reconstruct later.
 
 ---
 
-## v1.79 — 2026-08-30 · First real coach photos; photo boxes go portrait
+## v1.80 — 2026-08-31 · First real coach photos; photo boxes go portrait
 `coaching-staff.html`, `assets/css` (page-local), `assets/img/`, `IMAGES.md`
+
+Ships the work stamped v1.79 on the branch plus the backdrop change below; v1.79 was never on
+Main, so it has no entry of its own.
 
 - **Three cards get real photos**: Damon Sichler in Club Leadership `[CO-02b]`, Mel Erly and
   Sidney Reese in Coaches `[CO-03]`. The other 13 cards keep the teal gradient placeholder, so
@@ -42,9 +45,23 @@ reconstruct later.
   placeholder `data-img` attributes were renamed to match; nothing reads that attribute, it is a
   note to whoever adds the next photo. `IMAGES.md` documents the convention and the 4:5 spec.
 
-- **Not done, needs the owner:** the second photo was supplied as "Sydney" and has been placed on
-  **Sidney Reese**, the only roster name it can plausibly mean. Worth confirming it is the same
-  person before this ships.
+- **Sidney Reese's backdrop is composited, not photographed.** Hers was the only one of the three
+  shot in the gym rather than against the black backdrop, so her card carried a red wall and a lit
+  wood floor while the other two were plain black — in a grid of sixteen that reads as a mistake.
+  The library has no black-backdrop frame of her (only five such frames exist at all, and every one
+  is Mel or Damon), so she was cut out and placed on a backdrop built to match: warm charcoal
+  ranging 15–40, a soft light spill behind the head, and fine grain, all measured off the real Mel
+  and Damon frames rather than guessed. The cutout is a machine matte with the edges tightened and
+  pulled toward the new dark ground, so no bright gym pixel survives in her hair.
+
+  **This means her card is a composite and the other two are not.** It is a faithful likeness and
+  nothing about her was altered, but if the club ever states its photos are unretouched, that claim
+  does not cover this one. The original gym frame is untouched on OneDrive.
+
+  The cheaper fix for the remaining thirteen: photograph them against the same black backdrop and
+  no compositing is needed. `IMAGES.md` now says so.
+
+- The photo supplied as "Sydney" is **Sidney Reese** — confirmed by the owner, 2026-08-31.
 
 ## v1.78 — 2026-08-30 · Practice window 5:15–7:30; 14 National adds a Monday slot
 `teams.html`
