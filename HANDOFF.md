@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-08-30 · **Live build** v1.76 · **Status** Active
+**Updated** 2026-08-31 · **Live build** v1.81 · **Status** Active
 **Supersedes** the 2026-08-24 handoff (v1.67)
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
@@ -39,13 +39,24 @@ Pages redeploys automatically ~1 minute after the push.
   upload a file with the **same name** into `assets/img/`. Full detail in `DEPLOY_GITHUB.md`.
 - **Command line:** `git push origin Main`.
 
-## 4. Current state (v1.76, 2026-08-30)
+## 4. Current state (v1.81, 2026-08-31)
 
 Everything through **v1.76** is live (`5f2e028`). Full history in `CHANGELOG.md`. The 2026-08-29/30
 work added two whole areas and changed several site-wide facts:
 
-**New: `teams.html` (Our Teams)** — linked from **Club Info → Our Teams**.
-- **14 teams live**, 13U through 17U. Each is a collapsible card: coach line, then **Roster**,
+**New: `teams.html` (Our Club Teams)** — linked from **Club Info → Our Club Teams** (renamed from
+"Our Teams" in v1.81).
+- **15 teams live**, 12U through 17U. A gold callout opens the list: **"Practice Begins
+  November 2, 2026."** Every team practices **three days a week** (Friday added in v1.81, standard
+  window 5:15–7:30 PM) — except **12 Colorado - Kula** (new in v1.81, coach Kula Tanuvasa), which is
+  **Tue & Thu** per the owner.
+- **Five rosters are live** (14 National - Tara, 14 Colorado - Kimberly, 14 Colorado - Mel,
+  16 Colorado - Zhu, 16 National - Damon), 10 players each, positions only — **jersey numbers to be
+  added when assigned** (swap the note under each table for a # column, or add a # cell per row).
+  ⚠ The Mel roster arrived labeled "16 Colorado - Mel" (a team that doesn't exist) and was published
+  under 14 Colorado - Mel — confirm with the owner; see CHANGELOG v1.81.
+- **Coming: an RYL teams tab** — the owner will send details separately; stage it on the `drafts`
+  branch (with `noindex` + draft band) before it ships. Each is a collapsible card: coach line, then **Roster**,
   **Practice Times** and **Schedule** sub-panels.
 - Team names end with the head coach's **first name** — "17 National - Jawn".
 - A **sticky two-row jump bar** (black, white links) scrolls to and auto-opens a team. Plain anchors

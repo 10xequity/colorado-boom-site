@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- BUILD v1.78 · 2026-08-30 · [TM] practice window moved to 5:15-7:30 PM on every team; 14 National adds a Monday 6:30-8:45 PM slot at its own time (owner-flagged exception to the standard window). Prev v1.76 · 2026-08-30 · [TM] practice times filled in for all 14 teams (court assignments deliberately omitted per instruction); Micheal Zhu referenced as "Zhu" in team names, coach lines and jump labels. Prev v1.74 · 2026-08-29 · [TM] Coach names shortened to first names and linked to their card on the Coaching Staff page; team cards cream (was white); sticky jump bar black with white links + gold rule; ItemList/SportsTeam structured data. Prev v1.72 · 2026-08-29 · [TM] 12U Colorado and 18U National pulled from public view (owner: rosters still being decided) — their markup is in git at 3b3c8c5 if they come back. 14 teams live; jump nav rebalanced to two rows of seven. Prev v1.71 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
+  <!-- BUILD v1.81 · 2026-08-31 · [TM] page renamed "Our Club Teams" (title/h1/nav/breadcrumb, and the nav item on every page). [TM-02a] NEW gold season-start callout at the top of the team list: "Practice Begins November 2, 2026". Every team adds a FRIDAY practice at the standard 5:15-7:30 window (owner; also squares this page with club.html, which has promised "three practices a week" while every team here listed two). NEW team 12 Colorado - Kula (Kula Tanuvasa), Tue & Thu, roster/schedule pending -- jump nav now 8+7, ItemList 15 teams. FIRST FIVE ROSTERS live (10 players each, positions; jersey numbers to follow): 14 National - Tara, 14 Colorado - Kimberly, 14 Colorado - Mel, 16 Colorado - Zhu, 16 National - Damon. NOTE: the Mel roster arrived labeled "16 Colorado - Mel" -- no such team exists (the 16 Colorado teams are Zhu and Brian; Mel coaches 14 Colorado), so it is published under 14 Colorado - Mel; if it belongs to a 16s team, moving it is one block swap. RYL teams tab: owner will send details separately; stage on drafts. Prev BUILD v1.78 · 2026-08-30 · [TM] practice window moved to 5:15-7:30 PM on every team; 14 National adds a Monday 6:30-8:45 PM slot at its own time (owner-flagged exception to the standard window). Prev v1.76 · 2026-08-30 · [TM] practice times filled in for all 14 teams (court assignments deliberately omitted per instruction); Micheal Zhu referenced as "Zhu" in team names, coach lines and jump labels. Prev v1.74 · 2026-08-29 · [TM] Coach names shortened to first names and linked to their card on the Coaching Staff page; team cards cream (was white); sticky jump bar black with white links + gold rule; ItemList/SportsTeam structured data. Prev v1.72 · 2026-08-29 · [TM] 12U Colorado and 18U National pulled from public view (owner: rosters still being decided) — their markup is in git at 3b3c8c5 if they come back. 14 teams live; jump nav rebalanced to two rows of seven. Prev v1.71 · [TM] Full owner roster wired in: 16 teams (12U Colorado and 18U National added, both coach-OPEN and schedule-pending), head + assistant coaches per team, coach name appended to every team name. OPEN/PENDING render as nothing. Jump nav is two rows of eight; container widened so both rows fit. Prev v1.70 · [TM] Unassigned teams now show NO coach line (owner: leave blank until assigned) instead of "Coaches: To be announced"; assigned teams (15 National - Tara / - Sidney) unchanged. Prev v1.69 · [TM] Practice Times collapsible added to every team; tournament names spelled out (EOYR -> RMR End of Year Regionals) and out-of-state locations added (Hype Nation Rumble -> Casper WY, PNQ -> Philadelphia PA); coach names render at the end of the team name (data-driven: fill the 4th field per team). Prev v1.68 · NEW [TM] Teams page: 14 teams w/ owner-provided 2026-27 tournament schedules; sticky two-row jump nav (smooth-scroll + auto-open); level tiles in a fixed aligned column; coach lines black bold; rosters TBA until sent; hero = team photo; IG follow link. Linked from Club Info dropdown. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and 2026-27 tournament schedules for every squad.">
   <meta name="theme-color" content="#0E7C86">
   <link rel="icon" type="image/png" href="assets/img/logo.png">
-  <title>Our Teams | Colorado Boom Volleyball Club</title>
+  <title>Our Club Teams | Colorado Boom Volleyball Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -15,20 +15,20 @@
   <link rel="canonical" href="https://coloradoboom.com/teams.html">
   <meta name="geo.region" content="US-CO">
   <meta name="geo.placename" content="Aurora, Colorado">
-  <meta property="og:title" content="Our Teams | Colorado Boom Volleyball Club">
+  <meta property="og:title" content="Our Club Teams | Colorado Boom Volleyball Club">
   <meta property="og:description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and 2026-27 tournament schedules for every squad.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://coloradoboom.com/teams.html">
   <meta property="og:image" content="https://coloradoboom.com/assets/img/teams-hero.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Our Teams | Colorado Boom Volleyball Club">
+  <meta name="twitter:title" content="Our Club Teams | Colorado Boom Volleyball Club">
   <meta name="twitter:description" content="Colorado Boom Volleyball Club teams: coaches, rosters, and 2026-27 tournament schedules for every squad.">
   <meta name="twitter:image" content="https://coloradoboom.com/assets/img/teams-hero.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Our Teams","item":"https://coloradoboom.com/teams.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Our Club Teams","item":"https://coloradoboom.com/teams.html"}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ItemList","name":"Colorado Boom Volleyball Club Teams, 2026-27","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SportsTeam","name":"Colorado Boom 13 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":2,"item":{"@type":"SportsTeam","name":"Colorado Boom 14 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":3,"item":{"@type":"SportsTeam","name":"Colorado Boom 14 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":4,"item":{"@type":"SportsTeam","name":"Colorado Boom 14 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":5,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":6,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":7,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":8,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 Regional","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":9,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":10,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":11,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":12,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 Regional","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":13,"item":{"@type":"SportsTeam","name":"Colorado Boom 17 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":14,"item":{"@type":"SportsTeam","name":"Colorado Boom 17 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}}]}
+  {"@context":"https://schema.org","@type":"ItemList","name":"Colorado Boom Volleyball Club Teams, 2026-27","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SportsTeam","name":"Colorado Boom 12 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":2,"item":{"@type":"SportsTeam","name":"Colorado Boom 13 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":3,"item":{"@type":"SportsTeam","name":"Colorado Boom 14 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":4,"item":{"@type":"SportsTeam","name":"Colorado Boom 14 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":5,"item":{"@type":"SportsTeam","name":"Colorado Boom 14 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":6,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":7,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":8,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":9,"item":{"@type":"SportsTeam","name":"Colorado Boom 15 Regional","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":10,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":11,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":12,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":13,"item":{"@type":"SportsTeam","name":"Colorado Boom 16 Regional","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":14,"item":{"@type":"SportsTeam","name":"Colorado Boom 17 National","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}},{"@type":"ListItem","position":15,"item":{"@type":"SportsTeam","name":"Colorado Boom 17 Colorado","sport":"Volleyball","memberOf":{"@type":"SportsOrganization","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"}}}]}
   </script>
   <style>
     /* [TM] hero: follow line */
@@ -44,11 +44,13 @@
     @media(max-width:600px){.page-jump{top:68px;}}
     .jump-row{margin-top:4px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:2px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
     .jump-row::-webkit-scrollbar{display:none;}
-    @media(min-width:900px){.jump-row{justify-content:center;overflow-x:visible;}}
+    /* the centered no-scroll rows need room for 8 links since the 12s joined (v1.81) - 1360 measured with a scrollbar present;
+       below this the rows fall back to their own internal scroll, as they already did under 900 */
+    @media(min-width:1360px){.jump-row{justify-content:center;overflow-x:visible;}}
     .jump-row a{white-space:nowrap;}
     /* two rows of eight need more room than the 1140px body column */
     .page-jump .container{max-width:1460px;}
-    @media(min-width:900px){.jump-row{gap:10px 16px;}}
+    @media(min-width:1360px){.jump-row{gap:10px 16px;}}
     .jump-tools{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:10px;}
     .jump-tools .btn{font-size:12px;padding:8px 16px;}
     .jump-tools .btn-black{border:1px solid #000;}
@@ -86,6 +88,9 @@
     .tsub .sic{font-size:22px;line-height:1;color:var(--teal);transition:transform .2s ease;}
     .tsub[open]>summary .sic{transform:rotate(45deg);}
     .roster-tba{font-size:15px;font-weight:600;color:#111;margin:0;padding:0 0 16px;}
+    /* [TM-02a] season-start callout: gold frame, white text on the dark teal band */
+    [data-section="TM-02"] .times-callout{margin:0 auto 26px;}
+    [data-section="TM-02"] .times-callout .big{color:#fff;}
     .tsub .sched{background:#fff;}
     /* schedule table: wraps instead of side-scrolling; dates never break mid-range */
     .tsub .tbl-wrap{margin:0 0 16px;box-shadow:none;border:1px solid rgba(0,0,0,.12);}
@@ -123,7 +128,7 @@
           <a href="club.html" aria-haspopup="true">Club Info &#9662;</a>
           <span class="drop" role="menu">
             <a href="club.html" role="menuitem">Club Overview</a>
-            <a href="teams.html" role="menuitem" aria-current="page">Our Teams</a>
+            <a href="teams.html" role="menuitem" aria-current="page">Our Club Teams</a>
             <a href="girls-club.html" role="menuitem">Girls Club</a>
             <a href="boys-club.html" role="menuitem">Boys Club</a>
             <a href="club.html#age-11-14" role="menuitem">Club Fees: 11U&ndash;14U</a>
@@ -190,7 +195,7 @@
   <section class="subhero has-img subhero--dark" data-section="TM-01" id="top">
     <span class="sub-bg" style="background-image:url('assets/img/teams-hero.jpg');background-position:center 40%;"></span>
     <div class="container">
-      <h1>Our Teams</h1>
+      <h1>Our Club Teams</h1>
       <p>2026&ndash;27 club teams: coaches, rosters, practice times, and tournament schedules for every Colorado Boom squad.</p>
       <p class="hero-follow"><a href="https://www.instagram.com/coboomvb" target="_blank" rel="noopener">Follow us on Instagram &middot; @coboomvb</a></p>
     </div>
@@ -198,6 +203,7 @@
   <!-- ===== [TM-NAV] Sticky jump nav: two rows of eight ===== -->
   <div class="page-jump" data-section="TM-NAV">
     <nav class="jump-nav jump-row container" aria-label="Teams on this page">
+      <a href="#t12-colorado">12 Colorado - Kula</a>
       <a href="#t13-colorado">13 Colorado - Zhu</a>
       <a href="#t14-national">14 National - Tara</a>
       <a href="#t14-colorado-krise">14 Colorado - Kimberly</a>
@@ -223,7 +229,33 @@
   <!-- ===== [TM-02] All teams (one continuous list, 12U to 18U) ===== -->
   <section id="teams" data-section="TM-02" class="bg-teal-d">
     <div class="container">
+      <!-- [TM-02a] season start callout (owner, 2026-08-31) -->
+      <div class="times-callout"><span class="big">Practice Begins November 2, 2026</span></div>
       <p class="section-subtitle" style="margin-bottom:26px;">Tap a team to see its coaches, roster, practice times, and schedule.</p>
+      <details class="team" id="t12-colorado">
+        <summary>
+          <span class="team-head">
+            <span class="team-name">12 Colorado - Kula</span>
+            <span class="team-coach">Head Coach: <a class="coach-link" href="coaching-staff.html#coach-kula-tanuvasa">Kula</a></span>
+          </span>
+          <span class="lv lv-colorado">Colorado</span>
+          <span class="team-ic" aria-hidden="true">+</span>
+        </summary>
+        <div class="team-body">
+          <details class="tsub">
+            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Roster will be posted here soon.</p>
+          </details>
+          <details class="tsub">
+            <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Tue &amp; Thu &middot; 5:15&ndash;7:30 PM</p>
+          </details>
+          <details class="tsub">
+            <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <p class="roster-tba">Tournament schedule will be posted here soon.</p>
+          </details>
+        </div>
+      </details>
       <details class="team" id="t13-colorado">
         <summary>
           <span class="team-head">
@@ -240,7 +272,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Tue &amp; Thu &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Tue, Thu &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -275,12 +307,29 @@
         </summary>
         <div class="team-body">
           <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Player</th><th scope="col">Position</th></tr></thead>
+                <tbody>
+              <tr><td>Nahkialya Mabey</td><td>PIN</td></tr>
+              <tr><td>Elyse Paffe</td><td>OH/DS</td></tr>
+              <tr><td>Ellian Foster</td><td>PIN</td></tr>
+              <tr><td>Zohra Farih</td><td>M/PIN</td></tr>
+              <tr><td>Anelie Daw</td><td>M</td></tr>
+              <tr><td>Brooklynn Coursey</td><td>PIN</td></tr>
+              <tr><td>Caidyn Marendt</td><td>S</td></tr>
+              <tr><td>Brooke Miller</td><td>S</td></tr>
+              <tr><td>Lilly Born</td><td>L/DS</td></tr>
+              <tr><td>Hailey Delaney</td><td>L/DS</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="roster-tba">Jersey numbers will be posted once assigned.</p>
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &middot; 6:30&ndash;8:45 PM<br>Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon &middot; 6:30&ndash;8:45 PM<br>Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -315,12 +364,29 @@
         </summary>
         <div class="team-body">
           <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Player</th><th scope="col">Position</th></tr></thead>
+                <tbody>
+              <tr><td>Alli Brumfiel</td><td>PIN</td></tr>
+              <tr><td>Skylar Cina</td><td>PIN</td></tr>
+              <tr><td>Paige Stewart</td><td>PIN/M</td></tr>
+              <tr><td>Marlow Scott</td><td>R</td></tr>
+              <tr><td>Alice Naveen</td><td>M</td></tr>
+              <tr><td>Betanya Molla</td><td>M</td></tr>
+              <tr><td>Carol Ndifor</td><td>S</td></tr>
+              <tr><td>Alyssa Weinand</td><td>RS</td></tr>
+              <tr><td>Aimee Aviles Ramirez</td><td>L/DS</td></tr>
+              <tr><td>Aven Minjarez</td><td>L/DS</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="roster-tba">Jersey numbers will be posted once assigned.</p>
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -356,12 +422,29 @@
         </summary>
         <div class="team-body">
           <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Player</th><th scope="col">Position</th></tr></thead>
+                <tbody>
+              <tr><td>Lena Ezzeddine</td><td>PIN</td></tr>
+              <tr><td>Mallory Huggins</td><td>U</td></tr>
+              <tr><td>Armaghan Bayat</td><td>PIN/M</td></tr>
+              <tr><td>Keira Penney</td><td>R</td></tr>
+              <tr><td>Mary Lehmann</td><td>M</td></tr>
+              <tr><td>Alexandra Lee</td><td>M</td></tr>
+              <tr><td>Eisley Steiner</td><td>S</td></tr>
+              <tr><td>Sara Zwald</td><td>DS</td></tr>
+              <tr><td>Brooke Weller</td><td>L/DS</td></tr>
+              <tr><td>Olivia Farn</td><td>L/DS</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="roster-tba">Jersey numbers will be posted once assigned.</p>
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Tue &amp; Thu &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Tue, Thu &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -402,7 +485,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Tue &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Tue &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -444,7 +527,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -486,7 +569,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Tue &amp; Thu &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Tue, Thu &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -527,7 +610,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Tue &amp; Thu &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Tue, Thu &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -562,12 +645,29 @@
         </summary>
         <div class="team-body">
           <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Player</th><th scope="col">Position</th></tr></thead>
+                <tbody>
+              <tr><td>Isabel Stebbins</td><td>OH/DS</td></tr>
+              <tr><td>Andrea Aguerrevere</td><td>S</td></tr>
+              <tr><td>Ashlynn Johnson</td><td>R</td></tr>
+              <tr><td>Cecilia Razon</td><td>R/OH</td></tr>
+              <tr><td>Jola Okunado</td><td>R</td></tr>
+              <tr><td>Stella Jenks</td><td>M</td></tr>
+              <tr><td>Anaiah Quarcoo</td><td>M</td></tr>
+              <tr><td>Autum Caldwell</td><td>S</td></tr>
+              <tr><td>Emma Kaiser</td><td>L</td></tr>
+              <tr><td>Addy Wolf</td><td>L</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="roster-tba">Jersey numbers will be posted once assigned.</p>
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -603,12 +703,29 @@
         </summary>
         <div class="team-body">
           <details class="tsub">
-            <summary><span>Roster</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Roster will be posted here soon.</p>
+            <summary><span>Roster <span class="cnt">&middot; 10 players</span></span><span class="sic" aria-hidden="true">+</span></summary>
+            <div class="tbl-wrap">
+              <table class="sched">
+                <thead><tr><th scope="col">Player</th><th scope="col">Position</th></tr></thead>
+                <tbody>
+              <tr><td>Izana Avery</td><td>OH/DS</td></tr>
+              <tr><td>Emilia Ginzburg</td><td>OH/DS</td></tr>
+              <tr><td>Jillian Carmel</td><td>R/DS</td></tr>
+              <tr><td>Marlaa Ganbold</td><td>R</td></tr>
+              <tr><td>Harley Rey</td><td>M</td></tr>
+              <tr><td>Addyson Fisher</td><td>M</td></tr>
+              <tr><td>Teghan Bramley</td><td>S</td></tr>
+              <tr><td>Maddie Madril</td><td>S</td></tr>
+              <tr><td>Maddison Johnson</td><td>L</td></tr>
+              <tr><td>Denver Albarrab</td><td>L</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="roster-tba">Jersey numbers will be posted once assigned.</p>
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -648,7 +765,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -688,7 +805,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Tue &amp; Thu &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Tue, Thu &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -728,7 +845,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
@@ -770,7 +887,7 @@
           </details>
           <details class="tsub">
             <summary><span>Practice Times</span><span class="sic" aria-hidden="true">+</span></summary>
-            <p class="roster-tba">Mon &amp; Wed &middot; 5:15&ndash;7:30 PM</p>
+            <p class="roster-tba">Mon, Wed &amp; Fri &middot; 5:15&ndash;7:30 PM</p>
           </details>
           <details class="tsub">
             <summary><span>Schedule <span class="cnt">&middot; 2026&ndash;27 season</span></span><span class="sic" aria-hidden="true">+</span></summary>
