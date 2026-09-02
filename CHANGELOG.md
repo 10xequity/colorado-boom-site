@@ -10,6 +10,17 @@ reconstruct later.
 
 ---
 
+## v1.87 — 2026-09-02 · "Drop-in" is a separate program — walk-in wording fixed
+`tryouts.html`, `schedule.html`
+
+- Owner clarified that **drop-in is a separate program** (drop-in: free for club members, $10 for
+  non-members) and must not be conflated with Pre-season Practice & Training. The v1.86 bullet had
+  labeled the per-class option "drop in", which read as that other program. The [TO-03] bullet now
+  says **"Participants may join classes that day, or walk in for $10 per class."** — no "drop-in"
+  wording. Schedule-page row note changed to "$10/class walk-in". The separate drop-in program's
+  pricing was not added to a page (no home requested for it); flag if it should appear somewhere.
+---
+
 ## v1.86 — 2026-09-02 · Pre-season Practice & Training prices filled in
 `tryouts.html`, `schedule.html`
 

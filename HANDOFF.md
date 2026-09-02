@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-09-02 · **Live build** v1.86 · **Status** Active
+**Updated** 2026-09-02 · **Live build** v1.87 · **Status** Active
 **Supersedes** the 2026-08-24 handoff (v1.67)
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
@@ -43,7 +43,7 @@ Pages redeploys automatically ~1 minute after the push.
 
 **v1.85 (2026-09-02):** Summer Membership on `tryouts.html` is retired until summer 2027 (markup at
 `b83ae5c`) and replaced by **Pre-season Practice & Training — Tues–Fri 5:00–7:00 PM, $295/mo
-non-club members**; club rate $150/mo (v1.86); drop-in $10 member / $20 non-member. Monday open gym/training
+non-club members**; club rate $150/mo (v1.86); pre-season walk-in $10/class (v1.87). NOTE: general "drop-in" is a SEPARATE program (free club / $10 non-member) not yet placed on any page. Monday open gym/training
 references removed site-wide. Details in CHANGELOG v1.85.
 
 Everything through **v1.76** is live (`5f2e028`). Full history in `CHANGELOG.md`. The 2026-08-29/30
