@@ -10,6 +10,15 @@ reconstruct later.
 
 ---
 
+## v1.86 — 2026-09-02 · Pre-season Practice & Training prices filled in
+`tryouts.html`, `schedule.html`
+
+- Owner supplied the rates that v1.85 had left as an email prompt: **$150/month club members,
+  $295/month non-club**, and **drop-in $10 per class for members / $20 for non-members**. The
+  [TO-03] box now shows the $150–$295 range with a drop-in line; the email-for-your-rate line is
+  gone. Schedule-page row note updated to match.
+---
+
 ## v1.85 — 2026-09-02 · Summer Membership retired; Pre-season Practice & Training; Monday sweep
 `tryouts.html`, `schedule.html`, `index.html`, `club.html`, `girls-club.html`, `boys-club.html`
 
