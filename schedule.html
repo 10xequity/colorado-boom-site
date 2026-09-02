@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.85 · 2026-09-02 · [SC] Open Gym schema byDay Monday removed (Wed/Fri only, matching the table); NEW weekly row: Pre-season Practice & Training, Tues-Fri 5:00-7:00 PM, $295/mo non-club members. -->
   <!-- BUILD v1.82 · 2026-08-31 · nav: RYL Teams item added under Club Info; ANN banner combined to "Girls Club Tryouts · 10U-18U" (RYL mention and age split removed per owner). -->
   <!-- BUILD v1.81 · 2026-08-31 · nav: "Our Teams" renamed "Our Club Teams" (site-wide). -->
   <!-- BUILD v1.72 · 2026-08-29 · [SC] Uniform fitting time confirmed: Sept 13, 5:00-8:00 PM. -->
@@ -34,7 +35,7 @@
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Club Calendar","item":"https://coloradoboom.com/schedule.html"}]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Event","name":"Colorado Boom Open Gym","description":"Open gym volleyball for boys and girls ages 10+ — open to any player, any club. $20 per session.","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-06-01T17:30:00-06:00","endDate":"2026-10-30T19:00:00-06:00","eventSchedule":{"@type":"Schedule","byDay":["https://schema.org/Monday","https://schema.org/Wednesday","https://schema.org/Friday"],"startTime":"17:30","endTime":"19:00","scheduleTimezone":"America/Denver"},"location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"offers":{"@type":"Offer","price":"20","priceCurrency":"USD","url":"https://forms.gle/5wyRdqmmUxUdhkK4A","availability":"https://schema.org/InStock"},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"image":"https://coloradoboom.com/assets/img/tryouts.jpg","url":"https://coloradoboom.com/schedule.html"}
+  {"@context":"https://schema.org","@type":"Event","name":"Colorado Boom Open Gym","description":"Open gym volleyball for boys and girls ages 10+ — open to any player, any club. $20 per session.","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","eventStatus":"https://schema.org/EventScheduled","startDate":"2026-06-01T17:30:00-06:00","endDate":"2026-10-30T19:00:00-06:00","eventSchedule":{"@type":"Schedule","byDay":["https://schema.org/Wednesday","https://schema.org/Friday"],"startTime":"17:30","endTime":"19:00","scheduleTimezone":"America/Denver"},"location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"offers":{"@type":"Offer","price":"20","priceCurrency":"USD","url":"https://forms.gle/5wyRdqmmUxUdhkK4A","availability":"https://schema.org/InStock"},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"image":"https://coloradoboom.com/assets/img/tryouts.jpg","url":"https://coloradoboom.com/schedule.html"}
   </script>
   <!-- ===== [SCH] v1.38 page styles — reserved-height frame, skeleton, fallback. NOTE: no `reveal` on the widget wrapper (IntersectionObserver zero-height trap, see [HM-06] history) ===== -->
   <style>
@@ -206,6 +207,7 @@
         <thead><tr><th>Program</th><th>Days</th><th>Time</th><th>Sign Up</th></tr></thead>
         <tbody>
           <tr><td>Open Gym, ages 10+, any club ($20/session)</td><td>Wed / Fri</td><td>5:30&ndash;7:00 PM</td><td><a class="ulink" href="https://forms.gle/5wyRdqmmUxUdhkK4A" target="_blank" rel="noopener">Register</a></td></tr>
+          <tr><td>Pre-season Practice &amp; Training ($295/mo non-club members)</td><td>Tues &ndash; Fri</td><td>5:00&ndash;7:00 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Register</a></td></tr>
           <tr><td>Group Training &amp; Developmental, ages 8&ndash;16</td><td>Tues / Thurs</td><td>5:00&ndash;6:30 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Register</a></td></tr>
           <tr><td>14+ Advanced Skills &amp; Mechanics</td><td>Tues / Thurs</td><td>4:00&ndash;6:00 PM</td><td><a class="ulink" href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener">Sign Up</a></td></tr>
           <!-- [KEEP] Damon training paused until Nov 2026 (was Mon/Wed). Interim row retires Oct 31; Wed/Fri row restores Nov 1 via main.js date engine. -->

@@ -10,6 +10,32 @@ reconstruct later.
 
 ---
 
+## v1.85 — 2026-09-02 · Summer Membership retired; Pre-season Practice & Training; Monday sweep
+`tryouts.html`, `schedule.html`, `index.html`, `club.html`, `girls-club.html`, `boys-club.html`
+
+- **Summer Membership is retired for the year** (owner: "we will re-add this next year"). The
+  [TO-03] block on `tryouts.html` is now **Pre-season Practice & Training — Tues–Fri, 5:00–7:00 PM,
+  $295/month for non-club members**, framed as focused, ongoing training into the club season. The
+  "summer open gyms included" and "tryout fees included" bullets are gone per the owner. The section
+  keeps `id="membership"` so existing deep links still land; the jump-nav label reads
+  "Pre-season Training". **To bring Summer Membership back in 2027, the old markup is at commit
+  `b83ae5c`** (lines 287–304 of tryouts.html).
+- **Club-member rate is not stated.** The owner gave only the $295 non-club price, so the box tells
+  club members to email admin@coloradoboom.com rather than inventing a number. Fill in the rate when
+  the owner sets one. The same Google Form (forms.gle/yvnstZ89psTTLmux7) stays as the CTA — no new
+  form was supplied.
+- **Monday open gym / training references removed** (owner: Monday is over). Open Gym schema on
+  `schedule.html` dropped Monday from `byDay` (the visible table already said Wed/Fri); the
+  Developmental Training card on the home page and the club FAQ said "Mon–Thurs" and now say
+  "Tues / Thurs", matching programs.html and the weekly schedule; the girls/boys season calendars'
+  summer row reads "(W/F)". **Left alone on purpose:** club team practice days on teams.html and the
+  "M/W/F or T/Th/F" club practice pattern (team practices, not open gym), and the [KEEP] comments
+  that record Damon's old Mon/Wed slot.
+- `schedule.html` weekly table gains a Pre-season Practice & Training row so the two pages agree.
+- `tryouts.html` hero says "Fall 2026" (was "Summer 2026") and the three meta descriptions no
+  longer say "summer open gyms" — a September page advertising summer read as stale.
+---
+
 ## v1.84 — 2026-09-02 · Salt Lake City dates for the two 15s teams
 `teams.html`
 
