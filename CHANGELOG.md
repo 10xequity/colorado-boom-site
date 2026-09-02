@@ -10,6 +10,14 @@ reconstruct later.
 
 ---
 
+## v1.84 — 2026-09-02 · Salt Lake City dates for the two 15s teams
+`teams.html`
+
+- **Salt Lake City Showdown (UT) moves Apr 1–4 → Mar 26–29 for 15 National - Sidney and
+  15 Colorado - Jae only**, per the owner. The other four teams that attend (both 16 Colorados,
+  17 National, 17 Colorado) keep Apr 1–4 — the owner named only the two 15s. The row keeps its
+  slot (chronological between Power 3 and Power 4).
+
 ## v1.83 — 2026-08-31 · Positions spelled out; RYL schedule, Makayla's 12s, name calls
 `teams.html`, `ryl-teams.html`, `programs.html`
 
