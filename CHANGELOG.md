@@ -10,6 +10,17 @@ reconstruct later.
 
 ---
 
+## v1.88 — 2026-09-12 · Uniform fitting postponed — date to be announced
+All pages (announcement banner), plus `index.html`, `tryouts.html`, `schedule.html`, `girls-club.html`
+
+- Owner postponed the Sept 13 uniform fitting; new date not yet set. Every live reference to the
+  fitting date/time was changed to **"postponed — date to be announced"**: the site-wide
+  announcement banner (12 pages), the homepage tryout popup table + description, and the tryout /
+  schedule / girls-club listing tables. Tryout dates (Sept 13 & 20) are unchanged.
+- Homepage popup session key bumped `v169 → v187` so returning visitors see the corrected popup
+  (they had already dismissed the version showing the Sept 13 fitting).
+---
+
 ## v1.87 — 2026-09-02 · "Drop-in" is a separate program — walk-in wording fixed
 `tryouts.html`, `schedule.html`
 
