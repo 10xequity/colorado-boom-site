@@ -18,7 +18,7 @@ reconstruct later.
   520 KB). And the hero's height was capped at ~600px, so the wider the monitor the shorter
   the band relative to its width and the harder the crop into faces. The band now uses
   `min-height:clamp(440px,54vw,860px)` with flex-centred content, showing ~80% of the photo's
-  height at common widths (was ~60%). Text block anchored to the bottom of the band (where the overlay is darkest) so the headline no longer covers the central face; photo positioned `center 25%` to keep faces in the upper part. Band height is also capped at the viewport minus header and announcement (`100vh - 260px`) so the headline is always on the first screen.
+  height at common widths (was ~60%). Text block anchored to the bottom of the band (where the overlay is darkest) so the headline no longer covers the central face; photo positioned `center 18%` to keep faces in the upper part. Band height is also capped at the viewport minus header and announcement (`100vh - 260px`) so the headline is always on the first screen.
 - **SEO:** three `JobPosting` structured-data entries (Head Coach, Assistant Coach, Trainer)
   with location, schedule, employment type and `directApply`, so Google Jobs can list the
   roles; `validThrough` set to 2026-12-31 and must be updated when hiring closes. Added
