@@ -16,6 +16,9 @@ upload a new file with the EXACT same name (lowercase) and it appears automatica
 | `coach-mel-erly.jpg` | Coaching Staff `[CO-03]` | Head-and-shoulders portrait |
 | `coach-sidney-reese.jpg` | Coaching Staff `[CO-03]` | Head-and-shoulders portrait |
 | `coach-damon-sichler.jpg` | Coaching Staff `[CO-02b]` leadership | Head-and-shoulders portrait |
+| `hiring-hero.jpg` | Hiring hero `[HR-01]` | Camp group, candid laugh, player holding ball (Nike Camp, DSC_4981) |
+| `hiring-band-left.jpg` | *(not placed; photo band removed 2026-09-12, kept for reuse)* | Camp group of six, posed (Nike Camp, DSC_4993) |
+| `hiring-band-right.jpg` | *(not placed; photo band removed 2026-09-12, kept for reuse)* | Camp group of nine in a row, posed (Nike Camp, DSC_5001) |
 
 **Recommended specs:** JPG, ~1200px wide max, under ~250KB each, web-optimized. Logo is PNG with transparency.
 **To replace any photo:** keep the filename identical, just upload the new file over it.

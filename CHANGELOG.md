@@ -10,6 +10,30 @@ reconstruct later.
 
 ---
 
+## v1.89 — 2026-09-12 · NEW PAGE: Hiring (`join-our-staff.html`) + Staff dropdown
+`join-our-staff.html` (new), nav on all 13 shared-header pages, `sitemap.xml`, `IMAGES.md`,
+`HIRING_FORM.md` (new), `scripts/coach-application.gs` (new), 3 new photos in `assets/img/`
+
+- Owner is hiring paid coaches for the season starting November (1–2 head, ~6 assistant,
+  trainers). The page mirrors the flyer: taller photo hero, **Role Descriptions** (Head Coach /
+  Assistant / Trainer), **What You Get**, **Common Questions** on the teal gradient, and the
+  application. Sections alternate white → black → teal → white like the rest of the site;
+  cream is used only on the cards and the application box (owner directive). A two-photo band
+  was built and removed the same day at the owner's request; its two photos stay in `assets/img/`.
+- **Nav:** "Staff" is now a dropdown, Coaching Staff / Hiring, on every page. No footer
+  link was added; say so if it should have one.
+- **Application** is a Google Form the owner builds by hand, embedded in the cream card.
+  The page reads `FORM_URL` at the bottom of the file; while it is empty the card shows an
+  email-us message, so the page is never broken. Google handles validation, spam and storage,
+  and the owner edits questions in the Forms UI. Question list and settings: `HIRING_FORM.md`.
+- **Backup kept:** `scripts/coach-application.gs` is a site-styled-form alternative (Apps
+  Script writes to a Sheet, emails admin@). The owner tried it first and it did not work for
+  them; it is now tolerant of running standalone (creates its own sheet on `setup()`), and
+  the steps are rewritten in plain English in `HIRING_FORM.md`. Not wired to the page.
+- Photos from the Nike Camp shoot: `hiring-hero.jpg` (DSC_4981, hero), plus
+  `hiring-band-left.jpg` (DSC_4993) and `hiring-band-right.jpg` (DSC_5001), unplaced.
+---
+
 ## v1.88 — 2026-09-12 · Uniform fitting postponed — date to be announced
 All pages (announcement banner), plus `index.html`, `tryouts.html`, `schedule.html`, `girls-club.html`
 
