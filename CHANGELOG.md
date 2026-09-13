@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v1.90 — 2026-09-12 · Hiring hero zoomed out + sharpened; JobPosting SEO
+`join-our-staff.html`, `assets/img/hiring-hero.jpg`
+
+- Owner: hero "too close and pixelated". Two causes. The file was 1800px wide, so large and
+  retina screens upscaled it; re-exported from the 6048px original at **2560px** (q78, under
+  520 KB). And the hero's height was capped at ~600px, so the wider the monitor the shorter
+  the band relative to its width and the harder the crop into faces. The band now uses
+  `min-height:clamp(440px,54vw,860px)` with flex-centred content, showing ~80% of the photo's
+  height at common widths (was ~60%). Position nudged to `center 32%`.
+- **SEO:** three `JobPosting` structured-data entries (Head Coach, Assistant Coach, Trainer)
+  with location, schedule, employment type and `directApply`, so Google Jobs can list the
+  roles; `validThrough` set to 2026-12-31 and must be updated when hiring closes. Added
+  `og:image:width/height/alt` for the new image size. Title, description, canonical, OG,
+  Twitter and breadcrumbs were already present.
+---
+
 ## v1.89 — 2026-09-12 · NEW PAGE: Hiring (`join-our-staff.html`) + Staff dropdown
 `join-our-staff.html` (new), nav on all 13 shared-header pages, `sitemap.xml`, `IMAGES.md`,
 `HIRING_FORM.md` (new), `scripts/coach-application.gs` (new), 3 new photos in `assets/img/`

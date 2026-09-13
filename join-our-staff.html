@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.90 · 2026-09-12 · [HR-01] hero re-exported at 2560px (was 1800, soft on large screens) and band now grows with width to show ~80% of the photo; [HR-SEO] JobPosting structured data x3 + og:image dimensions. -->
   <!-- BUILD v1.89 · 2026-09-12 · NEW PAGE: Hiring (join-our-staff.html). Staff nav item is now a dropdown: Coaching Staff / Hiring (site-wide). Application is an embedded Google Form; see HIRING_FORM.md. -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,9 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://coloradoboom.com/join-our-staff.html">
   <meta property="og:image" content="https://coloradoboom.com/assets/img/hiring-hero.jpg">
+  <meta property="og:image:width" content="2560">
+  <meta property="og:image:height" content="1707">
+  <meta property="og:image:alt" content="Colorado Boom camp players laughing together in the gym">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hiring Coaches | Colorado Boom Volleyball Club">
   <meta name="twitter:description" content="Paid club coaching positions for the season starting November. Head coaches, assistant coaches, and trainers.">
@@ -27,9 +31,35 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Coaching Staff","item":"https://coloradoboom.com/coaching-staff.html"},{"@type":"ListItem","position":3,"name":"Hiring","item":"https://coloradoboom.com/join-our-staff.html"}]}
   </script>
+  <!-- [HR-SEO] JobPosting structured data: one entry per role so Google Jobs can list them.
+       Update validThrough when hiring closes; datePosted is the day the page went live. -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"JobPosting","title":"Club Volleyball Head Coach","datePosted":"2026-09-12","validThrough":"2026-12-31T23:59:00-07:00","employmentType":"PART_TIME","directApply":true,
+     "description":"Lead an age-group club volleyball team for the 2026-27 season starting in November: practices, lineups, and match day. Practices are 5-7 PM on either Mon/Wed/Fri or Tue/Thu/Fri with no weekend practices. Travel and regional (non-travel) teams available. Paid position. USAV certification is required before the season; we help you get certified.",
+     "identifier":{"@type":"PropertyValue","name":"Colorado Boom Volleyball Club","value":"cobo-head-coach-2026"},
+     "hiringOrganization":{"@type":"Organization","name":"Colorado Boom Volleyball Club","sameAs":"https://coloradoboom.com/","logo":"https://coloradoboom.com/assets/img/logo.png"},
+     "jobLocation":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},
+     "url":"https://coloradoboom.com/join-our-staff.html"},
+    {"@type":"JobPosting","title":"Club Volleyball Assistant Coach","datePosted":"2026-09-12","validThrough":"2026-12-31T23:59:00-07:00","employmentType":"PART_TIME","directApply":true,
+     "description":"Support the head coach of an age-group club volleyball team for the 2026-27 season starting in November: run drills and help players develop. Practices are 5-7 PM on either Mon/Wed/Fri or Tue/Thu/Fri with no weekend practices. A good entry point for former players starting to coach. Paid position. USAV certification is required before the season; we help you get certified.",
+     "identifier":{"@type":"PropertyValue","name":"Colorado Boom Volleyball Club","value":"cobo-assistant-coach-2026"},
+     "hiringOrganization":{"@type":"Organization","name":"Colorado Boom Volleyball Club","sameAs":"https://coloradoboom.com/","logo":"https://coloradoboom.com/assets/img/logo.png"},
+     "jobLocation":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},
+     "url":"https://coloradoboom.com/join-our-staff.html"},
+    {"@type":"JobPosting","title":"Volleyball Skills Trainer","datePosted":"2026-09-12","validThrough":"2026-12-31T23:59:00-07:00","employmentType":"PART_TIME","directApply":true,
+     "description":"Run skills sessions and clinics, from position work to developmental training, for a youth club volleyball program in Aurora, Colorado. Sessions run around the 5-7 PM practice blocks; no weekend practices. Paid position. USAV certification is required before the season; we help you get certified.",
+     "identifier":{"@type":"PropertyValue","name":"Colorado Boom Volleyball Club","value":"cobo-trainer-2026"},
+     "hiringOrganization":{"@type":"Organization","name":"Colorado Boom Volleyball Club","sameAs":"https://coloradoboom.com/","logo":"https://coloradoboom.com/assets/img/logo.png"},
+     "jobLocation":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},
+     "url":"https://coloradoboom.com/join-our-staff.html"}
+  ]}
+  </script>
   <!-- ===== [HR] page styles: taller hero, cream cards, FAQ on the teal gradient, the application card ===== -->
   <style>
-    .hire .subhero{padding:clamp(120px,16vw,200px) 0;}
+    /* v1.90: hero grows with screen width so the band shows ~80% of the photo's height
+       instead of a tight crop; padding is the floor, min-height does the work */
+    .hire .subhero{min-height:clamp(440px,54vw,860px);display:flex;align-items:center;justify-content:center;padding:clamp(56px,7vw,96px) 0;}
     .hire .subhero .btn-row{margin-top:22px;}
     .hire .grid-3{max-width:980px;margin:0 auto;}
     .hire .benefit{background:var(--cream);}
@@ -136,7 +166,7 @@
 
   <!-- ===== [HR-01] HERO ===== -->
   <section class="subhero has-img subhero--dark" data-section="HR-01">
-    <span class="sub-bg" style="background-image:url('assets/img/hiring-hero.jpg');background-position:center 30%;"></span>
+    <span class="sub-bg" style="background-image:url('assets/img/hiring-hero.jpg');background-position:center 32%;"></span>
     <div class="container">
       <h1>Hiring Club Coaches</h1>
       <p>We're hiring for the season starting in November: head coaches, assistant coaches, and trainers across multiple age groups, on travel and regional teams. The positions are paid, and the schedule is built to work around a day job.</p>
