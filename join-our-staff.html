@@ -59,7 +59,7 @@
   <style>
     /* v1.90: hero grows with screen width so the band shows ~80% of the photo's height
        instead of a tight crop; padding is the floor, min-height does the work */
-    .hire .subhero{min-height:clamp(440px,54vw,860px);display:flex;align-items:flex-end;justify-content:center;padding:clamp(56px,7vw,96px) 0 clamp(44px,5vw,72px);}
+    .hire .subhero{min-height:min(clamp(440px,54vw,860px),calc(100vh - 260px));display:flex;align-items:flex-end;justify-content:center;padding:clamp(56px,7vw,96px) 0 clamp(44px,5vw,72px);}
     .hire .subhero .btn-row{margin-top:22px;}
     .hire .grid-3{max-width:980px;margin:0 auto;}
     .hire .benefit{background:var(--cream);}
