@@ -10,6 +10,43 @@ reconstruct later.
 
 ---
 
+## v1.91 — 2026-09-15 · Sept 13 tryout retired; Sept 20 self-retires; expired Aug 31 membership clause
+15 pages (all 14 shared-header pages + `legal.html`)
+
+- **Sept 13 has passed** (today is Tue Sept 15), so it is removed everywhere it was hard-coded: the
+  `[ANN]` banner and its note on 14 pages, `legal.html`'s own banner, the home popup table and bullet,
+  the home Club card, `girls-club.html`'s season timeline, `programs.html`'s RYL paragraph,
+  `club.html`'s `[CL-03]` practice note, `schedule.html`'s 2026 Tryouts table, and three spots on
+  `tryouts.html`. The already-hidden Aug 31 rows (gated since v1.69) are deleted outright — a passed
+  gate is dead markup.
+- **Sept 20 is the last remaining date and is now date-gated** (`data-show-until="2026-09-20"`,
+  38 places) so it disappears on its own the morning of Sept 21 — no push needed, the same mechanism
+  that retired Aug 31. Where a sentence would be left as a fragment, a `data-show-from="2026-09-21"`
+  twin takes over ("…continue at any Wed / Fri open gym"); the popup and tryouts tables get an
+  "Any Wed / Fri open gym · 5:30–7:00 PM" row that appears the same day, so neither table is ever
+  empty.
+- **`legal.html` has no date engine** (it does not load `main.js`), so it carries a plain
+  "Tryouts Sept 20" and **must be hand-edited after Sept 20** — the prior session handled Sept 13 & 20
+  there the same way. Listed in HANDOFF §5.
+- **The RMR OCS bar's "returning 25–26 members are covered through Aug 31" expired on Sept 1.**
+  USAV memberships run Sept 1–Aug 31 (the site's own FAQ says so), so returning players now need a
+  membership too. The clause is replaced on the 13 pages that carry the bar with "Players without a
+  current 2026–27 RMR membership need a $20 tryout/RYL membership…". The FAQ sentences on `club.html`
+  and `parent-resources.html` that state the Aug 31 rule generically are evergreen and were left alone.
+- **`tryouts.html` SportsEvent structured data** still told Google the event ran Aug 21–31; it now
+  says Sept 20, 1:00–2:00 PM MDT.
+- **Popup key not bumped** (`cobo-popup-v187`): no new dates were added, only a passed one removed, so
+  returning visitors gain nothing from seeing it again (same reasoning as v1.72).
+- ⚠ **Not changed, owner's call:** the popup title and the tryouts callout both say "September";
+  after Sept 20 the message becomes "try out at any Wed / Fri open gym", and the owner may want a
+  different headline (or no popup) for October.
+- Method: two anchored Node scripts (each anchor asserted to match exactly once; a file with any miss
+  is left untouched), then a positive-controlled sweep for `Sept 13` / `Aug 31` / `13th` outside BUILD
+  comments. The first sweep truncated lines at 320 chars and hid the `club.html` practice-note match
+  and the OCS clause — the second ran untruncated and found both. Per-page `<span>` open/close deltas
+  equal the spans added.
+---
+
 ## v1.90 — 2026-09-12 · Hiring hero zoomed out + sharpened; JobPosting SEO
 `join-our-staff.html`, `assets/img/hiring-hero.jpg`
 

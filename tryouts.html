@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.91 · 2026-09-15 · [ANN] Sept 13 tryout has passed and is removed; Sept 20 now carries data-show-until so it retires itself on Sept 21; [OCSR] "returning 25-26 members are covered through Aug 31" expired Sept 1 and is replaced by "Players without a current 2026-27 RMR membership need…". [TO-04] passed rows removed, Sept 20 gated, open-gym fallback row reveals Sept 21; make-up sentence now points at open gym; SportsEvent JSON-LD moved from Aug 21-31 to Sept 20 1-2 PM. -->
   <!-- BUILD v1.88 · 2026-09-12 · Uniform fitting postponed &mdash; date to be announced (banner, popup, schedule tables). -->
   <!-- BUILD v1.87 · 2026-09-02 · [TO-03] per owner: "drop-in" is a SEPARATE program, not this one — the walk-in line here no longer says "drop-in". Pre-season walk-in is $10/class; participants may join classes that day. -->
   <!-- BUILD v1.86 · 2026-09-02 · [TO-03] Pre-season Practice & Training pricing filled in per owner: $150/mo club members / $295/mo non-club; drop-in $10 member / $20 non-member. (v1.85 had asked club members to email.) -->
@@ -33,7 +34,7 @@
   <meta name="twitter:description" content="2026 tryouts and open gyms for Colorado Boom Volleyball Club at Boomtown Fieldhouse, Aurora CO.">
   <meta name="twitter:image" content="https://coloradoboom.com/assets/img/tryouts.jpg">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SportsEvent","name":"Colorado Boom Volleyball Tryouts 2026","sport":"Volleyball","startDate":"2026-08-21","endDate":"2026-08-31","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"url":"https://coloradoboom.com/tryouts.html"}
+  {"@context":"https://schema.org","@type":"SportsEvent","name":"Colorado Boom Volleyball Tryouts 2026","sport":"Volleyball","startDate":"2026-09-20T13:00:00-06:00","endDate":"2026-09-20T14:00:00-06:00","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","location":{"@type":"Place","name":"Boomtown Fieldhouse","address":{"@type":"PostalAddress","streetAddress":"14200 E Alameda Ave","addressLocality":"Aurora","addressRegion":"CO","postalCode":"80012","addressCountry":"US"}},"organizer":{"@type":"SportsClub","name":"Colorado Boom Volleyball Club","url":"https://coloradoboom.com/"},"url":"https://coloradoboom.com/tryouts.html"}
   </script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Tryouts & Open Gyms","item":"https://coloradoboom.com/tryouts.html"}]}
@@ -118,10 +119,10 @@
   <!-- ============ [ANN] ANNOUNCEMENT BAR — v1.50: concise gold CTA ============ -->
   <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Tryout announcement">
     <!-- EDIT: tryout dates -->
-    Girls Club Tryouts &nbsp;&bull;&nbsp; 10U&ndash;18U &nbsp;&bull;&nbsp; Tryouts Sept 13 &amp; 20
+    Girls Club Tryouts &nbsp;&bull;&nbsp; 10U&ndash;18U<span data-show-until="2026-09-20"> &nbsp;&bull;&nbsp; Tryouts Sept 20</span>
     <!-- /EDIT -->
     <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">10U&ndash;18U &middot; Sun Sept 13, 6:00&ndash;7:00 PM &middot; Sun Sept 20, 1:00&ndash;2:00 PM &middot; Uniform fitting postponed &mdash; date TBA &middot; Or walk in at any Wed / Fri open gym</span>
+    <span class="ann-note">10U&ndash;18U<span data-show-until="2026-09-20"> &middot; Sun Sept 20, 1:00&ndash;2:00 PM</span> &middot; Uniform fitting postponed &mdash; date TBA &middot; Or walk in at any Wed / Fri open gym</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
@@ -133,7 +134,7 @@
   <!-- ============ [OCSR] OCS BAR — v1.50 (new): membership + offers, moved out of the gold CTA ============ -->
   <div class="ocs-bar" data-section="OCSR" role="region" aria-label="RMR OCS membership and offers">
     <div class="ocs-bar-inner">
-      <p class="ocs-bar-text"><span class="ocs-tag">RMR OCS</span>: offers are sent through the RMR OCS as tryouts wrap, pre-evaluated players first; accept within 48 hours. New RMR players need a $20 tryout/RYL membership ($15 applies toward your full membership when you commit); returning 25&ndash;26 members are covered through Aug 31.</p>
+      <p class="ocs-bar-text"><span class="ocs-tag">RMR OCS</span>: offers are sent through the RMR OCS as tryouts wrap, pre-evaluated players first; accept within 48 hours. Players without a current 2026&ndash;27 RMR membership need a $20 tryout/RYL membership ($15 applies toward your full membership when you commit).</p>
       <span class="ocs-bar-btns">
         <a class="btn btn-teal" href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">Add Player to OCS</a>
         <a class="btn btn-black" href="https://rmr.vstarvolleyball.com/ocs/index.php" target="_blank" rel="noopener">OCS Login &middot; Accept Offer</a>
@@ -170,20 +171,19 @@
       <!-- v1.36 THIS-WEEK callout -->
       <div class="times-callout" style="border-color:var(--gold);background:#fff7e0;">
         <span class="big">Girls Club Tryouts: September</span>
-        <span class="sub">Girls 10U&ndash;18U (all positions) &middot; Sun Sept 13 &middot; Sun Sept 20</span>
+        <span class="sub">Girls 10U&ndash;18U (all positions)<span data-show-until="2026-09-20"> &middot; Sun Sept 20</span></span>
         <span class="sub">Not evaluated yet? Come to any Wed / Fri open gym before you commit &middot; offers are sent through the RMR OCS after tryouts, pre-evaluated players first.</span>
       </div>
       <h3 style="text-align:center;margin:6px 0 12px;"><a class="ulink" href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener">Girls 10U&ndash;18U: Official Club Tryouts (all positions)</a></h3>
       <div class="tbl-wrap"><table class="sched">
         <thead><tr><th>Date</th><th>Time</th></tr></thead>
         <tbody>
-          <tr data-show-until="2026-08-31"><td>Mon, Aug 31</td><td>5:30&ndash;7:00 PM</td></tr>
-          <tr><td>Sun, Sept 13</td><td>6:00&ndash;7:00 PM</td></tr>
-          <tr><td>Sun, Sept 20</td><td>1:00&ndash;2:00 PM</td></tr>
+          <tr data-show-until="2026-09-20"><td>Sun, Sept 20</td><td>1:00&ndash;2:00 PM</td></tr>
+          <tr data-show-from="2026-09-21" hidden style="display:none"><td>Any Wed / Fri open gym</td><td>5:30&ndash;7:00 PM</td></tr>
         </tbody>
       </table></div>
       <p class="sched-note"><strong>Uniform fitting:</strong> Postponed &mdash; date to be announced, for players joining a 2026&ndash;27 team.</p>
-      <p class="sched-note">These sessions place players on 2026&ndash;27 club teams. Can&rsquo;t make the first session? The later dates double as make-up tryouts.</p>
+      <p class="sched-note">These sessions place players on 2026&ndash;27 club teams. Can&rsquo;t make it? Try out at any Wed / Fri open gym.</p>
       <p class="sched-note">Not sure which division your athlete is in? Age groups follow USA Volleyball birth-year cutoffs, check the age chart at <a class="ulink" href="https://usavolleyball.org/play/junior/" target="_blank" rel="noopener">USAV Junior</a>. All sessions at Boomtown Fieldhouse, Aurora.</p>
       <div class="cta-inline" style="margin-top:18px;"><a href="https://forms.gle/2fEhY72d9GdU5Q8H7" target="_blank" rel="noopener" class="btn btn-gold">Register for Tryouts</a></div>
     </div>
@@ -267,7 +267,7 @@
       <p class="section-subtitle">Boys &amp; girls, ages 10+: open to any player, any club. Drop in and play.</p>
       <div class="times-callout">
         <span class="big">Wed / Fri &middot; 5:30&ndash;7:00 PM</span>
-        <span class="sub">Girls 10U&ndash;18U: join us at tryouts: <a class="ulink" href="#tryouts">Sun Sept 13 &amp; 20</a></span>
+        <span class="sub" data-show-until="2026-09-20">Girls 10U&ndash;18U: join us at tryouts: <a class="ulink" href="#tryouts">Sun Sept 20</a></span>
         <span class="sub">Group Training &amp; Developmental: Tues / Thurs &middot; 5:00&ndash;6:30 PM</span>
       </div>
       <p class="prose">$20 per session. Boomtown drop-in included 7&ndash;11 PM (players under 14 need parental supervision). Registration preferred, walk-ins welcome.</p>
