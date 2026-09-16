@@ -90,7 +90,9 @@ git push
 - **Analytics — nothing is currently recording traffic.** Either enable Cloudflare Web
   Analytics (no code change; the domain is proxied) or paste a Google Measurement ID into the
   inert `GA_MEASUREMENT_ID` hook in `assets/js/main.js`. Both can run at once.
-- **Still open (dashboards, not code):** Google Business Profile, Cloudflare security headers.
+- **Still open (dashboards, not code):** Google Business Profile, Cloudflare security headers,
+  `X-Robots-Tag: noindex` on the `/api/ig` Worker (`robots.txt` blocks `/api/` since v1.92; the
+  header would be the stronger signal).
 
 ---
 

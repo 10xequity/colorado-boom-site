@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-09-15 · **Live build** v1.91 · **Status** Active
+**Updated** 2026-09-16 · **Live build** v1.92 · **Status** Active
 **Supersedes** the 2026-08-24 handoff (v1.67)
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
@@ -39,7 +39,13 @@ Pages redeploys automatically ~1 minute after the push.
   upload a file with the **same name** into `assets/img/`. Full detail in `DEPLOY_GITHUB.md`.
 - **Command line:** `git push origin Main`.
 
-## 4. Current state (v1.91, 2026-09-15)
+## 4. Current state (v1.92, 2026-09-16)
+
+**v1.92 (2026-09-16):** `robots.txt` gained `Disallow: /api/` after Search Console reported the
+Instagram Worker's JSON (`/api/ig`) as "Crawled – currently not indexed". The other two reports it
+raised — "Page with redirect" for the `http://` / `www` variants and "Alternate page with proper
+canonical tag" for `/index.html` — are the site working as designed and need nothing. Reasoning
+in CHANGELOG v1.92.
 
 **v1.85 (2026-09-02):** Summer Membership on `tryouts.html` is retired until summer 2027 (markup at
 `b83ae5c`) and replaced by **Pre-season Practice & Training — Tues–Fri 5:00–7:00 PM, $295/mo
@@ -135,6 +141,11 @@ The **whole pricing box is the mailto link** (no inner button).
    other section on all 13 pages is balanced.
 10. **Design-linter noise** (the "impeccable" pop-ups) is an internal dev tool. **No effect on the
     live site**; ignore it.
+11. **`X-Robots-Tag: noindex` on the `/api/ig` Worker** (Cloudflare dashboard → Workers & Pages →
+    the Instagram Worker → its response headers). `robots.txt` already blocks crawling of `/api/`
+    (v1.92); the header is the belt to that suspender and cannot be set from this repo. The dev
+    token in the environment is scoped to the Boomtown platform Worker and cannot see this zone,
+    so it is a dashboard task or a Cloudflare connector authorization.
 
 ## 6. House rules — learned the hard way, don't undo these
 

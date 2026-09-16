@@ -10,6 +10,34 @@ reconstruct later.
 
 ---
 
+## v1.92 — 2026-09-16 · Search Console triage: `/api/` blocked from crawlers
+`robots.txt` only — no page changed, so no BUILD stamp moved
+
+- Owner forwarded three Search Console "not indexed" reasons. Two are the site working as designed
+  and need nothing. **Page with redirect** lists `http://coloradoboom.com/`, `http://www.…` and
+  `https://www.…`; all three 301 to `https://coloradoboom.com/`, which is the indexed page, so the
+  variants are correctly *not* indexed (Google files every redirecting URL here). **Alternate page
+  with proper canonical tag** is the same story for `/index.html`: it serves 200 with canonical → `/`,
+  so Google keeps `/` and lists `/index.html` as its alternate. Every page's canonical is
+  self-referencing and matches `sitemap.xml` — checked in the tree and against the live site.
+- The one hygiene item: **Crawled – currently not indexed** for `coloradoboom.com/api/ig`. Google
+  found the URL inside the home page's inline `fetch()` and crawled 20 KB of Behold JSON. Harmless
+  (Google declined to index it), but an API endpoint should never be a search candidate.
+  `robots.txt` now carries `Disallow: /api/`. Browser fetches are unaffected — robots rules bind
+  crawlers only — so the Instagram grid still renders. Expect the report to move to "Blocked by
+  robots.txt", which is the right bucket. Side effect accepted: Google's own render of the home
+  page will show the `[HM-06]` fallback line instead of the six thumbnails; the thumbnails are
+  Instagram-hosted and were never indexable content of this site.
+- The cleaner signal — `X-Robots-Tag: noindex` on the Worker's response — needs the Cloudflare
+  dashboard. The Cloudflare token in the dev environment is scoped to the Boomtown platform Worker
+  and can neither list this account's Workers nor see the `coloradoboom.com` zone. Listed in
+  HANDOFF §5 as an open dashboard item.
+- Method: `curl` of each variant's status and redirect target; `grep` of every `rel="canonical"`
+  in the tree against `sitemap.xml`; the live `/api/ig` headers (200, `application/json`,
+  `Server: cloudflare`, no `X-Robots-Tag`).
+
+---
+
 ## v1.91 — 2026-09-15 · Sept 13 tryout retired; Sept 20 self-retires; expired Aug 31 membership clause
 15 pages (all 14 shared-header pages + `legal.html`)
 
