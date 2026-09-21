@@ -1,6 +1,6 @@
 # Handoff — Colorado Boom website
 
-**Updated** 2026-09-16 · **Live build** v1.92 · **Status** Active
+**Updated** 2026-09-21 · **Live build** v1.93 · **Status** Active
 **Supersedes** the 2026-08-24 handoff (v1.67)
 
 A practical handoff so anyone can pick up the Colorado Boom site. Read this first, then
@@ -39,7 +39,12 @@ Pages redeploys automatically ~1 minute after the push.
   upload a file with the **same name** into `assets/img/`. Full detail in `DEPLOY_GITHUB.md`.
 - **Command line:** `git push origin Main`.
 
-## 4. Current state (v1.92, 2026-09-16)
+## 4. Current state (v1.93, 2026-09-21)
+
+**v1.93 (2026-09-21):** tryouts moved to **Sun Oct 11, 2:00–3:00 PM** on all 15 pages (Sept 20 had
+passed). Same self-retiring gates: every mention hides itself on Oct 12 and the "any Wed / Fri open
+gym" fallback appears the same day; `legal.html` is the one hand edit. Popup key bumped to
+`cobo-popup-v193`. Reasoning in CHANGELOG v1.93.
 
 **v1.92 (2026-09-16):** `robots.txt` gained `Disallow: /api/` after Search Console reported the
 Instagram Worker's JSON (`/api/ig`) as "Crawled – currently not indexed". The other two reports it
@@ -97,8 +102,9 @@ The **whole pricing box is the mailto link** (no inner button).
 
 **Site-wide changes:**
 - **Open gym is Wed / Fri only** (was Mon/Wed/Fri), 5:30–7:00 PM.
-- **Tryouts: Sun Sept 20, 1:00–2:00 PM** is the last date (Sept 13 passed and was removed in v1.91;
-  Sept 20 is date-gated and retires itself on Sept 21). **Uniform fitting postponed — date TBA.**
+- **Tryouts: Sun Oct 11, 2:00–3:00 PM** is the only date (Sept 13 and Sept 20 have passed; v1.93
+  moved every mention). Oct 11 is date-gated and retires itself on Oct 12. **Uniform fitting
+  postponed — date TBA.**
 - **Coach Damon's advanced club training is paused until November** and returns **Wed / Fri**
   (was Mon/Wed). The notes retire themselves Oct 31 and the full listings restore themselves
   **Nov 1** — no edit needed. Original copy is preserved in `[KEEP]` comments.
@@ -118,16 +124,17 @@ The **whole pricing box is the mailto link** (no inner button).
    as unassigned. If she's confirmed, add her full name.
 5. **"Ken" → published as "Kyn Van"** — inferred from the owner's name list (a clean five-for-five
    match on the first-name-only coaches). Owner confirmed, but the spelling is worth a second look.
-6. **Google Form dates** — an email went to **zhu@boomtownvball.com** asking for Sept 13 & 20 to be
-   added to `forms.gle/2fEhY72d9GdU5Q8H7` (same link, edited in place). Confirm it was done. Note the
-   club's other drafts address Zhu at **zhu@coloradoaf.org** — worth checking which address reaches him.
+6. **Google Form dates** — `forms.gle/2fEhY72d9GdU5Q8H7` (same link, edited in place) needs
+   **Sun Oct 11, 2:00–3:00 PM** as a date option and the passed Sept dates removed. The form lives
+   outside this repo. Earlier an email went to **zhu@boomtownvball.com** for the Sept dates; the club's
+   other drafts address Zhu at **zhu@coloradoaf.org** — worth checking which address reaches him.
 
-**Dated content — next manual touches (v1.91, 2026-09-15):**
+**Dated content — next manual touches (v1.93, 2026-09-21):**
 
-- **After Sun Sept 20:** delete " · Tryouts Sept 20" from `legal.html`'s `.ann` div — that page has no
-  date engine. Every other Sept 20 mention hides itself on Sept 21 and the open-gym fallback rows
+- **After Sun Oct 11:** delete " · Tryouts Oct 11" from `legal.html`'s `.ann` div — that page has no
+  date engine. Every other Oct 11 mention hides itself on Oct 12 and the open-gym fallback rows
   appear on their own.
-- **Post-tryout messaging:** the home popup title and the `tryouts.html` callout both say "September".
+- **Post-tryout messaging:** the home popup title and the `tryouts.html` callout both say "October".
   Decide what the banner and popup should say once tryouts are over; the "Try Out at Any Open Gym"
   band (v1.82) already carries the substance.
 
@@ -193,7 +200,7 @@ That pattern caught several mistakes before they shipped. Two things to know:
 | Brand colors | teal `#0E7C86`, teal-dark `#065A62`, gold `#E5B800`, cream `#FFF9F0`, black `#111111` |
 | All styling | `assets/css/styles.css` (`:root` variables at top); all behavior in `assets/js/main.js` |
 | Open gym | **Wed / Fri**, 5:30–7:00 PM |
-| Tryouts | **Sun Sept 20, 1:00–2:00 PM** — last date; gated, self-retires Sept 21 (`legal.html` by hand) |
+| Tryouts | **Sun Oct 11, 2:00–3:00 PM** — only date; gated, self-retires Oct 12 (`legal.html` by hand) |
 | Uniform fitting | Postponed — date TBA |
 | Private lessons | 1-on-1 **$80 minimum** · group (2+) **$50/player** · booked by email |
 | Tryouts form | `forms.gle/2fEhY72d9GdU5Q8H7` — **do not swap this link**, several pages point at it |

@@ -10,6 +10,32 @@ reconstruct later.
 
 ---
 
+## v1.93 — 2026-09-21 · Tryouts moved to Sun Oct 11, 2:00–3:00 PM
+15 pages (all 14 shared-header pages + `legal.html`)
+
+- Owner: "remove tryout dates, add Oct 11, 2–3 PM." Sept 20 had passed (its gates hid it on Sept 21),
+  so its spans and rows are reused for the new date rather than left as dead markup:
+  `data-show-until` → `2026-10-11` (38 places), the open-gym twins `data-show-from` → `2026-10-12`
+  (4 places), and the text Sept 20 → Oct 11, 1:00–2:00 → 2:00–3:00 PM everywhere the tryout appears:
+  the `[ANN]` banner + note on 14 pages, the home popup table and bullet, the home Club card, the
+  tryouts callout / table / cross-reference, `club.html`'s practice note, `girls-club.html`'s season
+  timeline, `programs.html`'s RYL paragraph, `schedule.html`'s 2026 Tryouts table, `legal.html`'s
+  banner. The page copy says only the date and time; no court number, per the standing rule.
+- The popup title and the tryouts callout said "September"; now "October". **Popup key bumped**
+  `cobo-popup-v187` → `cobo-popup-v193` so returning visitors see the new date (v1.91 deliberately
+  did not bump because no date was added; this release adds one).
+- `tryouts.html` SportsEvent JSON-LD → 2026-10-11 14:00–15:00 `-06:00` (still MDT; DST ends Nov 1).
+- **Not touched:** the five "Sun, Sept 20 · RYL #1" rows on `ryl-teams.html` are RMR tournament
+  dates, not tryouts. The tryout Google Form (`forms.gle/2fEhY72d9GdU5Q8H7`) is outside the repo;
+  Oct 11 has to be added to its date options by whoever owns the form (HANDOFF §5 item 6).
+- `legal.html` has no date engine: hand-edit again after Oct 11 (HANDOFF §5).
+- Method: `scripts/v193_edit.py` — every anchor asserted to match exactly once, a file with any miss
+  left untouched, post-conditions reject any surviving `2026-09-20` / `2026-09-21` / `1:00–2:00 PM`
+  / "September" heading; then an untruncated sweep for `Sept 20` outside BUILD comments (expected
+  and found: only the five RYL rows). A second run of the script refuses on every file.
+
+---
+
 ## v1.92 — 2026-09-16 · Search Console triage: `/api/` blocked from crawlers
 `robots.txt` only — no page changed, so no BUILD stamp moved
 
