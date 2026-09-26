@@ -104,7 +104,7 @@ The **whole pricing box is the mailto link** (no inner button).
 - **Open gym is Wed / Fri only** (was Mon/Wed/Fri), 5:30–7:00 PM.
 - **Tryouts: Sun Oct 11, 2:00–3:00 PM** is the only date (Sept 13 and Sept 20 have passed; v1.93
   moved every mention). Oct 11 is date-gated and retires itself on Oct 12. **Uniform fitting
-  postponed — date TBA.**
+  is by appointment: families email tt@coloradoboom.com (v1.94).**
 - **Coach Damon's advanced club training is paused until November** and returns **Wed / Fri**
   (was Mon/Wed). The notes retire themselves Oct 31 and the full listings restore themselves
   **Nov 1** — no edit needed. Original copy is preserved in `[KEEP]` comments.
@@ -201,7 +201,7 @@ That pattern caught several mistakes before they shipped. Two things to know:
 | All styling | `assets/css/styles.css` (`:root` variables at top); all behavior in `assets/js/main.js` |
 | Open gym | **Wed / Fri**, 5:30–7:00 PM |
 | Tryouts | **Sun Oct 11, 2:00–3:00 PM** — only date; gated, self-retires Oct 12 (`legal.html` by hand) |
-| Uniform fitting | Postponed — date TBA |
+| Uniform fitting | By appointment — email **tt@coloradoboom.com** (v1.94) |
 | Private lessons | 1-on-1 **$80 minimum** · group (2+) **$50/player** · booked by email |
 | Tryouts form | `forms.gle/2fEhY72d9GdU5Q8H7` — **do not swap this link**, several pages point at it |
 | Training signup form | `forms.gle/yvnstZ89psTTLmux7` |

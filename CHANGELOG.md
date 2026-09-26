@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v1.94 — 2026-09-26 · Uniform fitting: email tt@coloradoboom.com to schedule
+14 shared-header pages (`legal.html` never mentioned the fitting)
+
+- Owner: "Update uniform fitting, please send email to tt@coloradoboom.com to schedule fitting."
+  Every "postponed — date TBA" reference now tells families to email **tt@coloradoboom.com** to
+  book a fitting: the `[ANN]` note on 14 pages, the home popup table row + bullet, the tryouts
+  sched-note, `schedule.html`'s 2026 Tryouts table, `girls-club.html`'s season timeline.
+- The banner note is **plain text**, not a link: `.announcement a` styles every link in the banner
+  as a black button, so a mailto there would read as a second CTA beside "Register Now!". The
+  popup and page tables carry real `mailto:` links.
+- Popup key bumped `cobo-popup-v193` → `cobo-popup-v194` (v1.88 precedent: fitting info changed,
+  returning visitors who dismissed the popup should see how to book).
+- Script: `scripts/v194_edit.py` (anchored swaps, refuses a second run).
+
+---
+
 ## v1.93 — 2026-09-21 · Tryouts moved to Sun Oct 11, 2:00–3:00 PM
 15 pages (all 14 shared-header pages + `legal.html`)
 
