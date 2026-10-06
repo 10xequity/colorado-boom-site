@@ -105,9 +105,12 @@ The **whole pricing box is the mailto link** (no inner button).
 - **Tryouts: Sun Oct 11, 2:00–3:00 PM** is the only date (Sept 13 and Sept 20 have passed; v1.93
   moved every mention). Oct 11 is date-gated and retires itself on Oct 12. **Uniform fitting
   is by appointment: families email tt@coloradoboom.com (v1.94).**
-- **Coach Damon's advanced club training is paused until November** and returns **Wed / Fri**
-  (was Mon/Wed). The notes retire themselves Oct 31 and the full listings restore themselves
-  **Nov 1** — no edit needed. Original copy is preserved in `[KEEP]` comments.
+- **Advanced Club Training is live: Tues / Thurs, 5:00–7:00 PM, no coach named** (owner, v1.97,
+  2026-10-06; was Coach Damon, Wed/Fri 7:00–8:30, paused until Nov). The Nov-1 date gates and
+  `[KEEP]` comments are gone on club, programs, schedule and tryouts — nothing flips on Nov 1 now.
+- **club.html order (v1.97):** Practice → Season Schedules → Advanced Club Training → Age Groups →
+  11U–14U Levels & Fees → RYL → 15U–18U Levels & Fees (cards + table) → What Your Fee Includes →
+  Deposits, Payments & Conditional Fees → Uniforms. Fee-table header is "Features".
 - **No gray body text anywhere** — `--gray-text` is now `#111111`, `--gray-meta` `#444444`.
 - Mobile fixes: the home page no longer scrolls sideways on phones, the tryout popup is
   scroll-locked and centres correctly, and jump-nav links meet touch-target size.

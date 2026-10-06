@@ -10,6 +10,35 @@ reconstruct later.
 
 ---
 
+## v1.97 — 2026-10-06 · Club page restructure; Advanced Club Training Tues/Thurs 5–7 PM
+`club.html`, `programs.html`, `schedule.html`, `tryouts.html`
+
+- **Section order on `club.html`** (owner): Season Schedules now sits directly above Advanced Club
+  Training; the RYL section now sits between the 11U–14U and 15U–18U fee sections. Backgrounds still
+  alternate (teal → cream → white → dark → cream → teal → white → cream → white).
+- **15U–18U is now "Team Levels & Fees"**, matching the 11U–14U section: every card carries a
+  **Total Fee** line (Regional $4,500 · Colorado $5,500 · National $6,000) and the fee table sits
+  directly under the cards. The table was *moved* from the old "2026–27 Club Fees: 15U–18U" section
+  rather than copied, so there is still one source per number. That lower section is now
+  **"Deposits, Payments & Conditional Fees"** (`id="fees"` kept; nothing links to it today).
+- **Both fee tables:** header "Component" → **"Features"**. A 28px gap now separates each level grid
+  from its table (`.level-grid + .tbl-wrap`). The 14U cards' inline-styled Total Fee `<p>`s became a
+  shared `.level-body .total` class so both sections render identically.
+- **Advanced Club Training: Tues / Thurs · 5:00–7:00 PM**, no coach named ("remove Damon's name for
+  now"), "open gyms included" removed from both lines. The Nov-1 pause gates (`data-show-until` /
+  `data-show-from`) and `[KEEP]` comments are gone on all four pages that carried the block; the
+  "Try a Free Week" CTA shows now. *Assumption:* the new time matches the training already running,
+  so the listing is live rather than "returns in November" — the owner did not say either way.
+  `programs.html` anchor `#s-damon` → `#s-club`.
+- **SEO (`club.html`):** title "Club Information | …" → "Club Fees, Team Levels & Schedule 2026–27 |
+  Colorado Boom Volleyball Club"; meta/og/twitter description now names the fee range, the three
+  levels, practice schedule, RYL and Aurora; h1 → "Club Information: Team Levels, Fees & Schedule".
+  Canonical, breadcrumbs, alt text and geo tags were already in order. No FAQPage schema added:
+  Google stopped showing FAQ rich results for non-government/health sites in Aug 2023.
+- Script: `scripts/v197_edit.py`.
+
+---
+
 ## v1.96 — 2026-10-06 · 16 Zhu Friendship 1; 15 Regional now Adam's team
 `teams.html`, `coaching-staff.html`
 

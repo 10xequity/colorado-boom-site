@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v1.97 · 2026-10-06 · [CL] Season Schedules moved above Advanced Club Training; RYL moved between the 11U-14U and 15U-18U fee sections. [CL-04c] now "Team Levels & Fees: 15U-18U": Total Fee on each card + the fee table under the cards (lifted from CL-06, which is now "Deposits, Payments & Conditional Fees"). Both fee tables: "Component" -> "Features"; 28px gap between cards and table; Total Fee line is a shared .total class. [CL-03b] Advanced Club Training: Tues/Thurs 5:00-7:00 PM, no coach named, "open gyms included" removed, Nov-1 pause gates removed. SEO: title / description / h1 now name fees, levels and schedule. -->
   <!-- BUILD v1.94 · 2026-09-26 · Uniform fitting: "postponed, date TBA" -> "email tt@coloradoboom.com to schedule". -->
   <!-- BUILD v1.93 · 2026-09-21 · [ANN] tryouts moved: Sun Sept 20 1-2 PM -> Sun Oct 11 2:00-3:00 PM; date gate now 2026-10-11 so it retires itself on Oct 12. [CL-03] practice-note date follows. -->
   <!-- BUILD v1.91 · 2026-09-15 · [ANN] Sept 13 tryout has passed and is removed; Sept 20 now carries data-show-until so it retires itself on Sept 21; [OCSR] "returning 25-26 members are covered through Aug 31" expired Sept 1 and is replaced by "Players without a current 2026-27 RMR membership need…". [CL-03] practice-note tryout date: Sept 13 removed, Sept 20 gated. -->
@@ -12,10 +13,10 @@
   <!-- BUILD v1.55 · 2026-08-20 · batch: age-scoped Team Levels & Fees split — NEW [CL-04a] 11U-14U (Girls Club) block; [CL-04c] rescoped to 15U-18U (Regional 14U card removed); [CL-06] fee table to 3 cols + pay-in-full -$100 discount removed; FAQ fee bands, level-difference answer, and 11U-14U 5:15 start note. Prev v1.36 · 2026-07-04 -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
+  <meta name="description" content="Colorado Boom 2026&ndash;27 club volleyball fees ($4,500&ndash;$6,000), Regional, Colorado and National team levels, practice schedule, RYL and parent FAQ. Aurora, CO.">
   <meta name="theme-color" content="#0E7C86">
   <link rel="icon" type="image/png" href="assets/img/logo.png">
-  <title>Club Information | Colorado Boom Volleyball Club</title>
+  <title>Club Fees, Team Levels &amp; Schedule 2026&ndash;27 | Colorado Boom Volleyball Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -23,14 +24,14 @@
   <link rel="canonical" href="https://coloradoboom.com/club.html">
   <meta name="geo.region" content="US-CO">
   <meta name="geo.placename" content="Aurora, Colorado">
-  <meta property="og:title" content="Club Information | Colorado Boom Volleyball Club">
-  <meta property="og:description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
+  <meta property="og:title" content="Club Fees, Team Levels &amp; Schedule 2026&ndash;27 | Colorado Boom Volleyball Club">
+  <meta property="og:description" content="Colorado Boom 2026&ndash;27 club volleyball fees ($4,500&ndash;$6,000), Regional, Colorado and National team levels, practice schedule, RYL and parent FAQ. Aurora, CO.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://coloradoboom.com/club.html">
   <meta property="og:image" content="https://coloradoboom.com/assets/img/club.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Club Information | Colorado Boom Volleyball Club">
-  <meta name="twitter:description" content="Club information for Colorado Boom Volleyball Club: practice philosophy, schedule, benefits, fees, uniforms, and parent FAQ.">
+  <meta name="twitter:title" content="Club Fees, Team Levels &amp; Schedule 2026&ndash;27 | Colorado Boom Volleyball Club">
+  <meta name="twitter:description" content="Colorado Boom 2026&ndash;27 club volleyball fees ($4,500&ndash;$6,000), Regional, Colorado and National team levels, practice schedule, RYL and parent FAQ. Aurora, CO.">
   <meta name="twitter:image" content="https://coloradoboom.com/assets/img/club.jpg">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://coloradoboom.com/"},{"@type":"ListItem","position":2,"name":"Club","item":"https://coloradoboom.com/club.html"}]}
@@ -71,6 +72,9 @@
     .level--info .level-body{background:#fff;}
     .level--info .addon-h{font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);margin:0 0 4px;}
     .level--info .addon-h + p{margin:0 0 12px;}
+    /* v1.97 — Total Fee line shared by the 11U-14U and 15U-18U cards; space between a level grid and the fee table under it. */
+    .level-body .total{font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:#111;text-align:center;margin:0 0 10px;}
+    .level-grid + .tbl-wrap{margin-top:28px;}
   </style>
 </head>
 <body>
@@ -166,7 +170,7 @@
   <!-- ===== [CL-01] HERO ===== -->
   <section class="subhero has-img" data-section="CL-01">
     <span class="sub-bg" style="background-image:url('assets/img/club.jpg');background-position:center 40%;"></span>
-    <div class="container"><h1>Club Information</h1><p>Everything you need to know about a season with Colorado Boom: how we practice, what's included, and what to expect.</p></div>
+    <div class="container"><h1>Club Information: Team Levels, Fees &amp; Schedule</h1><p>Everything you need to know about a season with Colorado Boom: how we practice, what's included, and what to expect.</p></div>
   </section>
   <!-- ===== [CL-02] Club overview ===== -->
   <section data-section="CL-02" class="bg-white">
@@ -200,19 +204,26 @@
       </ul>
     </div>
   </section>
+  <!-- ===== [CL-05] Season schedule pointer ===== -->
+  <section data-section="CL-05" class="bg-cream">
+    <div class="container narrow prose" style="text-align:center;">
+      <h2 class="section-title">Season Schedules</h2>
+      <p>Tournament calendars differ for girls and boys. View the full 2026&ndash;27 RMR schedule for each program:</p>
+      <div class="btn-row"><a href="girls-club.html#GC-05" class="btn btn-teal">Girls Schedule</a><a href="boys-club.html#BC-05" class="btn btn-teal">Boys Schedule</a><a href="https://www.rmrvolleyball.org/page/show/7504034-all-rmr-calendars" target="_blank" rel="noopener" class="btn btn-teal">RMR Calendars</a></div>
+    </div>
+  </section>
   <!-- ===== [CL-03b] Advanced Summer Club Training ===== -->
   <section data-section="CL-03b" class="bg-white">
     <div class="container narrow" style="text-align:center;">
       <h2 class="section-title">Advanced Club Training</h2>
-      <p class="section-subtitle">Off-season reps for competitive and committed players, led by Coach Damon Sichler: open gyms included.</p>
-      <!-- [KEEP] Damon training paused until Nov 2026 (was Mon/Wed). Note retires Oct 31; Wed/Fri listing + CTA restore Nov 1 via main.js date engine. -->
+      <p class="section-subtitle">Off-season reps for competitive and committed players.</p>
+      <!-- v1.97: Tues/Thurs 5:00-7:00 PM, coach unnamed per owner (was Coach Damon Sichler, Wed/Fri 7:00-8:30, paused until Nov). -->
       <div class="times-callout">
-        <span class="big" data-show-until="2026-10-31">Returns in November &middot; Wed / Fri &middot; 7:00&ndash;8:30 PM</span>
-        <span class="big" data-show-from="2026-11-01" hidden style="display:none">Wed / Fri &middot; 7:00&ndash;8:30 PM</span>
-        <span class="sub">High-rep, position-focused training at Boomtown Fieldhouse: open gyms included</span>
-        <span class="sub" data-show-from="2026-11-01" hidden style="display:none">Try a free week: register, walk in, or contact admin@coloradoboom.com.</span>
+        <span class="big">Tues / Thurs &middot; 5:00&ndash;7:00 PM</span>
+        <span class="sub">High-rep, position-focused training at Boomtown Fieldhouse</span>
+        <span class="sub">Try a free week: register, walk in, or contact admin@coloradoboom.com.</span>
       </div>
-      <div class="cta-inline" data-show-from="2026-11-01" hidden style="display:none"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
+      <div class="cta-inline"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Try a Free Week</a></div>
     </div>
   </section>
   <!-- ===== [CL-04] Club benefits (v1.36: 2-col grid per Agreement v3.5 §2) ===== -->
@@ -248,7 +259,7 @@
           <div class="level-head"><span class="name">Colorado</span><span class="ages">11U&ndash;14U</span></div>
           <div class="level-body">
             <p class="travel">Team Travel Fee: $375</p>
-            <p style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:#111;text-align:center;margin:0 0 10px;">Total Fee: $4,875</p>
+            <p class="total">Total Fee: $4,875</p>
             <p>In-state RMR competition plus one committed travel event (Casper Rumble). RYL included. Base Club Fee $4,500 + $375 committed Travel Fee, the Travel Fee covers coaches&rsquo; travel and tournament fees only; family travel is separate.</p>
           </div>
         </div>
@@ -256,7 +267,7 @@
           <div class="level-head"><span class="name">National</span><span class="ages">14U only</span></div>
           <div class="level-body">
             <p class="travel">Team Travel Fee: $1,000</p>
-            <p style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:20px;color:#111;text-align:center;margin:0 0 10px;">Total Fee: $5,500</p>
+            <p class="total">Total Fee: $5,500</p>
             <p>Our most competitive 14U track, two committed travel events, RYL included. <strong>Offered at 14U only; 11U&ndash;13U compete at the Colorado level.</strong> Base Club Fee $4,500 + $1,000 committed Travel Fee.</p>
           </div>
         </div>
@@ -271,7 +282,7 @@
         </div>
       </div>
       <div class="tbl-wrap reveal"><table class="sched fee-table">
-        <thead><tr><th>Component</th><th>Colorado<br>(11U&ndash;14U)</th><th>National<br>(14U)</th></tr></thead>
+        <thead><tr><th>Features</th><th>Colorado<br>(11U&ndash;14U)</th><th>National<br>(14U)</th></tr></thead>
         <tbody>
           <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td></tr>
           <tr><td>Committed travel events</td><td>1</td><td>2</td></tr>
@@ -285,36 +296,6 @@
       <p class="sched-note">Practice for this group is <strong>5:15&ndash;7:30 PM</strong>, three days a week (M/W/F or T/Th/F). Players are welcome to arrive early to warm up, the 5:15 start gives athletes coming straight from school room to settle in, so no one feels rushed or stressed about being late. <strong>Coaching assignments are released in September.</strong> Tryouts: <strong>Girls 11U&ndash;14U<span data-show-until="2026-10-11">, Oct 11</span></strong> (see the <a href="tryouts.html#tryouts" class="ulink">Tryouts</a> page for current times and locations).</p>
     </div>
   </section>
-  <!-- ===== [CL-04c] Team Levels — 15U–18U (v1.55: rescoped from the Agreement v3.5 four-level block) ===== -->
-  <section id="team-levels" data-section="CL-04c" class="bg-white">
-    <div class="container">
-      <h2 class="section-title reveal">Team Levels: 15U&ndash;18U</h2>
-      <p class="section-subtitle reveal">Same Base Club Fee at every level: the difference is the committed travel.</p>
-      <div class="btn-row reveal" style="justify-content:center;margin:0 0 26px;" role="group" aria-label="Jump to fees by age group">
-        <a href="#age-11-14" class="btn btn-outline-teal">11U&ndash;14U (Girls Club)</a>
-        <a href="#team-levels" class="btn btn-teal" aria-current="true">15U&ndash;18U</a>
-      </div>
-      <div class="level-grid level-grid--3 reveal">
-        <div class="level level--regional reveal">
-          <div class="level-head"><span class="name">Regional</span><span class="ages">15U&ndash;18U</span></div>
-          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
-            <p>In-state RMR competition for high-school-age players, full club training with no committed out-of-state travel.</p></div>
-        </div>
-        <div class="level level--colorado reveal">
-          <div class="level-head"><span class="name">Colorado</span><span class="ages">15U&ndash;18U</span></div>
-          <div class="level-body"><p class="travel">Team Travel Fee: $1,000</p>
-            <p>RMR season plus two committed travel tournaments. Travel Fee covers coaches&rsquo; travel and tournament fees only, family travel costs are separate.</p></div>
-        </div>
-        <div class="level level--national reveal">
-          <div class="level-head"><span class="name">National</span><span class="ages">15U&ndash;18U</span></div>
-          <div class="level-body"><p class="travel">Team Travel Fee: $1,500</p>
-            <p>The most competitive track: three committed travel tournaments plus national-bid eligibility. Travel Fee covers coaches&rsquo; travel and tournament fees only, family travel costs are separate.</p></div>
-        </div>
-      </div>
-      <p class="sched-note"><strong>Team tournament vote, late January/February.</strong> After evaluating team compatibility and skill, every team, Regional, Colorado, and National, votes on adding tournaments in time to meet registration deadlines. Added events are $500 per event (80% team vote; participating families only). <strong>AAU Junior Nationals is an additional $1,000 per player</strong> if the team votes to attend.</p>
-      <p class="sched-note"><strong>Girls League (Girls 14U&ndash;18U):</strong> a flexible Aug&ndash;Oct option, $80 for 8 weeks. Details on the <a href="programs.html#girls-league" class="ulink">Programs</a> page.</p>
-    </div>
-  </section>
   <!-- ===== [CL-04d] Rocky Mountain Youth League ===== -->
   <section data-section="CL-04d" class="bg-teal-d">
     <div class="container narrow prose">
@@ -324,12 +305,48 @@
       <div class="cta-inline"><a href="https://www.rmrvolleyball.org/page/show/9160754-rocky-mountain-youth-league" target="_blank" rel="noopener" class="btn btn-gold">RYL Details (RMR)</a></div>
     </div>
   </section>
-  <!-- ===== [CL-05] Season schedule pointer ===== -->
-  <section data-section="CL-05" class="bg-cream">
-    <div class="container narrow prose" style="text-align:center;">
-      <h2 class="section-title">Season Schedules</h2>
-      <p>Tournament calendars differ for girls and boys. View the full 2026&ndash;27 RMR schedule for each program:</p>
-      <div class="btn-row"><a href="girls-club.html#GC-05" class="btn btn-teal">Girls Schedule</a><a href="boys-club.html#BC-05" class="btn btn-teal">Boys Schedule</a><a href="https://www.rmrvolleyball.org/page/show/7504034-all-rmr-calendars" target="_blank" rel="noopener" class="btn btn-teal">RMR Calendars</a></div>
+  <!-- ===== [CL-04c] Team Levels — 15U–18U (v1.55: rescoped from the Agreement v3.5 four-level block) ===== -->
+  <section id="team-levels" data-section="CL-04c" class="bg-white">
+    <div class="container">
+      <h2 class="section-title reveal">Team Levels &amp; Fees: 15U&ndash;18U</h2>
+      <p class="section-subtitle reveal">Same Base Club Fee at every level: the difference is the committed travel.</p>
+      <div class="btn-row reveal" style="justify-content:center;margin:0 0 26px;" role="group" aria-label="Jump to fees by age group">
+        <a href="#age-11-14" class="btn btn-outline-teal">11U&ndash;14U (Girls Club)</a>
+        <a href="#team-levels" class="btn btn-teal" aria-current="true">15U&ndash;18U</a>
+      </div>
+      <div class="level-grid level-grid--3 reveal">
+        <div class="level level--regional reveal">
+          <div class="level-head"><span class="name">Regional</span><span class="ages">15U&ndash;18U</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $0</p>
+            <p class="total">Total Fee: $4,500</p>
+            <p>In-state RMR competition for high-school-age players, full club training with no committed out-of-state travel.</p></div>
+        </div>
+        <div class="level level--colorado reveal">
+          <div class="level-head"><span class="name">Colorado</span><span class="ages">15U&ndash;18U</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $1,000</p>
+            <p class="total">Total Fee: $5,500</p>
+            <p>RMR season plus two committed travel tournaments. Travel Fee covers coaches&rsquo; travel and tournament fees only, family travel costs are separate.</p></div>
+        </div>
+        <div class="level level--national reveal">
+          <div class="level-head"><span class="name">National</span><span class="ages">15U&ndash;18U</span></div>
+          <div class="level-body"><p class="travel">Team Travel Fee: $1,500</p>
+            <p class="total">Total Fee: $6,000</p>
+            <p>The most competitive track: three committed travel tournaments plus national-bid eligibility. Travel Fee covers coaches&rsquo; travel and tournament fees only, family travel costs are separate.</p></div>
+        </div>
+      </div>
+      <div class="tbl-wrap reveal"><table class="sched fee-table">
+        <thead><tr><th>Features</th><th>Regional<br>(15U&ndash;18U)</th><th>Colorado<br>(15U&ndash;18U)</th><th>National<br>(15U&ndash;18U)</th></tr></thead>
+        <tbody>
+          <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td><td>$4,500</td></tr>
+          <tr><td>Committed travel events</td><td>0</td><td>2</td><td>3</td></tr>
+          <tr><td>Travel Fee (committed)</td><td>$0</td><td>$1,000</td><td>$1,500</td></tr>
+          <tr><td>Uniforms</td><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr class="total-row"><td>Total Fee</td><td>$4,500</td><td>$5,500</td><td>$6,000</td></tr>
+        </tbody>
+      </table></div>
+      <p class="sched-note"><strong>Looking for 11U&ndash;14U?</strong> Younger-team levels, fees, and RYL are in the <a href="#age-11-14" class="ulink">11U&ndash;14U section</a> above. Amounts exclude payment-processing fees and applicable sales tax (approx. 3.75%, City of Aurora).</p>
+      <p class="sched-note"><strong>Team tournament vote, late January/February.</strong> After evaluating team compatibility and skill, every team, Regional, Colorado, and National, votes on adding tournaments in time to meet registration deadlines. Added events are $500 per event (80% team vote; participating families only). <strong>AAU Junior Nationals is an additional $1,000 per player</strong> if the team votes to attend.</p>
+      <p class="sched-note"><strong>Girls League (Girls 14U&ndash;18U):</strong> a flexible Aug&ndash;Oct option, $80 for 8 weeks. Details on the <a href="programs.html#girls-league" class="ulink">Programs</a> page.</p>
     </div>
   </section>
   <!-- ===== [CL-06] Club Fees (v1.36: live per Player Agreement v3.5 + owner confirmation 2026-07-04) ===== -->
@@ -349,23 +366,11 @@
       </div>
     </div>
   </section>
-  <!-- ===== [CL-04b] RMR Age Groups ===== -->
+  <!-- ===== [CL-06] Deposits, payments & conditional fees (the fee tables sit under their level cards, CL-04a / CL-04c, since v1.97) ===== -->
   <section id="fees" data-section="CL-06" class="bg-white">
     <div class="container">
-      <h2 class="section-title reveal">2026&ndash;27 Club Fees: 15U&ndash;18U</h2>
-      <p class="section-subtitle reveal">One Base Club Fee across every level: the difference is each level’s committed travel.</p>
-      <div class="tbl-wrap reveal"><table class="sched fee-table">
-        <thead><tr><th>Component</th><th>Regional<br>(15U&ndash;18U)</th><th>Colorado<br>(15U&ndash;18U)</th><th>National<br>(15U&ndash;18U)</th></tr></thead>
-        <tbody>
-          <tr><td>Base Club Fee</td><td>$4,500</td><td>$4,500</td><td>$4,500</td></tr>
-          <tr><td>Committed travel events</td><td>0</td><td>2</td><td>3</td></tr>
-          <tr><td>Travel Fee (committed)</td><td>$0</td><td>$1,000</td><td>$1,500</td></tr>
-          <tr><td>Uniforms</td><td>Included</td><td>Included</td><td>Included</td></tr>
-          <tr class="total-row"><td>Total Fee</td><td>$4,500</td><td>$5,500</td><td>$6,000</td></tr>
-        </tbody>
-      </table></div>
-      <p class="sched-note"><strong>Looking for 11U&ndash;14U?</strong> Younger-team levels, fees, and RYL are in the <a href="#age-11-14" class="ulink">11U&ndash;14U section</a> above. Amounts exclude payment-processing fees and applicable sales tax (approx. 3.75%, City of Aurora).</p>
-
+      <h2 class="section-title reveal">Deposits, Payments &amp; Conditional Fees</h2>
+      <p class="section-subtitle reveal">Applies to every team level, 11U&ndash;18U, for the 2026&ndash;27 season.</p>
       <div class="fee-note reveal">
         <h3>Deposit &amp; Payment Options</h3>
         <ul>
