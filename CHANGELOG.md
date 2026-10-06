@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v1.96 — 2026-10-06 · 16 Zhu Friendship 1; 15 Regional now Adam's team
+`teams.html`, `coaching-staff.html`
+
+- **16 Colorado - Zhu:** "Jan 3 · Friendship Tournament 2" → "Dec 13 · Friendship Tournament 1",
+  moved to the top row so the table stays in date order.
+- **15 Regional - Brian → 15 Regional - Adam** (team title, jump nav, coach line); practice days
+  Tue/Thu/Fri → **Mon, Wed & Fri**, same 5:15–7:30 PM window. Adam has no staff card yet and his last
+  name is unknown, so the coach line reads "Head Coach: Adam" without a link. Brian Peterson's card
+  now lists 16 Colorado only.
+- Owner: leave 14 Colorado - Mel as is (Michon Robinson question closed; 11 players stays).
+- Script: `scripts/v196_edit.py`.
+
+---
+
 ## v1.95 — 2026-10-06 · 12 Colorado schedule; roster edits
 `teams.html`
 
