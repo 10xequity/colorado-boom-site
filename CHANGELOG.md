@@ -17,7 +17,8 @@ reconstruct later.
   out like the other teams ("Classsic" typo → RMR Classic; EOYR → RMR End of Year Regionals;
   Hype Nation Rumble gets "(Casper WY)").
 - **14 Colorado - Kimberly** + Sivan Goldstein; the owner gave no position, so her tile shows the
-  name only until one is supplied. **14 Colorado - Mel** + Averly Salem, Right Side (the position
+  name only until one is supplied. *Follow-up (v1.95.1): owner confirmed Setter; tile now sits
+  beside Carol Ndifor, the other setter.* **14 Colorado - Mel** + Averly Salem, Right Side (the position
   she already carries on `ryl-teams.html`). Both cards now read 11 players.
 - **16 National - Damon:** Jola Okunado → Okunande; Autum → Autumn Caldwell.
 - Owner also asked to remove **Michon Robinson** from 14 Mel. That name appears nowhere on the site,
