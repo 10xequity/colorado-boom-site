@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v1.95 — 2026-10-06 · 12 Colorado schedule; roster edits
+`teams.html`
+
+- **12 Colorado - Kula schedule posted** (was "posted soon"), 11 events Jan 3 – May 2, names spelled
+  out like the other teams ("Classsic" typo → RMR Classic; EOYR → RMR End of Year Regionals;
+  Hype Nation Rumble gets "(Casper WY)").
+- **14 Colorado - Kimberly** + Sivan Goldstein; the owner gave no position, so her tile shows the
+  name only until one is supplied. **14 Colorado - Mel** + Averly Salem, Right Side (the position
+  she already carries on `ryl-teams.html`). Both cards now read 11 players.
+- **16 National - Damon:** Jola Okunado → Okunande; Autum → Autumn Caldwell.
+- Owner also asked to remove **Michon Robinson** from 14 Mel. That name appears nowhere on the site,
+  so nothing was removed; asked the owner which player was meant.
+- Script: `scripts/v195_edit.py`.
+
+---
+
 ## v1.94 — 2026-09-26 · Uniform fitting: email tt@coloradoboom.com to schedule
 14 shared-header pages (`legal.html` never mentioned the fitting)
 
