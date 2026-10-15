@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.03 — 2026-10-15 · Meet and Greet location
+
+- Parent & Player Meet and Greet is at **Boomtown Fieldhouse** (owner). Ticker (both lists) + popup row; popup key v202 → v203.
+
 ## v2.02 — 2026-10-15 · Parent & Player Meet and Greet added
 All pages with the events ticker + `index.html` popup
 
