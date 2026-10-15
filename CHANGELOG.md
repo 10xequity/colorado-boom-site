@@ -10,6 +10,35 @@ reconstruct later.
 
 ---
 
+## v1.98 — 2026-10-14 · All 16 rosters live, names only; new team 14 Kula Tanuvasa
+`teams.html`, `coaching-staff.html`
+
+- **Source:** Tara Tucker's "Team roster" sheet (2026-10-14, also sent as a PDF) for players; the
+  website for coaches (owner: "I have the most up to date coach list there"). The sheet's
+  Schedule tab is an empty template, so no coach changed. The sheet's tab titles disagree with
+  the site on two teams — "12 Colorado Makayla" (site: 12 Colorado - Kula) and "14 Colorado Rob"
+  (site: 14 Colorado - Mel); the site names were kept and the rosters mapped by tab (12C, 14C2).
+- **Positions removed from every club roster tile** (Tara: "please don't put player positions,
+  just player names"). The `.ppos` CSS stays so restoring is a data change. `ryl-teams.html` still
+  shows positions — not touched; owner to say whether the rule covers RYL too.
+- **NEW team 14 Kula Tanuvasa** (Tara's name for it, verbatim), head coach Kula Tanuvasa, Tue, Thu
+  & Fri 5:15–7:30 PM, schedule "posted soon". Roster: Brooke Hazen, Essomanda Djafalo, Lillian
+  Casey, Madison Thomas, Rebecca Tesfanew, plus **Charlotte Lovejoy moved from 14 Colorado - Mel**
+  (Tara, 10:12 PM). No level tile: Tara gave no level; an empty grid cell keeps the columns aligned.
+  Jump nav is now 8 + 8 (15 Colorado - Jae moved to row 2); ItemList 16 teams; Kula's staff card
+  links both teams.
+- **Pending ("P") players are held back** from the public page until they accept (3 players, one
+  each on 15 National - Sidney, 16 Colorado - Brian, 17 National - Jawn). They are in the parent
+  contacts sheet with status P. Adding one is a single tile.
+- **Spellings:** the sheet's own spellings are used, except two earlier owner decisions kept —
+  **Elliana Foster** (sheet: Ellian, v1.83) and **Jola Okunande** (sheet: Okunado, v1.95; the parent contact
+  details suggest Okunado may be right). Lowercase fixed: Anaiah Quarcoo, Nico
+  Moores. Left as given but worth a check: Juliet *Montanero* (same family contact as Maisie
+  Montanaro), Addison *Clemts*, Aubrey *Pintoric* (contact suggests Pintaric), Ashlynn *Welcher*
+  (contact suggests Whelchel), Denver *Albarrab*.
+- **Removed:** Alexandra Lee from 14 Colorado - Mel (not on the new sheet). A sheet row on 12C with
+  contact details and no player name is not published.
+
 ## v1.97 — 2026-10-06 · Club page restructure; Advanced Club Training Tues/Thurs 5–7 PM
 `club.html`, `programs.html`, `schedule.html`, `tryouts.html`
 

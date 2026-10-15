@@ -119,7 +119,10 @@ The **whole pricing box is the mailto link** (no inner button).
 
 **Waiting on the club:**
 
-1. **Player rosters** — all 14 teams show "Roster will be posted here soon."
+1. **Player rosters** — all 16 club teams live as of **v1.98** (names only, no positions). Source is
+   Tara's "Team roster" sheet; parent emails live in the Drive sheet **"2026 COBO Parent Contacts"**,
+   never on the site. Pending ("P") players stay off the page until they accept. 14 Kula Tanuvasa
+   still needs a level and a tournament schedule.
 2. **Coach photos** — `coaching-staff.html` shows "[ Coach photo ]" placeholders; swap in real photos
    (keep filenames per `IMAGES.md`).
 3. **12U Colorado / 18U National** — decide whether they're real teams; markup is in git (§4).
