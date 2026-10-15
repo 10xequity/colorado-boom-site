@@ -10,6 +10,36 @@ reconstruct later.
 
 ---
 
+## v1.99 — 2026-10-15 · Coach changes, Mel out, RYL positions removed, popup becomes a club update
+`teams.html`, `coaching-staff.html`, `ryl-teams.html`, `index.html`
+
+- **Coaches** (owner, using Tara's roster sheet titles): **12 Colorado - Makayla** (Makayla Clemons,
+  was Kula). The new 14s team is **14 Colorado - Kula** with a Colorado level tile (was "14 Kula
+  Tanuvasa", no level). **Mel Erly is no longer coaching**, so her club team is now **14 Colorado - Rob**
+  (per the sheet; the coach line stays unlinked until Rob has a last name and a staff card, the same
+  as 15 Regional - Adam). Anchor `#t14-colorado-erly` is now `#t14-colorado-rob`.
+  The sheet's "Team Management" rows were **not** used: most tabs carry the template's Damon/Tara
+  placeholder rows with `email@email.com`, and the two real-looking ones contradict the site
+  (13C lists Makayla as head and Zhu as assistant; 14 C1 lists Rudy Garcia as head and "Kimberly Kirk"
+  as assistant). Both are flagged to the owner rather than flipped.
+- **Coaching Staff:** Mel's card removed (the photo file `coach-mel-erly.jpg` is still in assets,
+  unused). Makayla moves from Assistant Coaches to Coaches: "Head Coach · 12 Colorado / Assistant
+  Coach · 13 Colorado · 16 Colorado". Kula's card lists 14 Colorado only.
+- **RYL Teams:** positions removed from all 39 roster tiles (owner: same rule as club rosters).
+  RYL 14 Colorado had Mel as coach; with no replacement named, the coach line is removed and the
+  team shows as "14 Colorado" (anchor unchanged).
+- **Aubrey Pintoric → Pintaric** (owner). "Addison Clemts" confirmed correct.
+- **Popup** rewritten as a club update (key `cobo-popup-v194` → `v199`): tryouts are over;
+  private evaluations by email to admin@. **For Club Members:** Fall Break Skills Training Wed–Fri
+  5–7 PM, free for members (`data-show-until="2026-10-16"`); Regis vs. CCU team-bonding game,
+  $10, email Tara (no date given, so no gate; remove by hand once it has happened); Halloween
+  Party Fri Oct 30, RSVP in the member portal (gated to Oct 30); first practice the week of Nov 2;
+  uniform fitting by email. **Open Roster Spots:** 12s ×2, 13s ×1, 14s ×1, 16 Colorado ×1 outside
+  hitter, 17 Colorado ×1 middle. The tryout table, OCS steps and Register buttons are gone.
+  Checked in phone emulation at 390px: the popup fits, and the page doesn't scroll sideways.
+- **History:** the two v1.98 commits were squashed into one (59c5dc5) and force-pushed, because the
+  first commit's CHANGELOG quoted parts of parent email addresses in this public repo.
+
 ## v1.98 — 2026-10-14 · All 16 rosters live, names only; new team 14 Kula Tanuvasa
 `teams.html`, `coaching-staff.html`
 

@@ -121,8 +121,9 @@ The **whole pricing box is the mailto link** (no inner button).
 
 1. **Player rosters** — all 16 club teams live as of **v1.98** (names only, no positions). Source is
    Tara's "Team roster" sheet; parent emails live in the Drive sheet **"2026 COBO Parent Contacts"**,
-   never on the site. Pending ("P") players stay off the page until they accept. 14 Kula Tanuvasa
-   still needs a level and a tournament schedule.
+   never on the site. Pending ("P") players stay off the page until they accept. 14 Colorado - Kula
+   still needs a tournament schedule; 14 Colorado - Rob needs Rob's last name + staff card (v1.99).
+   The home popup's Regis vs. CCU row has no date gate: remove it by hand after the game.
 2. **Coach photos** — `coaching-staff.html` shows "[ Coach photo ]" placeholders; swap in real photos
    (keep filenames per `IMAGES.md`).
 3. **12U Colorado / 18U National** — decide whether they're real teams; markup is in git (§4).
