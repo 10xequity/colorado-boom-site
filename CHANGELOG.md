@@ -10,6 +10,15 @@ reconstruct later.
 
 ---
 
+## v2.04 — 2026-10-15 · "Try Out" buttons; gold-bar button centered; roster fixes
+
+- Every tryout button (header on all pages + 10 in-page) now reads **Try Out**; it still emails Tara
+  (owner: no registration form, but the label should say Try Out).
+- Gold bar: **See Team Rosters** moved onto its own line under the headline and note, centered
+  (`.ann-cta`, margin-top 12px).
+- **Makenna Terry released** (owner): removed from 16 Colorado - Brian, now 7 players.
+- **Becket → Beckett Hudson** (owner; both sheets spell it Becket).
+
 ## v2.03 — 2026-10-15 · Meet and Greet location
 
 - Parent & Player Meet and Greet is at **Boomtown Fieldhouse** (owner). Ticker (both lists) + popup row; popup key v202 → v203.

@@ -547,6 +547,8 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
 
 /* Announcement note: constrained width so long lines align under the headline */
 .announcement--xl .ann-note{max-width:900px;margin-left:auto;margin-right:auto;}
+/* [ANN] v2.04: the button sits on its own line, centered under the headline + note */
+.announcement--xl .ann-cta{margin-top:12px;}
 
 /* Mobile open menu (v1.55): fits the *visible* viewport. `dvh` fixes the iOS/Android 100vh
    trap where 100vh is taller than the visible area, so the menu's bottom — the Tryout / Club
