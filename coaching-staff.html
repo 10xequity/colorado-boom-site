@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.00 · 2026-10-15 · [CO] per the Colorado Boom Schedule sheet: Makayla Clemons no longer assists 16 Colorado (Ryan does); Randy Vang no longer assists 17 National (Matt does). [ANN]/[RB]/[OCSR] site-wide change -->
   <!-- BUILD v1.99 · 2026-10-15 · [CO-03] Mel Erly card removed (no longer coaching). Makayla Clemons moves to Coaches: Head Coach 12 Colorado, still Assistant 13 & 16 Colorado. Kula Tanuvasa: 14 Colorado only. -->
   <!-- BUILD v1.96 · 2026-10-06 · [CO] 15 Regional moved from Brian Peterson to Adam; Brian now heads 16 Colorado only. -->
   <!-- BUILD v1.94 · 2026-09-26 · Uniform fitting: "postponed, date TBA" -> "email tt@coloradoboom.com to schedule". -->
@@ -162,22 +163,37 @@
   </header>
   <!-- ============ [ANN] ANNOUNCEMENT BAR (shared) ============ -->
   <!-- ============ [ANN] ANNOUNCEMENT BAR — v1.50: concise gold CTA ============ -->
-  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Tryout announcement">
-    <!-- EDIT: tryout dates -->
-    Girls Club Tryouts &nbsp;&bull;&nbsp; 10U&ndash;18U<span data-show-until="2026-10-11"> &nbsp;&bull;&nbsp; Tryouts Oct 11</span>
+  <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Club announcement">
+    <!-- EDIT: headline (template: keep this block, swap the text for future announcements) -->
+    All Teams: Practice Begins the Week of November 2
     <!-- /EDIT -->
-    <a href="tryouts.html#tryouts">Register Now!</a>
-    <span class="ann-note">10U&ndash;18U<span data-show-until="2026-10-11"> &middot; Sun Oct 11, 2:00&ndash;3:00 PM</span> &middot; Uniform fitting: email tt@coloradoboom.com to schedule &middot; Or walk in at any Wed / Fri open gym</span>
+    <a href="teams.html">See Team Rosters</a>
+    <span class="ann-note">Practice days and times for every team are listed under Our Club Teams</span>
   </div>
 
   <!-- ============ [RB] RECRUITING BANNER — v1.50: current roster needs ============ -->
-  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">
-    Recruiting <span class="rb-hl">17s &amp; 18s</span>: Middles &amp; Pin Hitters &nbsp;&bull;&nbsp; Regional <span class="rb-hl">15s &amp; 16s</span>: Hitters &amp; Middles
-    <span class="rb-sub">Ongoing tryouts at open gym &middot; private evaluations: <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></span>
+  <div class="recruit-banner rb-ticker" role="region" aria-label="Upcoming club events">
+    <!-- [RB] scrolling club-events ticker (v2.00). Edit BOTH lists the same way; the second is the
+         seamless-loop copy (hidden from screen readers). Dated items carry data-show-until. -->
+    <div class="rb-track">
+      <ul class="rb-list">
+          <li data-show-until="2026-10-16"><span class="rb-hl">Fall Break Skills Camp</span> Wed&ndash;Fri, Oct 14&ndash;16 &middot; 5&ndash;7 PM &middot; Free for club members &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP on the portal</a></li>
+          <li><span class="rb-hl">Team Bonding</span> Regis vs. CCU game &middot; $10 tickets &middot; <a href="mailto:tt@coloradoboom.com?subject=Regis%20vs.%20CCU%20tickets">Email Tara</a></li>
+          <li data-show-until="2026-10-30"><span class="rb-hl">Halloween Party</span> Fri, Oct 30 &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP on the portal</a></li>
+          <li><span class="rb-hl">First Practice</span> Week of Nov 2 &middot; <a href="teams.html">See your team</a></li>
+      </ul>
+      <ul class="rb-list" aria-hidden="true">
+          <li data-show-until="2026-10-16"><span class="rb-hl">Fall Break Skills Camp</span> Wed&ndash;Fri, Oct 14&ndash;16 &middot; 5&ndash;7 PM &middot; Free for club members &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" tabindex="-1">RSVP on the portal</a></li>
+          <li><span class="rb-hl">Team Bonding</span> Regis vs. CCU game &middot; $10 tickets &middot; <a href="mailto:tt@coloradoboom.com?subject=Regis%20vs.%20CCU%20tickets" tabindex="-1">Email Tara</a></li>
+          <li data-show-until="2026-10-30"><span class="rb-hl">Halloween Party</span> Fri, Oct 30 &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" tabindex="-1">RSVP on the portal</a></li>
+          <li><span class="rb-hl">First Practice</span> Week of Nov 2 &middot; <a href="teams.html" tabindex="-1">See your team</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- ============ [OCSR] OCS BAR — v1.50 (new): membership + offers, moved out of the gold CTA ============ -->
-  <div class="ocs-bar" data-section="OCSR" role="region" aria-label="RMR OCS membership and offers">
+  <!-- [OCSR] hidden v2.00 (owner): template kept for future announcements; delete the hidden attribute to show it again -->
+  <div class="ocs-bar" data-section="OCSR" hidden role="region" aria-label="RMR OCS membership and offers">
     <div class="ocs-bar-inner">
       <p class="ocs-bar-text"><span class="ocs-tag">RMR OCS</span>: offers are sent through the RMR OCS as tryouts wrap, pre-evaluated players first; accept within 48 hours. Players without a current 2026&ndash;27 RMR membership need a $20 tryout/RYL membership ($15 applies toward your full membership when you commit).</p>
       <span class="ocs-bar-btns">
@@ -220,7 +236,7 @@
         <div class="coach" id="coach-jae-spain"><div class="ph" data-img="coach-jae-spain.jpg">[ Coach photo ]</div><div class="b"><h4>Jae Spain</h4><span>Head Coach &middot; <a href="teams.html#t15-colorado">15 Colorado</a></span></div></div>
         <div class="coach" id="coach-jawn-suzuki"><div class="ph" data-img="coach-jawn-suzuki.jpg">[ Coach photo ]</div><div class="b"><h4>Jawn Suzuki</h4><span>Head Coach &middot; <a href="teams.html#t17-national">17 National</a></span></div></div>
         <div class="coach" id="coach-kula-tanuvasa"><div class="ph" data-img="coach-kula-tanuvasa.jpg">[ Coach photo ]</div><div class="b"><h4>Kula Tanuvasa</h4><span>Head Coach &middot; <a href="teams.html#t14-kula">14 Colorado</a></span></div></div>
-        <div class="coach" id="coach-makayla-clemons"><div class="ph" data-img="coach-makayla-clemons.jpg">[ Coach photo ]</div><div class="b"><h4>Makayla Clemons</h4><span>Head Coach &middot; <a href="teams.html#t12-colorado">12 Colorado</a><br>Assistant Coach &middot; <a href="teams.html#t13-colorado">13 Colorado</a> &middot; <a href="teams.html#t16-colorado-zhu">16 Colorado</a></span></div></div>
+        <div class="coach" id="coach-makayla-clemons"><div class="ph" data-img="coach-makayla-clemons.jpg">[ Coach photo ]</div><div class="b"><h4>Makayla Clemons</h4><span>Head Coach &middot; <a href="teams.html#t12-colorado">12 Colorado</a><br>Assistant Coach &middot; <a href="teams.html#t13-colorado">13 Colorado</a></span></div></div>
         <div class="coach" id="coach-zhu"><div class="ph" data-img="coach-zhu.jpg">[ Coach photo ]</div><div class="b"><h4>Zhu</h4><span>Head Coach &middot; <a href="teams.html#t13-colorado">13 Colorado</a> &middot; <a href="teams.html#t16-colorado-zhu">16 Colorado</a></span></div></div>
       </div>
       <h3 class="section-title staff-title">Assistant Coaches</h3>
@@ -229,7 +245,7 @@
         <div class="coach coach--asst" id="coach-alicia-hall"><div class="ph" data-img="coach-alicia-hall.jpg">[ Coach photo ]</div><div class="b"><h4>Alicia Hall</h4><span>Assistant Coach &middot; <a href="teams.html#t14-national">14 National</a> &middot; <a href="teams.html#t15-national-tucker">15 National</a></span></div></div>
         <div class="coach coach--asst" id="coach-claire-kwok"><div class="ph" data-img="coach-claire-kwok.jpg">[ Coach photo ]</div><div class="b"><h4>Claire Kwok</h4><span>Assistant Coach &middot; <a href="teams.html#t15-colorado">15 Colorado</a></span></div></div>
         <div class="coach coach--asst" id="coach-kyn-van"><div class="ph" data-img="coach-kyn-van.jpg">[ Coach photo ]</div><div class="b"><h4>Kyn Van</h4><span>Assistant Coach &middot; <a href="teams.html#t16-regional">16 Regional</a> &middot; <a href="teams.html#t17-colorado">17 Colorado</a></span></div></div>
-        <div class="coach coach--asst" id="coach-randy-vang"><div class="ph" data-img="coach-randy-vang.jpg">[ Coach photo ]</div><div class="b"><h4>Randy Vang</h4><span>Assistant Coach &middot; <a href="teams.html#t16-national">16 National</a> &middot; <a href="teams.html#t17-national">17 National</a></span></div></div>
+        <div class="coach coach--asst" id="coach-randy-vang"><div class="ph" data-img="coach-randy-vang.jpg">[ Coach photo ]</div><div class="b"><h4>Randy Vang</h4><span>Assistant Coach &middot; <a href="teams.html#t16-national">16 National</a></span></div></div>
       </div>
       <div class="cta-inline"><a href="mailto:admin@coloradoboom.com" class="btn btn-gold">Interested in Coaching? Contact Us</a></div>
     </div>

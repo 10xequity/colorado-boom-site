@@ -499,6 +499,20 @@ table.sched{width:100%;border-collapse:collapse;min-width:520px;background:#fff;
 @keyframes rb-shimmer{0%{left:-45%;}60%,100%{left:125%;}}
 @media(prefers-reduced-motion:reduce){.recruit-banner::after{animation:none;display:none;}}
 @media(max-width:600px){.recruit-banner{font-size:12px;letter-spacing:.1em;}}
+/* [RB] v2.00 scrolling club-events ticker: two identical lists slide left by half the track width,
+   so the loop is seamless. Hover or keyboard focus pauses it; reduced motion shows a static wrap. */
+.rb-ticker{text-align:left;padding:10px 0;}
+.rb-track{display:flex;width:max-content;animation:rb-scroll 38s linear infinite;}
+.rb-ticker:hover .rb-track,.rb-ticker:focus-within .rb-track{animation-play-state:paused;}
+.rb-list{display:flex;align-items:center;gap:0;margin:0;padding:0;list-style:none;white-space:nowrap;}
+.rb-list li{padding:0 28px;font-size:13px;letter-spacing:.08em;}
+.rb-list li+li{border-left:2px solid var(--gold);}
+.rb-list a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.rb-list a:hover,.rb-list a:focus-visible{color:var(--gold);}
+@keyframes rb-scroll{to{transform:translateX(-50%);}}
+@media(max-width:600px){.rb-list li{font-size:11.5px;padding:0 20px;}}
+@media(prefers-reduced-motion:reduce){.rb-track{animation:none;width:auto;}.rb-list[aria-hidden="true"]{display:none;}
+  .rb-list{flex-wrap:wrap;justify-content:center;white-space:normal;row-gap:6px;}.rb-ticker{text-align:center;}}
 
 /* ===== v1.40 (2026-07-14) — header alignment + refined nav CTAs (emil pass) ===== */
 /* Header content pulled in from the edges; nothing wraps */

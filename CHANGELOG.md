@@ -10,6 +10,33 @@ reconstruct later.
 
 ---
 
+## v2.00 — 2026-10-15 · Banners repurposed site-wide; coaches per the Colorado Boom Schedule sheet; popup refresh
+All 15 pages + `assets/css/styles.css`
+
+- **Coach source of truth is now Tara's "Colorado Boom Schedule" sheet, Roster tab** (owner: the
+  "Team roster" sheet's coach rows are wrong). Applied: 14 Colorado - Rob = **Rob Oschner**, asst
+  **Dax**; 15 National - Sidney + asst **Haifen**; 15 Regional - Adam = **Adam Ray**, asst
+  **Loratia**; 16 Colorado - Zhu asst **Ryan** (was Makayla); 17 National asst **Matt** (was Randy
+  Vang). Staff cards updated to match (Makayla: 12 Colorado head, 13 Colorado assistant; Randy: 16
+  National only). New names have no staff cards yet, so they are unlinked. The sheet lists the third
+  14 Colorado team as OPEN; the owner assigned it to Kula, so 14 Colorado - Kula stays.
+- **Site-wide banners** (owner: remove the old ones, keep the templates):
+  - **Gold [ANN]:** "All Teams: Practice Begins the Week of November 2" + See Team Rosters.
+    `legal.html`'s own one-line gold bar says the same.
+  - **Black [RB]:** now a **scrolling club-events ticker**: Fall Break Skills Camp (retires after
+    Oct 16), Team Bonding: Regis vs. CCU (no date given, so no gate), Halloween Party (retires
+    after Oct 30), First Practice. Two identical lists slide left for a seamless loop; the copy is
+    `aria-hidden` with `tabindex=-1` links. Hover/focus pauses it; reduced-motion users get a
+    static, wrapped list. CSS lives in styles.css and is duplicated into `legal.html` (it has its
+    own `<style>`). **To edit: change both lists the same way.**
+  - **Cream [OCSR]:** hidden with the `hidden` attribute; the markup stays as the template.
+- **Popup** (key v199 → v200): Instagram follow line at the top (replaces the venue line); Fall
+  Break Skills Camp Wed–Fri Oct 14–16, 5–7 PM, RSVP in the member portal; open spots by team and
+  position (12 & 13 Colorado any position, 14 Colorado hitter or setter, 16 Colorado outside hitter,
+  17 Colorado middle); RMR OCS "add player" link for tryout sign-up; Title Case on every row label.
+- Checked in phone emulation (390px): popup 11–379px, no sideways scroll, ticker animating, OCS
+  bar `display:none`.
+
 ## v1.99 — 2026-10-15 · Coach changes, Mel out, RYL positions removed, popup becomes a club update
 `teams.html`, `coaching-staff.html`, `ryl-teams.html`, `index.html`
 

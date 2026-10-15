@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.00 · 2026-10-15 · [ANN] gold bar: "All Teams: Practice Begins the Week of November 2" + See Team Rosters. [RB] black bar is now a scrolling club-events ticker (Fall Break Skills Camp, Team Bonding, Halloween Party, First Practice).  -->
   <!-- BUILD v1.93 · 2026-09-21 · [ANN] Tryouts Sept 20 -> Oct 11 by hand (no date engine on this page); must be hand-edited again after Oct 11. -->
   <!-- BUILD v1.91 · 2026-09-15 · [ANN] Sept 13 removed; this page has no date engine, so "Tryouts Sept 20" must be removed by hand after Sept 20. -->
   <!-- BUILD v1.82 · 2026-08-31 · ANN banner combined to "Girls Club Tryouts · 10U-18U". -->
@@ -61,6 +62,20 @@
       transform:skewX(-18deg);animation:rb-shimmer 3.2s ease-in-out infinite;pointer-events:none;}
     @keyframes rb-shimmer{0%{left:-45%;}60%,100%{left:125%;}}
     @media(prefers-reduced-motion:reduce){.recruit-banner::after{animation:none;display:none;}}
+/* [RB] v2.00 scrolling club-events ticker: two identical lists slide left by half the track width,
+   so the loop is seamless. Hover or keyboard focus pauses it; reduced motion shows a static wrap. */
+.rb-ticker{text-align:left;padding:10px 0;}
+.rb-track{display:flex;width:max-content;animation:rb-scroll 38s linear infinite;}
+.rb-ticker:hover .rb-track,.rb-ticker:focus-within .rb-track{animation-play-state:paused;}
+.rb-list{display:flex;align-items:center;gap:0;margin:0;padding:0;list-style:none;white-space:nowrap;}
+.rb-list li{padding:0 28px;font-size:13px;letter-spacing:.08em;}
+.rb-list li+li{border-left:2px solid var(--gold);}
+.rb-list a{color:#fff;text-decoration:underline;text-underline-offset:3px;}
+.rb-list a:hover,.rb-list a:focus-visible{color:var(--gold);}
+@keyframes rb-scroll{to{transform:translateX(-50%);}}
+@media(max-width:600px){.rb-list li{font-size:11.5px;padding:0 20px;}}
+@media(prefers-reduced-motion:reduce){.rb-track{animation:none;width:auto;}.rb-list[aria-hidden="true"]{display:none;}
+  .rb-list{flex-wrap:wrap;justify-content:center;white-space:normal;row-gap:6px;}.rb-ticker{text-align:center;}}
     /* Header / nav */
     header.nav{
       position:sticky; top:0; z-index:50;
@@ -173,10 +188,24 @@
 <body>
 
   <!-- [ANN] announcement -->
-  <div class="ann">Girls Club Tryouts &middot; 10U&ndash;18U &middot; Tryouts Oct 11</div>
-  <div class="recruit-banner" role="region" aria-label="Recruiting announcement">
-    Recruiting <span class="rb-hl">17s &amp; 18s</span>: Middles &amp; Pin Hitters &nbsp;&bull;&nbsp; Regional <span class="rb-hl">15s &amp; 16s</span>: Hitters &amp; Middles
-    <span class="rb-sub">Ongoing tryouts at open gym &middot; private evaluations: <a href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a></span>
+  <div class="ann">All Teams: Practice Begins the Week of November 2</div>
+  <div class="recruit-banner rb-ticker" role="region" aria-label="Upcoming club events">
+    <!-- [RB] scrolling club-events ticker (v2.00). Edit BOTH lists the same way; the second is the
+         seamless-loop copy (hidden from screen readers). Dated items carry data-show-until. -->
+    <div class="rb-track">
+      <ul class="rb-list">
+          <li data-show-until="2026-10-16"><span class="rb-hl">Fall Break Skills Camp</span> Wed&ndash;Fri, Oct 14&ndash;16 &middot; 5&ndash;7 PM &middot; Free for club members &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP on the portal</a></li>
+          <li><span class="rb-hl">Team Bonding</span> Regis vs. CCU game &middot; $10 tickets &middot; <a href="mailto:tt@coloradoboom.com?subject=Regis%20vs.%20CCU%20tickets">Email Tara</a></li>
+          <li data-show-until="2026-10-30"><span class="rb-hl">Halloween Party</span> Fri, Oct 30 &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP on the portal</a></li>
+          <li><span class="rb-hl">First Practice</span> Week of Nov 2 &middot; <a href="teams.html">See your team</a></li>
+      </ul>
+      <ul class="rb-list" aria-hidden="true">
+          <li data-show-until="2026-10-16"><span class="rb-hl">Fall Break Skills Camp</span> Wed&ndash;Fri, Oct 14&ndash;16 &middot; 5&ndash;7 PM &middot; Free for club members &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" tabindex="-1">RSVP on the portal</a></li>
+          <li><span class="rb-hl">Team Bonding</span> Regis vs. CCU game &middot; $10 tickets &middot; <a href="mailto:tt@coloradoboom.com?subject=Regis%20vs.%20CCU%20tickets" tabindex="-1">Email Tara</a></li>
+          <li data-show-until="2026-10-30"><span class="rb-hl">Halloween Party</span> Fri, Oct 30 &middot; <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" tabindex="-1">RSVP on the portal</a></li>
+          <li><span class="rb-hl">First Practice</span> Week of Nov 2 &middot; <a href="teams.html" tabindex="-1">See your team</a></li>
+      </ul>
+    </div>
   </div>
 
   <!-- [NAV] header -->

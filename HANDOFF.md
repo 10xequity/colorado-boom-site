@@ -124,6 +124,9 @@ The **whole pricing box is the mailto link** (no inner button).
    never on the site. Pending ("P") players stay off the page until they accept. 14 Colorado - Kula
    still needs a tournament schedule; 14 Colorado - Rob needs Rob's last name + staff card (v1.99).
    The home popup's Regis vs. CCU row has no date gate: remove it by hand after the game.
+   **Coaches come from Tara's "Colorado Boom Schedule" sheet, Roster tab (v2.00), not "Team roster".**
+   **Banners (v2.00):** gold = practice start; black = scrolling events ticker (edit BOTH lists,
+   and legal.html by hand); cream OCS bar is `hidden`, so remove the attribute to bring it back.
 2. **Coach photos** — `coaching-staff.html` shows "[ Coach photo ]" placeholders; swap in real photos
    (keep filenames per `IMAGES.md`).
 3. **12U Colorado / 18U National** — decide whether they're real teams; markup is in git (§4).
