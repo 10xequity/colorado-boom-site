@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.05 · 2026-10-15 · [HM-POP] Open Roster Spots: 13 Colorado and 14 Colorado rows removed (owner); 12, 16 and 17 Colorado remain. Key v203 -> v205. -->
   <!-- BUILD v2.04 · 2026-10-15 · Tryout CTAs read "Try Out" (still email Tara). [ANN] See Team Rosters moved under the text, centered. -->
   <!-- BUILD v2.03 · 2026-10-15 · Meet and Greet location: Boomtown Fieldhouse (owner). Popup key v202 -> v203. -->
   <!-- BUILD v2.02 · 2026-10-15 · [RB] Parent & Player Meet and Greet, Wed Oct 28 5:30-8:30 PM (Tara's Oct 1 parent email) added to the events ticker; retires after Oct 28. [HM-POP] same row added; key v201 -> v202. -->
@@ -571,8 +572,6 @@
           <caption>Open Roster Spots</caption>
           <tbody>
             <tr><td>12 Colorado</td><td>Any Position</td></tr>
-            <tr><td>13 Colorado</td><td>Any Position</td></tr>
-            <tr><td>14 Colorado</td><td>Hitter or Setter</td></tr>
             <tr><td>16 Colorado</td><td>Outside Hitter</td></tr>
             <tr><td>17 Colorado</td><td>Middle</td></tr>
           </tbody>
@@ -591,7 +590,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v203';
+    var KEY='cobo-popup-v205';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){

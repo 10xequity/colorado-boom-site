@@ -10,6 +10,12 @@ reconstruct later.
 
 ---
 
+## v2.05 — 2026-10-15 · Harley Ray; 13s and 14s spots filled
+
+- **Harley Rey → Harley Ray** (owner), 16 Colorado - Zhu.
+- Popup **Open Roster Spots**: 13 Colorado and 14 Colorado rows removed (owner). 12, 16 and 17
+  Colorado remain. Popup key v203 → v205.
+
 ## v2.04 — 2026-10-15 · "Try Out" buttons; gold-bar button centered; roster fixes
 
 - Every tryout button (header on all pages + 10 in-page) now reads **Try Out**; it still emails Tara
