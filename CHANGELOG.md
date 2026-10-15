@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v2.01 — 2026-10-15 · Team Bonding game corrected; tryout registration buttons become "Email Tara"
+All 15 pages
+
+- **Team Bonding is CCU vs. MSU Denver (Metro State) volleyball, Fri Oct 16, 6:00 PM, arrive by
+  5:30, $10**, per Tara's Oct 1 parent email; the CCU athletics schedule places it at the CCU Event
+  Center, Lakewood. It was posted as "Regis vs. CCU": no CCU-Regis match exists that weekend in
+  volleyball, soccer or basketball (checked both schools' 2026 schedules). Ticker item and popup row
+  now retire themselves after Oct 16. Tara's Venmo/Zelle details are NOT published; families email her.
+- **No more tryout registration** (owner): the header "Tryout Now!" button on every page is now a
+  plain **Email Tara** button (shine effect removed), and every "Register for Tryouts" button,
+  including the three that opened the Google Form on tryouts.html/schedule.html, is now
+  **Email Tara to Join** (mailto tt@, subject "Joining Colorado Boom"). The home "3 ways" copy says
+  "email Tara about joining a team". The form itself is untouched. Popup key v200 → v201.
+
 ## v2.00 — 2026-10-15 · Banners repurposed site-wide; coaches per the Colorado Boom Schedule sheet; popup refresh
 All 15 pages + `assets/css/styles.css`
 
