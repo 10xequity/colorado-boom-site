@@ -10,6 +10,13 @@ reconstruct later.
 
 ---
 
+## v2.02 — 2026-10-15 · Parent & Player Meet and Greet added
+All pages with the events ticker + `index.html` popup
+
+- **Parent & Player Meet and Greet, Wed Oct 28, 5:30–8:30 PM** (Tara's Oct 1 parent email; owner confirmed
+  it is still on) added to the black ticker (both lists) and the popup. Retires itself after Oct 28.
+  No location is published because the email doesn't give one. Popup key v201 → v202.
+
 ## v2.01 — 2026-10-15 · Team Bonding game corrected; tryout registration buttons become "Email Tara"
 All 15 pages
 
