@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.07 — 2026-10-16 · Dax removed
+
+- **14 Colorado - Rob:** assistant Dax removed for now (owner). The coach line is Rob Oschner only.
+
 ## v2.06 — 2026-10-15 · Ashlyn Whelchel
 
 - **Ashlynn Welcher → Ashlyn Whelchel** (owner), 15 Colorado - Jae. Both sheets had "Ashlynn Welcher";
