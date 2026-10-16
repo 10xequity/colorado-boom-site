@@ -10,6 +10,11 @@ reconstruct later.
 
 ---
 
+## v2.06 — 2026-10-15 · Ashlyn Whelchel
+
+- **Ashlynn Welcher → Ashlyn Whelchel** (owner), 15 Colorado - Jae. Both sheets had "Ashlynn Welcher";
+  the family's contact matched Whelchel.
+
 ## v2.05 — 2026-10-15 · Harley Ray; 13s and 14s spots filled
 
 - **Harley Rey → Harley Ray** (owner), 16 Colorado - Zhu.
