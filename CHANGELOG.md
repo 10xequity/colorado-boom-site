@@ -10,6 +10,11 @@ reconstruct later.
 
 ---
 
+## v2.08 — 2026-10-18 · Pippa Flyr confirmed
+
+- **15 National - Sidney:** Pippa Flyr confirmed (owner) and added; 10 players. She had been held back as
+  "P" (pending). Spelled Flyr per both roster sheets and the family emails.
+
 ## v2.07 — 2026-10-16 · Dax removed
 
 - **14 Colorado - Rob:** assistant Dax removed for now (owner). The coach line is Rob Oschner only.
