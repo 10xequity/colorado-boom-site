@@ -10,6 +10,19 @@ reconstruct later.
 
 ---
 
+## v2.09 — 2026-10-20 · Coach updates from Tara; 14 Colorado - Janci
+`teams.html`, `coaching-staff.html`
+
+- **14 Colorado - Kula → 14 Colorado - Janci**: Head Coach **Janci Ige**, Assistant **Dax Martin**.
+  **Alana Evans** added (7 players). Tournament schedule copied from 14 Colorado - Rob (Tara: same
+  schedule); practice days already matched (Tue, Thu & Fri). Anchor `#t14-kula` → `#t14-colorado-janci`.
+- **Assistants:** 15 Regional - Adam: Loratia removed. 16 Colorado - Zhu: **Matt Jueng** (was Ryan).
+  13 Colorado - Zhu: **Megan Daugherty** (was Makayla Clemons). 15 National - Sidney: **Hanfei Li**
+  (was misspelled "Haifen"). 17 National - Jawn: **Brian Xu** (was Matt).
+- **Coaching Staff:** Kula Tanuvasa's card stays but no longer lists a team (role line "Coach").
+  Makayla Clemons is Head Coach of 12 Colorado only. New coaches have no staff cards yet, so their
+  names are unlinked.
+
 ## v2.08 — 2026-10-18 · Pippa Flyr confirmed
 
 - **15 National - Sidney:** Pippa Flyr confirmed (owner) and added; 10 players. She had been held back as
