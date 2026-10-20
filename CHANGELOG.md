@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.10 — 2026-10-20 · 16 Colorado - Brian practice days
+
+- **16 Colorado - Brian** practices **Tue, Thu & Fri, 5:15–7:30 PM** (owner). It was listed as Mon, Wed & Fri.
+
 ## v2.09 — 2026-10-20 · Coach updates from Tara; 14 Colorado - Janci
 `teams.html`, `coaching-staff.html`
 
