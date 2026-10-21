@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.13 · 2026-10-21 · [HM-POP] Open spots as one compact strip (17 Colorado Middle, 16 Colorado Pin, 12s Any x2, 13s Any x1, email admin@); events: Optional Pre-Season Club Training Mon-Fri Oct 26-30 5-7 PM, Parent Meeting Wed Oct 28 5:30-8:30, Club Halloween Dance Party & Drop-In Fri Oct 30 7:30-11 PM, Picture Day & Team Bonding Fri Jan 15 5:15 PM; expired Fall Break / CCU rows and the Open Roster Spots table removed. Key v205 -> v213. -->
   <!-- BUILD v2.05 · 2026-10-15 · [HM-POP] Open Roster Spots: 13 Colorado and 14 Colorado rows removed (owner); 12, 16 and 17 Colorado remain. Key v203 -> v205. -->
   <!-- BUILD v2.04 · 2026-10-15 · Tryout CTAs read "Try Out" (still email Tara). [ANN] See Team Rosters moved under the text, centered. -->
   <!-- BUILD v2.03 · 2026-10-15 · Meet and Greet location: Boomtown Fieldhouse (owner). Popup key v202 -> v203. -->
@@ -109,6 +110,8 @@
     .popup-sched td{padding:7px 10px;border-bottom:1px solid #e4e4e4;color:#111;}
     .popup-sched td:last-child{text-align:right;font-weight:600;white-space:nowrap;}
     .popup-sched tr.wk td{border-bottom:0;padding-top:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-dark);}
+    .popup-needs{margin:0 0 16px;padding:10px 12px;background:var(--cream);border-left:4px solid var(--gold);font-size:13.5px;line-height:1.5;color:#111;}
+    .popup-needs strong{font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:var(--teal-dark);}
     .popup-body ul{margin:0 0 20px;padding:0;list-style:none;}
     .popup-body li{position:relative;padding:0 0 0 24px;margin-bottom:9px;font-size:15px;line-height:1.55;color:#111;}
     .popup-body li::before{content:"";position:absolute;left:2px;top:7px;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);}
@@ -546,7 +549,7 @@
   </footer>
 
 
-  <!-- ============ [HM-POP] CLUB UPDATE POPUP (v2.00) — shows once per session; dated rows retire themselves ============ -->
+  <!-- ============ [HM-POP] CLUB UPDATE POPUP (v2.13) — shows once per session; dated rows retire themselves ============ -->
   <div class="popup-overlay" id="tryout-popup" data-section="HM-POP" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-describedby="popup-desc">
     <div class="popup">
       <button type="button" class="popup-close" aria-label="Close announcement">&times;</button>
@@ -557,28 +560,20 @@
         <a class="popup-cta popup-cta--top" href="teams.html">See Team Rosters</a>
       </div>
       <div class="popup-body">
+        <p class="popup-needs"><strong>Open Spots:</strong> 17 Colorado &middot; Middle &nbsp;&bull;&nbsp; 16 Colorado &middot; Pin &nbsp;&bull;&nbsp; 12s &middot; Any (2) &nbsp;&bull;&nbsp; 13s &middot; Any (1)<br><a class="inline" href="mailto:admin@coloradoboom.com?subject=Open%20roster%20spot">Email admin@coloradoboom.com</a></p>
         <table class="popup-sched">
           <caption>For Club Members</caption>
           <tbody>
-            <tr data-show-until="2026-10-16"><td>Fall Break Skills Camp<br>Wed&ndash;Fri, Oct 14&ndash;16 &middot; 5&ndash;7 PM &middot; Free</td><td><a class="inline" href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP in Portal</a></td></tr>
-            <tr data-show-until="2026-10-16"><td>Team Bonding: CCU vs. MSU Denver Volleyball<br>Fri, Oct 16 &middot; 6 PM (Arrive 5:30) &middot; CCU Event Center &middot; $10</td><td><a class="inline" href="mailto:tt@coloradoboom.com?subject=CCU%20vs.%20MSU%20Denver%20tickets">Email Tara</a></td></tr>
-            <tr data-show-until="2026-10-28"><td>Parent &amp; Player Meet and Greet<br>Wed, Oct 28 &middot; 5:30&ndash;8:30 PM &middot; Boomtown Fieldhouse</td><td>All Families Welcome</td></tr>
-            <tr data-show-until="2026-10-30"><td>Halloween Party<br>Friday, Oct 30</td><td><a class="inline" href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP in Portal</a></td></tr>
+            <tr data-show-until="2026-10-30"><td>Optional Pre-Season Club Training<br>Mon&ndash;Fri, Oct 26&ndash;30 &middot; 5&ndash;7 PM</td><td><a class="inline" href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP in Portal</a></td></tr>
+            <tr data-show-until="2026-10-28"><td>Parent Meeting<br>Wed, Oct 28 &middot; 5:30&ndash;8:30 PM &middot; Boomtown Fieldhouse</td><td>All Families Welcome</td></tr>
+            <tr data-show-until="2026-10-30"><td>Club Halloween Dance Party &amp; Drop-In<br>Fri, Oct 30 &middot; 7:30&ndash;11 PM</td><td><a class="inline" href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener">RSVP in Portal</a></td></tr>
             <tr><td>First Practice</td><td>Week of Nov 2</td></tr>
+            <tr data-show-until="2027-01-15"><td>Picture Day &amp; Team Bonding<br>Fri, Jan 15 &middot; 5:15 PM</td><td>All Teams</td></tr>
             <tr><td>Uniform Fitting</td><td><a class="inline" href="mailto:tt@coloradoboom.com">Email to Book</a></td></tr>
           </tbody>
         </table>
-        <table class="popup-sched">
-          <caption>Open Roster Spots</caption>
-          <tbody>
-            <tr><td>12 Colorado</td><td>Any Position</td></tr>
-            <tr><td>16 Colorado</td><td>Outside Hitter</td></tr>
-            <tr><td>17 Colorado</td><td>Middle</td></tr>
-          </tbody>
-        </table>
         <ul id="popup-desc">
-          <li>Tryout dates are done, but we&rsquo;re still adding players through private evaluations and tryouts. Email <a class="inline" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a> to set one up.</li>
-          <li>To sign up for a tryout, add your player in the <a class="inline" href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">RMR OCS portal</a> first.</li>
+          <li>Still looking for a team? We add players through private evaluations. Email <a class="inline" href="mailto:admin@coloradoboom.com">admin@coloradoboom.com</a> to set one up, and add your player in the <a class="inline" href="https://rmr.vstarvolleyball.com/ocs/add_player.php" target="_blank" rel="noopener">RMR OCS portal</a>.</li>
           <li>Rosters and practice times for every team are on <a class="inline" href="teams.html">Our Club Teams</a>.</li>
         </ul>
         <a class="popup-cta" href="mailto:admin@coloradoboom.com?subject=Private%20evaluation">Schedule an Evaluation</a>
@@ -590,7 +585,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v205';
+    var KEY='cobo-popup-v213';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){

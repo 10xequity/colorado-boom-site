@@ -10,6 +10,18 @@ reconstruct later.
 
 ---
 
+## v2.13 — 2026-10-21 · Popup: open spots strip + new events
+`index.html`
+
+- **Open spots** moved from a table to one compact cream strip under the header: 17 Colorado Middle,
+  16 Colorado Pin, 12s Any (2), 13s Any (1), email admin@.
+- **Events:** Optional Pre-Season Club Training **Mon–Fri Oct 26–30, 5–7 PM** (owner wrote "M-F Oct 28 –
+  Nov 1"; Oct 28 is a Wednesday and Nov 1 a Sunday, so the Mon–Fri week before practice is used);
+  Parent Meeting Wed Oct 28 5:30–8:30 PM (was "Meet and Greet"); Club Halloween Dance Party & Drop-In
+  Fri Oct 30 7:30–11 PM; Picture Day & Team Bonding Fri Jan 15 5:15 PM (retires Jan 16). Expired Fall
+  Break and CCU rows deleted. Popup key v205 → v213.
+- Not touched: the site-wide black ticker still shows the older event wording.
+
 ## v2.12 — 2026-10-21 · Elleni Clinton
 
 - **16 Colorado - Brian:** Elleni Clinton added (owner); 9 players. Not on either roster sheet yet.
