@@ -10,6 +10,18 @@ reconstruct later.
 
 ---
 
+## v2.14 — 2026-10-21 · Ticker matches the popup; gold bar recruits; Kula removed
+All 15 pages
+
+- **Black ticker** (both lists on all 14 pages) now carries the same events as the popup: Pre-Season Club
+  Training (Oct 26–30), Parent Meeting (Oct 28), Club Halloween Dance Party & Drop-In (Oct 30,
+  7:30–11 PM), First Practice, Picture Day & Team Bonding (Jan 15). Expired Fall Break / CCU rows gone.
+- **Gold bar** on all 15 pages (legal.html by hand) switched from "Practice Begins Nov 2" (now in the
+  ticker) to recruitment: "Now Recruiting: 17 Colorado Middle • 16 Colorado Pin • 12s & 13s Any
+  Position" with an **Email to Try Out** button (mailto admin@). Owner: "the gold keep that for the
+  recruitment for now".
+- **Kula Tanuvasa** card removed from Coaching Staff (owner).
+
 ## v2.13 — 2026-10-21 · Popup: open spots strip + new events
 `index.html`
 
