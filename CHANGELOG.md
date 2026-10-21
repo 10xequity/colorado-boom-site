@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.12 — 2026-10-21 · Elleni Clinton
+
+- **16 Colorado - Brian:** Elleni Clinton added (owner); 9 players. Not on either roster sheet yet.
+
 ## v2.11 — 2026-10-20 · Mariella Nuno confirmed
 
 - **16 Colorado - Brian:** Mariella Nuno added (owner); 8 players. She had been held back as "P" (pending).
