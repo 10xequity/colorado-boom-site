@@ -41,6 +41,8 @@ Pages redeploys automatically ~1 minute after the push.
 
 ## 4. Current state (v1.93, 2026-09-21)
 
+**v2.15 (2026-10-22):** Littles (Little Spikers, ages 6–9, Tue/Thu 5:00–6:30) is a session inside the Skills Training Membership on `programs.html` (#s-littles, #littles "Membership by Age Group"); nav/footer say "Littles (Ages 6–9)". Colorado Boom Camps (Nov 23–24, Dec 28–30, Jun 14–17, Jul 5–8, Jul 19–22; 9–4; groups 13 & under / 14–18) replaced the Nike block — **no Nike branding on this site**, Nike is promoted through Boomtown. Tryouts page: see the facts table. Photo library: `assets/img/library/` (+README index). Later entries live in CHANGELOG.md.
+
 **v1.93 (2026-09-21):** tryouts moved to **Sun Oct 11, 2:00–3:00 PM** on all 15 pages (Sept 20 had
 passed). Same self-retiring gates: every mention hides itself on Oct 12 and the "any Wed / Fri open
 gym" fallback appears the same day; `legal.html` is the one hand edit. Popup key bumped to
@@ -210,7 +212,7 @@ That pattern caught several mistakes before they shipped. Two things to know:
 | Brand colors | teal `#0E7C86`, teal-dark `#065A62`, gold `#E5B800`, cream `#FFF9F0`, black `#111111` |
 | All styling | `assets/css/styles.css` (`:root` variables at top); all behavior in `assets/js/main.js` |
 | Open gym | **Wed / Fri**, 5:30–7:00 PM |
-| Tryouts | **Sun Oct 11, 2:00–3:00 PM** — only date; gated, self-retires Oct 12 (`legal.html` by hand) |
+| Tryouts | **2027–28 tryouts announced April 2027**; 2026–27 roster spots by private evaluation, email admin@ for an appointment (v2.15). Every "Try Out" button emails admin@. |
 | Uniform fitting | By appointment — email **tt@coloradoboom.com** (v1.94) |
 | Private lessons | 1-on-1 **$80 minimum** · group (2+) **$50/player** · booked by email |
 | Tryouts form | `forms.gle/2fEhY72d9GdU5Q8H7` — **do not swap this link**, several pages point at it |

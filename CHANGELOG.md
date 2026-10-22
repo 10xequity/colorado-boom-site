@@ -10,6 +10,21 @@ reconstruct later.
 
 ---
 
+## v2.15 — 2026-10-22 · Littles live, Colorado Boom Camps, tryouts by appointment
+All 15 pages
+
+- **Littles** (Little Spikers, ages 6–9, Tues/Thurs 5:00–6:30 PM) is now a session inside the Skills Training
+  Membership on Programs: new #s-littles write-up, a "Membership by Age Group" block at #littles, and nav/footer
+  links renamed from "Littles (Coming Soon)" to "Littles (Ages 6–9)".
+- **Colorado Boom Camps** replace the Nike camp block on Programs: Nov 23–24 and Dec 28–30, 2026; Jun 14–17,
+  Jul 5–8 and Jul 19–22, 2027; 9 AM–4 PM, two groups (13 & under, 14–18), register by email. Rows self-retire.
+  No Nike branding on this site (owner: Nike is advertised through Boomtown).
+- **Tryouts page**: 2027–28 tryouts will be announced April 2027; 2026–27 roster spots are by private evaluation,
+  email admin@ for an appointment. Expired Oct 11 table and event schema removed; open gym no longer "doubles as a
+  tryout". Every "Try Out" button site-wide now emails admin@ (was tt@).
+- **Parent Meeting** row in the ticker and popup renamed "Parent Meeting, Team Meet & Greet & Team Bonding".
+- **Photo library**: 6 Instagram poster frames saved under assets/img/library/ with an index.
+
 ## v2.14 — 2026-10-21 · Ticker matches the popup; gold bar recruits; Kula removed
 All 15 pages
 
