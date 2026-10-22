@@ -10,6 +10,24 @@ reconstruct later.
 
 ---
 
+## v2.18 — 2026-10-22 · Battle Arena round 7
+coaching-staff.html, assets/img/coaches/ryl-logo.webp (boom-logo.png removed)
+
+- Blocks now trigger when the opponent attacks: Block / Dig / Timeout is armed on your turn, and when the next
+  ball comes over the defender goes up at the net and the hit is negated up to the block value (a clean block
+  stops it entirely; a bigger swing gets the remainder through).
+- Every attack and block value is a multiple of 5 (1-cost 5/10, directors 10/15; 2-cost 15-25; 3-cost 25-35;
+  blocks 10/15/20); damage after type and weakness multipliers rounds to the nearest 5, minimum 5.
+- HP normalised: coaches 80-100 (+10 for head coaches), directors 120-140.
+- The RYL comic-burst "COLORADO BOOM!" logo (from the black-shirt artwork) sits faded behind the card ring and
+  hangs as two banners on the Boomtown Fieldhouse back wall, which is redesigned (teal upper wall, windows,
+  black padded mats, gold pinstripe). The 16-bit court is now 320x200 so the banners clear the HP panels.
+- Hit effects: starburst on the struck card, pixel sparks and a shock ring on the court, stronger flash and shake
+  on a critical; new sounds for whistle, critical, thud, block, clean block, crowd.
+- You Play mode next to Auto Play: you pick the left card's move each turn (or hold energy) and the AI plays the
+  right; Next Fight keeps your card in against a new opponent. On phones the move bar is fixed to the bottom.
+- Battle Now button in the hero jumps to the arena and draws a random matchup; the title is white on black.
+
 ## v2.17 — 2026-10-22 · Coaching Staff as trading cards + Battle Arena
 coaching-staff.html
 

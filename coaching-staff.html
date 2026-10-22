@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.18 · 2026-10-22 · [CO] Battle Arena round 7: a block is armed on your turn and fires when the ball arrives (hit negated up to its value); every attack / block value is a multiple of 5; HP 80-110 (directors 120-140); RYL comic-burst logo behind the ring and on the fieldhouse back wall; hit bursts + more SFX; You Play mode; Battle Now button; title white on black. Generated from scratchpad gen_v7.js. -->
   <!-- BUILD v2.17 · 2026-10-22 · [CO] Coaching Staff rebuilt as trading cards (owner picked demo 7): element = position, 3 moves, Boomdex finder, Battle Arena with Card View / 16-Bit View, energy per round, real photos for 11 coaches and pixel sprites for the rest. Generated from scratchpad gen_v7.js; assets under assets/img/coaches/. -->
   <!-- BUILD v2.15 · 2026-10-22 · Littles (ages 6-9, Tue/Thu 5-6:30) folded into the Skills Training Membership; nav + footer say Littles (Ages 6-9). [RB] Parent Meeting row now "Parent Meeting, Team Meet & Greet & Team Bonding". Try Out buttons email admin@ for an appointment. -->
   <!-- BUILD v2.14 · 2026-10-21 · [RB] ticker matches the popup: Pre-Season Club Training Oct 26-30, Parent Meeting Oct 28, Club Halloween Dance Party & Drop-In Oct 30 7:30-11 PM, First Practice, Picture Day Jan 15. [ANN] gold bar now carries recruitment (17 Colorado Middle, 16 Colorado Pin, 12s & 13s any) with an Email to Try Out button. [CO-03] Kula Tanuvasa card removed (owner). -->
@@ -44,7 +45,8 @@
 #tc .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--black) 0%,rgba(5,5,5,.5) 55%,rgba(5,5,5,.15) 100%)}
 #tc .hero .wrap{position:relative;z-index:1;padding-block:28px}
 #tc .hero .eyebrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-#tc .hero h1{font-size:clamp(56px,8.5vw,112px);margin:4px 0 6px;color:var(--gold);text-shadow:0 3px 0 #6b5400,0 10px 30px rgba(0,0,0,.6)}
+#tc .hero h1{font-size:clamp(56px,8.5vw,112px);margin:4px 0 6px;color:#fff;text-shadow:3px 4px 0 #000,0 0 3px #000,-1px -1px 0 #000,0 12px 30px rgba(0,0,0,.75)}
+#tc .hero .hero-btn{margin-top:18px;font-size:16px;padding:14px 32px}
 #tc .hero p{max-width:680px;color:rgba(255,255,255,.94);font-size:17px;margin:0}
 #tc section.band{padding-block:clamp(24px,3.5vw,40px)}
 #tc .bt{display:flex;align-items:center;gap:14px;margin-bottom:16px}#tc .bt::before{content:"";width:10px;height:44px;background:var(--gold);flex:none}
@@ -109,7 +111,7 @@
 #tc .pick .vsm{font-family:var(--display);font-size:34px;color:var(--gold);padding-bottom:4px}
 #tc .pxopts{display:inline-flex;gap:14px;align-items:end}#tc .pxopts[hidden]{display:none}#tc .pxopts label{display:inline-flex;align-items:center;gap:8px;margin:0}#tc .pxopts select{width:auto;font-size:14px;padding:7px 10px}
 #tc .ring{position:relative;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;min-height:380px;padding:18px 0;isolation:isolate}
-#tc .ring::before{content:"";position:absolute;inset:0;background:url(assets/img/coaches/boom-logo.png) center/min(70%,620px) no-repeat;opacity:.09;pointer-events:none;z-index:0}
+#tc .ring::before{content:"";position:absolute;inset:0;background:url(assets/img/coaches/ryl-logo.webp) center/min(82%,640px) no-repeat;opacity:.16;pointer-events:none;z-index:0}
 #tc .ring>*{position:relative;z-index:1}
 #tc .ring .vs{font-family:var(--display);font-size:60px;color:var(--gold);text-align:center;align-self:center}
 #tc .ring .empty{grid-column:1/-1;text-align:center;align-self:center;color:rgba(255,255,255,.8);font-size:16px;margin:0}
@@ -123,7 +125,7 @@
 /* 16-bit view: the court replaces the two cards, the stat screen stays */
 #tc .pxwrap{grid-column:1/-1;display:none;margin:0 auto 6px;width:100%;max-width:860px}
 #tc .ring.px .pxwrap{display:block}#tc .ring.px .card,#tc .ring.px .vs{display:none}#tc .ring.px .fname{display:block}#tc .ring.px{grid-template-columns:1fr 1fr}
-#tc #px{display:block;width:100%;aspect-ratio:16/9;image-rendering:pixelated;image-rendering:crisp-edges;border:3px solid #000;box-shadow:0 0 0 2px var(--gold),0 16px 40px rgba(0,0,0,.6);background:#0a3d43}
+#tc #px{display:block;width:100%;aspect-ratio:16/10;image-rendering:pixelated;image-rendering:crisp-edges;border:3px solid #000;box-shadow:0 0 0 2px var(--gold),0 16px 40px rgba(0,0,0,.6);background:#0a3d43}
 #tc .shield{position:absolute;inset:-6px;border-radius:14px;box-shadow:0 0 0 3px #8fd1f2,0 0 30px rgba(143,209,242,.8);pointer-events:none;animation:shieldIn .4s var(--ease)}
 @keyframes shieldIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
 #tc .vb{position:absolute;left:0;top:0;width:46px;height:46px;z-index:6;pointer-events:none;filter:drop-shadow(0 6px 6px rgba(0,0,0,.55))}
@@ -141,6 +143,15 @@
 #tc .ko{filter:grayscale(1) brightness(.5);transform:rotate(-6deg) translateY(10px)!important;transition:filter .6s,transform .6s}
 #tc .champ{box-shadow:0 0 0 3px var(--gold),0 0 60px rgba(229,184,0,.7)!important;animation:champ 1.2s ease-in-out infinite alternate}
 @keyframes champ{to{box-shadow:0 0 0 3px #fff,0 0 90px rgba(229,184,0,.95)}}
+#tc .movebar{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px auto 0;max-width:900px}#tc .movebar[hidden]{display:none}
+#tc .movebar .prompt{width:100%;text-align:center;font-family:var(--display);font-size:24px;letter-spacing:.04em;color:var(--gold);margin:0 0 2px}
+#tc .mvb{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.04em;padding:9px 14px;min-height:44px;background:#000;color:#fff;border:2px solid var(--gold);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+#tc .mvb:disabled{opacity:.38;cursor:default}#tc .mvb:not(:disabled):hover,#tc .mvb:focus-visible{background:var(--gold);color:#000;outline:none}
+#tc .mvb b{font-family:var(--display);font-size:20px;letter-spacing:.04em;font-weight:400}#tc .mvb b small{font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}#tc .mvb:not(:disabled):hover b small{color:#000}#tc .mvb .cost i{width:9px;height:9px;background:var(--gold)}#tc .mvb:not(:disabled):hover .cost i{background:#000}
+#tc .blockup{animation:blockup .7s var(--ease)}@keyframes blockup{25%{transform:translateY(-30px) scale(1.03)}55%{transform:translateY(-26px) scale(1.03)}100%{transform:none}}
+#tc .burst{position:absolute;left:50%;top:34%;width:180px;height:180px;margin:-90px 0 0 -90px;pointer-events:none;z-index:4;background:radial-gradient(circle,#fff 0 18%,#ffd36b 18% 40%,#ff5a4e 40% 70%,transparent 71%);clip-path:polygon(50% 0,58% 30%,85% 12%,70% 40%,100% 50%,70% 60%,85% 88%,58% 70%,50% 100%,42% 70%,15% 88%,30% 60%,0 50%,30% 40%,15% 12%,42% 30%);animation:burst .5s var(--ease) forwards;mix-blend-mode:screen}
+#tc .burst.blk{background:radial-gradient(circle,#fff 0 22%,#8fd1f2 22% 55%,transparent 56%);clip-path:none;border-radius:50%;width:150px;height:150px;margin:-75px 0 0 -75px}
+@keyframes burst{from{opacity:1;transform:scale(.15) rotate(0deg)}to{opacity:0;transform:scale(1.5) rotate(35deg)}}
 /* boomdex */
 #tc .dex-btn{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:10px;background:#000;color:var(--gold);border:2px solid var(--gold);font-family:var(--display);font-size:22px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.5)}
 #tc .dex-btn .led{width:12px;height:12px;border-radius:50%;background:#49d26a;box-shadow:0 0 8px #49d26a}
@@ -153,7 +164,7 @@
 #tc .dex select{width:100%;font:inherit;font-size:16px;padding:9px 10px;border:1px solid var(--gold);background:#000;color:#fff}
 #tc .dex-note{font-size:13px;margin:10px 0 0}
 @media(max-width:1000px){#tc .grid{grid-template-columns:repeat(2,1fr)}#tc .span-3{grid-column:1/-1}}
-@media(max-width:560px){#tc .grid{grid-template-columns:1fr}#tc .grp{grid-column:1/-1}#tc .tiles{grid-template-columns:repeat(2,1fr)}#tc .bt .sub{display:none}#tc .ring{grid-template-columns:1fr;gap:6px}#tc .ring .vs{font-size:36px}#tc .pick{grid-template-columns:1fr}#tc .pick .vsm{display:none}#tc .ring.px{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){#tc .grid{grid-template-columns:1fr}#tc .grp{grid-column:1/-1}#tc .tiles{grid-template-columns:repeat(2,1fr)}#tc .bt .sub{display:none}#tc .ring{grid-template-columns:1fr;gap:6px}#tc .ring .vs{font-size:36px}#tc .pick{grid-template-columns:1fr}#tc .pick .vsm{display:none}#tc .ring.px{grid-template-columns:1fr 1fr}#tc .hero .hero-btn{display:block;text-align:center}#tc .mvb{flex:1 1 44%;justify-content:center}#tc .pxopts{flex-wrap:wrap;justify-content:center;width:100%}#tc .pxopts select{max-width:100%}#tc .movebar{position:fixed;left:0;right:0;bottom:0;z-index:59;margin:0;background:#050505;border-top:2px solid var(--gold);padding:8px 12px calc(10px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 30px rgba(0,0,0,.6)}#tc .movebar .prompt{font-size:20px}#tc .dex-btn.hide{display:none}}
 @media(max-width:400px){#tc .tiles{grid-template-columns:1fr}#tc .lead-grid,#tc .train-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#tc *{transition:none!important;animation:none!important}}
   </style>
@@ -281,9 +292,9 @@
       </span>
     </div>
   </div>
-  <!-- ===== [CO-01..CO-04] Coaching staff as trading cards + Battle Arena (v2.17) ===== -->
+  <!-- ===== [CO-01..CO-04] Coaching staff as trading cards + Battle Arena (v2.18) ===== -->
 <div id="tc">
-<section class="hero pat"><img src="assets/img/coaches/hero-cast.jpg" alt="" width="1800" height="640"><div class="wrap"><span class="eyebrow">Base Set &middot; 2026&ndash;27 &middot; 27 cards</span><h1>Coaching Staff</h1><p>Every coach is a card. The frame is the element, and the element is the position: Outsides are Fighter, Setters are Psychic, Right Sides are Fire, Middles are Rock, Liberos are Grass, DS are Wind, Gym Trainers are Water.</p></div></section>
+<section class="hero pat"><img src="assets/img/coaches/hero-cast.jpg" alt="" width="1800" height="640"><div class="wrap"><span class="eyebrow">Base Set &middot; 2026&ndash;27 &middot; 27 cards</span><h1>Coaching Staff</h1><p>Every coach is a card. The frame is the element, and the element is the position: Outsides are Fighter, Setters are Psychic, Right Sides are Fire, Middles are Rock, Liberos are Grass, DS are Wind, Gym Trainers are Water.</p><a class="btn hero-btn" href="#arena" id="battleNow">Battle Now &darr;</a></div></section>
 <section class="band teald"><div class="wrap">
   <div class="bt"><h2>Club Leadership</h2><span class="sub">Director cards</span></div>
   <div class="lead-grid">
@@ -293,8 +304,8 @@
           <div class="ph"><img src="assets/img/coaches/cut/coach-tara-tucker-director.webp" alt="Tara Tucker, Club Operations Director" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>Colorado Boom</span><span>Director</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Rotation Reset</span><span class="dmg">31</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Lineup Card</span><span class="dmg">18</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Rotation Reset</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Lineup Card</span><span class="dmg">25</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Timeout</span><span class="dmg"><small>blocks</small>20</span></li>
           </ul>
           <p class="flavor">Answers every parent email before the second practice.</p>
@@ -307,8 +318,8 @@
           <div class="ph"><img src="assets/img/coaches/cut/coach-damon-sichler-director.webp" alt="Damon Sichler, Assistant Club Director" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>Colorado Boom</span><span>Director</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Rotation Reset</span><span class="dmg">34</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Lineup Card</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Rotation Reset</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Lineup Card</span><span class="dmg">25</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Timeout</span><span class="dmg"><small>blocks</small>20</span></li>
           </ul>
           <p class="flavor">Answers every parent email before the second practice.</p>
@@ -325,12 +336,12 @@
       <div class="tiles">
       <article class="card el-Fire" id="coach-makayla-clemons">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Makayla Clemons</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Makayla Clemons</h4><span class="hp"><b data-hp>110</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-makayla-clemons" width="60" height="84" role="img" aria-label="Makayla Clemons, Head Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>12 Colorado</span><span>Right Side &middot; Fire</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">29</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">18</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">20</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Hits the angle, then the line, then the angle again. Nobody adjusts in time.</p>
@@ -344,12 +355,12 @@
       <div class="tiles">
       <article class="card el-Fighter" id="coach-zhu">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Zhu</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Zhu</h4><span class="hp"><b data-hp>110</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-zhu.webp" alt="Zhu, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>13 &amp; 16 Colorado</span><span>Outside &middot; Fighter</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">30</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">25</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Hits line until you take it away, then hits line anyway.</p>
@@ -358,13 +369,13 @@
       </article>
       <article class="card el-Wind" id="coach-megan-daugherty">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Megan Daugherty</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Wind (DS)">≋</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Megan Daugherty</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Wind (DS)">≋</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-megan-daugherty" width="60" height="84" role="img" aria-label="Megan Daugherty, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>13 Colorado</span><span>DS &middot; Wind</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">18</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>10</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">The scoreboard never shows how many points this card saved.</p>
           <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">05/27 <em>◆</em></span></footer>
@@ -372,13 +383,13 @@
       </article>
       <article class="card el-Fighter" id="coach-matt-jueng">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Matt Jueng</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Matt Jueng</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-matt-jueng" width="60" height="84" role="img" aria-label="Matt Jueng, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>16 Colorado</span><span>Outside &middot; Fighter</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">34</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">17</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">9</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Six rotations, zero fear. Swings away on every out-of-system ball.</p>
           <footer class="cfoot"><span><small>weak</small>Bad Korean Food</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i></span><span class="no">06/27 <em>◆</em></span></footer>
@@ -391,12 +402,12 @@
       <div class="tiles">
       <article class="card el-Grass" id="coach-tara-tucker">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Tara Tucker</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Tara Tucker</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-tara-tucker.webp" alt="Tara Tucker, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>14 &amp; 15 National</span><span>Libero &middot; Grass</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">36</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>10</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Digs the hardest swing in the gym and calls it a free ball.</p>
@@ -405,12 +416,12 @@
       </article>
       <article class="card el-Psychic" id="coach-alicia-hall">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Alicia Hall</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Alicia Hall</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-alicia-hall" width="60" height="84" role="img" aria-label="Alicia Hall, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>14 &amp; 15 National</span><span>Setter &middot; Psychic</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">35</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">20</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Quiet hands, loud decisions.</p>
@@ -424,13 +435,13 @@
       <div class="tiles">
       <article class="card el-Fighter" id="coach-kimberly-krise">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Kimberly Krise</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Kimberly Krise</h4><span class="hp"><b data-hp>110</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-kimberly-krise.webp" alt="Kimberly Krise, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>14 Colorado</span><span>Outside &middot; Fighter</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">34</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">19</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">9</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Six rotations, zero fear. Swings away on every out-of-system ball.</p>
           <footer class="cfoot"><span><small>weak</small>Ball Carts With One Bad Wheel</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i><i></i></span><span class="no">09/27 <em>★</em></span></footer>
@@ -438,12 +449,12 @@
       </article>
       <article class="card el-Fighter" id="coach-rudy-garcia">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Rudy Garcia</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Rudy Garcia</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-rudy-garcia" width="60" height="84" role="img" aria-label="Rudy Garcia, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>14 Colorado</span><span>Outside &middot; Fighter</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">28</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">15</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Lives in the left front and rents out the back row.</p>
@@ -457,13 +468,13 @@
       <div class="tiles">
       <article class="card el-Fire" id="coach-rob-oschner">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Rob Oschner</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Rob Oschner</h4><span class="hp"><b data-hp>110</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-rob-oschner" width="60" height="84" role="img" aria-label="Rob Oschner, Head Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>14 Colorado</span><span>Right Side &middot; Fire</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">28</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">22</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Turns a tight set into a tool off the block every single time.</p>
           <footer class="cfoot"><span><small>weak</small>Overhead Press</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">11/27 <em>★</em></span></footer>
@@ -476,12 +487,12 @@
       <div class="tiles">
       <article class="card el-Grass" id="coach-janci-ige">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Janci Ige</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Janci Ige</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-janci-ige" width="60" height="84" role="img" aria-label="Janci Ige, Head Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>14 Colorado</span><span>Libero &middot; Grass</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">33</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>10</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Pancakes, platforms and a perfect pass. The floor is lava for the ball.</p>
@@ -490,12 +501,12 @@
       </article>
       <article class="card el-Fire" id="coach-dax-martin">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Dax Martin</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Dax Martin</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-dax-martin" width="60" height="84" role="img" aria-label="Dax Martin, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>14 Colorado</span><span>Right Side &middot; Fire</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">31</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">19</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">15</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Lives on the right pin. Crushes the slide and the tool.</p>
@@ -514,13 +525,13 @@
       <div class="tiles">
       <article class="card el-Rock" id="coach-adam-ray">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Adam Ray</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Adam Ray</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-adam-ray" width="60" height="84" role="img" aria-label="Adam Ray, Head Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>15 Regional</span><span>Middle &middot; Rock</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">32</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">30</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Block</span><span class="dmg"><small>blocks</small>15</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Three touches of the net per practice. Zero in matches.</p>
           <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">14/27 <em>★</em></span></footer>
@@ -533,11 +544,11 @@
       <div class="tiles">
       <article class="card el-Fire" id="coach-sidney-reese">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Sidney Reese</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Sidney Reese</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-sidney-reese.webp" alt="Sidney Reese, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>15 National</span><span>Right Side &middot; Fire</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">33</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">35</span></li>
             <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">20</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
           </ul>
@@ -547,13 +558,13 @@
       </article>
       <article class="card el-Psychic" id="coach-hanfei-li">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Hanfei Li</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Hanfei Li</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-hanfei-li" width="60" height="84" role="img" aria-label="Hanfei Li, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>15 National</span><span>Setter &middot; Psychic</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">31</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">22</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Calls the play, runs the play, takes none of the credit.</p>
           <footer class="cfoot"><span><small>weak</small>Hotel Breakfast</span><span><small>resist</small>Fighter</span><span><small>retreat</small><i></i></span><span class="no">16/27 <em>◆</em></span></footer>
@@ -566,12 +577,12 @@
       <div class="tiles">
       <article class="card el-Water" id="coach-brian-peterson">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Brian Peterson</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Brian Peterson</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-brian-peterson" width="60" height="84" role="img" aria-label="Brian Peterson, Head Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>16 Colorado</span><span>Trainer &middot; Water</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">30</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">25</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Makes the third set feel like the first.</p>
@@ -585,13 +596,13 @@
       <div class="tiles">
       <article class="card el-Rock" id="coach-jae-spain">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Jae Spain</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Jae Spain</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-jae-spain.webp" alt="Jae Spain, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>15 Colorado</span><span>Middle &middot; Rock</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">32</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">30</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Block</span><span class="dmg"><small>blocks</small>15</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Takes away the line like it was never there.</p>
           <footer class="cfoot"><span><small>weak</small>Libero Tracking Sheets</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">18/27 <em>★</em></span></footer>
@@ -599,13 +610,13 @@
       </article>
       <article class="card el-Fighter" id="coach-claire-kwok">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Claire Kwok</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Claire Kwok</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-claire-kwok.webp" alt="Claire Kwok, Assistant Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>15 Colorado</span><span>Outside &middot; Fighter</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">31</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">19</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Six rotations, zero fear. Swings away on every out-of-system ball.</p>
           <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i></span><span class="no">19/27 <em>◆</em></span></footer>
@@ -622,9 +633,9 @@
           <div class="ph"><img src="assets/img/coaches/cut/coach-damon-sichler.webp" alt="Damon Sichler, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>16 National</span><span>Setter &middot; Psychic</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">29</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">16</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">9</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Runs the offense like a point guard. Dumps when you least expect it.</p>
           <footer class="cfoot"><span><small>weak</small>Tara</span><span><small>resist</small>Fighter</span><span><small>retreat</small><i></i><i></i></span><span class="no">20/27 <em>★</em></span></footer>
@@ -632,13 +643,13 @@
       </article>
       <article class="card el-Grass" id="coach-randy-vang">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Randy Vang</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Randy Vang</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-randy-vang" width="60" height="84" role="img" aria-label="Randy Vang, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>16 National</span><span>Libero &middot; Grass</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">30</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">9</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>10</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Platform never breaks. Neither does the rotation.</p>
           <footer class="cfoot"><span><small>weak</small>Rotation Errors</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i><i></i></span><span class="no">21/27 <em>◆</em></span></footer>
@@ -656,13 +667,13 @@
       <div class="tiles">
       <article class="card el-Grass" id="coach-will-ly">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Will Ly</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Will Ly</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-will-ly.webp" alt="Will Ly, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>16 Regional &amp; 17 Colorado</span><span>Libero &middot; Grass</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">31</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">9</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>10</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Reads the hitter's shoulder, not the ball.</p>
           <footer class="cfoot"><span><small>weak</small>Bad Footwear</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i></span><span class="no">22/27 <em>★</em></span></footer>
@@ -670,13 +681,13 @@
       </article>
       <article class="card el-Fire" id="coach-kyn-van">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Kyn Van</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Kyn Van</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-kyn-van" width="60" height="84" role="img" aria-label="Kyn Van, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>16 Regional &amp; 17 Colorado</span><span>Right Side &middot; Fire</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">34</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">22</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Hits the angle, then the line, then the angle again. Nobody adjusts in time.</p>
           <footer class="cfoot"><span><small>weak</small>Serve Receive</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">23/27 <em>◆</em></span></footer>
@@ -689,13 +700,13 @@
       <div class="tiles">
       <article class="card el-Grass" id="coach-jawn-suzuki">
         <div class="ci">
-          <header class="ch"><span class="stage">Head Coach</span><h4>Jawn Suzuki</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <header class="ch"><span class="stage">Head Coach</span><h4>Jawn Suzuki</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
           <div class="ph"><img src="assets/img/coaches/cut/coach-jawn-suzuki.webp" alt="Jawn Suzuki, Head Coach" width="480" height="520" loading="lazy"></div>
           <div class="meta"><span>17 National</span><span>Libero &middot; Grass</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">34</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>10</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">First to every ball. Serve receive starts here.</p>
           <footer class="cfoot"><span><small>weak</small>Bad Refs</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i></span><span class="no">24/27 <em>★</em></span></footer>
@@ -703,13 +714,13 @@
       </article>
       <article class="card el-Rock" id="coach-brian-xu">
         <div class="ci">
-          <header class="ch"><span class="stage">Assistant Coach</span><h4>Brian Xu</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Brian Xu</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-brian-xu" width="60" height="84" role="img" aria-label="Brian Xu, Assistant Coach (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>17 National</span><span>Middle &middot; Rock</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">29</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">30</span></li>
             <li><span class="cost"><i></i></span><span class="mn">Block</span><span class="dmg"><small>blocks</small>15</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">9</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Nobody runs a slide against this card twice.</p>
           <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">25/27 <em>◆</em></span></footer>
@@ -724,13 +735,13 @@
   <div class="train-grid">
       <article class="card el-Water" id="coach-jamison-crowley">
         <div class="ci">
-          <header class="ch"><span class="stage">Strength &amp; Conditioning</span><h4>Jamison Crowley</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
+          <header class="ch"><span class="stage">Strength &amp; Conditioning</span><h4>Jamison Crowley</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-jamison-crowley" width="60" height="84" role="img" aria-label="Jamison Crowley, Strength &amp; Conditioning (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>Gym Trainer</span><span>Trainer &middot; Water</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">33</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">18</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">25</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">5</span></li>
           </ul>
           <p class="flavor">Turns a vertical into a bigger vertical.</p>
           <footer class="cfoot"><span><small>weak</small>Line Judges</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i><i></i></span><span class="no">26/27 <em>●</em></span></footer>
@@ -738,13 +749,13 @@
       </article>
       <article class="card el-Water" id="coach-lena-cox">
         <div class="ci">
-          <header class="ch"><span class="stage">Yoga, Mobility &amp; Flexibility</span><h4>Lena Cox</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
+          <header class="ch"><span class="stage">Yoga, Mobility &amp; Flexibility</span><h4>Lena Cox</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
           <div class="ph"><canvas class="spr" data-id="coach-lena-cox" width="60" height="84" role="img" aria-label="Lena Cox, Yoga, Mobility &amp; Flexibility (pixel sprite placeholder)"></canvas></div>
           <div class="meta"><span>Gym Trainer</span><span>Trainer &middot; Water</span></div>
           <ul class="moves">
-            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">35</span></li>
-            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">19</span></li>
-            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">8</span></li>
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
           </ul>
           <p class="flavor">Turns a vertical into a bigger vertical.</p>
           <footer class="cfoot"><span><small>weak</small>Net Violations</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">27/27 <em>●</em></span></footer>
@@ -762,9 +773,11 @@
       <div><label for="selR">Right corner</label><select id="selR"><option value="">Choose a card</option><option value="coach-tara-tucker-director">01 &middot; Tara Tucker &mdash; Club Operations Director</option><option value="coach-damon-sichler-director">02 &middot; Damon Sichler &mdash; Assistant Club Director</option><option value="coach-makayla-clemons">03 &middot; Makayla Clemons &mdash; Head Coach</option><option value="coach-zhu">04 &middot; Zhu &mdash; Head Coach</option><option value="coach-megan-daugherty">05 &middot; Megan Daugherty &mdash; Assistant Coach</option><option value="coach-matt-jueng">06 &middot; Matt Jueng &mdash; Assistant Coach</option><option value="coach-tara-tucker">07 &middot; Tara Tucker &mdash; Head Coach</option><option value="coach-alicia-hall">08 &middot; Alicia Hall &mdash; Assistant Coach</option><option value="coach-kimberly-krise">09 &middot; Kimberly Krise &mdash; Head Coach</option><option value="coach-rudy-garcia">10 &middot; Rudy Garcia &mdash; Assistant Coach</option><option value="coach-rob-oschner">11 &middot; Rob Oschner &mdash; Head Coach</option><option value="coach-janci-ige">12 &middot; Janci Ige &mdash; Head Coach</option><option value="coach-dax-martin">13 &middot; Dax Martin &mdash; Assistant Coach</option><option value="coach-adam-ray">14 &middot; Adam Ray &mdash; Head Coach</option><option value="coach-sidney-reese">15 &middot; Sidney Reese &mdash; Head Coach</option><option value="coach-hanfei-li">16 &middot; Hanfei Li &mdash; Assistant Coach</option><option value="coach-brian-peterson">17 &middot; Brian Peterson &mdash; Head Coach</option><option value="coach-jae-spain">18 &middot; Jae Spain &mdash; Head Coach</option><option value="coach-claire-kwok">19 &middot; Claire Kwok &mdash; Assistant Coach</option><option value="coach-damon-sichler">20 &middot; Damon Sichler &mdash; Head Coach</option><option value="coach-randy-vang">21 &middot; Randy Vang &mdash; Assistant Coach</option><option value="coach-will-ly">22 &middot; Will Ly &mdash; Head Coach</option><option value="coach-kyn-van">23 &middot; Kyn Van &mdash; Assistant Coach</option><option value="coach-jawn-suzuki">24 &middot; Jawn Suzuki &mdash; Head Coach</option><option value="coach-brian-xu">25 &middot; Brian Xu &mdash; Assistant Coach</option><option value="coach-jamison-crowley">26 &middot; Jamison Crowley &mdash; Strength &amp; Conditioning</option><option value="coach-lena-cox">27 &middot; Lena Cox &mdash; Yoga, Mobility &amp; Flexibility</option></select></div>
     </div>
     <div class="row"><button type="button" class="btn" id="btnRandom">Random Matchup</button><button type="button" class="btn btn-line" id="btnFight" disabled>Fight!</button><button type="button" class="btn btn-line" id="btnNext" disabled title="The winner stays in and fights a new random opponent right away">Next Fight</button><button type="button" class="btn btn-line" id="btnSound" aria-pressed="true">Sound: On</button></div>
+    <div class="row"><button type="button" class="btn btn-tab" id="mAuto" aria-pressed="true">Auto Play</button><button type="button" class="btn btn-tab" id="mPlay" aria-pressed="false" title="You pick the left corner's move each turn; the AI plays the right corner">You Play</button></div>
     <div class="row"><button type="button" class="btn btn-tab" id="vCard" aria-pressed="true">Card View</button><button type="button" class="btn btn-tab" id="vPx" aria-pressed="false">16-Bit View</button>
       <span class="pxopts" id="pxopts" hidden><label>Gym <select id="selGym"><option value="fieldhouse">Boomtown Fieldhouse</option><option value="arena">Championship Arena</option><option value="beach">Beach Night</option><option value="retro">Retro Gym</option></select></label><label>Sprites <select id="selStyle"><option value="photo">Photo</option><option value="rpg">RPG</option></select></label></span></div>
-    <div class="ring" id="ring"><div class="pxwrap" id="pxwrap"><canvas id="px" width="320" height="180" role="img" aria-label="Pixel-art replay of the fight"></canvas></div><p class="empty" id="ringEmpty">Pick two cards above, or press Random Matchup.</p></div>
+    <div class="ring" id="ring"><div class="pxwrap" id="pxwrap"><canvas id="px" width="320" height="200" role="img" aria-label="Pixel-art replay of the fight"></canvas></div><p class="empty" id="ringEmpty">Pick two cards above, or press Random Matchup.</p></div>
+    <div class="movebar" id="movebar" hidden role="group" aria-label="Your move"></div>
     <p class="winner" id="winner"></p>
     <div class="log" id="log"></div>
   </div>
@@ -832,7 +845,7 @@
   </footer>
   <script>
   (function(){
-    var DATA={"coach-tara-tucker-director":{"n":"Tara Tucker","no":1,"s":{"el":"Shiny","pos":"Director","hp":130,"atk":78,"def":61,"spd":88,"moves":[{"name":"Rotation Reset","cost":3,"kind":"atk","pow":31},{"name":"Lineup Card","cost":2,"kind":"atk","pow":18},{"name":"Timeout","cost":1,"kind":"shield:20","pow":0}],"weak":"Bad Teammates","flavor":"Answers every parent email before the second practice.","seed":3327542865,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-tara-tucker-director.webp","shiny":true},"coach-damon-sichler-director":{"n":"Damon Sichler","no":2,"s":{"el":"Shiny","pos":"Director","hp":140,"atk":74,"def":76,"spd":76,"moves":[{"name":"Rotation Reset","cost":3,"kind":"atk","pow":34},{"name":"Lineup Card","cost":2,"kind":"atk","pow":20},{"name":"Timeout","cost":1,"kind":"shield:20","pow":0}],"weak":"Tara","flavor":"Answers every parent email before the second practice.","seed":4085742618,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-damon-sichler-director.webp","shiny":true},"coach-makayla-clemons":{"n":"Makayla Clemons","no":3,"s":{"el":"Fire","pos":"Right Side","hp":80,"atk":55,"def":80,"spd":47,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":29},{"name":"Cut Shot","cost":2,"kind":"atk","pow":18},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Rotation Errors","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":1206098636,"jersey":"black"},"photo":null,"shiny":false},"coach-zhu":{"n":"Zhu","no":4,"s":{"el":"Fighter","pos":"Outside","hp":80,"atk":75,"def":54,"spd":85,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":30},{"name":"Line Hit","cost":2,"kind":"atk","pow":22},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Early Mornings","flavor":"Hits line until you take it away, then hits line anyway.","seed":4051617930,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-zhu.webp","shiny":false},"coach-megan-daugherty":{"n":"Megan Daugherty","no":5,"s":{"el":"Wind","pos":"DS","hp":70,"atk":62,"def":55,"spd":58,"moves":[{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":18},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Roll Shot","cost":1,"kind":"atk","pow":8}],"weak":"Tournament Parking","flavor":"The scoreboard never shows how many points this card saved.","seed":2369721964,"jersey":"black"},"photo":null,"shiny":false},"coach-matt-jueng":{"n":"Matt Jueng","no":6,"s":{"el":"Fighter","pos":"Outside","hp":90,"atk":86,"def":59,"spd":45,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":34},{"name":"Line Hit","cost":2,"kind":"atk","pow":17},{"name":"Cross Hit","cost":1,"kind":"atk","pow":9}],"weak":"Bad Korean Food","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":999618074,"jersey":"teal"},"photo":null,"shiny":false},"coach-tara-tucker":{"n":"Tara Tucker","no":7,"s":{"el":"Grass","pos":"Libero","hp":70,"atk":64,"def":50,"spd":87,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":36},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Bad Teammates","flavor":"Digs the hardest swing in the gym and calls it a free ball.","seed":2160979811,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-tara-tucker.webp","shiny":false},"coach-alicia-hall":{"n":"Alicia Hall","no":8,"s":{"el":"Psychic","pos":"Setter","hp":90,"atk":64,"def":45,"spd":47,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":35},{"name":"Setter Dump","cost":2,"kind":"atk","pow":22},{"name":"Tip","cost":1,"kind":"atk","pow":10}],"weak":"HR","flavor":"Quiet hands, loud decisions.","seed":1004586841,"jersey":"white"},"photo":null,"shiny":false},"coach-kimberly-krise":{"n":"Kimberly Krise","no":9,"s":{"el":"Fighter","pos":"Outside","hp":90,"atk":74,"def":84,"spd":77,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":34},{"name":"Line Hit","cost":2,"kind":"atk","pow":19},{"name":"Cross Hit","cost":1,"kind":"atk","pow":9}],"weak":"Ball Carts With One Bad Wheel","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":407549970,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-kimberly-krise.webp","shiny":false},"coach-rudy-garcia":{"n":"Rudy Garcia","no":10,"s":{"el":"Fighter","pos":"Outside","hp":90,"atk":59,"def":70,"spd":66,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":28},{"name":"Line Hit","cost":2,"kind":"atk","pow":20},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Libero Tracking Sheets","flavor":"Lives in the left front and rents out the back row.","seed":3697102010,"jersey":"teal"},"photo":null,"shiny":false},"coach-rob-oschner":{"n":"Rob Oschner","no":11,"s":{"el":"Fire","pos":"Right Side","hp":70,"atk":51,"def":45,"spd":70,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":28},{"name":"Cut Shot","cost":2,"kind":"atk","pow":22},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Overhead Press","flavor":"Turns a tight set into a tool off the block every single time.","seed":3911843974,"jersey":"teal"},"photo":null,"shiny":false},"coach-janci-ige":{"n":"Janci Ige","no":12,"s":{"el":"Grass","pos":"Libero","hp":70,"atk":50,"def":67,"spd":53,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":33},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Libero Tracking Sheets","flavor":"Pancakes, platforms and a perfect pass. The floor is lava for the ball.","seed":2641556481,"jersey":"black"},"photo":null,"shiny":false},"coach-dax-martin":{"n":"Dax Martin","no":13,"s":{"el":"Fire","pos":"Right Side","hp":80,"atk":62,"def":50,"spd":77,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":31},{"name":"Cut Shot","cost":2,"kind":"atk","pow":19},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Tournament Parking","flavor":"Lives on the right pin. Crushes the slide and the tool.","seed":3219058197,"jersey":"white"},"photo":null,"shiny":false},"coach-adam-ray":{"n":"Adam Ray","no":14,"s":{"el":"Rock","pos":"Middle","hp":80,"atk":73,"def":53,"spd":65,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":32},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":8}],"weak":"Tournament Parking","flavor":"Three touches of the net per practice. Zero in matches.","seed":1034667918,"jersey":"white"},"photo":null,"shiny":false},"coach-sidney-reese":{"n":"Sidney Reese","no":15,"s":{"el":"Fire","pos":"Right Side","hp":70,"atk":71,"def":61,"spd":68,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":33},{"name":"Cut Shot","cost":2,"kind":"atk","pow":20},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Seafood","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":3747955397,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-sidney-reese.webp","shiny":false},"coach-hanfei-li":{"n":"Hanfei Li","no":16,"s":{"el":"Psychic","pos":"Setter","hp":60,"atk":71,"def":48,"spd":65,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":31},{"name":"Setter Dump","cost":2,"kind":"atk","pow":22},{"name":"Tip","cost":1,"kind":"atk","pow":8}],"weak":"Hotel Breakfast","flavor":"Calls the play, runs the play, takes none of the credit.","seed":3485703843,"jersey":"teal"},"photo":null,"shiny":false},"coach-brian-peterson":{"n":"Brian Peterson","no":17,"s":{"el":"Water","pos":"Trainer","hp":80,"atk":51,"def":55,"spd":80,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":30},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":20},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Gas Prices","flavor":"Makes the third set feel like the first.","seed":3976089807,"jersey":"teal"},"photo":null,"shiny":false},"coach-jae-spain":{"n":"Jae Spain","no":18,"s":{"el":"Rock","pos":"Middle","hp":90,"atk":75,"def":51,"spd":47,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":32},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":8}],"weak":"Libero Tracking Sheets","flavor":"Takes away the line like it was never there.","seed":2089219286,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-jae-spain.webp","shiny":false},"coach-claire-kwok":{"n":"Claire Kwok","no":19,"s":{"el":"Fighter","pos":"Outside","hp":80,"atk":80,"def":64,"spd":88,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":31},{"name":"Line Hit","cost":2,"kind":"atk","pow":19},{"name":"Cross Hit","cost":1,"kind":"atk","pow":8}],"weak":"Tournament Parking","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":1852988179,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-claire-kwok.webp","shiny":false},"coach-damon-sichler":{"n":"Damon Sichler","no":20,"s":{"el":"Psychic","pos":"Setter","hp":100,"atk":56,"def":77,"spd":87,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":29},{"name":"Setter Dump","cost":2,"kind":"atk","pow":16},{"name":"Tip","cost":1,"kind":"atk","pow":9}],"weak":"Tara","flavor":"Runs the offense like a point guard. Dumps when you least expect it.","seed":1328645918,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-damon-sichler.webp","shiny":false},"coach-randy-vang":{"n":"Randy Vang","no":21,"s":{"el":"Grass","pos":"Libero","hp":70,"atk":87,"def":82,"spd":64,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":30},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":9}],"weak":"Rotation Errors","flavor":"Platform never breaks. Neither does the rotation.","seed":3062983401,"jersey":"black"},"photo":null,"shiny":false},"coach-will-ly":{"n":"Will Ly","no":22,"s":{"el":"Grass","pos":"Libero","hp":90,"atk":59,"def":48,"spd":77,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":31},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":9}],"weak":"Bad Footwear","flavor":"Reads the hitter's shoulder, not the ball.","seed":2688211088,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-will-ly.webp","shiny":false},"coach-kyn-van":{"n":"Kyn Van","no":23,"s":{"el":"Fire","pos":"Right Side","hp":60,"atk":53,"def":55,"spd":73,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":34},{"name":"Cut Shot","cost":2,"kind":"atk","pow":22},{"name":"Roll Shot","cost":1,"kind":"atk","pow":8}],"weak":"Serve Receive","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":1195479490,"jersey":"black"},"photo":null,"shiny":false},"coach-jawn-suzuki":{"n":"Jawn Suzuki","no":24,"s":{"el":"Grass","pos":"Libero","hp":80,"atk":66,"def":61,"spd":81,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":34},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":8}],"weak":"Bad Refs","flavor":"First to every ball. Serve receive starts here.","seed":4156325930,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-jawn-suzuki.webp","shiny":false},"coach-brian-xu":{"n":"Brian Xu","no":25,"s":{"el":"Rock","pos":"Middle","hp":70,"atk":63,"def":55,"spd":78,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":29},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":9}],"weak":"Tournament Parking","flavor":"Nobody runs a slide against this card twice.","seed":1729763052,"jersey":"black"},"photo":null,"shiny":false},"coach-jamison-crowley":{"n":"Jamison Crowley","no":26,"s":{"el":"Water","pos":"Trainer","hp":60,"atk":76,"def":74,"spd":66,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":33},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":18},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Line Judges","flavor":"Turns a vertical into a bigger vertical.","seed":289237345,"jersey":"black"},"photo":null,"shiny":false},"coach-lena-cox":{"n":"Lena Cox","no":27,"s":{"el":"Water","pos":"Trainer","hp":60,"atk":64,"def":58,"spd":65,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":35},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":19},{"name":"Float Serve","cost":1,"kind":"atk","pow":8}],"weak":"Net Violations","flavor":"Turns a vertical into a bigger vertical.","seed":164686689,"jersey":"black"},"photo":null,"shiny":false}};
+    var DATA={"coach-tara-tucker-director":{"n":"Tara Tucker","no":1,"s":{"el":"Shiny","pos":"Director","hp":130,"atk":78,"def":61,"spd":88,"moves":[{"name":"Rotation Reset","cost":3,"kind":"atk","pow":25},{"name":"Lineup Card","cost":2,"kind":"atk","pow":25},{"name":"Timeout","cost":1,"kind":"shield:20","pow":0}],"weak":"Bad Teammates","flavor":"Answers every parent email before the second practice.","seed":3327542865,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-tara-tucker-director.webp","shiny":true},"coach-damon-sichler-director":{"n":"Damon Sichler","no":2,"s":{"el":"Shiny","pos":"Director","hp":140,"atk":74,"def":76,"spd":76,"moves":[{"name":"Rotation Reset","cost":3,"kind":"atk","pow":25},{"name":"Lineup Card","cost":2,"kind":"atk","pow":25},{"name":"Timeout","cost":1,"kind":"shield:20","pow":0}],"weak":"Tara","flavor":"Answers every parent email before the second practice.","seed":4085742618,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-damon-sichler-director.webp","shiny":true},"coach-makayla-clemons":{"n":"Makayla Clemons","no":3,"s":{"el":"Fire","pos":"Right Side","hp":110,"atk":55,"def":80,"spd":47,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":30},{"name":"Cut Shot","cost":2,"kind":"atk","pow":20},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Rotation Errors","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":1206098636,"jersey":"black"},"photo":null,"shiny":false},"coach-zhu":{"n":"Zhu","no":4,"s":{"el":"Fighter","pos":"Outside","hp":110,"atk":75,"def":54,"spd":85,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":35},{"name":"Line Hit","cost":2,"kind":"atk","pow":25},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Early Mornings","flavor":"Hits line until you take it away, then hits line anyway.","seed":4051617930,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-zhu.webp","shiny":false},"coach-megan-daugherty":{"n":"Megan Daugherty","no":5,"s":{"el":"Wind","pos":"DS","hp":80,"atk":62,"def":55,"spd":58,"moves":[{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":15},{"name":"Dig","cost":1,"kind":"shield:10","pow":0},{"name":"Roll Shot","cost":1,"kind":"atk","pow":5}],"weak":"Tournament Parking","flavor":"The scoreboard never shows how many points this card saved.","seed":2369721964,"jersey":"black"},"photo":null,"shiny":false},"coach-matt-jueng":{"n":"Matt Jueng","no":6,"s":{"el":"Fighter","pos":"Outside","hp":80,"atk":86,"def":59,"spd":45,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":25},{"name":"Line Hit","cost":2,"kind":"atk","pow":25},{"name":"Cross Hit","cost":1,"kind":"atk","pow":5}],"weak":"Bad Korean Food","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":999618074,"jersey":"teal"},"photo":null,"shiny":false},"coach-tara-tucker":{"n":"Tara Tucker","no":7,"s":{"el":"Grass","pos":"Libero","hp":100,"atk":64,"def":50,"spd":87,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":35},{"name":"Dig","cost":1,"kind":"shield:10","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Bad Teammates","flavor":"Digs the hardest swing in the gym and calls it a free ball.","seed":2160979811,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-tara-tucker.webp","shiny":false},"coach-alicia-hall":{"n":"Alicia Hall","no":8,"s":{"el":"Psychic","pos":"Setter","hp":80,"atk":64,"def":45,"spd":47,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":30},{"name":"Setter Dump","cost":2,"kind":"atk","pow":20},{"name":"Tip","cost":1,"kind":"atk","pow":10}],"weak":"HR","flavor":"Quiet hands, loud decisions.","seed":1004586841,"jersey":"white"},"photo":null,"shiny":false},"coach-kimberly-krise":{"n":"Kimberly Krise","no":9,"s":{"el":"Fighter","pos":"Outside","hp":110,"atk":74,"def":84,"spd":77,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":25},{"name":"Line Hit","cost":2,"kind":"atk","pow":20},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Ball Carts With One Bad Wheel","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":407549970,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-kimberly-krise.webp","shiny":false},"coach-rudy-garcia":{"n":"Rudy Garcia","no":10,"s":{"el":"Fighter","pos":"Outside","hp":80,"atk":59,"def":70,"spd":66,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":25},{"name":"Line Hit","cost":2,"kind":"atk","pow":15},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Libero Tracking Sheets","flavor":"Lives in the left front and rents out the back row.","seed":3697102010,"jersey":"teal"},"photo":null,"shiny":false},"coach-rob-oschner":{"n":"Rob Oschner","no":11,"s":{"el":"Fire","pos":"Right Side","hp":110,"atk":51,"def":45,"spd":70,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":25},{"name":"Cut Shot","cost":2,"kind":"atk","pow":20},{"name":"Roll Shot","cost":1,"kind":"atk","pow":5}],"weak":"Overhead Press","flavor":"Turns a tight set into a tool off the block every single time.","seed":3911843974,"jersey":"teal"},"photo":null,"shiny":false},"coach-janci-ige":{"n":"Janci Ige","no":12,"s":{"el":"Grass","pos":"Libero","hp":100,"atk":50,"def":67,"spd":53,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":35},{"name":"Dig","cost":1,"kind":"shield:10","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Libero Tracking Sheets","flavor":"Pancakes, platforms and a perfect pass. The floor is lava for the ball.","seed":2641556481,"jersey":"black"},"photo":null,"shiny":false},"coach-dax-martin":{"n":"Dax Martin","no":13,"s":{"el":"Fire","pos":"Right Side","hp":100,"atk":62,"def":50,"spd":77,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":25},{"name":"Cut Shot","cost":2,"kind":"atk","pow":15},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Tournament Parking","flavor":"Lives on the right pin. Crushes the slide and the tool.","seed":3219058197,"jersey":"white"},"photo":null,"shiny":false},"coach-adam-ray":{"n":"Adam Ray","no":14,"s":{"el":"Rock","pos":"Middle","hp":90,"atk":73,"def":53,"spd":65,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":30},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":5}],"weak":"Tournament Parking","flavor":"Three touches of the net per practice. Zero in matches.","seed":1034667918,"jersey":"white"},"photo":null,"shiny":false},"coach-sidney-reese":{"n":"Sidney Reese","no":15,"s":{"el":"Fire","pos":"Right Side","hp":90,"atk":71,"def":61,"spd":68,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":35},{"name":"Cut Shot","cost":2,"kind":"atk","pow":20},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Seafood","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":3747955397,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-sidney-reese.webp","shiny":false},"coach-hanfei-li":{"n":"Hanfei Li","no":16,"s":{"el":"Psychic","pos":"Setter","hp":80,"atk":71,"def":48,"spd":65,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":25},{"name":"Setter Dump","cost":2,"kind":"atk","pow":15},{"name":"Tip","cost":1,"kind":"atk","pow":10}],"weak":"Hotel Breakfast","flavor":"Calls the play, runs the play, takes none of the credit.","seed":3485703843,"jersey":"teal"},"photo":null,"shiny":false},"coach-brian-peterson":{"n":"Brian Peterson","no":17,"s":{"el":"Water","pos":"Trainer","hp":100,"atk":51,"def":55,"spd":80,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":35},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":25},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Gas Prices","flavor":"Makes the third set feel like the first.","seed":3976089807,"jersey":"teal"},"photo":null,"shiny":false},"coach-jae-spain":{"n":"Jae Spain","no":18,"s":{"el":"Rock","pos":"Middle","hp":100,"atk":75,"def":51,"spd":47,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":30},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":5}],"weak":"Libero Tracking Sheets","flavor":"Takes away the line like it was never there.","seed":2089219286,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-jae-spain.webp","shiny":false},"coach-claire-kwok":{"n":"Claire Kwok","no":19,"s":{"el":"Fighter","pos":"Outside","hp":100,"atk":80,"def":64,"spd":88,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":25},{"name":"Line Hit","cost":2,"kind":"atk","pow":15},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Tournament Parking","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":1852988179,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-claire-kwok.webp","shiny":false},"coach-damon-sichler":{"n":"Damon Sichler","no":20,"s":{"el":"Psychic","pos":"Setter","hp":100,"atk":56,"def":77,"spd":87,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":30},{"name":"Setter Dump","cost":2,"kind":"atk","pow":20},{"name":"Tip","cost":1,"kind":"atk","pow":5}],"weak":"Tara","flavor":"Runs the offense like a point guard. Dumps when you least expect it.","seed":1328645918,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-damon-sichler.webp","shiny":false},"coach-randy-vang":{"n":"Randy Vang","no":21,"s":{"el":"Grass","pos":"Libero","hp":90,"atk":87,"def":82,"spd":64,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":35},{"name":"Dig","cost":1,"kind":"shield:10","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":5}],"weak":"Rotation Errors","flavor":"Platform never breaks. Neither does the rotation.","seed":3062983401,"jersey":"black"},"photo":null,"shiny":false},"coach-will-ly":{"n":"Will Ly","no":22,"s":{"el":"Grass","pos":"Libero","hp":100,"atk":59,"def":48,"spd":77,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":25},{"name":"Dig","cost":1,"kind":"shield:10","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":5}],"weak":"Bad Footwear","flavor":"Reads the hitter's shoulder, not the ball.","seed":2688211088,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-will-ly.webp","shiny":false},"coach-kyn-van":{"n":"Kyn Van","no":23,"s":{"el":"Fire","pos":"Right Side","hp":90,"atk":53,"def":55,"spd":73,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":25},{"name":"Cut Shot","cost":2,"kind":"atk","pow":15},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Serve Receive","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":1195479490,"jersey":"black"},"photo":null,"shiny":false},"coach-jawn-suzuki":{"n":"Jawn Suzuki","no":24,"s":{"el":"Grass","pos":"Libero","hp":90,"atk":66,"def":61,"spd":81,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":25},{"name":"Dig","cost":1,"kind":"shield:10","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":5}],"weak":"Bad Refs","flavor":"First to every ball. Serve receive starts here.","seed":4156325930,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-jawn-suzuki.webp","shiny":false},"coach-brian-xu":{"n":"Brian Xu","no":25,"s":{"el":"Rock","pos":"Middle","hp":90,"atk":63,"def":55,"spd":78,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":30},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":5}],"weak":"Tournament Parking","flavor":"Nobody runs a slide against this card twice.","seed":1729763052,"jersey":"black"},"photo":null,"shiny":false},"coach-jamison-crowley":{"n":"Jamison Crowley","no":26,"s":{"el":"Water","pos":"Trainer","hp":80,"atk":76,"def":74,"spd":66,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":35},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":25},{"name":"Float Serve","cost":1,"kind":"atk","pow":5}],"weak":"Line Judges","flavor":"Turns a vertical into a bigger vertical.","seed":289237345,"jersey":"black"},"photo":null,"shiny":false},"coach-lena-cox":{"n":"Lena Cox","no":27,"s":{"el":"Water","pos":"Trainer","hp":90,"atk":64,"def":58,"spd":65,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":30},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":20},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Net Violations","flavor":"Turns a vertical into a bigger vertical.","seed":164686689,"jersey":"black"},"photo":null,"shiny":false}};
     var WEAK={"Fighter":"Psychic","Psychic":"Wind","Wind":"Rock","Rock":"Water","Water":"Grass","Grass":"Fire","Fire":"Water","Shiny":"Shiny"},RESIST={"Fighter":"Rock","Psychic":"Fighter","Wind":"Grass","Rock":"Fire","Water":"Fire","Grass":"Water","Fire":"Grass","Shiny":"Psychic"},TINT={"Fighter":"#ff8a3d","Psychic":"#d66cff","Fire":"#ff6a3d","Rock":"#c9a063","Grass":"#63d46a","Wind":"#8fd1f2","Water":"#4fb7f2","Shiny":"#E5B800"};
     var PERSONAL={'coach-damon-sichler':['coach-tara-tucker','coach-tara-tucker-director'],'coach-damon-sichler-director':['coach-tara-tucker','coach-tara-tucker-director']};
     var $=function(i){return document.getElementById(i);};
@@ -867,24 +880,36 @@
     var AC=null,soundOn=true;function ctx(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){AC=null;}}return AC;}
     function noise(dur,f0,f1,vol){var c=ctx();if(!c||!soundOn)return;var b=c.createBuffer(1,c.sampleRate*dur,c.sampleRate),d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1;var s=c.createBufferSource();s.buffer=b;var f=c.createBiquadFilter();f.type='bandpass';f.frequency.setValueAtTime(f0,c.currentTime);f.frequency.exponentialRampToValueAtTime(f1,c.currentTime+dur);var g=c.createGain();g.gain.setValueAtTime(vol,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+dur);s.connect(f).connect(g).connect(c.destination);s.start();}
     function tone(freq,dur,type,vol,when){var c=ctx();if(!c||!soundOn)return;var o=c.createOscillator(),g=c.createGain();o.type=type||'sine';var t=c.currentTime+(when||0);o.frequency.setValueAtTime(freq,t);o.frequency.exponentialRampToValueAtTime(Math.max(30,freq*.5),t+dur);g.gain.setValueAtTime(vol||.2,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);o.connect(g).connect(c.destination);o.start(t);o.stop(t+dur);}
-    var SFX={whoosh:function(){noise(.25,400,2400,.25);},hit:function(){tone(140,.25,'sine',.5);noise(.12,1200,300,.35);},block:function(){tone(880,.12,'square',.12);tone(1320,.18,'square',.1,.06);},ko:function(){tone(300,.5,'sawtooth',.25);tone(150,.7,'sawtooth',.2,.15);},win:function(){[523,659,784,1047].forEach(function(f,i){tone(f,.25,'triangle',.22,i*.12);});tone(1047,.6,'triangle',.25,.5);},draw:function(){noise(.18,800,3000,.18);tone(660,.15,'triangle',.15,.05);},jump:function(){tone(520,.1,'square',.08);tone(780,.1,'square',.06,.06);},charge:function(){tone(330,.2,'triangle',.1);tone(440,.2,'triangle',.1,.12);tone(660,.25,'triangle',.12,.24);}};
+    var SFX={whoosh:function(){noise(.25,400,2400,.25);},hit:function(){tone(140,.25,'sine',.5);noise(.12,1200,300,.35);},block:function(){tone(880,.12,'square',.12);tone(1320,.18,'square',.1,.06);},ko:function(){tone(300,.5,'sawtooth',.25);tone(150,.7,'sawtooth',.2,.15);},win:function(){[523,659,784,1047].forEach(function(f,i){tone(f,.25,'triangle',.22,i*.12);});tone(1047,.6,'triangle',.25,.5);},draw:function(){noise(.18,800,3000,.18);tone(660,.15,'triangle',.15,.05);},jump:function(){tone(520,.1,'square',.08);tone(780,.1,'square',.06,.06);},charge:function(){tone(330,.2,'triangle',.1);tone(440,.2,'triangle',.1,.12);tone(660,.25,'triangle',.12,.24);},
+      whistle:function(){tone(2600,.14,'square',.07);tone(2600,.22,'square',.07,.18);},crit:function(){[880,1175,1480,1760].forEach(function(f,i){tone(f,.12,'square',.09,i*.05);});},
+      thud:function(){noise(.18,120,60,.5);tone(70,.3,'sine',.4);},crowd:function(){noise(1.3,300,1400,.22);noise(.9,600,2200,.12);},
+      ready:function(){tone(660,.08,'square',.08);tone(990,.12,'square',.08,.08);},negate:function(){tone(1200,.08,'square',.14);tone(1800,.16,'square',.12,.05);noise(.14,2000,600,.25);}};
     $('btnSound').addEventListener('click',function(){soundOn=!soundOn;this.textContent='Sound: '+(soundOn?'On':'Off');this.setAttribute('aria-pressed',String(soundOn));if(soundOn)SFX.draw();});
     function wait(ms){return new Promise(function(r){setTimeout(r,reduce?0:ms);});}
     /* ---- 16-bit court ---- */
     var PX=(function(){
-      var cv=$('px'),g=cv.getContext('2d');var W=320,H=180,NET=160,FY=150,SC=2;var FAR=78,NEAR=168;
-      var st={L:null,R:null,fx:[],ball:null,shake:0,flash:0,on:false,t:0,style:'photo'};
+      var cv=$('px'),g=cv.getContext('2d');var W=320,H=200,NET=160,FY=170,SC=2;var FAR=98,NEAR=188;
+      var st={L:null,R:null,fx:[],sparks:[],ball:null,shake:0,flash:0,on:false,t:0,style:'photo'};
       var BALL=['....WWWWW....','..WWWWWWWWW..','.WWWWGWWWWWW.','.WWWGWWWWWGW.','WWWGWWWWWWWGW','WWGWWWWWWWWGW','WWGWWWWWWWWGW','WWGWWWWWWWWGW','WWWGWWWWWWGWW','.WWWGWWWWGWW.','.WWWWGGGGWWW.','..WWWWWWWWW..','....WWWWW....'],BC={W:'#fbfbfb',G:'#c4c9cc'},BR=6;
       var GYMS={
-        fieldhouse:{sky:['#0a3d43','#0c4b52'],band:'#0E7C86',trim:'#E5B800',floor:'#8a5a2b',plank:'#704620',court:'#a3692f',zone:'#b5783a',line:'#E5B800',post:'#222'},
+        fieldhouse:{sky:['#0b2f34','#0d3a40'],band:'#0E7C86',trim:'#E5B800',floor:'#8a5a2b',plank:'#704620',court:'#a3692f',zone:'#b5783a',line:'#E5B800',post:'#222',wall:true},
         arena:{sky:['#0d1424','#121c33'],band:'#1b2a4d',trim:'#ff7a1f',floor:'#2a4d8f',plank:'#24427c',court:'#e07a1f',zone:'#ea8d3a',line:'#ffffff',post:'#ddd',crowd:['#ff5a4e','#49d26a','#f2c200','#5ad7ff','#ffffff','#ff6bd6']},
         beach:{sky:['#ff9a4d','#ff5a7a','#7a2a7a','#2a1a4a'],band:'#ffd36b',trim:'#ffffff',floor:'#e8c98a',plank:'#d9b674',court:'#f0d49c',zone:'#f6dfb0',line:'#ffffff',post:'#8a5a2b',sun:true},
         retro:{sky:['#7a3b2e','#6a3327'],band:'#c9a063',trim:'#3b1f1a',floor:'#c9a063',plank:'#b08a50',court:'#d8b676',zone:'#e2c48a',line:'#8b1e1e',post:'#333',brick:true}
       };
       function cx(y,xFar,xNear){var p=(y-FAR)/(NEAR-FAR);return xFar+(xNear-xFar)*p;}
       function poly(k,pts,col){k.fillStyle=col;k.beginPath();k.moveTo(pts[0][0],pts[0][1]);for(var i=1;i<pts.length;i++)k.lineTo(pts[i][0],pts[i][1]);k.closePath();k.fill();}
+      var LOGO=new Image(),curGym='fieldhouse';LOGO.onload=function(){if(curGym==='fieldhouse')bg=buildBg('fieldhouse');};LOGO.src='assets/img/coaches/ryl-logo.webp';
+      function wall(k){var x;/* upper wall: teal with a gold stripe and a window run (mostly behind the HUD once a fight is set up) */
+        k.fillStyle='#0E7C86';k.fillRect(0,0,W,16);k.fillStyle='#0a5a62';for(x=0;x<W;x+=8)k.fillRect(x,0,1,16);k.fillStyle='#E5B800';k.fillRect(0,14,W,2);
+        k.fillStyle='#9ad7e8';[12,60,224,272].forEach(function(wx){k.fillRect(wx,3,36,9);k.fillStyle='#062d32';k.fillRect(wx+17,3,2,9);k.fillRect(wx,7,36,1);k.fillStyle='#9ad7e8';});
+        /* lower wall: black padded mats with teal seams and a gold pinstripe */
+        k.fillStyle='#101416';k.fillRect(0,16,W,FAR-14-16);k.fillStyle='#0E7C86';for(x=0;x<W;x+=32)k.fillRect(x,16,2,FAR-14-16);k.fillStyle='rgba(255,255,255,.06)';for(x=0;x<W;x+=32)k.fillRect(x+2,16,30,1);k.fillStyle='#E5B800';k.fillRect(0,46,W,1);
+        /* RYL comic-burst banners either side of the net, below the HUD */
+        if(LOGO.complete&&LOGO.naturalWidth){var lw=56,lh=Math.round(lw*LOGO.naturalHeight/LOGO.naturalWidth),ly=FAR-14-lh-2;[100,220].forEach(function(cxp){var lx=Math.round(cxp-lw/2);k.fillStyle='#000';k.fillRect(lx-4,ly-3,lw+8,lh+5);k.fillStyle='#0E7C86';k.fillRect(lx-4,ly-3,lw+8,1);k.fillRect(lx-4,ly+lh+1,lw+8,1);k.imageSmoothingEnabled=true;k.imageSmoothingQuality='high';k.drawImage(LOGO,lx,ly,lw,lh);k.imageSmoothingEnabled=false;});}}
       function buildBg(kind){var G=GYMS[kind]||GYMS.fieldhouse,c=document.createElement('canvas');c.width=W;c.height=H;var k=c.getContext('2d'),x,y,i;
-        if(G.sky.length>2){var bh=Math.ceil(FAR/G.sky.length);for(i=0;i<G.sky.length;i++){k.fillStyle=G.sky[i];k.fillRect(0,i*bh,W,bh);}if(G.sun){k.fillStyle='#fff2b8';k.fillRect(148,16,24,24);k.fillRect(144,20,32,16);k.fillRect(152,12,16,32);}}
+        if(G.wall)wall(k);
+        else if(G.sky.length>2){var bh=Math.ceil(FAR/G.sky.length);for(i=0;i<G.sky.length;i++){k.fillStyle=G.sky[i];k.fillRect(0,i*bh,W,bh);}if(G.sun){k.fillStyle='#fff2b8';k.fillRect(148,16,24,24);k.fillRect(144,20,32,16);k.fillRect(152,12,16,32);}}
         else{for(x=0;x<W;x+=16){k.fillStyle=(x/16)%2?G.sky[1]:G.sky[0];k.fillRect(x,0,16,FAR);}}
         if(G.brick){k.fillStyle='rgba(0,0,0,.25)';for(y=0;y<FAR-14;y+=8){k.fillRect(0,y,W,1);for(x=((y/8)%2?8:0);x<W;x+=16)k.fillRect(x,y,1,8);}k.fillStyle='#9ad7e8';for(x=40;x<W;x+=90){k.fillRect(x,10,26,26);k.fillStyle='#3b1f1a';k.fillRect(x+12,10,2,26);k.fillRect(x,22,26,2);k.fillStyle='#9ad7e8';}}
         if(G.crowd){for(y=6;y<56;y+=10){for(x=4;x<W;x+=7){k.fillStyle=G.crowd[(x*7+y*3)%G.crowd.length];k.fillRect(x+((y/10)%2?3:0),y+((x*13)%3),4,5);}k.fillStyle='rgba(0,0,0,.35)';k.fillRect(0,y+7,W,3);}}
@@ -920,7 +945,7 @@
         g.fillStyle='rgba(0,0,0,.35)';g.fillRect(Math.round(f.x-w/2+6+f.ox),FY-2,w-12,3);
         g.save();if(f.side==='R'){g.translate(f.x+f.ox,0);g.scale(-1,1);g.translate(-(f.x+f.ox),0);}
         g.imageSmoothingEnabled=false;if(f.hit>0){if(!f.white[f.frame])f.white[f.frame]=whiteOf(c);g.drawImage(f.white[f.frame],x,y,w,h);}else g.drawImage(c,x,y,w,h);g.restore();
-        if(f.shield>0&&((st.t/90)|0)%2===0){g.strokeStyle='#8fd1f2';g.lineWidth=2;g.strokeRect(x-3,y-3,w+6,h+6);}
+        if(f.shield>0&&!f.blocking&&((st.t/90)|0)%2===0){g.strokeStyle='#8fd1f2';g.lineWidth=2;g.strokeRect(x-3,y-3,w+6,h+6);}
         if(f.shiny){var tw=(st.t/120)|0;for(var i=0;i<3;i++){var sx=x+((tw*7+i*23)%(w+16))-8,sy=y+((tw*5+i*31)%(h+10))-6;if(((tw+i)%4)===0){g.fillStyle='#ffe680';g.fillRect(sx,sy,2,2);g.fillRect(sx-1,sy+1,1,1);g.fillRect(sx+2,sy+1,1,1);}}}}
       function panel(f,x){if(!f)return;var d=DATA[f.id],el=d.s.el;g.fillStyle='#111';g.fillRect(x,4,132,38);g.fillStyle='#f6f6f6';g.fillRect(x+1,5,130,36);
         g.fillStyle=TINT[el];g.fillRect(x+5,9,10,10);g.fillStyle='#000';g.font='7px "Press Start 2P",monospace';g.textBaseline='top';g.textAlign='left';g.fillText(el[0],x+7,11);
@@ -930,6 +955,10 @@
         for(var i=0;i<MAXE;i++){g.fillStyle=i<f.energy?'#E5B800':'#cfcfcf';g.fillRect(x+22+i*11,34,9,4);}g.fillStyle='#555';g.font='5px "Press Start 2P",monospace';g.fillText('EN',x+6,34);}
       var tweens=[];function tween(dur,fn){if(reduce)dur=0;return new Promise(function(res){tweens.push({t0:performance.now(),dur:dur,fn:fn,res:res});});}
       function fxText(txt,x,y,col){st.fx.push({txt:txt,x:x,y:y,col:col,t0:performance.now()});}
+      function sparks(x,y,cols,n){for(var i=0;i<n;i++){var a=Math.random()*Math.PI*2,v=1.2+Math.random()*2.4;st.sparks.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-1.2,col:cols[i%cols.length],t0:performance.now(),life:380+Math.random()*260});}st.sparks.push({ring:1,x:x,y:y,t0:performance.now(),life:280,col:cols[0]});}
+      function drawSparks(now){for(var i=st.sparks.length-1;i>=0;i--){var p=st.sparks[i],q=(now-p.t0)/p.life;if(q>=1){st.sparks.splice(i,1);continue;}
+        if(p.ring){g.strokeStyle=p.col;g.lineWidth=2;g.globalAlpha=1-q;g.beginPath();g.arc(p.x,p.y,4+q*22,0,Math.PI*2);g.stroke();g.globalAlpha=1;continue;}
+        var t=q*p.life/16;g.fillStyle=p.col;g.globalAlpha=1-q;g.fillRect(Math.round(p.x+p.vx*t),Math.round(p.y+p.vy*t+.12*t*t),2,2);g.globalAlpha=1;}}
       function frame(now){st.t=now;var i;
         for(i=tweens.length-1;i>=0;i--){var tw=tweens[i],p=tw.dur?Math.min(1,(now-tw.t0)/tw.dur):1;tw.fn(p);if(p>=1){tweens.splice(i,1);tw.res();}}
         ['L','R'].forEach(function(s){var f=st[s];if(!f)return;f.shown+=(Math.max(0,f.hp)-f.shown)*.12;if(Math.abs(f.shown-Math.max(0,f.hp))<.5)f.shown=Math.max(0,f.hp);if(f.hit>0)f.hit--;});
@@ -937,6 +966,7 @@
         if(st.shake>0){g.translate(Math.round(Math.random()*4-2),Math.round(Math.random()*4-2));st.shake--;}
         g.drawImage(bg,0,0);drawF(st.L);drawF(st.R);
         if(st.ball)drawBall(st.ball.x,st.ball.y,st.ball.f);
+        drawSparks(now);
         g.font='8px "Press Start 2P",monospace';g.textAlign='center';g.textBaseline='alphabetic';
         for(i=st.fx.length-1;i>=0;i--){var e=st.fx[i],q=(now-e.t0)/900;if(q>=1){st.fx.splice(i,1);continue;}g.globalAlpha=1-q*q;g.fillStyle='#000';g.fillText(e.txt,e.x+1,e.y-q*26+1);g.fillStyle=e.col;g.fillText(e.txt,e.x,e.y-q*26);g.globalAlpha=1;}
         panel(st.L,4);panel(st.R,W-4-132);
@@ -947,26 +977,33 @@
       function runTo(f,tx){var sx=f.x,dist=Math.abs(tx-sx);if(f.spr.kind!=='rpg'||dist<2)return Promise.resolve();return tween(Math.max(120,dist*7),function(p){f.x=sx+(tx-sx)*p;f.frame=((p*dist/8)|0)%2?'siderun':'side';}).then(function(){f.frame='side';});}
       function nearNet(f){return f.side==='L'?NET-34:NET+34;}
       return {
-        gym:function(k){bg=buildBg(k);},
+        gym:function(k){curGym=k;bg=buildBg(k);},
         style:function(s){st.style=s;var a=st.L&&st.L.id,b=st.R&&st.R.id;if(!a)return Promise.resolve();return Promise.all([makeSprite(a),makeSprite(b)]).then(function(r){st.L.spr=r[0];st.L.white={};st.R.spr=r[1];st.R.white={};st.L.frame=st.R.frame='idle';});},
-        setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.ball=null;tweens=[];start();});},
+        setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.sparks=[];st.ball=null;tweens=[];start();});},
         hp:function(side,hp){st[side].hp=hp;},
         energy:function(side,e){st[side].energy=e;},
         charge:function(a){var A=st[a];fxText('CHARGE',A.x,FY-frameOf(A).height*SC-8,'#E5B800');return tween(500,function(p){A.oy=-4*Math.abs(Math.sin(p*Math.PI*3));}).then(function(){A.oy=0;});},
-        attack:function(a,d){var A=st[a],D=st[d];var rpg=A.spr.kind==='rpg';
+        attack:function(a,d,blk){var A=st[a],D=st[d];var rpg=A.spr.kind==='rpg',drpg=D.spr.kind==='rpg';
           return runTo(A,nearNet(A)).then(function(){SFX.jump();if(rpg)A.frame='sidespike';return tween(260,function(p){A.oy=-(rpg?26:16)*Math.sin(p*Math.PI);});}).then(function(){
-            var h=frameOf(A).height*SC,sx=A.side==='L'?A.x+10:A.x-10,sy=FY-h-6,ex=D.x,ey=FY-frameOf(D).height*SC*0.55;st.ball={x:sx,y:sy,f:0};SFX.whoosh();
+            var h=frameOf(A).height*SC,sx=A.side==='L'?A.x+10:A.x-10,sy=FY-h-6,dh=frameOf(D).height*SC,ex=D.x,ey=FY-dh*0.55;
+            if(blk){var bx=nearNet(D);ex=bx;ey=FY-dh-(drpg?22:12)-4;var dx0=D.x;tween(200,function(p){D.x=dx0+(bx-dx0)*p;D.frame=drpg?(((p*6)|0)%2?'siderun':'side'):'idle';}).then(function(){if(drpg)D.frame='block';D.blocking=1;SFX.jump();return tween(240,function(p){D.oy=-(drpg?22:12)*Math.sin(p*Math.PI/2);});});}
+            st.ball={x:sx,y:sy,f:0};SFX.whoosh();
             return tween(480,function(p){st.ball.x=sx+(ex-sx)*p;st.ball.y=sy+(ey-sy)*p-70*Math.sin(p*Math.PI);st.ball.f=((p*12)|0)%2;});}).then(function(){A.oy=0;runTo(A,A.home).then(function(){A.frame='idle';});});},
-        impact:function(d,amt,blocked){var D=st[d],dir=D.side==='L'?-1:1;st.flash=.75;st.shake=10;D.hit=8;if(blocked)D.shield=0;
-          tween(320,function(p){D.ox=Math.round(Math.sin(p*28)*3*(1-p)*dir*-1);});fxText('-'+amt,D.x,FY-frameOf(D).height*SC-8,'#ff5a4e');
-          var b=st.ball,bx=b?b.x:D.x,by=b?b.y:FY-30;tween(420,function(p){if(!st.ball)return;st.ball.x=bx+dir*40*p;st.ball.y=by+(FY-6-by)*p*p-30*Math.sin(p*Math.PI);st.ball.f=((p*10)|0)%2;}).then(function(){st.ball=null;});},
-        block:function(d,amt){var D=st[d];var rpg=D.spr.kind==='rpg';return runTo(D,nearNet(D)).then(function(){if(rpg)D.frame='block';D.shield=1;fxText('BLOCK '+amt,D.x,FY-frameOf(D).height*SC-8,'#8fd1f2');return tween(360,function(p){D.oy=-(rpg?22:12)*Math.sin(p*Math.PI);});}).then(function(){D.oy=0;return runTo(D,D.home);}).then(function(){D.frame='idle';});},
+        impact:function(d,amt,blocked,crit){var D=st[d],dir=D.side==='L'?-1:1,b=st.ball,bx=b?b.x:D.x,by=b?b.y:FY-30,top=FY-frameOf(D).height*SC-8;
+          if(blocked){/* the ball meets the hands: deflect it back over the net, no damage flash unless some got through */
+            D.shield=0;sparks(bx,by,['#8fd1f2','#ffffff','#E5B800'],12);fxText(amt>0?'BLOCK':'BLOCKED!',D.x,top-14,'#8fd1f2');st.shake=amt>0?8:4;if(amt>0){st.flash=.5;D.hit=6;fxText('-'+amt,D.x,top+4,'#ff5a4e');}
+            var back=-dir*58;tween(520,function(p){if(!st.ball)return;st.ball.x=bx+back*p;st.ball.y=by+(FY-6-by)*p*p-26*Math.sin(p*Math.PI);st.ball.f=((p*10)|0)%2;}).then(function(){st.ball=null;});
+            return tween(260,function(p){D.oy=-(D.spr.kind==='rpg'?22:12)*(1-p);}).then(function(){D.oy=0;D.blocking=0;return runTo(D,D.home);}).then(function(){D.frame='idle';});}
+          st.flash=crit?1:.75;st.shake=crit?16:10;D.hit=8;sparks(bx,by,crit?['#ffd36b','#ff5a4e','#ffffff','#E5B800']:['#ff5a4e','#ffd36b','#ffffff'],crit?22:14);
+          tween(320,function(p){D.ox=Math.round(Math.sin(p*28)*3*(1-p)*dir*-1);});fxText('-'+amt,D.x,top,'#ff5a4e');if(crit)fxText('CRITICAL',D.x,top-14,'#ffd36b');
+          tween(420,function(p){if(!st.ball)return;st.ball.x=bx+dir*40*p;st.ball.y=by+(FY-6-by)*p*p-30*Math.sin(p*Math.PI);st.ball.f=((p*10)|0)%2;}).then(function(){st.ball=null;});return Promise.resolve();},
+        block:function(d,amt){var D=st[d];var rpg=D.spr.kind==='rpg';D.shield=1;fxText('BLOCK READY '+amt,D.x,FY-frameOf(D).height*SC-8,'#8fd1f2');if(rpg)D.frame='block';return tween(500,function(p){D.oy=-3*Math.abs(Math.sin(p*Math.PI*2));}).then(function(){D.oy=0;D.frame='idle';});},
         ko:function(l,w){var Lf=st[l],Wf=st[w];Lf.shield=Wf.shield=0;return tween(600,function(p){Lf.hide=((p*12)|0)%2===1;}).then(function(){Lf.hide=false;if(Lf.spr.kind==='rpg'){Lf.frame='ko';return tween(500,function(){});}return tween(500,function(p){Lf.oy=p*p*90;});}).then(function(){if(Lf.spr.kind!=='rpg')Lf.gone=true;fxText('K.O.',Lf.x,FY-40,'#ff5a4e');
           return tween(700,function(p){Wf.oy=-14*Math.abs(Math.sin(p*Math.PI*2));});}).then(function(){fxText('WINNER',Wf.x,FY-frameOf(Wf).height*SC-10,'#E5B800');});}
       };
     })();
     /* ---- arena ---- */
-    var L=null,R=null,busy=false,selL=$('selL'),selR=$('selR'),lastWin=null,view='card';
+    var L=null,R=null,busy=false,selL=$('selL'),selR=$('selR'),lastWin=null,view='card',mode='auto';
     var VB='<svg viewBox="0 0 40 40" width="46" height="46" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#fbfbfb" stroke="#2a2a2a" stroke-width="2"/><path d="M8 8c8 6 10 16 6 28M32 8c-8 6-10 16-6 28M3 24c10-4 24-4 34 0" fill="none" stroke="#b9bfc4" stroke-width="2"/></svg>';
     function pips(e){var s='<small>Energy</small>';for(var i=0;i<MAXE;i++)s+='<i class="'+(i<e?'on':'')+'"></i>';return s;}
     function clone(id,side){var c=$(id).cloneNode(true);c.id='fight-'+side;var s=DATA[id].s;var w=document.createElement('div');w.className='fighter';w.id='f'+side;
@@ -981,9 +1018,21 @@
     function fromSelects(){var a=selL.value,b=selR.value;if(busy)return;if(!a||!b){L=R=null;$('btnFight').disabled=true;return;}
       if(same(a,b)){$('log').innerHTML='<p>Pick two different people. A coach cannot fight their own other card.</p>';$('btnFight').disabled=true;L=R=null;return;}setup(a,b);}
     selL.addEventListener('change',fromSelects);selR.addEventListener('change',fromSelects);
+    function randomOpp(a){var ids=Object.keys(DATA),b;do{b=ids[Math.floor(Math.random()*ids.length)];}while(same(a,b));return b;}
     function randomPair(keep,side){var ids=Object.keys(DATA),a=keep||ids[Math.floor(Math.random()*ids.length)],b;do{b=ids[Math.floor(Math.random()*ids.length)];}while(same(a,b));return side==='R'?[b,a]:[a,b];}
     $('btnRandom').addEventListener('click',function(){if(busy)return;var p=randomPair();selL.value=p[0];selR.value=p[1];setup(p[0],p[1]);});
-    $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var p=randomPair(lastWin.id,lastWin.side);selL.value=p[0];selR.value=p[1];setup(p[0],p[1]).then(fight);});
+    $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var p=mode==='play'?[L.id,randomOpp(L.id)]:randomPair(lastWin.id,lastWin.side);selL.value=p[0];selR.value=p[1];setup(p[0],p[1]).then(fight);});
+    function setMode(m){if(busy)return;mode=m;$('mAuto').setAttribute('aria-pressed',String(m==='auto'));$('mPlay').setAttribute('aria-pressed',String(m==='play'));$('btnNext').title=m==='play'?'Your card stays in and meets a new random opponent':'The winner stays in and fights a new random opponent right away';if(L)logp(m==='play'?'<b>You Play:</b> you control the left corner. Pick a move each turn; the AI plays the right.':'<b>Auto Play:</b> both corners play themselves.');}
+    $('mAuto').addEventListener('click',function(){setMode('auto');});$('mPlay').addEventListener('click',function(){setMode('play');});
+    $('battleNow').addEventListener('click',function(e){e.preventDefault();$('arena').scrollIntoView({behavior:'smooth',block:'start'});if(!L&&!busy)$('btnRandom').click();else $('btnFight').focus({preventScroll:true});});
+    /* play mode: the user picks from the card's moves (or holds energy). Resolves with a move or null. */
+    function userMove(att){var bar=$('movebar');bar.innerHTML='<p class="prompt">Your move, '+esc(DATA[att.id].n.split(' ')[0])+' &middot; '+att.energy+' energy</p>';
+      return new Promise(function(res){function pick(mv){bar.hidden=true;bar.innerHTML='';$('dexBtn').classList.remove('hide');res(mv);}
+        att.s.moves.forEach(function(m){var b=document.createElement('button');b.type='button';b.className='mvb';b.disabled=m.cost>att.energy;var c='<span class="cost">';for(var i=0;i<m.cost;i++)c+='<i></i>';c+='</span>';
+          b.innerHTML=c+esc(m.name)+'<b>'+(m.kind==='atk'?m.pow:'<small>stops</small> '+m.kind.split(':')[1])+'</b>';b.title=m.cost+' energy'+(m.kind==='atk'?', '+m.pow+' damage':', stops up to '+m.kind.split(':')[1]+' of the next hit');b.addEventListener('click',function(){pick(m);});bar.appendChild(b);});
+        var h=document.createElement('button');h.type='button';h.className='mvb';h.innerHTML='Hold energy<b>+'+(att.round+1)+'</b>';h.title='Skip this turn and keep your energy for a bigger swing';h.addEventListener('click',function(){pick(null);});bar.appendChild(h);
+        bar.hidden=false;$('dexBtn').classList.add('hide');var first=bar.querySelector('.mvb:not(:disabled)');if(first)first.focus({preventScroll:true});if(window.innerWidth>560)bar.scrollIntoView({behavior:'smooth',block:'nearest'});});}
+    function burst(card,blk){var b=document.createElement('span');b.className='burst'+(blk?' blk':'');card.appendChild(b);setTimeout(function(){b.remove();},600);}
     $('selGym').addEventListener('change',function(){PX.gym(this.value);});
     $('selStyle').addEventListener('change',function(){if(busy){this.value=this.value==='photo'?'rpg':'photo';return;}PX.style(this.value);});
     function setView(v){view=v;$('vCard').setAttribute('aria-pressed',String(v==='card'));$('vPx').setAttribute('aria-pressed',String(v==='px'));$('ring').classList.toggle('px',v==='px');$('pxopts').hidden=v!=='px';}
@@ -994,7 +1043,7 @@
     function dmg(att,def,mv){var ratio=Math.max(.85,Math.min(1.15,att.s.atk/def.s.def));var base=mv.pow*ratio;var note='';
       if(WEAK[def.s.el]===att.s.el){base*=1.5;note=' Super effective!'}else if(RESIST[def.s.el]===att.s.el){base*=.7;note=' Not very effective.'}
       if((PERSONAL[def.id]||[]).indexOf(att.id)>=0){base*=2;note=' '+DATA[def.id].n.split(' ')[0]+'\u2019s one true weakness!'}
-      return {d:Math.max(3,Math.round(base)),note:note};}
+      return {d:Math.max(5,Math.round(base/5)*5),note:note};}
     function hpUI(f){var box=$('f'+f.side);box.querySelector('[data-cur]').textContent=Math.max(0,f.hp);var b=box.querySelector('.hpbar b');var pct=Math.max(0,f.hp)/f.s.hp*100;b.style.width=pct+'%';b.classList.toggle('low',pct<30);PX.hp(f.side,f.hp);}
     function enUI(f){$('f'+f.side).querySelector('[data-en]').innerHTML=pips(f.energy);PX.energy(f.side,f.energy);}
     /* card-art sprite animation: turn toward the opponent, run, spike; defender flashes */
@@ -1002,12 +1051,12 @@
     function spriteSeq(f,frames,ms,flip){var c=cardSpr(f);if(!c)return Promise.resolve();c.classList.toggle('flip',!!flip);var i=0;return new Promise(function(res){(function step(){drawCard(c,f.id,frames[i]);i++;if(i<frames.length)setTimeout(step,reduce?0:ms);else res();})();});}
     function spriteIdle(f){var c=cardSpr(f);if(c){c.classList.remove('flip');drawCard(c,f.id,'idle');}}
     /* card-view projectile: from the attacker's art window to the centre of the defender's art window */
-    function cardBall(att,def){var ring=$('ring');if(ring.classList.contains('px'))return wait(740);var ap=$('f'+att.side).querySelector('.ph'),dp=$('f'+def.side).querySelector('.ph');
+    function cardBall(att,def){var ring=$('ring');if(ring.classList.contains('px'))return wait(740);var blk=def.shield>0||def._blk;var ap=$('f'+att.side).querySelector('.ph'),dp=$('f'+def.side).querySelector('.ph');
       var rr=ring.getBoundingClientRect(),a=ap.getBoundingClientRect(),d=dp.getBoundingClientRect();
-      var sx=(att.side==='L'?a.right-34:a.left-12)-rr.left,sy=a.top+a.height*.3-rr.top,ex=d.left+d.width/2-23-rr.left,ey=d.top+d.height/2-23-rr.top;
+      var sx=(att.side==='L'?a.right-34:a.left-12)-rr.left,sy=a.top+a.height*.3-rr.top,ex=d.left+d.width/2-23-rr.left,ey=d.top+d.height/2-23-rr.top;if(blk){ey=d.top-rr.top-40;}
       var b=document.createElement('span');b.className='vb';b.innerHTML=VB;ring.appendChild(b);
       var anim=b.animate([{transform:'translate('+sx+'px,'+sy+'px) rotate(0deg) scale(.8)'},{transform:'translate('+((sx+ex)/2)+'px,'+(Math.min(sy,ey)-90)+'px) rotate(360deg) scale(1.15)',offset:.5},{transform:'translate('+ex+'px,'+ey+'px) rotate(720deg) scale(1)'}],{duration:reduce?0:740,easing:'linear',fill:'forwards'});
-      return anim.finished.catch(function(){}).then(function(){return b.animate([{opacity:1},{opacity:0,transform:'translate('+ex+'px,'+(ey+60)+'px) scale(.6)'}],{duration:reduce?0:300,fill:'forwards'}).finished.catch(function(){});}).then(function(){b.remove();});}
+      return anim.finished.catch(function(){}).then(function(){var bx=blk?(sx+ex)/2:ex,by=blk?ey+120:ey+60;return b.animate([{opacity:1,transform:'translate('+ex+'px,'+ey+'px) rotate(720deg)'},{opacity:0,transform:'translate('+bx+'px,'+by+'px) rotate('+(blk?400:800)+'deg) scale(.6)'}],{duration:reduce?0:(blk?520:300),fill:'forwards'}).finished.catch(function(){});}).then(function(){b.remove();});}
     function pickMove(att){var aff=att.s.moves.filter(function(m){return m.cost<=att.energy;});if(!aff.length)return null;
       var best=att.s.moves.reduce(function(a,b){return a.cost>=b.cost?a:b;});var maxAff=aff.reduce(function(a,b){return a.cost>=b.cost?a:b;});
       /* hold energy for a bigger move when it arrives next round */
@@ -1015,22 +1064,27 @@
       var w=aff.map(function(m){return m.cost*m.cost;}),t=w.reduce(function(a,b){return a+b;},0),r=Math.random()*t;for(var i=0;i<aff.length;i++){r-=w[i];if(r<=0)return aff[i];}return aff[aff.length-1];}
     async function turn(att,def){att.round++;att.energy=Math.min(MAXE,att.energy+att.round);enUI(att);
       var ac=$('f'+att.side).querySelector('.card'),dc=$('f'+def.side).querySelector('.card');
-      var mv=pickMove(att);
+      var mv=(mode==='play'&&att===L)?await userMove(att):pickMove(att);
       if(!mv){var cp=document.createElement('span');cp.className='pop chg';cp.textContent='CHARGING';ac.appendChild(cp);SFX.charge();logp('<b>'+DATA[att.id].n+'</b> holds '+att.energy+' energy for a bigger swing.');await Promise.all([PX.charge(att.side),spriteSeq(att,['block','idle'],250),wait(800)]);cp.remove();return;}
       att.energy=Math.max(0,att.energy-mv.cost);enUI(att);
       if(mv.kind!=='atk'){var amt=parseInt(mv.kind.split(':')[1],10);att.shield=amt;var sh=document.createElement('span');sh.className='shield';ac.appendChild(sh);SFX.block();
-        var p=document.createElement('span');p.className='pop blk';p.textContent='BLOCK '+amt;ac.appendChild(p);logp('<b>'+DATA[att.id].n+'</b> used '+esc(mv.name)+' ('+mv.cost+' energy): the next hit loses '+amt+'.');await Promise.all([PX.block(att.side,amt),spriteSeq(att,['block','block','idle'],300),wait(900)]);p.remove();return;}
+        var p=document.createElement('span');p.className='pop blk';p.textContent='BLOCK READY';ac.appendChild(p);SFX.ready();logp('<b>'+DATA[att.id].n+'</b> sets up '+esc(mv.name)+' ('+mv.cost+' energy): it triggers when the next ball comes over and stops up to '+amt+'.');await Promise.all([PX.block(att.side,amt),spriteSeq(att,['block','block','idle'],300),wait(900)]);p.remove();return;}
       ac.classList.add(att.side==='L'?'lunge-l':'lunge-r');SFX.whoosh();var flip=att.side==='R';
-      var seq=spriteSeq(att,['side','siderun','side','siderun','sidespike'],110,flip);var ballP=cardBall(att,def);await PX.attack(att.side,def.side);
-      var r=dmg(att,def,mv),d=r.d,blocked=0;if(def.shield>0){blocked=Math.min(def.shield,d);d-=blocked;def.shield=0;var s=dc.querySelector('.shield');if(s)s.remove();}
-      dc.classList.add('hit');SFX.hit();PX.impact(def.side,d,blocked>0);var pop=document.createElement('span');pop.className='pop';pop.textContent='-'+d;dc.appendChild(pop);
-      def.hp-=d;hpUI(def);logp('<b>'+DATA[att.id].n+'</b> used '+esc(mv.name)+' ('+mv.cost+' energy) for '+(d+blocked)+'.'+(blocked?' The block absorbed '+blocked+', '+d+' got through.':'')+r.note);
-      await Promise.all([ballP,seq,wait(650)]);ac.classList.remove('lunge-l','lunge-r');dc.classList.remove('hit');pop.remove();spriteIdle(att);}
+      var r=dmg(att,def,mv),d=r.d,blocked=0,willBlock=def.shield>0;def._blk=willBlock;if(willBlock){blocked=Math.min(def.shield,d);d-=blocked;def.shield=0;}
+      var seq=spriteSeq(att,['side','siderun','side','siderun','sidespike'],110,flip);var ballP=cardBall(att,def);
+      if(willBlock){/* the defender goes up as the ball crosses: card jumps, sprite shows the block frame */setTimeout(function(){dc.classList.add('blockup');spriteSeq(def,['block','block','block','idle'],200,def.side==='L');},reduce?0:300);}
+      await PX.attack(att.side,def.side,willBlock);
+      var crit=r.note.indexOf('effective!')>0||r.note.indexOf('weakness')>0;
+      var sh=dc.querySelector('.shield');if(sh)sh.remove();var pop=document.createElement('span');pop.className='pop'+(d>0?'':' blk');pop.textContent=d>0?'-'+d:'BLOCKED!';dc.appendChild(pop);
+      if(willBlock){SFX.negate();burst(dc,true);if(d>0){dc.classList.add('hit');SFX.hit();}}else{dc.classList.add('hit');SFX.hit();if(crit){SFX.crit();}else{SFX.thud();}burst(dc,false);}
+      var impP=PX.impact(def.side,d,willBlock,crit);
+      def.hp-=d;hpUI(def);logp('<b>'+DATA[att.id].n+'</b> used '+esc(mv.name)+' ('+mv.cost+' energy) for '+(d+blocked)+'.'+(willBlock?(d>0?' <b>'+DATA[def.id].n.split(' ')[0]+'</b> got a hand on it: the block stopped '+blocked+', '+d+' got through.':' <b>'+DATA[def.id].n.split(' ')[0]+'</b> blocked it clean. Nothing got through.'):'')+r.note);
+      await Promise.all([ballP,seq,impP,wait(650)]);ac.classList.remove('lunge-l','lunge-r');dc.classList.remove('hit','blockup');pop.remove();spriteIdle(att);def._blk=false;}
     async function fight(){if(busy||!L)return;busy=true;$('btnFight').disabled=true;$('btnNext').disabled=true;$('btnRandom').disabled=true;selL.disabled=selR.disabled=true;
-      var first=L.s.spd>=R.s.spd?L:R,second=first===L?R:L;logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: 1 in round 1, 2 in round 2, 3 in round 3, and so on.');
+      SFX.whistle();var first=L.s.spd>=R.s.spd?L:R,second=first===L?R:L;if(mode==='play')logp('<b>You Play:</b> you control <b>'+DATA[L.id].n+'</b> on the left.');logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: 1 in round 1, 2 in round 2, 3 in round 3, and so on.');
       var t=0;while(L.hp>0&&R.hp>0&&t<80){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;await wait(220);}
-      var win=L.hp>0?L:R,lose=win===L?R:L;$('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();var koP=PX.ko(lose.side,win.side);await wait(500);$('f'+win.side).querySelector('.card').classList.add('champ');SFX.win();
-      $('winner').textContent=DATA[win.id].n+' wins!';logp('<b>'+DATA[win.id].n+'</b> wins with '+Math.max(0,win.hp)+' HP left. Next Fight keeps the champion in.');await koP;busy=false;lastWin=win;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;}
+      var win=L.hp>0?L:R,lose=win===L?R:L;$('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();var koP=PX.ko(lose.side,win.side);await wait(500);$('f'+win.side).querySelector('.card').classList.add('champ');SFX.win();SFX.crowd();$('movebar').hidden=true;
+      $('winner').textContent=DATA[win.id].n+' wins!';logp('<b>'+DATA[win.id].n+'</b> wins with '+Math.max(0,win.hp)+' HP left. '+(mode==='play'?(win===L?'You win! ':'The AI takes it. ')+'Next Fight keeps your card in against a new opponent.':'Next Fight keeps the champion in.'));await koP;busy=false;lastWin=win;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;}
     $('btnFight').addEventListener('click',fight);
     /* boomdex */
     var b=$('dexBtn'),f=$('dex'),x=$('dexX');function open(){f.hidden=false;b.setAttribute('aria-expanded','true');f.querySelector('select').focus();}function close(){f.hidden=true;b.setAttribute('aria-expanded','false');}
