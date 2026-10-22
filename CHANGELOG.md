@@ -10,6 +10,11 @@ reconstruct later.
 
 ---
 
+## v2.16 — 2026-10-22 · Tryouts wording
+tryouts.html
+
+- "2027–28 Season Tryouts Will Be Announced April 2027" (was "Announced", which read as past tense).
+
 ## v2.15 — 2026-10-22 · Littles live, Colorado Boom Camps, tryouts by appointment
 All 15 pages
 
