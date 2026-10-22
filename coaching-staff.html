@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.17 · 2026-10-22 · [CO] Coaching Staff rebuilt as trading cards (owner picked demo 7): element = position, 3 moves, Boomdex finder, Battle Arena with Card View / 16-Bit View, energy per round, real photos for 11 coaches and pixel sprites for the rest. Generated from scratchpad gen_v7.js; assets under assets/img/coaches/. -->
   <!-- BUILD v2.15 · 2026-10-22 · Littles (ages 6-9, Tue/Thu 5-6:30) folded into the Skills Training Membership; nav + footer say Littles (Ages 6-9). [RB] Parent Meeting row now "Parent Meeting, Team Meet & Greet & Team Bonding". Try Out buttons email admin@ for an appointment. -->
   <!-- BUILD v2.14 · 2026-10-21 · [RB] ticker matches the popup: Pre-Season Club Training Oct 26-30, Parent Meeting Oct 28, Club Halloween Dance Party & Drop-In Oct 30 7:30-11 PM, First Practice, Picture Day Jan 15. [ANN] gold bar now carries recruitment (17 Colorado Middle, 16 Colorado Pin, 12s & 13s any) with an Email to Try Out button. [CO-03] Kula Tanuvasa card removed (owner). -->
   <!-- BUILD v2.09 · 2026-10-20 · [CO] Kula Tanuvasa no longer heads a team (14 Colorado is now Janci Ige): card kept, role line "Coach", team link removed. Makayla Clemons: Head Coach 12 Colorado only (13 Colorado assistant is now Megan Daugherty). -->
@@ -25,67 +26,136 @@
   <title>Coaching Staff | Colorado Boom Volleyball Club</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;900&family=Open+Sans:wght@400;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
-    /* Cards are light but now sit inside dark sections (.bg-dark / .bg-teal-d) which set
-       color:#fff. Without these two lines the names inherit white and vanish against the
-       white/cream nameplate. Restate them FIRST so the --lead override below still wins
-       (same specificity — order decides). */
-    .coach .b h4{color:var(--black);}
-    .coach .b span{color:var(--teal);}
-    /* team assignments under a name link to that team's card on the teams page,
-       which auto-opens deep-linked cards; links inherit the span's teal */
-    .coach .b span a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
-    .coach .b span a:hover{color:var(--teal-dark);}
-    .coach .b span a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
-    /* [CO-02b] club leadership: the SECTION is black; the photo area keeps the
-       standard light placeholder so the card reads as a card, not a hole. */
-    .lead-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:680px;margin:0 auto;}
-    @media(max-width:600px){.lead-grid{grid-template-columns:1fr;}}
-    /* [CO-02] and [CO-02b] are both dark: the main header carries the gold (10.06:1 on
-       black) and the sub-header sits in white (18.9:1). Headings on the cream [CO-03] band
-       keep the default dark ink — gold on cream is 1.9:1 and unreadable. */
-    .staff-main{color:var(--gold);}
-    .bg-dark .staff-title{color:#fff;}
-    .bg-dark .prose p{color:#fff;}
-    /* The two dark bands read as one black block, so their facing paddings are halved —
-       stacked section padding would otherwise leave ~112px of empty black at the join. */
-    [data-section="CO-02"]{padding-bottom:26px;}
-    [data-section="CO-02b"]{padding-top:26px;}
-    /* four coaches per row, stepping down with the viewport */
-    .grid-coaches{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-    @media(max-width:1100px){.grid-coaches{grid-template-columns:repeat(3,1fr);}}
-    @media(max-width:820px){.grid-coaches{grid-template-columns:repeat(2,1fr);}}
-    @media(max-width:520px){.grid-coaches{grid-template-columns:1fr;}}
-    /* Photo boxes are 4:5 portrait everywhere on this page — leadership and coaches alike.
-       The old 4:3 landscape box was built for an empty placeholder; with a real headshot in
-       it the face lands small and the frame fills with background. Portrait is the shape a
-       head-and-shoulders photo actually wants, and one ratio for both grids keeps the whole
-       staff area on a single rhythm. Cards still without a photo keep the gradient block. */
-    .coach .ph{aspect-ratio:4/5;overflow:hidden;}
-    .grid-coaches .coach .ph{font-size:12px;}
-    /* The JPGs are pre-cropped to exactly 4:5, so cover crops nothing — it is here so an
-       odd-sized replacement uploaded later still fills the box instead of distorting. */
-    .coach .ph img{display:block;width:100%;height:100%;object-fit:cover;}
-    /* anchored coach cards must clear the sticky site header */
-    .coach[id]{scroll-margin-top:120px;}
-    .coach[id]:target{outline:3px solid var(--gold);outline-offset:4px;}
-    .coach--lead{box-shadow:0 14px 34px rgba(0,0,0,.5);}
-    /* nameplate is teal-dark rather than teal so the gold name clears 3:1 as large text
-       (4.16:1); on plain --teal it would be 2.7:1 and fail. */
-    .coach--lead .b{background:var(--teal-dark);}
-    .coach--lead .b h4{color:var(--gold);}
-    .coach--lead .b span{color:#fff;letter-spacing:.06em;}
-    /* [CO-03] assistant coaches: cream nameplate */
-    /* the section is cream now, so a cream nameplate alone would bleed into the page and
-       the card would look unfinished; a teal rule terminates it while keeping the cream. */
-    .coach--asst .b{background:var(--cream);border-top:2px solid var(--teal);}
-    .staff-title{margin-bottom:18px;font-size:22px;}
-    .staff-title + .grid-coaches{margin-bottom:34px;}
-    .staff-title + .grid-coaches:last-of-type{margin-bottom:0;}
-    /* team assignments under a coach's name */
-    .coach .b span{display:block;line-height:1.5;}
+    /* [CO] trading-card staff page + Battle Arena. Generated by scratchpad gen_v7.js render({live:true}); edit there, not here. */
+:root{--teal:#0E7C86;--teal-dark:#065A62;--gold:#E5B800;--gold-dark:#C49A00;--black:#050505;--ink:#0d1f22;--ease:cubic-bezier(.23,1,.32,1);--max:1240px;--display:'Bebas Neue',Impact,sans-serif;--pixel:'Press Start 2P',monospace}
+#tc,#tc *,#tc *::before,#tc *::after{box-sizing:border-box}
+#tc{font-family:'Open Sans',system-ui,sans-serif;font-size:18px;line-height:1.6;color:#fff;background:var(--black);-webkit-font-smoothing:antialiased;overflow-x:hidden;margin:0}
+#tc img{max-width:100%;height:auto;display:block}#tc a{color:inherit;text-decoration:none}
+#tc h1,#tc h2,#tc h3{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:1;letter-spacing:.03em;text-wrap:balance;margin:0;color:#fff}
+#tc .wrap{max-width:var(--max);margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+#tc .pat{background-color:var(--black);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 2px,transparent 2px 14px)}
+#tc .teal{background:radial-gradient(ellipse 70% 120% at 50% 0%,var(--teal) 0%,var(--teal-dark) 70%,#043f45 100%)}
+#tc .teald{background:radial-gradient(ellipse 60% 150% at 50% 50%,var(--teal) 0%,var(--teal-dark) 34%,#040404 100%)}
+#tc .hero{position:relative;min-height:clamp(280px,36vw,460px);display:grid;align-items:end;overflow:hidden}
+#tc .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:.5}
+#tc .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--black) 0%,rgba(5,5,5,.5) 55%,rgba(5,5,5,.15) 100%)}
+#tc .hero .wrap{position:relative;z-index:1;padding-block:28px}
+#tc .hero .eyebrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+#tc .hero h1{font-size:clamp(56px,8.5vw,112px);margin:4px 0 6px;color:var(--gold);text-shadow:0 3px 0 #6b5400,0 10px 30px rgba(0,0,0,.6)}
+#tc .hero p{max-width:680px;color:rgba(255,255,255,.94);font-size:17px;margin:0}
+#tc section.band{padding-block:clamp(24px,3.5vw,40px)}
+#tc .bt{display:flex;align-items:center;gap:14px;margin-bottom:16px}#tc .bt::before{content:"";width:10px;height:44px;background:var(--gold);flex:none}
+#tc .bt h2{font-size:clamp(36px,4.8vw,54px)}#tc .bt .sub{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-left:auto;color:var(--gold)}
+#tc .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
+#tc .grp{min-width:0}#tc .span-1{grid-column:span 1}#tc .span-2{grid-column:span 2}#tc .span-3{grid-column:span 3}
+#tc .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;align-items:stretch}
+#tc .gh{display:flex;align-items:center;gap:10px;min-width:0;min-height:44px;margin-bottom:6px}
+#tc .gh h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;line-height:1.3;min-width:0;text-transform:uppercase}
+#tc .gh .sep{margin:0 8px;color:var(--gold)}#tc .gh a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--gold)}#tc .gh a:hover{color:var(--gold)}
+#tc .gh .age{font-family:var(--display);font-size:32px;line-height:1;flex:none;color:var(--gold)}
+#tc .card{container-type:inline-size;position:relative;min-width:0;display:flex;padding:7px;border-radius:12px;scroll-margin-top:90px;transform-style:preserve-3d;will-change:transform;transition:transform .25s var(--ease),box-shadow .25s var(--ease);box-shadow:0 10px 30px rgba(0,0,0,.6);background:linear-gradient(160deg,var(--f1) 0%,var(--f2) 28%,var(--f3) 50%,var(--f2) 72%,var(--f1) 100%)}
+#tc .el-Fighter{--f1:#ff9a4d;--f2:#b3410f;--f3:#ffd1a6;--tint:#ff8a3d}
+#tc .el-Psychic{--f1:#ff7ae0;--f2:#6d1fb8;--f3:#f3c9ff;--tint:#d66cff}
+#tc .el-Fire{--f1:#ff5a36;--f2:#b51d05;--f3:#ffc46b;--tint:#ff6a3d}
+#tc .el-Rock{--f1:#d9b27c;--f2:#6e4f22;--f3:#f6e4c4;--tint:#c9a063}
+#tc .el-Grass{--f1:#7ee081;--f2:#166e2d;--f3:#d4ffd6;--tint:#63d46a}
+#tc .el-Wind{--f1:#cfefff;--f2:#3f8fbf;--f3:#ffffff;--tint:#8fd1f2}
+#tc .el-Water{--f1:#5ec8ff;--f2:#0b4f8f;--f3:#c9eeff;--tint:#4fb7f2}
+#tc .card.shiny{--tint:#fff;background:conic-gradient(from var(--ang,0deg),#ff5a5a,#ffd36b,#7dff8a,#5ad7ff,#8f7bff,#ff6bd6,#ff5a5a);animation:holo 6s linear infinite}
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes holo{to{--ang:360deg}}
+#tc .card.shiny .ph::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(120deg,rgba(255,255,255,0) 0%,rgba(255,255,255,.35) 35%,rgba(120,220,255,.35) 50%,rgba(255,120,220,.3) 65%,rgba(255,255,255,0) 100%);background-size:250% 250%;mix-blend-mode:screen;animation:sheen 4s ease-in-out infinite alternate;pointer-events:none}
+@keyframes sheen{from{background-position:0% 0%}to{background-position:100% 100%}}
+#tc .card:target,#tc .card.is-hit{outline:3px solid var(--gold);outline-offset:4px}
+#tc .ci{flex:1;min-width:0;border-radius:7px;background:var(--ink);display:grid;grid-template-rows:auto auto auto auto 1fr auto;overflow:hidden;color:#fff}
+#tc .ch{display:grid;grid-template-columns:1fr auto auto;grid-template-areas:"stage stage stage" "name hp ty";align-items:center;column-gap:2.2cqw;padding:1.6cqw 3cqw 1.2cqw;background:linear-gradient(90deg,color-mix(in srgb,var(--tint) 28%,transparent),transparent)}
+#tc .ch .stage{grid-area:stage;font-family:'Montserrat',sans-serif;font-weight:700;font-size:max(8px,3.6cqw);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tc .ch h4{grid-area:name;font-family:var(--display);font-weight:400;font-size:max(16px,8.6cqw);line-height:1;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0;color:#fff}
+#tc .ch .hp{grid-area:hp;font-family:'Montserrat',sans-serif;font-weight:900;font-size:max(9px,3.8cqw);letter-spacing:.04em;white-space:nowrap}#tc .ch .hp b{font-size:max(12px,5.6cqw);color:#ff5a4e}
+#tc .ch .ty{grid-area:ty;width:max(16px,7cqw);height:max(16px,7cqw);border-radius:50%;display:grid;place-items:center;font-size:max(10px,4.2cqw);line-height:1;color:#000;background:var(--tint);box-shadow:inset 0 0 0 1px rgba(0,0,0,.35)}
+#tc .ph{position:relative;margin:1cqw 3cqw 0;aspect-ratio:1.42;border:2px solid color-mix(in srgb,var(--tint) 60%,#fff 0%);overflow:hidden;min-height:0;background:repeating-conic-gradient(from 0deg at 50% 68%,rgba(255,255,255,.13) 0 5deg,transparent 5deg 15deg),radial-gradient(ellipse 70% 80% at 50% 70%,color-mix(in srgb,var(--tint) 65%,#fff) 0%,var(--tint) 40%,color-mix(in srgb,var(--tint) 45%,#000) 100%)}
+#tc .card.shiny .ph{background:repeating-conic-gradient(from 0deg at 50% 68%,rgba(255,255,255,.18) 0 5deg,transparent 5deg 15deg),radial-gradient(ellipse 70% 80% at 50% 70%,#fff2b8 0%,var(--gold) 40%,#6b5400 100%)}
+#tc .ph img{position:absolute;left:0;bottom:0;width:100%;height:96%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 5px 6px rgba(0,0,0,.5))}
+#tc .ph canvas.spr{position:absolute;left:50%;bottom:4%;height:88%;width:auto;transform:translateX(-50%);image-rendering:pixelated;filter:drop-shadow(0 5px 6px rgba(0,0,0,.5))}
+#tc .ph canvas.spr.flip{transform:translateX(-50%) scaleX(-1)}
+#tc .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.25) 50%,rgba(255,255,255,0) 70%);transform:translateX(-120%);transition:transform .7s var(--ease);pointer-events:none;z-index:2}
+#tc .card:hover .ph::after{transform:translateX(120%)}
+#tc .meta{margin:1.4cqw 3cqw 0;padding:.8cqw 2cqw;display:flex;justify-content:space-between;gap:6px;background:color-mix(in srgb,var(--tint) 16%,transparent);border:1px solid color-mix(in srgb,var(--tint) 40%,transparent);font-family:'Montserrat',sans-serif;font-weight:700;font-size:max(8.5px,3.4cqw);letter-spacing:.06em;text-transform:uppercase}
+#tc .meta span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+#tc .moves{list-style:none;margin:1.4cqw 3cqw 0;padding:0;display:grid;gap:1px}
+#tc .moves li{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2.2cqw;font-family:'Montserrat',sans-serif;font-size:max(10.5px,4.6cqw);font-weight:700;padding:.6cqw 0;border-bottom:1px solid rgba(255,255,255,.08)}
+#tc .cost{display:inline-flex;gap:2px}#tc .cost i,#tc .cfoot i{width:max(8px,3.4cqw);height:max(8px,3.4cqw);border-radius:50%;background:var(--tint);box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.45);display:inline-block}
+#tc .mn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#tc .dmg{font-family:var(--display);font-size:max(14px,6.4cqw);letter-spacing:.04em}#tc .dmg small{font-family:'Montserrat',sans-serif;font-size:max(7px,2.8cqw);letter-spacing:.1em;text-transform:uppercase;margin-right:3px;color:var(--tint)}
+#tc .flavor{margin:1.2cqw 3cqw .6cqw;font-size:max(10px,4cqw);font-style:italic;line-height:1.35;color:rgba(255,255,255,.86);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;align-self:center}
+#tc .cfoot{display:grid;grid-template-columns:1.8fr .95fr .85fr auto;align-items:end;gap:1.8cqw;padding:1.2cqw 3cqw 1.8cqw;font-family:'Montserrat',sans-serif;font-weight:700;font-size:max(9.5px,3.7cqw);letter-spacing:.02em;border-top:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35)}
+#tc .cfoot span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tc .cfoot small{display:block;font-size:max(7px,2.8cqw);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+#tc .cfoot .no{color:var(--gold)}#tc .cfoot em{font-style:normal}#tc .cfoot i{width:max(6px,2.6cqw);height:max(6px,2.6cqw)}
+#tc .lead-grid,#tc .train-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:600px;margin:0 auto}
+#tc .cta{text-align:center;margin-top:18px}
+#tc .btn{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.05em;padding:13px 26px;background:var(--gold);color:#000;border:0;border-radius:0;cursor:pointer;line-height:1.2;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
+#tc .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(229,184,0,.35)}#tc .btn:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none}
+#tc .btn-line{background:transparent;color:var(--gold);border:2px solid var(--gold)}
+#tc .btn-tab{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);padding:10px 18px;font-size:13px}#tc .btn-tab[aria-pressed="true"]{background:#fff;color:#000;border-color:#fff}
+/* ---- arena ---- */
+#tc .arena{max-width:900px;margin:0 auto}
+#tc .arena .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;margin-bottom:14px}
+#tc .pick{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end;margin-bottom:14px}
+#tc .pick label,#tc .pxopts label{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+#tc .pick select,#tc .pxopts select{width:100%;font:inherit;font-size:16px;padding:10px 12px;border:2px solid var(--gold);background:#000;color:#fff}
+#tc .pick .vsm{font-family:var(--display);font-size:34px;color:var(--gold);padding-bottom:4px}
+#tc .pxopts{display:inline-flex;gap:14px;align-items:end}#tc .pxopts[hidden]{display:none}#tc .pxopts label{display:inline-flex;align-items:center;gap:8px;margin:0}#tc .pxopts select{width:auto;font-size:14px;padding:7px 10px}
+#tc .ring{position:relative;display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:start;min-height:380px;padding:18px 0;isolation:isolate}
+#tc .ring::before{content:"";position:absolute;inset:0;background:url(assets/img/coaches/boom-logo.png) center/min(70%,620px) no-repeat;opacity:.09;pointer-events:none;z-index:0}
+#tc .ring>*{position:relative;z-index:1}
+#tc .ring .vs{font-family:var(--display);font-size:60px;color:var(--gold);text-align:center;align-self:center}
+#tc .ring .empty{grid-column:1/-1;text-align:center;align-self:center;color:rgba(255,255,255,.8);font-size:16px;margin:0}
+#tc .fighter{min-width:0}
+#tc .fighter .card{max-width:320px;margin:0 auto}
+#tc .fname{display:none;font-family:var(--display);font-size:26px;text-align:center;letter-spacing:.04em;margin-bottom:4px}
+#tc .hpbar{height:10px;background:#333;margin:10px auto 0;max-width:320px;border:1px solid rgba(255,255,255,.25);overflow:hidden}
+#tc .hpbar b{display:block;height:100%;background:#49d26a;width:100%;transition:width .5s var(--ease),background .3s}#tc .hpbar b.low{background:#ff5a4e}
+#tc .hpnum{font-family:var(--display);font-size:22px;text-align:center;margin-top:4px}
+#tc .en{display:flex;justify-content:center;gap:5px;margin-top:4px;align-items:center}#tc .en i{width:16px;height:9px;background:#333;border:1px solid rgba(255,255,255,.3);display:inline-block}#tc .en i.on{background:var(--gold);box-shadow:0 0 6px rgba(229,184,0,.8)}#tc .en small{font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-right:4px}
+/* 16-bit view: the court replaces the two cards, the stat screen stays */
+#tc .pxwrap{grid-column:1/-1;display:none;margin:0 auto 6px;width:100%;max-width:860px}
+#tc .ring.px .pxwrap{display:block}#tc .ring.px .card,#tc .ring.px .vs{display:none}#tc .ring.px .fname{display:block}#tc .ring.px{grid-template-columns:1fr 1fr}
+#tc #px{display:block;width:100%;aspect-ratio:16/9;image-rendering:pixelated;image-rendering:crisp-edges;border:3px solid #000;box-shadow:0 0 0 2px var(--gold),0 16px 40px rgba(0,0,0,.6);background:#0a3d43}
+#tc .shield{position:absolute;inset:-6px;border-radius:14px;box-shadow:0 0 0 3px #8fd1f2,0 0 30px rgba(143,209,242,.8);pointer-events:none;animation:shieldIn .4s var(--ease)}
+@keyframes shieldIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+#tc .vb{position:absolute;left:0;top:0;width:46px;height:46px;z-index:6;pointer-events:none;filter:drop-shadow(0 6px 6px rgba(0,0,0,.55))}
+#tc .log{margin-top:12px;max-height:160px;overflow:auto;font-size:15px;line-height:1.5;border-top:1px solid rgba(255,255,255,.12);padding-top:8px;max-width:900px;margin-inline:auto}
+#tc .log p{margin:0}#tc .log p b{color:var(--gold)}
+#tc .winner{font-family:var(--display);font-size:clamp(30px,4vw,48px);color:var(--gold);text-align:center;margin:8px 0 0;min-height:1em}
+#tc .lunge-l{animation:lungeL .55s var(--ease)}#tc .lunge-r{animation:lungeR .55s var(--ease)}
+@keyframes lungeL{30%{transform:translateX(44px) rotate(3deg)}60%{transform:translateX(-8px)}100%{transform:none}}
+@keyframes lungeR{30%{transform:translateX(-44px) rotate(-3deg)}60%{transform:translateX(8px)}100%{transform:none}}
+#tc .hit{animation:hit .5s}@keyframes hit{0%,100%{filter:none;transform:none}20%{filter:brightness(2.2) saturate(0);transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
+#tc .pop{position:absolute;left:50%;top:30%;transform:translateX(-50%);font-family:var(--display);font-size:48px;color:#ff5a4e;text-shadow:0 2px 0 #000,0 0 18px rgba(255,90,78,.7);animation:pop 1s var(--ease) forwards;pointer-events:none;z-index:5}
+#tc .pop.blk{color:#8fd1f2;text-shadow:0 2px 0 #000,0 0 18px rgba(143,209,242,.8);font-size:32px}
+#tc .pop.chg{color:var(--gold);text-shadow:0 2px 0 #000,0 0 18px rgba(229,184,0,.8);font-size:30px}
+@keyframes pop{from{opacity:0;transform:translate(-50%,10px) scale(.6)}25%{opacity:1;transform:translate(-50%,-10px) scale(1.15)}to{opacity:0;transform:translate(-50%,-60px) scale(1)}}
+#tc .ko{filter:grayscale(1) brightness(.5);transform:rotate(-6deg) translateY(10px)!important;transition:filter .6s,transform .6s}
+#tc .champ{box-shadow:0 0 0 3px var(--gold),0 0 60px rgba(229,184,0,.7)!important;animation:champ 1.2s ease-in-out infinite alternate}
+@keyframes champ{to{box-shadow:0 0 0 3px #fff,0 0 90px rgba(229,184,0,.95)}}
+/* boomdex */
+#tc .dex-btn{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:10px;background:#000;color:var(--gold);border:2px solid var(--gold);font-family:var(--display);font-size:22px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;cursor:pointer;box-shadow:0 10px 26px rgba(0,0,0,.5)}
+#tc .dex-btn .led{width:12px;height:12px;border-radius:50%;background:#49d26a;box-shadow:0 0 8px #49d26a}
+#tc .dex-btn:hover,#tc .dex-btn:focus-visible{background:var(--gold);color:#000;outline:none}
+#tc .dex{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(max(16px,env(safe-area-inset-bottom,0px)) + 58px);z-index:61;width:min(360px,calc(100vw - 32px));background:#0a1416;color:#fff;border:2px solid var(--gold);box-shadow:0 18px 44px rgba(0,0,0,.6);padding:14px 16px 16px}
+#tc .dex[hidden]{display:none}
+#tc .dex-h{display:flex;align-items:center;justify-content:space-between;font-family:var(--display);font-size:28px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+#tc .dex-x{font-size:28px;line-height:1;width:32px;height:32px;cursor:pointer;background:none;border:0;color:#fff}
+#tc .dex label{display:block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:10px 0 4px}
+#tc .dex select{width:100%;font:inherit;font-size:16px;padding:9px 10px;border:1px solid var(--gold);background:#000;color:#fff}
+#tc .dex-note{font-size:13px;margin:10px 0 0}
+@media(max-width:1000px){#tc .grid{grid-template-columns:repeat(2,1fr)}#tc .span-3{grid-column:1/-1}}
+@media(max-width:560px){#tc .grid{grid-template-columns:1fr}#tc .grp{grid-column:1/-1}#tc .tiles{grid-template-columns:repeat(2,1fr)}#tc .bt .sub{display:none}#tc .ring{grid-template-columns:1fr;gap:6px}#tc .ring .vs{font-size:36px}#tc .pick{grid-template-columns:1fr}#tc .pick .vsm{display:none}#tc .ring.px{grid-template-columns:1fr 1fr}}
+@media(max-width:400px){#tc .tiles{grid-template-columns:1fr}#tc .lead-grid,#tc .train-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#tc *{transition:none!important;animation:none!important}}
   </style>
   <link rel="canonical" href="https://coloradoboom.com/coaching-staff.html">
   <meta name="geo.region" content="US-CO">
@@ -211,53 +281,507 @@
       </span>
     </div>
   </div>
-  <!-- ===== [CO-01] HERO ===== -->
-  <section class="subhero has-img subhero--dark" data-section="CO-01">
-    <span class="sub-bg" style="background-image:url('assets/img/boys-action.jpg');background-position:center 62%;"></span>
-    <div class="container"><h1>Coaching Staff</h1><p>Experienced coaches from top Colorado clubs: expertise in biomechanics, skill development, and competitive strategy.</p></div>
-  </section>
-  <!-- ===== [CO-02] Coming soon ===== -->
-  <section data-section="CO-02" class="bg-dark">
-    <div class="container narrow prose" style="text-align:center;">
-      <h2 class="section-title staff-main">2026&ndash;27 Coaching Staff</h2>
-      <p>Colorado Boom recruits coaches from top Colorado club programs, including coaches with national-tournament experience. Every coach&rsquo;s team assignments are listed below and on the <a class="ulink" href="teams.html">Our Club Teams</a> page. Full bios with photos will follow.</p>
-    </div>
-  </section>
-  <!-- ===== [CO-02b] Club leadership — black section, teal nameplate, gold name (v1.73) ===== -->
-  <section data-section="CO-02b" class="bg-dark">
-    <div class="container">
-      <h3 class="section-title staff-title">Club Leadership</h3>
-      <div class="lead-grid">
-        <div class="coach coach--lead" id="coach-tara-tucker"><div class="ph" data-img="coach-tara-tucker.jpg">[ Photo ]</div><div class="b"><h4>Tara Tucker</h4><span>Club Operations Director</span></div></div>
-        <div class="coach coach--lead" id="coach-damon-sichler"><div class="ph"><img src="assets/img/coach-damon-sichler.jpg" alt="Damon Sichler, Assistant Club Director" width="1000" height="1250" loading="lazy" decoding="async"></div><div class="b"><h4>Damon Sichler</h4><span>Assistant Club Director</span></div></div>
+  <!-- ===== [CO-01..CO-04] Coaching staff as trading cards + Battle Arena (v2.17) ===== -->
+<div id="tc">
+<section class="hero pat"><img src="assets/img/coaches/hero-cast.jpg" alt="" width="1800" height="640"><div class="wrap"><span class="eyebrow">Base Set &middot; 2026&ndash;27 &middot; 27 cards</span><h1>Coaching Staff</h1><p>Every coach is a card. The frame is the element, and the element is the position: Outsides are Fighter, Setters are Psychic, Right Sides are Fire, Middles are Rock, Liberos are Grass, DS are Wind, Gym Trainers are Water.</p></div></section>
+<section class="band teald"><div class="wrap">
+  <div class="bt"><h2>Club Leadership</h2><span class="sub">Director cards</span></div>
+  <div class="lead-grid">
+      <article class="card el-Shiny shiny" id="coach-tara-tucker-director">
+        <div class="ci">
+          <header class="ch"><span class="stage">Club Operations Director</span><h4>Tara Tucker</h4><span class="hp"><b data-hp>130</b> HP</span><span class="ty" title="Shiny (Director)">✦</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-tara-tucker-director.webp" alt="Tara Tucker, Club Operations Director" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>Colorado Boom</span><span>Director</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Rotation Reset</span><span class="dmg">31</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Lineup Card</span><span class="dmg">18</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Timeout</span><span class="dmg"><small>blocks</small>20</span></li>
+          </ul>
+          <p class="flavor">Answers every parent email before the second practice.</p>
+          <footer class="cfoot"><span><small>weak</small>Bad Teammates</span><span><small>resist</small>Psychic</span><span><small>retreat</small><i></i></span><span class="no">01/27 <em>✦</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Shiny shiny" id="coach-damon-sichler-director">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Club Director</span><h4>Damon Sichler</h4><span class="hp"><b data-hp>140</b> HP</span><span class="ty" title="Shiny (Director)">✦</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-damon-sichler-director.webp" alt="Damon Sichler, Assistant Club Director" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>Colorado Boom</span><span>Director</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Rotation Reset</span><span class="dmg">34</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Lineup Card</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Timeout</span><span class="dmg"><small>blocks</small>20</span></li>
+          </ul>
+          <p class="flavor">Answers every parent email before the second practice.</p>
+          <footer class="cfoot"><span><small>weak</small>Tara</span><span><small>resist</small>Psychic</span><span><small>retreat</small><i></i><i></i></span><span class="no">02/27 <em>✦</em></span></footer>
+        </div>
+      </article>
+  </div>
+</div></section>
+<section class="band pat" id="b1"><div class="wrap">
+  <div class="bt"><h2>12U – 14U</h2><span class="sub">6 teams</span></div>
+  <div class="grid">
+    <section class="grp span-1" id="g-t12-colorado">
+      <header class="gh"><span class="age" aria-hidden="true">12</span><h3><a href="teams.html#t12-colorado">12 Colorado - Makayla</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Fire" id="coach-makayla-clemons">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Makayla Clemons</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-makayla-clemons" width="60" height="84" role="img" aria-label="Makayla Clemons, Head Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>12 Colorado</span><span>Right Side &middot; Fire</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">29</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">18</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Hits the angle, then the line, then the angle again. Nobody adjusts in time.</p>
+          <footer class="cfoot"><span><small>weak</small>Rotation Errors</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i><i></i></span><span class="no">03/27 <em>★</em></span></footer>
+        </div>
+      </article>
       </div>
-    </div>
-  </section>
-  <!-- ===== [CO-03] Coaching staff on the teal gradient — Coaches, then Assistant Coaches on cream nameplates (v1.73) ===== -->
-  <section data-section="CO-03" class="bg-cream">
-    <div class="container">
-      <h3 class="section-title staff-title">Coaches</h3>
-      <div class="grid-coaches">
-        <div class="coach" id="coach-kimberly-krise"><div class="ph" data-img="coach-kimberly-krise.jpg">[ Coach photo ]</div><div class="b"><h4>Kimberly Krise</h4><span>Head Coach &middot; <a href="teams.html#t14-colorado-krise">14 Colorado</a></span></div></div>
-        <div class="coach" id="coach-will-ly"><div class="ph" data-img="coach-will-ly.jpg">[ Coach photo ]</div><div class="b"><h4>Will Ly</h4><span>Head Coach &middot; <a href="teams.html#t16-regional">16 Regional</a> &middot; <a href="teams.html#t17-colorado">17 Colorado</a></span></div></div>
-        <div class="coach" id="coach-brian-peterson"><div class="ph" data-img="coach-brian-peterson.jpg">[ Coach photo ]</div><div class="b"><h4>Brian Peterson</h4><span>Head Coach &middot; <a href="teams.html#t16-colorado-peterson">16 Colorado</a></span></div></div>
-        <div class="coach" id="coach-sidney-reese"><div class="ph"><img src="assets/img/coach-sidney-reese.jpg" alt="Sidney Reese, Head Coach" width="1000" height="1250" loading="lazy" decoding="async"></div><div class="b"><h4>Sidney Reese</h4><span>Head Coach &middot; <a href="teams.html#t15-national-reese">15 National</a></span></div></div>
-        <div class="coach" id="coach-jae-spain"><div class="ph" data-img="coach-jae-spain.jpg">[ Coach photo ]</div><div class="b"><h4>Jae Spain</h4><span>Head Coach &middot; <a href="teams.html#t15-colorado">15 Colorado</a></span></div></div>
-        <div class="coach" id="coach-jawn-suzuki"><div class="ph" data-img="coach-jawn-suzuki.jpg">[ Coach photo ]</div><div class="b"><h4>Jawn Suzuki</h4><span>Head Coach &middot; <a href="teams.html#t17-national">17 National</a></span></div></div>
-        <div class="coach" id="coach-makayla-clemons"><div class="ph" data-img="coach-makayla-clemons.jpg">[ Coach photo ]</div><div class="b"><h4>Makayla Clemons</h4><span>Head Coach &middot; <a href="teams.html#t12-colorado">12 Colorado</a></span></div></div>
-        <div class="coach" id="coach-zhu"><div class="ph" data-img="coach-zhu.jpg">[ Coach photo ]</div><div class="b"><h4>Zhu</h4><span>Head Coach &middot; <a href="teams.html#t13-colorado">13 Colorado</a> &middot; <a href="teams.html#t16-colorado-zhu">16 Colorado</a></span></div></div>
+    </section>
+    <section class="grp span-3" id="g-t13-colorado">
+      <header class="gh"><span class="age" aria-hidden="true">13 / 16</span><h3><a href="teams.html#t13-colorado">13 Colorado - Zhu</a><span class="sep" aria-hidden="true">&middot;</span><a href="teams.html#t16-colorado-zhu">16 Colorado - Zhu</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Fighter" id="coach-zhu">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Zhu</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-zhu.webp" alt="Zhu, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>13 &amp; 16 Colorado</span><span>Outside &middot; Fighter</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Hits line until you take it away, then hits line anyway.</p>
+          <footer class="cfoot"><span><small>weak</small>Early Mornings</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i></span><span class="no">04/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Wind" id="coach-megan-daugherty">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Megan Daugherty</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Wind (DS)">≋</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-megan-daugherty" width="60" height="84" role="img" aria-label="Megan Daugherty, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>13 Colorado</span><span>DS &middot; Wind</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">18</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">The scoreboard never shows how many points this card saved.</p>
+          <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">05/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Fighter" id="coach-matt-jueng">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Matt Jueng</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-matt-jueng" width="60" height="84" role="img" aria-label="Matt Jueng, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>16 Colorado</span><span>Outside &middot; Fighter</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">34</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">17</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">9</span></li>
+          </ul>
+          <p class="flavor">Six rotations, zero fear. Swings away on every out-of-system ball.</p>
+          <footer class="cfoot"><span><small>weak</small>Bad Korean Food</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i></span><span class="no">06/27 <em>◆</em></span></footer>
+        </div>
+      </article>
       </div>
-      <h3 class="section-title staff-title">Assistant Coaches</h3>
-      <div class="grid-coaches">
-        <div class="coach coach--asst" id="coach-rudy-garcia"><div class="ph" data-img="coach-rudy-garcia.jpg">[ Coach photo ]</div><div class="b"><h4>Rudy Garcia</h4><span>Assistant Coach &middot; <a href="teams.html#t14-colorado-krise">14 Colorado</a></span></div></div>
-        <div class="coach coach--asst" id="coach-alicia-hall"><div class="ph" data-img="coach-alicia-hall.jpg">[ Coach photo ]</div><div class="b"><h4>Alicia Hall</h4><span>Assistant Coach &middot; <a href="teams.html#t14-national">14 National</a> &middot; <a href="teams.html#t15-national-tucker">15 National</a></span></div></div>
-        <div class="coach coach--asst" id="coach-claire-kwok"><div class="ph" data-img="coach-claire-kwok.jpg">[ Coach photo ]</div><div class="b"><h4>Claire Kwok</h4><span>Assistant Coach &middot; <a href="teams.html#t15-colorado">15 Colorado</a></span></div></div>
-        <div class="coach coach--asst" id="coach-kyn-van"><div class="ph" data-img="coach-kyn-van.jpg">[ Coach photo ]</div><div class="b"><h4>Kyn Van</h4><span>Assistant Coach &middot; <a href="teams.html#t16-regional">16 Regional</a> &middot; <a href="teams.html#t17-colorado">17 Colorado</a></span></div></div>
-        <div class="coach coach--asst" id="coach-randy-vang"><div class="ph" data-img="coach-randy-vang.jpg">[ Coach photo ]</div><div class="b"><h4>Randy Vang</h4><span>Assistant Coach &middot; <a href="teams.html#t16-national">16 National</a></span></div></div>
+    </section>
+    <section class="grp span-2" id="g-t14-national">
+      <header class="gh"><span class="age" aria-hidden="true">14 / 15</span><h3><a href="teams.html#t14-national">14 National - Tara</a><span class="sep" aria-hidden="true">&middot;</span><a href="teams.html#t15-national-tucker">15 National - Tara</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Grass" id="coach-tara-tucker">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Tara Tucker</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-tara-tucker.webp" alt="Tara Tucker, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>14 &amp; 15 National</span><span>Libero &middot; Grass</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">36</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Digs the hardest swing in the gym and calls it a free ball.</p>
+          <footer class="cfoot"><span><small>weak</small>Bad Teammates</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i></span><span class="no">07/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Psychic" id="coach-alicia-hall">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Alicia Hall</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-alicia-hall" width="60" height="84" role="img" aria-label="Alicia Hall, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>14 &amp; 15 National</span><span>Setter &middot; Psychic</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Quiet hands, loud decisions.</p>
+          <footer class="cfoot"><span><small>weak</small>HR</span><span><small>resist</small>Fighter</span><span><small>retreat</small><i></i></span><span class="no">08/27 <em>◆</em></span></footer>
+        </div>
+      </article>
       </div>
-      <div class="cta-inline"><a href="mailto:admin@coloradoboom.com" class="btn btn-gold">Interested in Coaching? Contact Us</a></div>
+    </section>
+    <section class="grp span-2" id="g-t14-colorado-krise">
+      <header class="gh"><span class="age" aria-hidden="true">14</span><h3><a href="teams.html#t14-colorado-krise">14 Colorado - Kimberly</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Fighter" id="coach-kimberly-krise">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Kimberly Krise</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-kimberly-krise.webp" alt="Kimberly Krise, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>14 Colorado</span><span>Outside &middot; Fighter</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">34</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">19</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">9</span></li>
+          </ul>
+          <p class="flavor">Six rotations, zero fear. Swings away on every out-of-system ball.</p>
+          <footer class="cfoot"><span><small>weak</small>Ball Carts With One Bad Wheel</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i><i></i></span><span class="no">09/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Fighter" id="coach-rudy-garcia">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Rudy Garcia</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-rudy-garcia" width="60" height="84" role="img" aria-label="Rudy Garcia, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>14 Colorado</span><span>Outside &middot; Fighter</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">28</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Lives in the left front and rents out the back row.</p>
+          <footer class="cfoot"><span><small>weak</small>Libero Tracking Sheets</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i></span><span class="no">10/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-1" id="g-t14-colorado-rob">
+      <header class="gh"><span class="age" aria-hidden="true">14</span><h3><a href="teams.html#t14-colorado-rob">14 Colorado - Rob</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Fire" id="coach-rob-oschner">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Rob Oschner</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-rob-oschner" width="60" height="84" role="img" aria-label="Rob Oschner, Head Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>14 Colorado</span><span>Right Side &middot; Fire</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">28</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Turns a tight set into a tool off the block every single time.</p>
+          <footer class="cfoot"><span><small>weak</small>Overhead Press</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">11/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-2" id="g-t14-colorado-janci">
+      <header class="gh"><span class="age" aria-hidden="true">14</span><h3><a href="teams.html#t14-colorado-janci">14 Colorado - Janci</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Grass" id="coach-janci-ige">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Janci Ige</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-janci-ige" width="60" height="84" role="img" aria-label="Janci Ige, Head Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>14 Colorado</span><span>Libero &middot; Grass</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">33</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Pancakes, platforms and a perfect pass. The floor is lava for the ball.</p>
+          <footer class="cfoot"><span><small>weak</small>Libero Tracking Sheets</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i></span><span class="no">12/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Fire" id="coach-dax-martin">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Dax Martin</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-dax-martin" width="60" height="84" role="img" aria-label="Dax Martin, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>14 Colorado</span><span>Right Side &middot; Fire</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">31</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">19</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Lives on the right pin. Crushes the slide and the tool.</p>
+          <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">13/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+  </div>
+</div></section>
+<section class="band teal" id="b2"><div class="wrap">
+  <div class="bt"><h2>15U – 16U</h2><span class="sub">5 teams</span></div>
+  <div class="grid">
+    <section class="grp span-1" id="g-t15-regional">
+      <header class="gh"><span class="age" aria-hidden="true">15</span><h3><a href="teams.html#t15-regional">15 Regional - Adam</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Rock" id="coach-adam-ray">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Adam Ray</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-adam-ray" width="60" height="84" role="img" aria-label="Adam Ray, Head Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>15 Regional</span><span>Middle &middot; Rock</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">32</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Block</span><span class="dmg"><small>blocks</small>15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">Three touches of the net per practice. Zero in matches.</p>
+          <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">14/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-2" id="g-t15-national-reese">
+      <header class="gh"><span class="age" aria-hidden="true">15</span><h3><a href="teams.html#t15-national-reese">15 National - Sidney</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Fire" id="coach-sidney-reese">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Sidney Reese</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-sidney-reese.webp" alt="Sidney Reese, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>15 National</span><span>Right Side &middot; Fire</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">33</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Hits the angle, then the line, then the angle again. Nobody adjusts in time.</p>
+          <footer class="cfoot"><span><small>weak</small>Seafood</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">15/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Psychic" id="coach-hanfei-li">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Hanfei Li</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-hanfei-li" width="60" height="84" role="img" aria-label="Hanfei Li, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>15 National</span><span>Setter &middot; Psychic</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">31</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">Calls the play, runs the play, takes none of the credit.</p>
+          <footer class="cfoot"><span><small>weak</small>Hotel Breakfast</span><span><small>resist</small>Fighter</span><span><small>retreat</small><i></i></span><span class="no">16/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-1" id="g-t16-colorado-peterson">
+      <header class="gh"><span class="age" aria-hidden="true">16</span><h3><a href="teams.html#t16-colorado-peterson">16 Colorado - Brian</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Water" id="coach-brian-peterson">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Brian Peterson</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-brian-peterson" width="60" height="84" role="img" aria-label="Brian Peterson, Head Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>16 Colorado</span><span>Trainer &middot; Water</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">20</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Makes the third set feel like the first.</p>
+          <footer class="cfoot"><span><small>weak</small>Gas Prices</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">17/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-2" id="g-t15-colorado">
+      <header class="gh"><span class="age" aria-hidden="true">15</span><h3><a href="teams.html#t15-colorado">15 Colorado - Jae</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Rock" id="coach-jae-spain">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Jae Spain</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-jae-spain.webp" alt="Jae Spain, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>15 Colorado</span><span>Middle &middot; Rock</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">32</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Block</span><span class="dmg"><small>blocks</small>15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">Takes away the line like it was never there.</p>
+          <footer class="cfoot"><span><small>weak</small>Libero Tracking Sheets</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">18/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Fighter" id="coach-claire-kwok">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Claire Kwok</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Fighter (Outside)">✊</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-claire-kwok.webp" alt="Claire Kwok, Assistant Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>15 Colorado</span><span>Outside &middot; Fighter</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">31</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">19</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Cross Hit</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">Six rotations, zero fear. Swings away on every out-of-system ball.</p>
+          <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Rock</span><span><small>retreat</small><i></i></span><span class="no">19/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-2" id="g-t16-national">
+      <header class="gh"><span class="age" aria-hidden="true">16</span><h3><a href="teams.html#t16-national">16 National - Damon</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Psychic" id="coach-damon-sichler">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Damon Sichler</h4><span class="hp"><b data-hp>100</b> HP</span><span class="ty" title="Psychic (Setter)">◉</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-damon-sichler.webp" alt="Damon Sichler, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>16 National</span><span>Setter &middot; Psychic</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">2-Ball</span><span class="dmg">29</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Setter Dump</span><span class="dmg">16</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">9</span></li>
+          </ul>
+          <p class="flavor">Runs the offense like a point guard. Dumps when you least expect it.</p>
+          <footer class="cfoot"><span><small>weak</small>Tara</span><span><small>resist</small>Fighter</span><span><small>retreat</small><i></i><i></i></span><span class="no">20/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Grass" id="coach-randy-vang">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Randy Vang</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-randy-vang" width="60" height="84" role="img" aria-label="Randy Vang, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>16 National</span><span>Libero &middot; Grass</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">30</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">9</span></li>
+          </ul>
+          <p class="flavor">Platform never breaks. Neither does the rotation.</p>
+          <footer class="cfoot"><span><small>weak</small>Rotation Errors</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i><i></i></span><span class="no">21/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+  </div>
+</div></section>
+<section class="band pat" id="b3"><div class="wrap">
+  <div class="bt"><h2>16U – 17U</h2><span class="sub">2 teams</span></div>
+  <div class="grid">
+    <section class="grp span-2" id="g-t16-regional">
+      <header class="gh"><span class="age" aria-hidden="true">16 / 17</span><h3><a href="teams.html#t16-regional">16 Regional - Will</a><span class="sep" aria-hidden="true">&middot;</span><a href="teams.html#t17-colorado">17 Colorado - Will</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Grass" id="coach-will-ly">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Will Ly</h4><span class="hp"><b data-hp>90</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-will-ly.webp" alt="Will Ly, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>16 Regional &amp; 17 Colorado</span><span>Libero &middot; Grass</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">31</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">9</span></li>
+          </ul>
+          <p class="flavor">Reads the hitter's shoulder, not the ball.</p>
+          <footer class="cfoot"><span><small>weak</small>Bad Footwear</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i></span><span class="no">22/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Fire" id="coach-kyn-van">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Kyn Van</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Fire (Right Side)">🔥</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-kyn-van" width="60" height="84" role="img" aria-label="Kyn Van, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>16 Regional &amp; 17 Colorado</span><span>Right Side &middot; Fire</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Line Hit</span><span class="dmg">34</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Cut Shot</span><span class="dmg">22</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Roll Shot</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">Hits the angle, then the line, then the angle again. Nobody adjusts in time.</p>
+          <footer class="cfoot"><span><small>weak</small>Serve Receive</span><span><small>resist</small>Grass</span><span><small>retreat</small><i></i></span><span class="no">23/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+    <section class="grp span-2" id="g-t17-national">
+      <header class="gh"><span class="age" aria-hidden="true">17</span><h3><a href="teams.html#t17-national">17 National - Jawn</a></h3></header>
+      <div class="tiles">
+      <article class="card el-Grass" id="coach-jawn-suzuki">
+        <div class="ci">
+          <header class="ch"><span class="stage">Head Coach</span><h4>Jawn Suzuki</h4><span class="hp"><b data-hp>80</b> HP</span><span class="ty" title="Grass (Libero)">✿</span></header>
+          <div class="ph"><img src="assets/img/coaches/cut/coach-jawn-suzuki.webp" alt="Jawn Suzuki, Head Coach" width="480" height="520" loading="lazy"></div>
+          <div class="meta"><span>17 National</span><span>Libero &middot; Grass</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Free Corner Ball</span><span class="dmg">34</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Dig</span><span class="dmg"><small>blocks</small>12</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">First to every ball. Serve receive starts here.</p>
+          <footer class="cfoot"><span><small>weak</small>Bad Refs</span><span><small>resist</small>Water</span><span><small>retreat</small><i></i></span><span class="no">24/27 <em>★</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Rock" id="coach-brian-xu">
+        <div class="ci">
+          <header class="ch"><span class="stage">Assistant Coach</span><h4>Brian Xu</h4><span class="hp"><b data-hp>70</b> HP</span><span class="ty" title="Rock (Middle)">⬢</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-brian-xu" width="60" height="84" role="img" aria-label="Brian Xu, Assistant Coach (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>17 National</span><span>Middle &middot; Rock</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Hard Spike</span><span class="dmg">29</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Block</span><span class="dmg"><small>blocks</small>15</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Tip</span><span class="dmg">9</span></li>
+          </ul>
+          <p class="flavor">Nobody runs a slide against this card twice.</p>
+          <footer class="cfoot"><span><small>weak</small>Tournament Parking</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">25/27 <em>◆</em></span></footer>
+        </div>
+      </article>
+      </div>
+    </section>
+  </div>
+</div></section>
+<section class="band teald" id="trainers"><div class="wrap">
+  <div class="bt"><h2>Gym Trainers</h2><span class="sub">Water cards</span></div>
+  <div class="train-grid">
+      <article class="card el-Water" id="coach-jamison-crowley">
+        <div class="ci">
+          <header class="ch"><span class="stage">Strength &amp; Conditioning</span><h4>Jamison Crowley</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-jamison-crowley" width="60" height="84" role="img" aria-label="Jamison Crowley, Strength &amp; Conditioning (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>Gym Trainer</span><span>Trainer &middot; Water</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">33</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">18</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">10</span></li>
+          </ul>
+          <p class="flavor">Turns a vertical into a bigger vertical.</p>
+          <footer class="cfoot"><span><small>weak</small>Line Judges</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i><i></i></span><span class="no">26/27 <em>●</em></span></footer>
+        </div>
+      </article>
+      <article class="card el-Water" id="coach-lena-cox">
+        <div class="ci">
+          <header class="ch"><span class="stage">Yoga, Mobility &amp; Flexibility</span><h4>Lena Cox</h4><span class="hp"><b data-hp>60</b> HP</span><span class="ty" title="Water (Trainer)">💧</span></header>
+          <div class="ph"><canvas class="spr" data-id="coach-lena-cox" width="60" height="84" role="img" aria-label="Lena Cox, Yoga, Mobility &amp; Flexibility (pixel sprite placeholder)"></canvas></div>
+          <div class="meta"><span>Gym Trainer</span><span>Trainer &middot; Water</span></div>
+          <ul class="moves">
+            <li><span class="cost"><i></i><i></i><i></i></span><span class="mn">Cross Hit</span><span class="dmg">35</span></li>
+            <li><span class="cost"><i></i><i></i></span><span class="mn">Top Spin Serve</span><span class="dmg">19</span></li>
+            <li><span class="cost"><i></i></span><span class="mn">Float Serve</span><span class="dmg">8</span></li>
+          </ul>
+          <p class="flavor">Turns a vertical into a bigger vertical.</p>
+          <footer class="cfoot"><span><small>weak</small>Net Violations</span><span><small>resist</small>Fire</span><span><small>retreat</small><i></i></span><span class="no">27/27 <em>●</em></span></footer>
+        </div>
+      </article>
+  </div>
+</div></section>
+
+<section class="band pat" id="arena"><div class="wrap">
+  <div class="bt"><h2>Battle Arena</h2><span class="sub">Pick two cards or draw at random</span></div>
+  <div class="arena">
+    <div class="pick">
+      <div><label for="selL">Left corner</label><select id="selL"><option value="">Choose a card</option><option value="coach-tara-tucker-director">01 &middot; Tara Tucker &mdash; Club Operations Director</option><option value="coach-damon-sichler-director">02 &middot; Damon Sichler &mdash; Assistant Club Director</option><option value="coach-makayla-clemons">03 &middot; Makayla Clemons &mdash; Head Coach</option><option value="coach-zhu">04 &middot; Zhu &mdash; Head Coach</option><option value="coach-megan-daugherty">05 &middot; Megan Daugherty &mdash; Assistant Coach</option><option value="coach-matt-jueng">06 &middot; Matt Jueng &mdash; Assistant Coach</option><option value="coach-tara-tucker">07 &middot; Tara Tucker &mdash; Head Coach</option><option value="coach-alicia-hall">08 &middot; Alicia Hall &mdash; Assistant Coach</option><option value="coach-kimberly-krise">09 &middot; Kimberly Krise &mdash; Head Coach</option><option value="coach-rudy-garcia">10 &middot; Rudy Garcia &mdash; Assistant Coach</option><option value="coach-rob-oschner">11 &middot; Rob Oschner &mdash; Head Coach</option><option value="coach-janci-ige">12 &middot; Janci Ige &mdash; Head Coach</option><option value="coach-dax-martin">13 &middot; Dax Martin &mdash; Assistant Coach</option><option value="coach-adam-ray">14 &middot; Adam Ray &mdash; Head Coach</option><option value="coach-sidney-reese">15 &middot; Sidney Reese &mdash; Head Coach</option><option value="coach-hanfei-li">16 &middot; Hanfei Li &mdash; Assistant Coach</option><option value="coach-brian-peterson">17 &middot; Brian Peterson &mdash; Head Coach</option><option value="coach-jae-spain">18 &middot; Jae Spain &mdash; Head Coach</option><option value="coach-claire-kwok">19 &middot; Claire Kwok &mdash; Assistant Coach</option><option value="coach-damon-sichler">20 &middot; Damon Sichler &mdash; Head Coach</option><option value="coach-randy-vang">21 &middot; Randy Vang &mdash; Assistant Coach</option><option value="coach-will-ly">22 &middot; Will Ly &mdash; Head Coach</option><option value="coach-kyn-van">23 &middot; Kyn Van &mdash; Assistant Coach</option><option value="coach-jawn-suzuki">24 &middot; Jawn Suzuki &mdash; Head Coach</option><option value="coach-brian-xu">25 &middot; Brian Xu &mdash; Assistant Coach</option><option value="coach-jamison-crowley">26 &middot; Jamison Crowley &mdash; Strength &amp; Conditioning</option><option value="coach-lena-cox">27 &middot; Lena Cox &mdash; Yoga, Mobility &amp; Flexibility</option></select></div>
+      <span class="vsm" aria-hidden="true">VS</span>
+      <div><label for="selR">Right corner</label><select id="selR"><option value="">Choose a card</option><option value="coach-tara-tucker-director">01 &middot; Tara Tucker &mdash; Club Operations Director</option><option value="coach-damon-sichler-director">02 &middot; Damon Sichler &mdash; Assistant Club Director</option><option value="coach-makayla-clemons">03 &middot; Makayla Clemons &mdash; Head Coach</option><option value="coach-zhu">04 &middot; Zhu &mdash; Head Coach</option><option value="coach-megan-daugherty">05 &middot; Megan Daugherty &mdash; Assistant Coach</option><option value="coach-matt-jueng">06 &middot; Matt Jueng &mdash; Assistant Coach</option><option value="coach-tara-tucker">07 &middot; Tara Tucker &mdash; Head Coach</option><option value="coach-alicia-hall">08 &middot; Alicia Hall &mdash; Assistant Coach</option><option value="coach-kimberly-krise">09 &middot; Kimberly Krise &mdash; Head Coach</option><option value="coach-rudy-garcia">10 &middot; Rudy Garcia &mdash; Assistant Coach</option><option value="coach-rob-oschner">11 &middot; Rob Oschner &mdash; Head Coach</option><option value="coach-janci-ige">12 &middot; Janci Ige &mdash; Head Coach</option><option value="coach-dax-martin">13 &middot; Dax Martin &mdash; Assistant Coach</option><option value="coach-adam-ray">14 &middot; Adam Ray &mdash; Head Coach</option><option value="coach-sidney-reese">15 &middot; Sidney Reese &mdash; Head Coach</option><option value="coach-hanfei-li">16 &middot; Hanfei Li &mdash; Assistant Coach</option><option value="coach-brian-peterson">17 &middot; Brian Peterson &mdash; Head Coach</option><option value="coach-jae-spain">18 &middot; Jae Spain &mdash; Head Coach</option><option value="coach-claire-kwok">19 &middot; Claire Kwok &mdash; Assistant Coach</option><option value="coach-damon-sichler">20 &middot; Damon Sichler &mdash; Head Coach</option><option value="coach-randy-vang">21 &middot; Randy Vang &mdash; Assistant Coach</option><option value="coach-will-ly">22 &middot; Will Ly &mdash; Head Coach</option><option value="coach-kyn-van">23 &middot; Kyn Van &mdash; Assistant Coach</option><option value="coach-jawn-suzuki">24 &middot; Jawn Suzuki &mdash; Head Coach</option><option value="coach-brian-xu">25 &middot; Brian Xu &mdash; Assistant Coach</option><option value="coach-jamison-crowley">26 &middot; Jamison Crowley &mdash; Strength &amp; Conditioning</option><option value="coach-lena-cox">27 &middot; Lena Cox &mdash; Yoga, Mobility &amp; Flexibility</option></select></div>
     </div>
-  </section>
+    <div class="row"><button type="button" class="btn" id="btnRandom">Random Matchup</button><button type="button" class="btn btn-line" id="btnFight" disabled>Fight!</button><button type="button" class="btn btn-line" id="btnNext" disabled title="The winner stays in and fights a new random opponent right away">Next Fight</button><button type="button" class="btn btn-line" id="btnSound" aria-pressed="true">Sound: On</button></div>
+    <div class="row"><button type="button" class="btn btn-tab" id="vCard" aria-pressed="true">Card View</button><button type="button" class="btn btn-tab" id="vPx" aria-pressed="false">16-Bit View</button>
+      <span class="pxopts" id="pxopts" hidden><label>Gym <select id="selGym"><option value="fieldhouse">Boomtown Fieldhouse</option><option value="arena">Championship Arena</option><option value="beach">Beach Night</option><option value="retro">Retro Gym</option></select></label><label>Sprites <select id="selStyle"><option value="photo">Photo</option><option value="rpg">RPG</option></select></label></span></div>
+    <div class="ring" id="ring"><div class="pxwrap" id="pxwrap"><canvas id="px" width="320" height="180" role="img" aria-label="Pixel-art replay of the fight"></canvas></div><p class="empty" id="ringEmpty">Pick two cards above, or press Random Matchup.</p></div>
+    <p class="winner" id="winner"></p>
+    <div class="log" id="log"></div>
+  </div>
+</div></section>
+<section class="band teal" style="padding-block:18px"><div class="wrap cta"><a class="btn" href="mailto:admin@coloradoboom.com">Interested in Coaching? Contact Us</a></div></section>
+
+  <button type="button" class="dex-btn" id="dexBtn" aria-expanded="false" aria-controls="dex"><span class="led" aria-hidden="true"></span>Boomdex</button>
+  <div class="dex" id="dex" hidden role="dialog" aria-label="Boomdex">
+    <div class="dex-h"><span>Boomdex</span><button type="button" class="dex-x" id="dexX" aria-label="Close">&times;</button></div>
+    <label for="selTeam">By team</label>
+    <select id="selTeam"><option value="">Choose a team</option><option value="g-t12-colorado">12 Colorado - Makayla</option><option value="g-t13-colorado">13 Colorado - Zhu</option><option value="g-t14-national">14 National - Tara</option><option value="g-t14-colorado-krise">14 Colorado - Kimberly</option><option value="g-t14-colorado-rob">14 Colorado - Rob</option><option value="g-t14-colorado-janci">14 Colorado - Janci</option><option value="g-t15-national-tucker">15 National - Tara</option><option value="g-t15-national-reese">15 National - Sidney</option><option value="g-t15-colorado">15 Colorado - Jae</option><option value="g-t15-regional">15 Regional - Adam</option><option value="g-t16-national">16 National - Damon</option><option value="g-t16-colorado-zhu">16 Colorado - Zhu</option><option value="g-t16-colorado-peterson">16 Colorado - Brian</option><option value="g-t16-regional">16 Regional - Will</option><option value="g-t17-national">17 National - Jawn</option><option value="g-t17-colorado">17 Colorado - Will</option></select>
+    <label for="selCoach">By name</label>
+    <select id="selCoach"><option value="">Choose a card</option><option value="coach-tara-tucker-director">01 &middot; Tara Tucker &mdash; Club Operations Director</option><option value="coach-damon-sichler-director">02 &middot; Damon Sichler &mdash; Assistant Club Director</option><option value="coach-makayla-clemons">03 &middot; Makayla Clemons &mdash; Head Coach</option><option value="coach-zhu">04 &middot; Zhu &mdash; Head Coach</option><option value="coach-megan-daugherty">05 &middot; Megan Daugherty &mdash; Assistant Coach</option><option value="coach-matt-jueng">06 &middot; Matt Jueng &mdash; Assistant Coach</option><option value="coach-tara-tucker">07 &middot; Tara Tucker &mdash; Head Coach</option><option value="coach-alicia-hall">08 &middot; Alicia Hall &mdash; Assistant Coach</option><option value="coach-kimberly-krise">09 &middot; Kimberly Krise &mdash; Head Coach</option><option value="coach-rudy-garcia">10 &middot; Rudy Garcia &mdash; Assistant Coach</option><option value="coach-rob-oschner">11 &middot; Rob Oschner &mdash; Head Coach</option><option value="coach-janci-ige">12 &middot; Janci Ige &mdash; Head Coach</option><option value="coach-dax-martin">13 &middot; Dax Martin &mdash; Assistant Coach</option><option value="coach-adam-ray">14 &middot; Adam Ray &mdash; Head Coach</option><option value="coach-sidney-reese">15 &middot; Sidney Reese &mdash; Head Coach</option><option value="coach-hanfei-li">16 &middot; Hanfei Li &mdash; Assistant Coach</option><option value="coach-brian-peterson">17 &middot; Brian Peterson &mdash; Head Coach</option><option value="coach-jae-spain">18 &middot; Jae Spain &mdash; Head Coach</option><option value="coach-claire-kwok">19 &middot; Claire Kwok &mdash; Assistant Coach</option><option value="coach-damon-sichler">20 &middot; Damon Sichler &mdash; Head Coach</option><option value="coach-randy-vang">21 &middot; Randy Vang &mdash; Assistant Coach</option><option value="coach-will-ly">22 &middot; Will Ly &mdash; Head Coach</option><option value="coach-kyn-van">23 &middot; Kyn Van &mdash; Assistant Coach</option><option value="coach-jawn-suzuki">24 &middot; Jawn Suzuki &mdash; Head Coach</option><option value="coach-brian-xu">25 &middot; Brian Xu &mdash; Assistant Coach</option><option value="coach-jamison-crowley">26 &middot; Jamison Crowley &mdash; Strength &amp; Conditioning</option><option value="coach-lena-cox">27 &middot; Lena Cox &mdash; Yoga, Mobility &amp; Flexibility</option></select>
+    <button type="button" class="btn" id="dexBattle" style="width:100%;margin-top:14px">Battle Arena &darr;</button>
+    <p class="dex-note">Team names on the cards open that team on Our Club Teams.</p>
+  </div>
+</div>
   <!-- ============ [FT] FOOTER (shared on every page) ============ -->
   <footer data-section="FT">
     <div class="container">
@@ -306,6 +830,217 @@
       </div>
     </div>
   </footer>
+  <script>
+  (function(){
+    var DATA={"coach-tara-tucker-director":{"n":"Tara Tucker","no":1,"s":{"el":"Shiny","pos":"Director","hp":130,"atk":78,"def":61,"spd":88,"moves":[{"name":"Rotation Reset","cost":3,"kind":"atk","pow":31},{"name":"Lineup Card","cost":2,"kind":"atk","pow":18},{"name":"Timeout","cost":1,"kind":"shield:20","pow":0}],"weak":"Bad Teammates","flavor":"Answers every parent email before the second practice.","seed":3327542865,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-tara-tucker-director.webp","shiny":true},"coach-damon-sichler-director":{"n":"Damon Sichler","no":2,"s":{"el":"Shiny","pos":"Director","hp":140,"atk":74,"def":76,"spd":76,"moves":[{"name":"Rotation Reset","cost":3,"kind":"atk","pow":34},{"name":"Lineup Card","cost":2,"kind":"atk","pow":20},{"name":"Timeout","cost":1,"kind":"shield:20","pow":0}],"weak":"Tara","flavor":"Answers every parent email before the second practice.","seed":4085742618,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-damon-sichler-director.webp","shiny":true},"coach-makayla-clemons":{"n":"Makayla Clemons","no":3,"s":{"el":"Fire","pos":"Right Side","hp":80,"atk":55,"def":80,"spd":47,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":29},{"name":"Cut Shot","cost":2,"kind":"atk","pow":18},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Rotation Errors","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":1206098636,"jersey":"black"},"photo":null,"shiny":false},"coach-zhu":{"n":"Zhu","no":4,"s":{"el":"Fighter","pos":"Outside","hp":80,"atk":75,"def":54,"spd":85,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":30},{"name":"Line Hit","cost":2,"kind":"atk","pow":22},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Early Mornings","flavor":"Hits line until you take it away, then hits line anyway.","seed":4051617930,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-zhu.webp","shiny":false},"coach-megan-daugherty":{"n":"Megan Daugherty","no":5,"s":{"el":"Wind","pos":"DS","hp":70,"atk":62,"def":55,"spd":58,"moves":[{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":18},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Roll Shot","cost":1,"kind":"atk","pow":8}],"weak":"Tournament Parking","flavor":"The scoreboard never shows how many points this card saved.","seed":2369721964,"jersey":"black"},"photo":null,"shiny":false},"coach-matt-jueng":{"n":"Matt Jueng","no":6,"s":{"el":"Fighter","pos":"Outside","hp":90,"atk":86,"def":59,"spd":45,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":34},{"name":"Line Hit","cost":2,"kind":"atk","pow":17},{"name":"Cross Hit","cost":1,"kind":"atk","pow":9}],"weak":"Bad Korean Food","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":999618074,"jersey":"teal"},"photo":null,"shiny":false},"coach-tara-tucker":{"n":"Tara Tucker","no":7,"s":{"el":"Grass","pos":"Libero","hp":70,"atk":64,"def":50,"spd":87,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":36},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Bad Teammates","flavor":"Digs the hardest swing in the gym and calls it a free ball.","seed":2160979811,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-tara-tucker.webp","shiny":false},"coach-alicia-hall":{"n":"Alicia Hall","no":8,"s":{"el":"Psychic","pos":"Setter","hp":90,"atk":64,"def":45,"spd":47,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":35},{"name":"Setter Dump","cost":2,"kind":"atk","pow":22},{"name":"Tip","cost":1,"kind":"atk","pow":10}],"weak":"HR","flavor":"Quiet hands, loud decisions.","seed":1004586841,"jersey":"white"},"photo":null,"shiny":false},"coach-kimberly-krise":{"n":"Kimberly Krise","no":9,"s":{"el":"Fighter","pos":"Outside","hp":90,"atk":74,"def":84,"spd":77,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":34},{"name":"Line Hit","cost":2,"kind":"atk","pow":19},{"name":"Cross Hit","cost":1,"kind":"atk","pow":9}],"weak":"Ball Carts With One Bad Wheel","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":407549970,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-kimberly-krise.webp","shiny":false},"coach-rudy-garcia":{"n":"Rudy Garcia","no":10,"s":{"el":"Fighter","pos":"Outside","hp":90,"atk":59,"def":70,"spd":66,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":28},{"name":"Line Hit","cost":2,"kind":"atk","pow":20},{"name":"Cross Hit","cost":1,"kind":"atk","pow":10}],"weak":"Libero Tracking Sheets","flavor":"Lives in the left front and rents out the back row.","seed":3697102010,"jersey":"teal"},"photo":null,"shiny":false},"coach-rob-oschner":{"n":"Rob Oschner","no":11,"s":{"el":"Fire","pos":"Right Side","hp":70,"atk":51,"def":45,"spd":70,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":28},{"name":"Cut Shot","cost":2,"kind":"atk","pow":22},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Overhead Press","flavor":"Turns a tight set into a tool off the block every single time.","seed":3911843974,"jersey":"teal"},"photo":null,"shiny":false},"coach-janci-ige":{"n":"Janci Ige","no":12,"s":{"el":"Grass","pos":"Libero","hp":70,"atk":50,"def":67,"spd":53,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":33},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Libero Tracking Sheets","flavor":"Pancakes, platforms and a perfect pass. The floor is lava for the ball.","seed":2641556481,"jersey":"black"},"photo":null,"shiny":false},"coach-dax-martin":{"n":"Dax Martin","no":13,"s":{"el":"Fire","pos":"Right Side","hp":80,"atk":62,"def":50,"spd":77,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":31},{"name":"Cut Shot","cost":2,"kind":"atk","pow":19},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Tournament Parking","flavor":"Lives on the right pin. Crushes the slide and the tool.","seed":3219058197,"jersey":"white"},"photo":null,"shiny":false},"coach-adam-ray":{"n":"Adam Ray","no":14,"s":{"el":"Rock","pos":"Middle","hp":80,"atk":73,"def":53,"spd":65,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":32},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":8}],"weak":"Tournament Parking","flavor":"Three touches of the net per practice. Zero in matches.","seed":1034667918,"jersey":"white"},"photo":null,"shiny":false},"coach-sidney-reese":{"n":"Sidney Reese","no":15,"s":{"el":"Fire","pos":"Right Side","hp":70,"atk":71,"def":61,"spd":68,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":33},{"name":"Cut Shot","cost":2,"kind":"atk","pow":20},{"name":"Roll Shot","cost":1,"kind":"atk","pow":10}],"weak":"Seafood","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":3747955397,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-sidney-reese.webp","shiny":false},"coach-hanfei-li":{"n":"Hanfei Li","no":16,"s":{"el":"Psychic","pos":"Setter","hp":60,"atk":71,"def":48,"spd":65,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":31},{"name":"Setter Dump","cost":2,"kind":"atk","pow":22},{"name":"Tip","cost":1,"kind":"atk","pow":8}],"weak":"Hotel Breakfast","flavor":"Calls the play, runs the play, takes none of the credit.","seed":3485703843,"jersey":"teal"},"photo":null,"shiny":false},"coach-brian-peterson":{"n":"Brian Peterson","no":17,"s":{"el":"Water","pos":"Trainer","hp":80,"atk":51,"def":55,"spd":80,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":30},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":20},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Gas Prices","flavor":"Makes the third set feel like the first.","seed":3976089807,"jersey":"teal"},"photo":null,"shiny":false},"coach-jae-spain":{"n":"Jae Spain","no":18,"s":{"el":"Rock","pos":"Middle","hp":90,"atk":75,"def":51,"spd":47,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":32},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":8}],"weak":"Libero Tracking Sheets","flavor":"Takes away the line like it was never there.","seed":2089219286,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-jae-spain.webp","shiny":false},"coach-claire-kwok":{"n":"Claire Kwok","no":19,"s":{"el":"Fighter","pos":"Outside","hp":80,"atk":80,"def":64,"spd":88,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":31},{"name":"Line Hit","cost":2,"kind":"atk","pow":19},{"name":"Cross Hit","cost":1,"kind":"atk","pow":8}],"weak":"Tournament Parking","flavor":"Six rotations, zero fear. Swings away on every out-of-system ball.","seed":1852988179,"jersey":"black"},"photo":"assets/img/coaches/cut/coach-claire-kwok.webp","shiny":false},"coach-damon-sichler":{"n":"Damon Sichler","no":20,"s":{"el":"Psychic","pos":"Setter","hp":100,"atk":56,"def":77,"spd":87,"moves":[{"name":"2-Ball","cost":3,"kind":"atk","pow":29},{"name":"Setter Dump","cost":2,"kind":"atk","pow":16},{"name":"Tip","cost":1,"kind":"atk","pow":9}],"weak":"Tara","flavor":"Runs the offense like a point guard. Dumps when you least expect it.","seed":1328645918,"jersey":"white"},"photo":"assets/img/coaches/cut/coach-damon-sichler.webp","shiny":false},"coach-randy-vang":{"n":"Randy Vang","no":21,"s":{"el":"Grass","pos":"Libero","hp":70,"atk":87,"def":82,"spd":64,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":30},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":9}],"weak":"Rotation Errors","flavor":"Platform never breaks. Neither does the rotation.","seed":3062983401,"jersey":"black"},"photo":null,"shiny":false},"coach-will-ly":{"n":"Will Ly","no":22,"s":{"el":"Grass","pos":"Libero","hp":90,"atk":59,"def":48,"spd":77,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":31},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":9}],"weak":"Bad Footwear","flavor":"Reads the hitter's shoulder, not the ball.","seed":2688211088,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-will-ly.webp","shiny":false},"coach-kyn-van":{"n":"Kyn Van","no":23,"s":{"el":"Fire","pos":"Right Side","hp":60,"atk":53,"def":55,"spd":73,"moves":[{"name":"Line Hit","cost":3,"kind":"atk","pow":34},{"name":"Cut Shot","cost":2,"kind":"atk","pow":22},{"name":"Roll Shot","cost":1,"kind":"atk","pow":8}],"weak":"Serve Receive","flavor":"Hits the angle, then the line, then the angle again. Nobody adjusts in time.","seed":1195479490,"jersey":"black"},"photo":null,"shiny":false},"coach-jawn-suzuki":{"n":"Jawn Suzuki","no":24,"s":{"el":"Grass","pos":"Libero","hp":80,"atk":66,"def":61,"spd":81,"moves":[{"name":"Free Corner Ball","cost":3,"kind":"atk","pow":34},{"name":"Dig","cost":1,"kind":"shield:12","pow":0},{"name":"Float Serve","cost":1,"kind":"atk","pow":8}],"weak":"Bad Refs","flavor":"First to every ball. Serve receive starts here.","seed":4156325930,"jersey":"teal"},"photo":"assets/img/coaches/cut/coach-jawn-suzuki.webp","shiny":false},"coach-brian-xu":{"n":"Brian Xu","no":25,"s":{"el":"Rock","pos":"Middle","hp":70,"atk":63,"def":55,"spd":78,"moves":[{"name":"Hard Spike","cost":3,"kind":"atk","pow":29},{"name":"Block","cost":1,"kind":"shield:15","pow":0},{"name":"Tip","cost":1,"kind":"atk","pow":9}],"weak":"Tournament Parking","flavor":"Nobody runs a slide against this card twice.","seed":1729763052,"jersey":"black"},"photo":null,"shiny":false},"coach-jamison-crowley":{"n":"Jamison Crowley","no":26,"s":{"el":"Water","pos":"Trainer","hp":60,"atk":76,"def":74,"spd":66,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":33},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":18},{"name":"Float Serve","cost":1,"kind":"atk","pow":10}],"weak":"Line Judges","flavor":"Turns a vertical into a bigger vertical.","seed":289237345,"jersey":"black"},"photo":null,"shiny":false},"coach-lena-cox":{"n":"Lena Cox","no":27,"s":{"el":"Water","pos":"Trainer","hp":60,"atk":64,"def":58,"spd":65,"moves":[{"name":"Cross Hit","cost":3,"kind":"atk","pow":35},{"name":"Top Spin Serve","cost":2,"kind":"atk","pow":19},{"name":"Float Serve","cost":1,"kind":"atk","pow":8}],"weak":"Net Violations","flavor":"Turns a vertical into a bigger vertical.","seed":164686689,"jersey":"black"},"photo":null,"shiny":false}};
+    var WEAK={"Fighter":"Psychic","Psychic":"Wind","Wind":"Rock","Rock":"Water","Water":"Grass","Grass":"Fire","Fire":"Water","Shiny":"Shiny"},RESIST={"Fighter":"Rock","Psychic":"Fighter","Wind":"Grass","Rock":"Fire","Water":"Fire","Grass":"Water","Fire":"Grass","Shiny":"Psychic"},TINT={"Fighter":"#ff8a3d","Psychic":"#d66cff","Fire":"#ff6a3d","Rock":"#c9a063","Grass":"#63d46a","Wind":"#8fd1f2","Water":"#4fb7f2","Shiny":"#E5B800"};
+    var PERSONAL={'coach-damon-sichler':['coach-tara-tucker','coach-tara-tucker-director'],'coach-damon-sichler-director':['coach-tara-tucker','coach-tara-tucker-director']};
+    var $=function(i){return document.getElementById(i);};
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var MAXE=6;
+    /* ---- RPG sprite: 20x28 volleyball player. Front frames carry the jersey number; side frames face the opponent. ---- */
+    var F={
+      idle:['........HHHH........','.......HHHHHH.......','......HHHHHHHH......','......HHSSSSHH......','......HSSSSSSH......','......SSWSSWSS......','......SSSSSSSS......','.......SSSSSS.......','........SSSS........','......JJJJJJJJ......','.....JJJJJJJJJJ.....','....SJJJJJJJJJJS....','....SJJJJJJJJJJS....','....S.JJJJJJJJ.S....','......JJJJJJJJ......','......KKKKKKKK......','......KKKKKKKK......','......KKK..KKK......','......SSS..SSS......','......SSS..SSS......','......NNN..NNN......','......NNN..NNN......','......SSS..SSS......','......SSS..SSS......','......EEE..EEE......','.....EEEE..EEEE.....','....................','....................'],
+      run:['........HHHH........','.......HHHHHH.......','......HHHHHHHH......','......HHSSSSHH......','......HSSSSSSH......','......SSWSSWSS......','......SSSSSSSS......','.......SSSSSS.......','........SSSS........','......JJJJJJJJ......','...S.JJJJJJJJJJ.....','...SJJJJJJJJJJJS....','....JJJJJJJJJJJ.S...','......JJJJJJJJ..S...','......JJJJJJJJ......','......KKKKKKKK......','.....KKKKKKKKKK.....','.....KKK....KKK.....','.....SSS....SSS.....','....SSS......SSS....','....NNN......NNN....','....NNN......NNN....','...SSS........SSS...','...SSS........SSS...','...EEE........EEE...','..EEEE........EEEE..','....................','....................'],
+      spike:['........HHHH.....S..','.......HHHHHH....S..','......HHHHHHHH...S..','......HHSSSSHH...S..','......HSSSSSSH...S..','......SSWSSWSS...S..','......SSSSSSSS..S...','.......SSSSSS...S...','........SSSS...S....','......JJJJJJJJ.S....','.....JJJJJJJJJJS....','....SJJJJJJJJJJJ....','....SJJJJJJJJJJ.....','....S.JJJJJJJJ......','......JJJJJJJJ......','......KKKKKKKK......','......KKKKKKKK......','......KKK..KKK......','......SSS..SSS......','......NNN..NNN......','......NNN..NNN......','......SSS..SSS......','......EEE..EEE......','.....EEEE..EEEE.....','....................','....................','....................','....................'],
+      block:['..S.....HHHH.....S..','..S....HHHHHH....S..','..S...HHHHHHHH...S..','..S...HHSSSSHH...S..','..S...HSSSSSSH...S..','..S...SSWSSWSS...S..','...S..SSSSSSSS..S...','...S...SSSSSS...S...','....S...SSSS...S....','....SJJJJJJJJJJS....','.....JJJJJJJJJJ.....','....JJJJJJJJJJJJ....','....JJJJJJJJJJJJ....','......JJJJJJJJ......','......JJJJJJJJ......','......KKKKKKKK......','......KKKKKKKK......','......KKK..KKK......','......SSS..SSS......','......NNN..NNN......','......NNN..NNN......','......SSS..SSS......','......EEE..EEE......','.....EEEE..EEEE.....','....................','....................','....................','....................'],
+      side:['........HHHH........','.......HHHHHH.......','......HHHHHHHH......','......HHHHSSSS......','......HHHSSSSS......','......HHHSSWSS......','......HHHSSSSS......','.......HHSSSS.......','........SSSS........','........JJJJ........','.......JJJJJJ.......','.......JJJJJJS......','.......JJJJJJS......','.......JJJJJJ.......','.......JJJJJJ.......','.......KKKKKK.......','.......KKKKKK.......','.......KKKKKK.......','........SSSS........','........SSSS........','........NNNN........','........NNNN........','........SSSS........','........SSSS........','........EEEE........','........EEEEE.......','....................','....................'],
+      siderun:['........HHHH........','.......HHHHHH.......','......HHHHHHHH......','......HHHHSSSS......','......HHHSSSSS......','......HHHSSWSS......','......HHHSSSSS......','.......HHSSSS.......','........SSSS........','........JJJJ........','.......JJJJJJ.......','.......JJJJJJSS.....','......SJJJJJJ.......','.......JJJJJJ.......','.......JJJJJJ.......','.......KKKKKK.......','......KKKKKKKK......','.....KKK..KKKK......','....SSS....SSS......','...SSS......SSS.....','...NNN......NNN.....','..NNN........NNN....','..SSS........SSS....','.SSS..........SSS...','.EEE..........EEE...','EEEE..........EEEE..','....................','....................'],
+      sidespike:['........HHHH...S....','.......HHHHHH..S....','......HHHHHHHH.S....','......HHHHSSSS.S....','......HHHSSSSS.S....','......HHHSSWSSS.....','......HHHSSSSS......','.......HHSSSS.......','........SSSS........','........JJJJ........','.......JJJJJJ.......','......SJJJJJJ.......','......SJJJJJJ.......','.......JJJJJJ.......','.......JJJJJJ.......','.......KKKKKK.......','.......KKKKKK.......','........KKKK........','........SSSS........','........NNNN........','........SSSS........','........EEEE........','.......EEEEE........','....................','....................','....................','....................','....................'],
+      ko:['....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','....................','..HHHSSSJJJJJJKKSSEE','.HHHSWSSJJJJJJKKSSEE','.HHHSSSSJJJJJJKKSSEE','..HHHSSSJJJJJJKKSSEE','....................','....................','....................','....................','....................']
+    };
+    var DIG={'0':['111','101','101','101','111'],'1':['010','110','010','010','111'],'2':['111','001','111','100','111'],'3':['111','001','111','001','111'],'4':['101','101','111','001','001'],'5':['111','100','111','001','111'],'6':['111','100','111','101','111'],'7':['111','001','001','001','001'],'8':['111','101','111','101','111'],'9':['111','101','111','001','111']};
+    var SKIN=['#f6dcc4','#efc9a6','#e4b48d','#d19b70'],HAIR=['#1a1410','#3b2416','#5a3a22','#8a5a2b','#c9a063','#d9b35c','#6b2a1a'];
+    var JERSEY={black:{J:'#161616',D:'#0E7C86',num:'#ffffff'},teal:{J:'#0E7C86',D:'#065A62',num:'#ffffff'},white:{J:'#f2f2f2',D:'#0E7C86',num:'#111111'}};
+    function paletteFor(id){var d=DATA[id],h=d.s.seed,j=JERSEY[d.s.jersey];return {H:HAIR[(h>>>2)%HAIR.length],S:SKIN[(h>>>6)%SKIN.length],J:j.J,D:j.D,K:'#1a1a1a',N:'#ffffff',W:'#ffffff',E:'#f2f2f2',num:j.num,no:d.no};}
+    var FRONT={idle:1,run:1,spike:1,block:1};
+    function rpgFrame(name,pal,sc){var rows=F[name],w=20,h=28,c=document.createElement('canvas');c.width=w;c.height=h;var k=c.getContext('2d'),op=[],x,y;
+      for(y=0;y<h;y++){op[y]=[];for(x=0;x<w;x++){var ch=rows[y][x];op[y][x]=ch!=='.';if(ch!=='.'){k.fillStyle=pal[ch]||'#f0f';k.fillRect(x,y,1,1);}}}
+      if(FRONT[name]){var s=String(pal.no),x0=s.length===1?8:6;k.fillStyle=pal.num;for(var di=0;di<s.length;di++){var g2=DIG[s[di]];for(y=0;y<5;y++)for(x=0;x<3;x++)if(g2[y][x]==='1')k.fillRect(x0+di*4+x,10+y,1,1);}}
+      k.fillStyle='#14101a';for(y=0;y<h;y++)for(x=0;x<w;x++){if(op[y][x])continue;if((x>0&&op[y][x-1])||(x<w-1&&op[y][x+1])||(y>0&&op[y-1][x])||(y<h-1&&op[y+1][x]))k.fillRect(x,y,1,1);}
+      if(sc===1)return c;var o=document.createElement('canvas');o.width=w*sc;o.height=h*sc;var ok=o.getContext('2d');ok.imageSmoothingEnabled=false;ok.drawImage(c,0,0,o.width,o.height);return o;}
+    function rpgSet(pal,sc){var s={};Object.keys(F).forEach(function(n){s[n]=rpgFrame(n,pal,sc||1);});return s;}
+    var SETS3={};function set3(id){if(!SETS3[id])SETS3[id]=rpgSet(paletteFor(id),3);return SETS3[id];}
+    function drawCard(cv,id,fr){var k=cv.getContext('2d');k.imageSmoothingEnabled=false;k.clearRect(0,0,cv.width,cv.height);k.drawImage(set3(id)[fr]||set3(id).idle,0,0);}
+    document.querySelectorAll('canvas.spr').forEach(function(c){drawCard(c,c.dataset.id,'idle');});
+    /* sound */
+    var AC=null,soundOn=true;function ctx(){if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){AC=null;}}return AC;}
+    function noise(dur,f0,f1,vol){var c=ctx();if(!c||!soundOn)return;var b=c.createBuffer(1,c.sampleRate*dur,c.sampleRate),d=b.getChannelData(0);for(var i=0;i<d.length;i++)d[i]=Math.random()*2-1;var s=c.createBufferSource();s.buffer=b;var f=c.createBiquadFilter();f.type='bandpass';f.frequency.setValueAtTime(f0,c.currentTime);f.frequency.exponentialRampToValueAtTime(f1,c.currentTime+dur);var g=c.createGain();g.gain.setValueAtTime(vol,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+dur);s.connect(f).connect(g).connect(c.destination);s.start();}
+    function tone(freq,dur,type,vol,when){var c=ctx();if(!c||!soundOn)return;var o=c.createOscillator(),g=c.createGain();o.type=type||'sine';var t=c.currentTime+(when||0);o.frequency.setValueAtTime(freq,t);o.frequency.exponentialRampToValueAtTime(Math.max(30,freq*.5),t+dur);g.gain.setValueAtTime(vol||.2,t);g.gain.exponentialRampToValueAtTime(.001,t+dur);o.connect(g).connect(c.destination);o.start(t);o.stop(t+dur);}
+    var SFX={whoosh:function(){noise(.25,400,2400,.25);},hit:function(){tone(140,.25,'sine',.5);noise(.12,1200,300,.35);},block:function(){tone(880,.12,'square',.12);tone(1320,.18,'square',.1,.06);},ko:function(){tone(300,.5,'sawtooth',.25);tone(150,.7,'sawtooth',.2,.15);},win:function(){[523,659,784,1047].forEach(function(f,i){tone(f,.25,'triangle',.22,i*.12);});tone(1047,.6,'triangle',.25,.5);},draw:function(){noise(.18,800,3000,.18);tone(660,.15,'triangle',.15,.05);},jump:function(){tone(520,.1,'square',.08);tone(780,.1,'square',.06,.06);},charge:function(){tone(330,.2,'triangle',.1);tone(440,.2,'triangle',.1,.12);tone(660,.25,'triangle',.12,.24);}};
+    $('btnSound').addEventListener('click',function(){soundOn=!soundOn;this.textContent='Sound: '+(soundOn?'On':'Off');this.setAttribute('aria-pressed',String(soundOn));if(soundOn)SFX.draw();});
+    function wait(ms){return new Promise(function(r){setTimeout(r,reduce?0:ms);});}
+    /* ---- 16-bit court ---- */
+    var PX=(function(){
+      var cv=$('px'),g=cv.getContext('2d');var W=320,H=180,NET=160,FY=150,SC=2;var FAR=78,NEAR=168;
+      var st={L:null,R:null,fx:[],ball:null,shake:0,flash:0,on:false,t:0,style:'photo'};
+      var BALL=['....WWWWW....','..WWWWWWWWW..','.WWWWGWWWWWW.','.WWWGWWWWWGW.','WWWGWWWWWWWGW','WWGWWWWWWWWGW','WWGWWWWWWWWGW','WWGWWWWWWWWGW','WWWGWWWWWWGWW','.WWWGWWWWGWW.','.WWWWGGGGWWW.','..WWWWWWWWW..','....WWWWW....'],BC={W:'#fbfbfb',G:'#c4c9cc'},BR=6;
+      var GYMS={
+        fieldhouse:{sky:['#0a3d43','#0c4b52'],band:'#0E7C86',trim:'#E5B800',floor:'#8a5a2b',plank:'#704620',court:'#a3692f',zone:'#b5783a',line:'#E5B800',post:'#222'},
+        arena:{sky:['#0d1424','#121c33'],band:'#1b2a4d',trim:'#ff7a1f',floor:'#2a4d8f',plank:'#24427c',court:'#e07a1f',zone:'#ea8d3a',line:'#ffffff',post:'#ddd',crowd:['#ff5a4e','#49d26a','#f2c200','#5ad7ff','#ffffff','#ff6bd6']},
+        beach:{sky:['#ff9a4d','#ff5a7a','#7a2a7a','#2a1a4a'],band:'#ffd36b',trim:'#ffffff',floor:'#e8c98a',plank:'#d9b674',court:'#f0d49c',zone:'#f6dfb0',line:'#ffffff',post:'#8a5a2b',sun:true},
+        retro:{sky:['#7a3b2e','#6a3327'],band:'#c9a063',trim:'#3b1f1a',floor:'#c9a063',plank:'#b08a50',court:'#d8b676',zone:'#e2c48a',line:'#8b1e1e',post:'#333',brick:true}
+      };
+      function cx(y,xFar,xNear){var p=(y-FAR)/(NEAR-FAR);return xFar+(xNear-xFar)*p;}
+      function poly(k,pts,col){k.fillStyle=col;k.beginPath();k.moveTo(pts[0][0],pts[0][1]);for(var i=1;i<pts.length;i++)k.lineTo(pts[i][0],pts[i][1]);k.closePath();k.fill();}
+      function buildBg(kind){var G=GYMS[kind]||GYMS.fieldhouse,c=document.createElement('canvas');c.width=W;c.height=H;var k=c.getContext('2d'),x,y,i;
+        if(G.sky.length>2){var bh=Math.ceil(FAR/G.sky.length);for(i=0;i<G.sky.length;i++){k.fillStyle=G.sky[i];k.fillRect(0,i*bh,W,bh);}if(G.sun){k.fillStyle='#fff2b8';k.fillRect(148,16,24,24);k.fillRect(144,20,32,16);k.fillRect(152,12,16,32);}}
+        else{for(x=0;x<W;x+=16){k.fillStyle=(x/16)%2?G.sky[1]:G.sky[0];k.fillRect(x,0,16,FAR);}}
+        if(G.brick){k.fillStyle='rgba(0,0,0,.25)';for(y=0;y<FAR-14;y+=8){k.fillRect(0,y,W,1);for(x=((y/8)%2?8:0);x<W;x+=16)k.fillRect(x,y,1,8);}k.fillStyle='#9ad7e8';for(x=40;x<W;x+=90){k.fillRect(x,10,26,26);k.fillStyle='#3b1f1a';k.fillRect(x+12,10,2,26);k.fillRect(x,22,26,2);k.fillStyle='#9ad7e8';}}
+        if(G.crowd){for(y=6;y<56;y+=10){for(x=4;x<W;x+=7){k.fillStyle=G.crowd[(x*7+y*3)%G.crowd.length];k.fillRect(x+((y/10)%2?3:0),y+((x*13)%3),4,5);}k.fillStyle='rgba(0,0,0,.35)';k.fillRect(0,y+7,W,3);}}
+        k.fillStyle=G.band;k.fillRect(0,FAR-14,W,10);k.fillStyle=G.trim;k.fillRect(0,FAR-4,W,2);
+        k.fillStyle=G.floor;k.fillRect(0,FAR,W,H-FAR);k.fillStyle=G.plank;for(y=FAR+5;y<H;y+=6)k.fillRect(0,y,W,1);
+        poly(k,[[54,FAR],[266,FAR],[312,NEAR],[8,NEAR]],G.court);
+        poly(k,[[54+(NET-54)*.66,FAR],[NET,FAR],[NET,NEAR],[8+(NET-8)*.66,NEAR]],G.zone);
+        poly(k,[[NET,FAR],[266-(266-NET)*.66,FAR],[312-(312-NET)*.66,NEAR],[NET,NEAR]],G.zone);
+        k.fillStyle=G.plank;k.globalAlpha=.35;for(y=FAR+5;y<NEAR;y+=6)k.fillRect(cx(y,54,8),y,cx(y,266,312)-cx(y,54,8),1);k.globalAlpha=1;
+        k.strokeStyle=G.line;k.lineWidth=2;k.beginPath();k.moveTo(54,FAR+1);k.lineTo(266,FAR+1);k.moveTo(8,NEAR-1);k.lineTo(312,NEAR-1);k.moveTo(54,FAR);k.lineTo(8,NEAR);k.moveTo(266,FAR);k.lineTo(312,NEAR);
+        k.moveTo(54+(NET-54)*.66,FAR);k.lineTo(8+(NET-8)*.66,NEAR);k.moveTo(266-(266-NET)*.66,FAR);k.lineTo(312-(312-NET)*.66,NEAR);k.moveTo(NET,FAR);k.lineTo(NET,NEAR);k.stroke();
+        k.fillStyle=G.post;k.fillRect(NET-3,FAR-42,3,44);k.fillRect(NET-3,NEAR-44,3,46);k.fillRect(NET,FAR-42,3,44);k.fillRect(NET,NEAR-44,3,46);
+        k.fillStyle='rgba(240,240,240,.55)';for(y=FAR-38;y<NEAR-2;y+=4)k.fillRect(NET-4,y,8,1);for(x=NET-4;x<NET+5;x+=4)k.fillRect(x,FAR-38,1,NEAR-FAR+36);
+        k.fillStyle='#f8f8f8';k.fillRect(NET-5,FAR-42,10,3);k.fillRect(NET-5,FAR-42,2,NEAR-FAR);k.fillRect(NET+3,FAR-42,2,NEAR-FAR);
+        return c;}
+      var bg=buildBg('fieldhouse');
+      function photoSprite(src){return new Promise(function(res){var im=new Image();im.onload=function(){var SW=30,SH=38;
+        var mid=document.createElement('canvas');mid.width=SW*4;mid.height=SH*4;var mk=mid.getContext('2d');
+        var s=Math.min(mid.width/im.naturalWidth,mid.height/im.naturalHeight),dw=im.naturalWidth*s,dh=im.naturalHeight*s;mk.drawImage(im,(mid.width-dw)/2,mid.height-dh,dw,dh);
+        var c=document.createElement('canvas');c.width=SW;c.height=SH;var k=c.getContext('2d');k.drawImage(mid,0,0,SW,SH);
+        var d;try{d=k.getImageData(0,0,SW,SH);}catch(err){res(null);return;}var p=d.data,n=SW*SH,op=new Uint8Array(n),i;
+        for(i=0;i<n;i++){if(p[i*4+3]<110){p[i*4+3]=0;continue;}op[i]=1;for(var ch=0;ch<3;ch++){var v=p[i*4+ch];v=Math.min(255,Math.round(((v-128)*1.15+128)/40)*40);p[i*4+ch]=Math.max(0,v);}p[i*4+3]=255;}
+        for(i=0;i<n;i++){if(op[i])continue;var x=i%SW,y=(i/SW)|0;if((x>0&&op[i-1])||(x<SW-1&&op[i+1])||(y>0&&op[i-SW])||(y<SH-1&&op[i+SW])){p[i*4]=20;p[i*4+1]=16;p[i*4+2]=24;p[i*4+3]=255;}}
+        k.putImageData(d,0,0);res({kind:'photo',frames:{idle:c}});};im.onerror=function(){res(null);};im.src=src;});}
+      function whiteOf(c){var w=document.createElement('canvas');w.width=c.width;w.height=c.height;var wk=w.getContext('2d');wk.drawImage(c,0,0);wk.globalCompositeOperation='source-in';wk.fillStyle='#fff';wk.fillRect(0,0,w.width,w.height);return w;}
+      function makeSprite(id){var d=DATA[id];var rpg={kind:'rpg',frames:rpgSet(paletteFor(id),1)};
+        if(st.style==='photo'&&d.photo)return photoSprite(d.photo).then(function(p){return p||rpg;});return Promise.resolve(rpg);}
+      function fighter(side,id,spr){var f={side:side,id:id,spr:spr,frame:'idle',home:side==='L'?64:W-64,x:0,oy:0,ox:0,hp:DATA[id].s.hp,max:DATA[id].s.hp,shown:DATA[id].s.hp,energy:0,hit:0,shield:0,hide:false,gone:false,shiny:!!DATA[id].shiny,white:{}};f.x=f.home;return f;}
+      function frameOf(f){return f.spr.frames[f.frame]||f.spr.frames.idle;}
+      function drawBall(x,y,fl){var r,c,ch,N=BALL.length;g.fillStyle='#2a2a2a';for(r=0;r<N;r++)for(c=0;c<N;c++){ch=BALL[r][c];if(ch!=='.'){g.fillRect(x-BR-1+c,y-BR+r,1,1);g.fillRect(x-BR+1+c,y-BR+r,1,1);g.fillRect(x-BR+c,y-BR-1+r,1,1);g.fillRect(x-BR+c,y-BR+1+r,1,1);}}
+        for(r=0;r<N;r++)for(c=0;c<N;c++){ch=BALL[r][fl?N-1-c:c];if(ch==='.')continue;g.fillStyle=BC[ch];g.fillRect(x-BR+c,y-BR+r,1,1);}}
+      function drawF(f){if(!f||!f.spr||f.hide||f.gone)return;var c=frameOf(f),w=c.width*SC,h=c.height*SC,x=Math.round(f.x-w/2+f.ox),y=Math.round(FY-h+f.oy);
+        g.fillStyle='rgba(0,0,0,.35)';g.fillRect(Math.round(f.x-w/2+6+f.ox),FY-2,w-12,3);
+        g.save();if(f.side==='R'){g.translate(f.x+f.ox,0);g.scale(-1,1);g.translate(-(f.x+f.ox),0);}
+        g.imageSmoothingEnabled=false;if(f.hit>0){if(!f.white[f.frame])f.white[f.frame]=whiteOf(c);g.drawImage(f.white[f.frame],x,y,w,h);}else g.drawImage(c,x,y,w,h);g.restore();
+        if(f.shield>0&&((st.t/90)|0)%2===0){g.strokeStyle='#8fd1f2';g.lineWidth=2;g.strokeRect(x-3,y-3,w+6,h+6);}
+        if(f.shiny){var tw=(st.t/120)|0;for(var i=0;i<3;i++){var sx=x+((tw*7+i*23)%(w+16))-8,sy=y+((tw*5+i*31)%(h+10))-6;if(((tw+i)%4)===0){g.fillStyle='#ffe680';g.fillRect(sx,sy,2,2);g.fillRect(sx-1,sy+1,1,1);g.fillRect(sx+2,sy+1,1,1);}}}}
+      function panel(f,x){if(!f)return;var d=DATA[f.id],el=d.s.el;g.fillStyle='#111';g.fillRect(x,4,132,38);g.fillStyle='#f6f6f6';g.fillRect(x+1,5,130,36);
+        g.fillStyle=TINT[el];g.fillRect(x+5,9,10,10);g.fillStyle='#000';g.font='7px "Press Start 2P",monospace';g.textBaseline='top';g.textAlign='left';g.fillText(el[0],x+7,11);
+        g.fillStyle='#111';g.fillText(d.n.toUpperCase().slice(0,15),x+19,10);
+        g.fillStyle='#E5B800';g.fillText('HP',x+5,24);var pct=Math.max(0,f.shown)/f.max;g.fillStyle='#333';g.fillRect(x+22,23,58,8);g.fillStyle=pct>.5?'#49d26a':pct>.2?'#f2c200':'#ff5a4e';g.fillRect(x+23,24,Math.round(56*pct),6);
+        g.fillStyle='#111';g.textAlign='right';g.fillText(Math.max(0,Math.round(f.shown))+'/'+f.max,x+127,24);g.textAlign='left';
+        for(var i=0;i<MAXE;i++){g.fillStyle=i<f.energy?'#E5B800':'#cfcfcf';g.fillRect(x+22+i*11,34,9,4);}g.fillStyle='#555';g.font='5px "Press Start 2P",monospace';g.fillText('EN',x+6,34);}
+      var tweens=[];function tween(dur,fn){if(reduce)dur=0;return new Promise(function(res){tweens.push({t0:performance.now(),dur:dur,fn:fn,res:res});});}
+      function fxText(txt,x,y,col){st.fx.push({txt:txt,x:x,y:y,col:col,t0:performance.now()});}
+      function frame(now){st.t=now;var i;
+        for(i=tweens.length-1;i>=0;i--){var tw=tweens[i],p=tw.dur?Math.min(1,(now-tw.t0)/tw.dur):1;tw.fn(p);if(p>=1){tweens.splice(i,1);tw.res();}}
+        ['L','R'].forEach(function(s){var f=st[s];if(!f)return;f.shown+=(Math.max(0,f.hp)-f.shown)*.12;if(Math.abs(f.shown-Math.max(0,f.hp))<.5)f.shown=Math.max(0,f.hp);if(f.hit>0)f.hit--;});
+        g.setTransform(1,0,0,1,0,0);g.clearRect(0,0,W,H);
+        if(st.shake>0){g.translate(Math.round(Math.random()*4-2),Math.round(Math.random()*4-2));st.shake--;}
+        g.drawImage(bg,0,0);drawF(st.L);drawF(st.R);
+        if(st.ball)drawBall(st.ball.x,st.ball.y,st.ball.f);
+        g.font='8px "Press Start 2P",monospace';g.textAlign='center';g.textBaseline='alphabetic';
+        for(i=st.fx.length-1;i>=0;i--){var e=st.fx[i],q=(now-e.t0)/900;if(q>=1){st.fx.splice(i,1);continue;}g.globalAlpha=1-q*q;g.fillStyle='#000';g.fillText(e.txt,e.x+1,e.y-q*26+1);g.fillStyle=e.col;g.fillText(e.txt,e.x,e.y-q*26);g.globalAlpha=1;}
+        panel(st.L,4);panel(st.R,W-4-132);
+        if(st.flash>0){g.fillStyle='rgba(255,255,255,'+st.flash+')';g.fillRect(0,0,W,H);st.flash=Math.max(0,st.flash-.2);}
+        if(st.on)requestAnimationFrame(frame);}
+      function start(){if(!st.on){st.on=true;requestAnimationFrame(frame);}}
+      start();
+      function runTo(f,tx){var sx=f.x,dist=Math.abs(tx-sx);if(f.spr.kind!=='rpg'||dist<2)return Promise.resolve();return tween(Math.max(120,dist*7),function(p){f.x=sx+(tx-sx)*p;f.frame=((p*dist/8)|0)%2?'siderun':'side';}).then(function(){f.frame='side';});}
+      function nearNet(f){return f.side==='L'?NET-34:NET+34;}
+      return {
+        gym:function(k){bg=buildBg(k);},
+        style:function(s){st.style=s;var a=st.L&&st.L.id,b=st.R&&st.R.id;if(!a)return Promise.resolve();return Promise.all([makeSprite(a),makeSprite(b)]).then(function(r){st.L.spr=r[0];st.L.white={};st.R.spr=r[1];st.R.white={};st.L.frame=st.R.frame='idle';});},
+        setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.ball=null;tweens=[];start();});},
+        hp:function(side,hp){st[side].hp=hp;},
+        energy:function(side,e){st[side].energy=e;},
+        charge:function(a){var A=st[a];fxText('CHARGE',A.x,FY-frameOf(A).height*SC-8,'#E5B800');return tween(500,function(p){A.oy=-4*Math.abs(Math.sin(p*Math.PI*3));}).then(function(){A.oy=0;});},
+        attack:function(a,d){var A=st[a],D=st[d];var rpg=A.spr.kind==='rpg';
+          return runTo(A,nearNet(A)).then(function(){SFX.jump();if(rpg)A.frame='sidespike';return tween(260,function(p){A.oy=-(rpg?26:16)*Math.sin(p*Math.PI);});}).then(function(){
+            var h=frameOf(A).height*SC,sx=A.side==='L'?A.x+10:A.x-10,sy=FY-h-6,ex=D.x,ey=FY-frameOf(D).height*SC*0.55;st.ball={x:sx,y:sy,f:0};SFX.whoosh();
+            return tween(480,function(p){st.ball.x=sx+(ex-sx)*p;st.ball.y=sy+(ey-sy)*p-70*Math.sin(p*Math.PI);st.ball.f=((p*12)|0)%2;});}).then(function(){A.oy=0;runTo(A,A.home).then(function(){A.frame='idle';});});},
+        impact:function(d,amt,blocked){var D=st[d],dir=D.side==='L'?-1:1;st.flash=.75;st.shake=10;D.hit=8;if(blocked)D.shield=0;
+          tween(320,function(p){D.ox=Math.round(Math.sin(p*28)*3*(1-p)*dir*-1);});fxText('-'+amt,D.x,FY-frameOf(D).height*SC-8,'#ff5a4e');
+          var b=st.ball,bx=b?b.x:D.x,by=b?b.y:FY-30;tween(420,function(p){if(!st.ball)return;st.ball.x=bx+dir*40*p;st.ball.y=by+(FY-6-by)*p*p-30*Math.sin(p*Math.PI);st.ball.f=((p*10)|0)%2;}).then(function(){st.ball=null;});},
+        block:function(d,amt){var D=st[d];var rpg=D.spr.kind==='rpg';return runTo(D,nearNet(D)).then(function(){if(rpg)D.frame='block';D.shield=1;fxText('BLOCK '+amt,D.x,FY-frameOf(D).height*SC-8,'#8fd1f2');return tween(360,function(p){D.oy=-(rpg?22:12)*Math.sin(p*Math.PI);});}).then(function(){D.oy=0;return runTo(D,D.home);}).then(function(){D.frame='idle';});},
+        ko:function(l,w){var Lf=st[l],Wf=st[w];Lf.shield=Wf.shield=0;return tween(600,function(p){Lf.hide=((p*12)|0)%2===1;}).then(function(){Lf.hide=false;if(Lf.spr.kind==='rpg'){Lf.frame='ko';return tween(500,function(){});}return tween(500,function(p){Lf.oy=p*p*90;});}).then(function(){if(Lf.spr.kind!=='rpg')Lf.gone=true;fxText('K.O.',Lf.x,FY-40,'#ff5a4e');
+          return tween(700,function(p){Wf.oy=-14*Math.abs(Math.sin(p*Math.PI*2));});}).then(function(){fxText('WINNER',Wf.x,FY-frameOf(Wf).height*SC-10,'#E5B800');});}
+      };
+    })();
+    /* ---- arena ---- */
+    var L=null,R=null,busy=false,selL=$('selL'),selR=$('selR'),lastWin=null,view='card';
+    var VB='<svg viewBox="0 0 40 40" width="46" height="46" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="#fbfbfb" stroke="#2a2a2a" stroke-width="2"/><path d="M8 8c8 6 10 16 6 28M32 8c-8 6-10 16-6 28M3 24c10-4 24-4 34 0" fill="none" stroke="#b9bfc4" stroke-width="2"/></svg>';
+    function pips(e){var s='<small>Energy</small>';for(var i=0;i<MAXE;i++)s+='<i class="'+(i<e?'on':'')+'"></i>';return s;}
+    function clone(id,side){var c=$(id).cloneNode(true);c.id='fight-'+side;var s=DATA[id].s;var w=document.createElement('div');w.className='fighter';w.id='f'+side;
+      w.insertAdjacentHTML('beforeend','<div class="fname">'+DATA[id].n+'</div>');w.appendChild(c);
+      var spr=c.querySelector('canvas.spr');if(spr)drawCard(spr,id,'idle');
+      w.insertAdjacentHTML('beforeend','<div class="hpbar"><b></b></div><div class="hpnum"><span data-cur>'+s.hp+'</span> / '+s.hp+' HP</div><div class="en" data-en>'+pips(0)+'</div>');return w;}
+    function same(a,b){return a.replace('-director','')===b.replace('-director','');}
+    function setup(a,b){SFX.draw();L={id:a,s:DATA[a].s,hp:DATA[a].s.hp,shield:0,side:'L',energy:0,round:0};R={id:b,s:DATA[b].s,hp:DATA[b].s.hp,shield:0,side:'R',energy:0,round:0};
+      var ring=$('ring');ring.querySelectorAll('.fighter,.vs,.empty,.vb').forEach(function(n){n.remove();});ring.appendChild(clone(a,'L'));ring.insertAdjacentHTML('beforeend','<div class="vs">VS</div>');ring.appendChild(clone(b,'R'));
+      $('winner').textContent='';$('log').innerHTML='<p><b>'+DATA[a].n+'</b> ('+DATA[a].s.el+') vs <b>'+DATA[b].n+'</b> ('+DATA[b].s.el+'). Press Fight.</p>';$('btnFight').disabled=true;$('btnNext').disabled=true;lastWin=null;
+      return PX.setup(a,b).then(function(){$('btnFight').disabled=false;});}
+    function fromSelects(){var a=selL.value,b=selR.value;if(busy)return;if(!a||!b){L=R=null;$('btnFight').disabled=true;return;}
+      if(same(a,b)){$('log').innerHTML='<p>Pick two different people. A coach cannot fight their own other card.</p>';$('btnFight').disabled=true;L=R=null;return;}setup(a,b);}
+    selL.addEventListener('change',fromSelects);selR.addEventListener('change',fromSelects);
+    function randomPair(keep,side){var ids=Object.keys(DATA),a=keep||ids[Math.floor(Math.random()*ids.length)],b;do{b=ids[Math.floor(Math.random()*ids.length)];}while(same(a,b));return side==='R'?[b,a]:[a,b];}
+    $('btnRandom').addEventListener('click',function(){if(busy)return;var p=randomPair();selL.value=p[0];selR.value=p[1];setup(p[0],p[1]);});
+    $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var p=randomPair(lastWin.id,lastWin.side);selL.value=p[0];selR.value=p[1];setup(p[0],p[1]).then(fight);});
+    $('selGym').addEventListener('change',function(){PX.gym(this.value);});
+    $('selStyle').addEventListener('change',function(){if(busy){this.value=this.value==='photo'?'rpg':'photo';return;}PX.style(this.value);});
+    function setView(v){view=v;$('vCard').setAttribute('aria-pressed',String(v==='card'));$('vPx').setAttribute('aria-pressed',String(v==='px'));$('ring').classList.toggle('px',v==='px');$('pxopts').hidden=v!=='px';}
+    $('vCard').addEventListener('click',function(){setView('card');});$('vPx').addEventListener('click',function(){setView('px');});
+    function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function logp(h){var l=$('log');l.insertAdjacentHTML('beforeend','<p>'+h+'</p>');l.scrollTop=l.scrollHeight;}
+    /* damage: card power x a narrow attack/defense ratio (.85-1.15), x1.5 weak, x.7 resist, x2 personal weakness */
+    function dmg(att,def,mv){var ratio=Math.max(.85,Math.min(1.15,att.s.atk/def.s.def));var base=mv.pow*ratio;var note='';
+      if(WEAK[def.s.el]===att.s.el){base*=1.5;note=' Super effective!'}else if(RESIST[def.s.el]===att.s.el){base*=.7;note=' Not very effective.'}
+      if((PERSONAL[def.id]||[]).indexOf(att.id)>=0){base*=2;note=' '+DATA[def.id].n.split(' ')[0]+'\u2019s one true weakness!'}
+      return {d:Math.max(3,Math.round(base)),note:note};}
+    function hpUI(f){var box=$('f'+f.side);box.querySelector('[data-cur]').textContent=Math.max(0,f.hp);var b=box.querySelector('.hpbar b');var pct=Math.max(0,f.hp)/f.s.hp*100;b.style.width=pct+'%';b.classList.toggle('low',pct<30);PX.hp(f.side,f.hp);}
+    function enUI(f){$('f'+f.side).querySelector('[data-en]').innerHTML=pips(f.energy);PX.energy(f.side,f.energy);}
+    /* card-art sprite animation: turn toward the opponent, run, spike; defender flashes */
+    function cardSpr(f){var c=$('f'+f.side).querySelector('canvas.spr');return c||null;}
+    function spriteSeq(f,frames,ms,flip){var c=cardSpr(f);if(!c)return Promise.resolve();c.classList.toggle('flip',!!flip);var i=0;return new Promise(function(res){(function step(){drawCard(c,f.id,frames[i]);i++;if(i<frames.length)setTimeout(step,reduce?0:ms);else res();})();});}
+    function spriteIdle(f){var c=cardSpr(f);if(c){c.classList.remove('flip');drawCard(c,f.id,'idle');}}
+    /* card-view projectile: from the attacker's art window to the centre of the defender's art window */
+    function cardBall(att,def){var ring=$('ring');if(ring.classList.contains('px'))return wait(740);var ap=$('f'+att.side).querySelector('.ph'),dp=$('f'+def.side).querySelector('.ph');
+      var rr=ring.getBoundingClientRect(),a=ap.getBoundingClientRect(),d=dp.getBoundingClientRect();
+      var sx=(att.side==='L'?a.right-34:a.left-12)-rr.left,sy=a.top+a.height*.3-rr.top,ex=d.left+d.width/2-23-rr.left,ey=d.top+d.height/2-23-rr.top;
+      var b=document.createElement('span');b.className='vb';b.innerHTML=VB;ring.appendChild(b);
+      var anim=b.animate([{transform:'translate('+sx+'px,'+sy+'px) rotate(0deg) scale(.8)'},{transform:'translate('+((sx+ex)/2)+'px,'+(Math.min(sy,ey)-90)+'px) rotate(360deg) scale(1.15)',offset:.5},{transform:'translate('+ex+'px,'+ey+'px) rotate(720deg) scale(1)'}],{duration:reduce?0:740,easing:'linear',fill:'forwards'});
+      return anim.finished.catch(function(){}).then(function(){return b.animate([{opacity:1},{opacity:0,transform:'translate('+ex+'px,'+(ey+60)+'px) scale(.6)'}],{duration:reduce?0:300,fill:'forwards'}).finished.catch(function(){});}).then(function(){b.remove();});}
+    function pickMove(att){var aff=att.s.moves.filter(function(m){return m.cost<=att.energy;});if(!aff.length)return null;
+      var best=att.s.moves.reduce(function(a,b){return a.cost>=b.cost?a:b;});var maxAff=aff.reduce(function(a,b){return a.cost>=b.cost?a:b;});
+      /* hold energy for a bigger move when it arrives next round */
+      if(best.cost>maxAff.cost&&att.energy+att.round+1>=best.cost&&Math.random()<.45)return null;
+      var w=aff.map(function(m){return m.cost*m.cost;}),t=w.reduce(function(a,b){return a+b;},0),r=Math.random()*t;for(var i=0;i<aff.length;i++){r-=w[i];if(r<=0)return aff[i];}return aff[aff.length-1];}
+    async function turn(att,def){att.round++;att.energy=Math.min(MAXE,att.energy+att.round);enUI(att);
+      var ac=$('f'+att.side).querySelector('.card'),dc=$('f'+def.side).querySelector('.card');
+      var mv=pickMove(att);
+      if(!mv){var cp=document.createElement('span');cp.className='pop chg';cp.textContent='CHARGING';ac.appendChild(cp);SFX.charge();logp('<b>'+DATA[att.id].n+'</b> holds '+att.energy+' energy for a bigger swing.');await Promise.all([PX.charge(att.side),spriteSeq(att,['block','idle'],250),wait(800)]);cp.remove();return;}
+      att.energy=Math.max(0,att.energy-mv.cost);enUI(att);
+      if(mv.kind!=='atk'){var amt=parseInt(mv.kind.split(':')[1],10);att.shield=amt;var sh=document.createElement('span');sh.className='shield';ac.appendChild(sh);SFX.block();
+        var p=document.createElement('span');p.className='pop blk';p.textContent='BLOCK '+amt;ac.appendChild(p);logp('<b>'+DATA[att.id].n+'</b> used '+esc(mv.name)+' ('+mv.cost+' energy): the next hit loses '+amt+'.');await Promise.all([PX.block(att.side,amt),spriteSeq(att,['block','block','idle'],300),wait(900)]);p.remove();return;}
+      ac.classList.add(att.side==='L'?'lunge-l':'lunge-r');SFX.whoosh();var flip=att.side==='R';
+      var seq=spriteSeq(att,['side','siderun','side','siderun','sidespike'],110,flip);var ballP=cardBall(att,def);await PX.attack(att.side,def.side);
+      var r=dmg(att,def,mv),d=r.d,blocked=0;if(def.shield>0){blocked=Math.min(def.shield,d);d-=blocked;def.shield=0;var s=dc.querySelector('.shield');if(s)s.remove();}
+      dc.classList.add('hit');SFX.hit();PX.impact(def.side,d,blocked>0);var pop=document.createElement('span');pop.className='pop';pop.textContent='-'+d;dc.appendChild(pop);
+      def.hp-=d;hpUI(def);logp('<b>'+DATA[att.id].n+'</b> used '+esc(mv.name)+' ('+mv.cost+' energy) for '+(d+blocked)+'.'+(blocked?' The block absorbed '+blocked+', '+d+' got through.':'')+r.note);
+      await Promise.all([ballP,seq,wait(650)]);ac.classList.remove('lunge-l','lunge-r');dc.classList.remove('hit');pop.remove();spriteIdle(att);}
+    async function fight(){if(busy||!L)return;busy=true;$('btnFight').disabled=true;$('btnNext').disabled=true;$('btnRandom').disabled=true;selL.disabled=selR.disabled=true;
+      var first=L.s.spd>=R.s.spd?L:R,second=first===L?R:L;logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: 1 in round 1, 2 in round 2, 3 in round 3, and so on.');
+      var t=0;while(L.hp>0&&R.hp>0&&t<80){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;await wait(220);}
+      var win=L.hp>0?L:R,lose=win===L?R:L;$('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();var koP=PX.ko(lose.side,win.side);await wait(500);$('f'+win.side).querySelector('.card').classList.add('champ');SFX.win();
+      $('winner').textContent=DATA[win.id].n+' wins!';logp('<b>'+DATA[win.id].n+'</b> wins with '+Math.max(0,win.hp)+' HP left. Next Fight keeps the champion in.');await koP;busy=false;lastWin=win;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;}
+    $('btnFight').addEventListener('click',fight);
+    /* boomdex */
+    var b=$('dexBtn'),f=$('dex'),x=$('dexX');function open(){f.hidden=false;b.setAttribute('aria-expanded','true');f.querySelector('select').focus();}function close(){f.hidden=true;b.setAttribute('aria-expanded','false');}
+    b.addEventListener('click',function(){f.hidden?open():close();});x.addEventListener('click',close);
+    $('dexBattle').addEventListener('click',function(){close();$('arena').scrollIntoView({behavior:'smooth',block:'start'});$('btnRandom').focus({preventScroll:true});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!f.hidden){close();b.focus();}});
+    ['selTeam','selCoach'].forEach(function(id){var s=$(id);s.addEventListener('change',function(){var el=$(s.value);if(!el)return;var g=el.closest('.grp')||el;g.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('is-hit');setTimeout(function(){el.classList.remove('is-hit');},1800);s.value='';close();});});
+    if(matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches){document.querySelectorAll('#tc .tiles .card,#tc .lead-grid .card,#tc .train-grid .card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(700px) rotateX('+(-py*8)+'deg) rotateY('+(px*10)+'deg) translateY(-4px)';});c.addEventListener('pointerleave',function(){c.style.transform='';});});}
+  })();
+  </script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

@@ -10,6 +10,21 @@ reconstruct later.
 
 ---
 
+## v2.17 — 2026-10-22 · Coaching Staff as trading cards + Battle Arena
+coaching-staff.html
+
+- The staff page is now the trading-card design the owner chose (demo 7): every coach is a card whose frame is
+  their position's element, with HP, three moves, a weakness line and a set number; director cards are holo.
+- Real photos (background removed, upscaled) for 11 coaches; the other 16 show a generated pixel sprite in a
+  COBO jersey (black / teal / white) carrying the card number until their photo arrives.
+- Boomdex finder (by team, by name, jump to the arena) floats bottom-left; the site's back-to-top stays right.
+- Battle Arena: pick two cards or draw at random, Fight, Next Fight keeps the champion in. Card View shows a
+  volleyball flying between the cards; 16-Bit View swaps the cards for a pixel court (photo or RPG sprites,
+  four gyms) and keeps the HP / energy screen. Energy: 1 in round 1, 2 in round 2, 3 in round 3; 1-cost moves
+  top out at 10 (directors 15), 2-cost ~20, 3-cost ~30; Block / Dig / Timeout are 1-cost shields.
+- Fonts Bebas Neue (display) and Press Start 2P (pixel UI) added to this page only. Page CSS is scoped to #tc.
+- Source of truth is scratchpad gen_v7.js + build_v217.js (session e5324c8c); edit there and rebuild.
+
 ## v2.16 — 2026-10-22 · Tryouts wording
 tryouts.html
 
