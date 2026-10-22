@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v2.19 — 2026-10-22 · Battle Arena round 8
+coaching-staff.html
+
+- Hero: eyebrow reads "Colorado Boom" and the intro is standard coaching-staff copy (the element explainer is gone).
+- Moves: each position draws its three move names from a pool, so no two cards share a set; Tara and Damon's
+  director cards have different moves and flavor lines. Every 1-cost attack is now 10 (directors 15) so fights
+  move faster. Middles hit 35 and carry 70-80 HP; liberos and DS carry 110-120 HP; outsides, right sides,
+  setters and trainers sit at 90-100; directors 120-140. Super Dig (liberos, DS) and Big Block (middles) are
+  2-cost shields that stop 25.
+- Energy: the per-turn gain is 1, 2, then 3 a round; the hold button is now Charge and banks +3.
+- You Play: pick a move by tapping it on your own card (Charge sits bottom-left in the portrait); in 16-Bit View a
+  four-button pad (Y / X / A / B) with the move names sits beside the court, under it on phones.
+- Sprites: black eyes, a winning dance after a K.O., and the right-side sprite keeps its orientation (only the
+  side-facing run and spike frames mirror). Type icons get a white ring; energy dots and the BLOCKS label are
+  brighter.
+
 ## v2.18 — 2026-10-22 · Battle Arena round 7
 coaching-staff.html, assets/img/coaches/ryl-logo.webp (boom-logo.png removed)
 
