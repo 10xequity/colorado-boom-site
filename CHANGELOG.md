@@ -10,6 +10,23 @@ reconstruct later.
 
 ---
 
+## v2.20 — 2026-10-22 · Battle Arena round 9
+coaching-staff.html
+
+- Outsides, right sides and setters trade their 2-cost swing for a minor 1-cost shield (Dig / Block / Setter Block
+  and variants, stops 10), so every position can defend.
+- Fight end: a Street-Fighter style K.O. splash over the ring, then the winner's name, the win streak and a centred
+  Next Opponent button in both Auto Play and You Play. The streak counts the champion's run (your card's run in
+  You Play) and resets when it loses or you pick a different card.
+- 16-bit: a scoring ball lands on the floor in front of the defender instead of hitting them (a blocked ball still
+  meets the hands at the net). The control pad has bigger move labels, smaller Y/X/A/B buttons, a solid backdrop
+  and an Auto button that hands the rest of the fight to the AI.
+- Fit fixes: the HUD HP bar is shorter so 120/120 never overlaps it; card names shrink to fit the header; the
+  weakness line wraps instead of truncating; the K.O. card drops and shrinks instead of rotating (Chrome clipped
+  the rotated card's edge in the left corner).
+- Card backs: every card has a RYL "COLORADO BOOM!" back on black pinstripe with a gold frame. Tap or click a card
+  (or press Enter on it) to flip it; arena cards flip in from the back when a matchup is set.
+
 ## v2.19 — 2026-10-22 · Battle Arena round 8
 coaching-staff.html
 
