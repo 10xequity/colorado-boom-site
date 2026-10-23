@@ -9,7 +9,7 @@ SPR = OUT + '/assets/img/coaches/sprites32/'
 # (image, id, suffix, take portrait)
 JOBS = [('25', 'guest-akuma', '32', 1), ('26', 'guest-scorpion', '32', 1), ('27', 'guest-tanjiro', '32', 1), ('28', 'guest-goku', '32', 1),
         ('29', 'guest-yuji', '32', 1), ('30', 'guest-goku-black', '32', 1), ('31', 'guest-saitama', '16', 0), ('33', 'guest-saitama', '32', 1),
-        ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '16', 0), ('36', 'guest-kageyama', '16', 0), ('37', 'guest-tsukishima', '32', 1), ('39', 'guest-hinata', '32', 1), ('38', 'guest-kageyama', '32', 1)]
+        ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '16', 0), ('36', 'guest-kageyama', '16', 0), ('37', 'guest-tsukishima', '16', 0), ('39', 'guest-hinata', '32', 1), ('38', 'guest-kageyama', '32', 1), ('40', 'guest-tsukishima', '32', 1)]
 CW, CH = 300, 260   # guest cells are wider than the coach cells (200x240) so slashes, beams and auras are not cut off
 
 def runs(prof, minlen):
@@ -60,13 +60,34 @@ def cells_in(segs, soft, rgba, x0, x1, y0, y1, expect):
     keep = split_to(merge_to(keep, expect), prof, expect)
     out = []; ye0, ye1 = max(0, y0 - 18), min(H - 1, y1 + 18)
     for i, (c0, c1) in enumerate(keep):
-        a0 = (keep[i - 1][1] + c0) // 2 + 1 if i else max(0, c0 - 40); a1 = (c1 + keep[i + 1][0]) // 2 - 1 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 40)
-        hs = sub[:, a0:a1 + 1]; colh = np.array([(np.where(col)[0].max() - np.where(col)[0].min() + 1) if col.any() else 0 for col in hs.T])
-        lead = int(np.argmax(colh >= 0.03 * H)) if (colh >= 0.03 * H).any() else 0
-        if lead > 2 and hs[:, :lead].any(): a0 = a0 + lead - 2   # overlapping label text (strict pixels) left of the body; a soft glow has none and stays
-        s = soft[ye0:ye1 + 1, x0 + a0:x0 + a1 + 1]; ys, xs = np.where(s)
-        out.append(rgba.crop((x0 + a0 + xs.min(), ye0 + ys.min(), x0 + a0 + xs.max() + 1, ye0 + ys.max() + 1)))
+        # the frame's rectangle: out to the midpoint of the gap to each neighbour (a short margin at the row ends)
+        a0 = (keep[i - 1][1] + c0) // 2 + 1 if i else max(0, c0 - 25); a1 = (c1 + keep[i + 1][0]) // 2 - 1 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 25)
+        rect = soft[ye0:ye1 + 1, x0 + a0:x0 + a1 + 1]; lab = label(rect); keepk = []
+        for k in np.unique(lab[lab > 0]):
+            ys, xs = np.where(lab == k); n = len(xs)
+            touches_body = xs.min() <= (c1 - a0) + 6 and xs.max() >= (c0 - a0) - 6
+            at_edge = xs.min() == 0 or xs.max() == rect.shape[1] - 1
+            if touches_body or (n > 30 and not at_edge): keepk.append(k)   # body + attached effects, and detached effects fully inside; a neighbour's tail entering from the edge is dropped
+        m = np.isin(lab, keepk)
+        if not m.any(): m = rect
+        ys, xs = np.where(m)
+        crop = rgba.crop((x0 + a0 + xs.min(), ye0 + ys.min(), x0 + a0 + xs.max() + 1, ye0 + ys.max() + 1)); ca = np.array(crop)
+        ca[..., 3] = ca[..., 3] * m[ys.min():ys.max() + 1, xs.min():xs.max() + 1]
+        out.append(Image.fromarray(ca))
     return out
+def label(m):
+    """4-connected component labels of a boolean mask (small bands only)"""
+    H, W = m.shape; lab = np.zeros((H, W), np.int32); nxt = 0
+    for y0, x0 in zip(*np.where(m)):
+        if lab[y0, x0]: continue
+        nxt += 1; st = [(y0, x0)]; lab[y0, x0] = nxt
+        while st:
+            y, x = st.pop()
+            if y > 0 and m[y - 1, x] and not lab[y - 1, x]: lab[y - 1, x] = nxt; st.append((y - 1, x))
+            if y < H - 1 and m[y + 1, x] and not lab[y + 1, x]: lab[y + 1, x] = nxt; st.append((y + 1, x))
+            if x > 0 and m[y, x - 1] and not lab[y, x - 1]: lab[y, x - 1] = nxt; st.append((y, x - 1))
+            if x < W - 1 and m[y, x + 1] and not lab[y, x + 1]: lab[y, x + 1] = nxt; st.append((y, x + 1))
+    return lab
 
 def fit(c):
     s = min((CW - 8) / c.width, (CH - 8) / c.height, 1.0)

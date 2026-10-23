@@ -10,6 +10,27 @@ reconstruct later.
 
 ---
 
+## v2.32 — 2026-10-23 · Battle Arena round 21
+coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp, scripts/ (gen_v7.js, battle-core.js, balance-tune.json, guest-sheet-cut.py, build_v232.js)
+
+- Tsukishima uses the owner's high-detail sheet in 32-bit (and for his portrait and faces); the Canva sheet stays for 16-bit.
+- Frame cuts: each frame is now the set of connected blobs that belong to it (touching its body, or centred in its half
+  of the gap to a neighbour); anything else inside the rectangle is transparent. No more neighbour fragments, and effects
+  attached to the body come through whole.
+- Walking, running and dashing exits face the direction of travel (Saitama no longer walks out backwards).
+- Energy: the opening cost cap from v2.31 is removed. Energy is reset to zero at the start of every fight; no carry-over
+  between matches was found in the code.
+- Lightning type (weak to Rock, resists Wind) for Goku, Goku Black, Gojo, Akuma, Scorpion, Yuji, Saitama and Tanjiro.
+- Kits: middles' 2-cost shield is Attack Block (stops 30, hits back 10 when it stops a hit); trainers' big move is a
+  4-cost 50 finisher. The field was retuned by the simulator.
+- Kula visits once per device (after the third win), then the other specials take over the 3-5 fight cadence.
+- Banners: a styled frame per character (ki, rosé, void, demon, hellfire, curse, hero, water, crow, king, moon, dragon)
+  with its own accent, ground and overlay pattern; Kula gets a banner after his landing.
+- Call-outs: positioned under the HUD, carry the numbers (CHARGE · +3, SUPER DIG · STOPS 35, DIG · STOPPED 35, BLOCK ·
+  HITS BACK 10), pixel-font boxes in 16-bit and smooth display boxes in 32-bit; the duplicate canvas texts are gone.
+- Sounds: one swing per element (fist, flame, chime, rumble, swish, whistle, splash, sparkle, zap, roar).
+- Hero: "Choose your coach to battle in the Arena!" under the intro paragraph. Cards share one proportion at every width.
+
 ## v2.31 — 2026-10-23 · Battle Arena round 20
 coaching-staff.html, assets/img/coaches/sprites32/ (guest-hinata / guest-kageyama 32-bit sheets, guest-*-faces.webp), scripts/ (gen_v7.js, battle-core.js, balance-tune.json, guest-sheet-cut.py, build_v231.js)
 
