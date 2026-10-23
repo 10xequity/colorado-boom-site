@@ -5,7 +5,7 @@
    "0": 5,
    "1": 0
   },
-  "spd": 37
+  "spd": 34
  },
  "coach-rudy-garcia": {
   "hp": 10,
@@ -61,15 +61,15 @@
    "0": 0,
    "1": 0
   },
-  "spd": 19
+  "spd": 22
  },
  "coach-damon-sichler-director": {
-  "hp": 0,
+  "hp": 5,
   "pow": {
    "0": -5,
    "1": 0
   },
-  "spd": -12
+  "spd": -24
  },
  "coach-megan-daugherty": {
   "hp": 15,
@@ -144,12 +144,12 @@
   "spd": -6
  },
  "coach-kyn-van": {
-  "hp": 10,
+  "hp": 15,
   "pow": {
    "0": 0,
    "1": 0
   },
-  "spd": 0
+  "spd": -6
  },
  "coach-dax-martin": {
   "hp": 5,

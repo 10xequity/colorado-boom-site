@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v2.23 — 2026-10-22 · Battle Arena round 12
+coaching-staff.html, assets/img/coaches/sprites32/ (27 sheets), assets/img/coaches/stages32/ (beach new; logos on all four), scripts/ (gen_v7.js, sheets32.json, balance-tune.json, build_v223.js)
+
+- 32-Bit View now has a sheet for every coach. The four drawn bodies (Tara, Damon, Will, Sidney) are the templates; each
+  other coach is a palette swap of the closest body (hair, skin and jersey recoloured to the photo or card palette, card
+  number on the chest). They match the style but are not newly drawn figures.
+- Beach Night 32-bit stage from the owner's drawing. All four stages carry the club logo as a floor decal across the
+  centre line and on the wall banners / fence cloths, pixelated to match the render.
+- 32-bit: the toddler stays off the dragon (16-bit keeps him); Charge shows a Dragon Ball style flame aura.
+- Balance nudges: Kyn Van, Alicia Hall, Matt Jueng and Damon Sichler (director) moved toward 50% by single steps picked
+  from a per-card candidate sweep.
+- Sprites RPG / Photo: works on the live site; it silently falls back to RPG when the page is opened from a local file
+  (the browser blocks reading photo pixels off a file:// canvas). No code change.
+
 ## v2.22 — 2026-10-22 · Battle Arena round 11
 coaching-staff.html, assets/img/coaches/sprites32/ (new), assets/img/coaches/stages32/ (new), scripts/ (gen_v7.js, battle-core.js, balance-tune.json, build_v222.js)
 
