@@ -81,6 +81,8 @@ const GUEST_DEFS = [
     moves: [['Divergent Fist', 3, 'atk', 35], ['Black Flash', 2, 'atk', 30], ['Manji Kick', 1, 'atk', 10, { pierce: 1 }]], weak: 'Movie Recommendations', flavor: 'Hits twice: the punch, then the cursed energy a beat later.' },
   { n: 'Saitama', r: 'Hero for Fun', team: 'One-Punch Man', el: 'Rock', hp: 100, spd: 1, saitama: 1, invuln: 1, gi: { H: '#f6dcc4', S: '#f6dcc4', J: '#f2c200', D: '#f2c200', K: '#f2c200', N: '#d7262b', E: '#d7262b' },
     moves: [['Serious Punch', 0, 'atk', 999], ['(nothing)', 0, 'shield:all'], ['OK.', 0, 'shield:all']], weak: 'Grocery Sales', flavor: 'OK. Takes no damage, takes no notice, then takes you off the court.' },
+  { n: 'Tanjiro', r: 'Demon Slayer Corps', team: 'Demon Slayer', el: 'Water', hp: 85, spd: 76, gi: { H: '#7a2a3a', S: '#f0c8a0', J: '#1f6f4f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#d0334a' },
+    moves: [['Water Breathing: Tenth Form', 3, 'atk', 40], ['Hinokami Kagura', 2, 'atk', 25], ['Total Concentration', 1, 'shield:15']], weak: 'His Sister Being Insulted', flavor: 'Water Surface Slash. Smells the ball coming before the setter touches it.' },
   /* Karasuno */
   { n: 'Hinata', r: 'Karasuno #10 · Middle', team: 'Haikyu!!', el: 'Fighter', hp: 85, spd: 92, gi: { H: '#ff7a1f', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
     moves: [['Minus-Tempo Quick', 3, 'atk', 35], ['Freak Quick', 2, 'atk', 25], ['Wide Broad', 1, 'atk', 10, { pierce: 1 }]], weak: 'Bus Rides', flavor: 'Eyes closed, arm up, the ball is already there.' },
@@ -88,16 +90,6 @@ const GUEST_DEFS = [
     moves: [["King's Toss", 3, 'atk', 30], ['Pinpoint Set', 2, 'atk', 15, { drain: 1 }], ['Setter Block', 1, 'shield:10']], weak: 'Being Called King', flavor: 'The set lands where the hitter will be, not where he is.' },
   { n: 'Tsukishima', r: 'Karasuno #11 · Middle', team: 'Haikyu!!', el: 'Rock', hp: 70, spd: 66, gi: { H: '#e8d57a', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
     moves: [['Delayed Spike', 3, 'atk', 35], ['Read Block', 2, 'shield:30'], ['Soft Block Tip', 1, 'atk', 10]], weak: 'Enthusiasm', flavor: 'Reads the setter, waits, then puts a hand exactly where the ball goes.' },
-  { n: 'Tanaka', r: 'Karasuno #5 · Outside', team: 'Haikyu!!', el: 'Fire', hp: 80, spd: 74, gi: { H: '#f0c8a0', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
-    moves: [['Cross Spike', 3, 'atk', 40], ['Straight Spike', 2, 'atk', 25], ['Tip', 1, 'atk', 10, { pierce: 1 }]], weak: 'Kiyoko Ignoring Him', flavor: 'Shirt off at the first sign of a lead. Hits the cross until it works.' },
-  { n: 'Nishinoya', r: 'Karasuno #4 · Libero', team: 'Haikyu!!', el: 'Grass', hp: 100, spd: 90, gi: { H: '#111111', S: '#f0c8a0', J: '#ff7a1f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
-    moves: [['Rolling Thunder', 2, 'shield:25'], ['Jump Float', 3, 'atk', 25], ['Pass Up', 1, 'atk', 10]], weak: 'Height Charts', flavor: 'ROLLING THUNDER! Nothing hits the floor on his side.' },
-  { n: 'Daichi', r: 'Karasuno #1 · Captain', team: 'Haikyu!!', el: 'Wind', hp: 95, spd: 72, gi: { H: '#3b2416', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
-    moves: [["Captain's Spike", 3, 'atk', 30], ['Jump Serve', 2, 'atk', 20], ['Perfect Receive', 1, 'shield:10']], weak: 'Tanaka and Noya Together', flavor: 'The receive that keeps the rally alive, then a word with the bench.' },
-  { n: 'Sugawara', r: 'Karasuno #2 · Setter', team: 'Haikyu!!', el: 'Psychic', hp: 85, spd: 70, gi: { H: '#cfcfcf', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
-    moves: [['Signal Set', 3, 'atk', 30], ['Setter Dump', 2, 'atk', 15, { drain: 1 }], ['Cover', 1, 'shield:10']], weak: 'Benches', flavor: 'Calls the play with a hand signal and dumps it when you forget him.' },
-  { n: 'Asahi', r: 'Karasuno #3 · Ace', team: 'Haikyu!!', el: 'Fire', hp: 80, spd: 64, gi: { H: '#5a3a22', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
-    moves: [['Ace Spike', 3, 'atk', 45], ['Line Shot', 2, 'atk', 25], ['Jump Serve', 1, 'atk', 10]], weak: 'Being Called Scary', flavor: 'The ace. Gentle off the court, a wall-breaker on it.' },
 ];
 const GUESTS = GUEST_DEFS.map(d => {
   const id = 'guest-' + d.n.toLowerCase().replace(/[^a-z]+/g, '-'); const tune = TUNE[id] || {};
@@ -192,7 +184,8 @@ function render(o) {
   const teamHref = t => o.live ? `teams.html#${A[t]}` : `${SITE}teams.html#${A[t]}`;
   const tgt = o.live ? '' : ' target="_blank" rel="noopener"';
   const photoOf = p => REAL.has(p.id) ? IMG + 'cut/' + p.id + '.webp' : null;
-  const art = p => p.boss ? `<canvas class="spr boss" data-id="kula" width="120" height="96" role="img" aria-label="Kula the dragon"></canvas>` : photoOf(p) ? `<img src="${photoOf(p)}" alt="${p.n}, ${esc(p.r)}" width="480" height="520" loading="lazy">` : `<canvas class="spr" data-id="${p.id}" width="60" height="84" role="img" aria-label="${p.n}, ${esc(p.r)} (pixel sprite placeholder)"></canvas>`;
+  const portraitOf = p => p.guest && fs.existsSync(__dirname + '/../assets/img/coaches/sprites32/' + p.id + '-portrait.webp') ? SPR32 + p.id + '-portrait.webp' : null;
+  const art = p => portraitOf(p) ? `<img src="${portraitOf(p)}" alt="${p.n}" width="480" height="280" loading="lazy">` : p.boss ? `<canvas class="spr boss" data-id="kula" width="120" height="96" role="img" aria-label="Kula the dragon"></canvas>` : photoOf(p) ? `<img src="${photoOf(p)}" alt="${p.n}, ${esc(p.r)}" width="480" height="520" loading="lazy">` : `<canvas class="spr" data-id="${p.id}" width="60" height="84" role="img" aria-label="${p.n}, ${esc(p.r)} (pixel sprite placeholder)"></canvas>`;
   const mval = m => m.kind === 'atk' ? m.pow : m.kind === 'heal' ? '<small>heals</small>' + m.pow : '<small>blocks</small>' + (m.kind.split(':')[1] === 'all' ? 'ALL' : m.kind.split(':')[1]);
   const mtag = m => m.pierce ? '<em class="tag">over block</em>' : m.drain ? '<em class="tag">' + (m.drain === 'all' ? 'drains all' : '-' + m.drain + ' en') + '</em>' : '';
   const card = p => `
@@ -632,12 +625,16 @@ function render(o) {
     function hdFx(name,x,y,sz,ms){var n=name==='burst'?5:4;fxStrip(name,n,name==='burst'?160:200).then(function(fr){if(fr)st.fxs.push({fr:fr,x:x,y:y,sz:sz,t0:performance.now(),ms:ms||60});});}
     function hdSprite(id){var d=DATA[id];
       if(d.boss)return Promise.all([loadImg('${SPR32}kula-fly.webp'),loadImg('${SPR32}kula-stand.webp')]).then(function(r){if(!r[0]||!r[1])return {kind:'boss',frames:dragonSet(1),k:3,back:[.58,.42]};var fly=flipped(r[0]),stand=flipped(r[1]);return {kind:'boss',frames:{fly1:fly,fly2:fly,idle:stand,attack:stand,ko:bloodied(rotated(stand))},k:144/stand.height,smooth:true,back:[.52,.34]};});
-      var sh=SHEETS[id]||(d.guest?id:null);if(sh)return loadImg('${SPR32}'+sh+'-32.webp').then(function(im){if(!im)return {kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};var c=function(i){return cell(im,i,200,240);},ready=c(0),run=c(1),dig=c(2),set=c(3),spike=c(4),block=c(5);
-        return {kind:'rpg',frames:{idle:ready,side:ready,run:run,siderun:run,spike:spike,sidespike:spike,sidedig:dig,block:block,set:set,faint1:c(6),faint2:c(7),faint3:c(8),dance1:c(9),dance2:c(10),dance3:c(11),charge1:c(12),charge2:c(13),charge3:c(14),ko:c(8)},k:.25,smooth:true,allSide:true,full:true};});
+      var sh=SHEETS[id];if(sh)return loadImg('${SPR32}'+sh+'-32.webp').then(function(im){if(!im)return {kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};return sheetSprite(im,.25);});
       if(d.photo)return photoSprite(d.photo,true).then(function(p){return p||{kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};});
       return Promise.resolve({kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC});}
     function whiteOf(c){var w=document.createElement('canvas');w.width=c.width;w.height=c.height;var wk=w.getContext('2d');wk.drawImage(c,0,0);wk.globalCompositeOperation='source-in';wk.fillStyle='#fff';wk.fillRect(0,0,w.width,w.height);return w;}
-    function makeSprite(id){var d=DATA[id];if(hd)return hdSprite(id);if(d.boss)return Promise.resolve({kind:'boss',frames:dragonSet(1),k:3,back:[.58,.42]});var rpg={kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};
+    function contentH(c){try{var d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,top=-1,bot=-1;for(var y=0;y<c.height;y++){for(var x=0;x<c.width;x++){if(d[(y*c.width+x)*4+3]>40){if(top<0)top=y;bot=y;break;}}}return bot<0?c.height:bot-top+1;}catch(e){return c.height;}}
+    function sheetSprite(im,k){var c=function(i){return cell(im,i,200,240);},ready=c(0),run=c(1),dig=c(2),set=c(3),spike=c(4),block=c(5);if(k==='fit')k=58/Math.max(60,contentH(ready));
+      return {kind:'rpg',frames:{idle:ready,side:ready,run:run,siderun:run,spike:spike,sidespike:spike,sidedig:dig,block:block,set:set,faint1:c(6),faint2:c(7),faint3:c(8),dance1:c(9),dance2:c(10),dance3:c(11),charge1:c(12),charge2:c(13),charge3:c(14),ko:c(8)},k:k,smooth:true,allSide:true,full:true};}
+    function guestSprite(id){var fb={kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};var try32=function(){return loadImg('${SPR32}'+id+'-32.webp').then(function(im){return im?sheetSprite(im,'fit'):fb;});};
+      if(hd)return try32();return loadImg('${SPR32}'+id+'-16.webp').then(function(im){return im?sheetSprite(im,'fit'):try32();});}
+    function makeSprite(id){var d=DATA[id];if(d.guest)return guestSprite(id);if(hd)return hdSprite(id);if(d.boss)return Promise.resolve({kind:'boss',frames:dragonSet(1),k:3,back:[.58,.42]});var rpg={kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};
       return Promise.resolve(rpg);}
     function fighter(side,id,spr){var boss=!!DATA[id].boss;var f={side:side,id:id,spr:spr,frame:'idle',home:side==='L'?64:(boss?W-72:W-64),rider:boss,x:0,oy:0,ox:0,fy:FY,hp:DATA[id].s.hp,max:DATA[id].s.hp,shown:DATA[id].s.hp,energy:0,hit:0,shield:0,hide:false,gone:false,shiny:!!DATA[id].shiny,boss:boss,aura:0,white:{}};f.x=f.home;return f;}
     function frameOf(f){return f.spr.frames[f.frame]||f.spr.frames.idle;}
@@ -793,9 +790,12 @@ function render(o) {
     if(same(a,b)){$('log').innerHTML='<p>Pick two different people. A coach cannot fight their own other card.</p>';$('fightOv').hidden=true;L=R=null;return;}setup(a,b);}
   selL.addEventListener('change',fromSelects);selR.addEventListener('change',fromSelects);
   var IDS=Object.keys(DATA).filter(function(k){return !DATA[k].boss&&!DATA[k].guest;}),GIDS=Object.keys(DATA).filter(function(k){return DATA[k].guest&&!DATA[k].s.saitama;});
-  var GUEST_RATE=.2,SAITAMA_RATE=.05,forceGuest=location.hash==='#guest',forceSaitama=location.hash==='#saitama';
+  var forceGuest=location.hash==='#guest',forceSaitama=location.hash==='#saitama';
+  var fightsTotal=+(lsGet('bt_fights')||0)||0,nextGuestAt=+(lsGet('bt_nextg')||0)||0,nextSaitamaAt=+(lsGet('bt_nexts')||0)||0,kulaSeen=lsGet('bt_kula')==='1';
+  if(!nextGuestAt){nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));}if(!nextSaitamaAt){nextSaitamaAt=fightsTotal+13+Math.floor(Math.random()*5);lsSet('bt_nexts',String(nextSaitamaAt));}
   function staffOpp(a){var b;do{b=IDS[Math.floor(Math.random()*IDS.length)];}while(same(a,b));return b;}
-  function randomOpp(a){var r=Math.random();if(forceSaitama||r<SAITAMA_RATE){forceSaitama=false;return 'guest-saitama';}if(forceGuest||r<SAITAMA_RATE+GUEST_RATE){forceGuest=false;return GIDS[Math.floor(Math.random()*GIDS.length)];}return staffOpp(a);}
+  function randomOpp(a){var due=kulaSeen&&fightsTotal>=nextGuestAt;if(forceSaitama||(due&&fightsTotal>=nextSaitamaAt)){forceSaitama=false;nextSaitamaAt=fightsTotal+13+Math.floor(Math.random()*5);lsSet('bt_nexts',String(nextSaitamaAt));nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));return 'guest-saitama';}
+    if(forceGuest||due){forceGuest=false;nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));return GIDS[Math.floor(Math.random()*GIDS.length)];}return staffOpp(a);}
   function randomPair(keep,side){var a=keep||IDS[Math.floor(Math.random()*IDS.length)],b=side==='R'?staffOpp(a):randomOpp(a);return side==='R'?[b,a]:[a,b];}
   $('btnRandom').addEventListener('click',function(){if(busy)return;var p=randomPair();if(DATA[p[1]].guest)selR.value='';selL.value=p[0];selR.value=p[1];setup(p[0],p[1]);});
   $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var keep=lastWin.boss?(streakId||L.id):lastWin.id;var p=mode==='play'?[L.id,randomOpp(L.id)]:randomPair(keep,lastWin.boss?'L':lastWin.side);selL.value=p[0];selR.value=DATA[p[1]].guest?'':p[1];setup(p[0],p[1]).then(fight);});
@@ -867,7 +867,7 @@ function render(o) {
     function fin(){if(done)return;done=true;box.remove();res();}
     box.innerHTML=txt;setTimeout(fin,reduce?0:ms);box.onclick=fin;});}
   async function bossEnter(champ){/* fade out, lightning, Kula flies in, text box, then the fight */busy=true;$('nextOv').hidden=true;$('btnNext').disabled=true;$('btnRandom').disabled=true;selL.disabled=selR.disabled=true;
-    if(view==='card')setView('px');logp('<b>The lights go out...</b>');var fade=$('fade');fade.classList.add('on');await wait(1000);
+    kulaSeen=true;lsSet('bt_kula','1');if(view==='card')setView('px');logp('<b>The lights go out...</b>');var fade=$('fade');fade.classList.add('on');await wait(1000);
     selL.value=champ;selR.value='';await setup(champ,'kula');fade.classList.remove('on');$('fightOv').hidden=true;
     await PX.bossIntro();await textBox('<b>KULA</b>'+esc(DATA.kula.s.flavor),3400);PX.hideRider();
     logp('<b>Kula</b> the dragon lands on the court, toddler aboard. Scales take 10 off every hit, so tips bounce off; GigaSpike hits 35; Headbutt takes the 2 energy you just banked; Kong Block stops a whole turn. He only wakes 1 energy a turn: hit hard while he is low, block when he has 3.');fight();}
@@ -877,7 +877,7 @@ function render(o) {
     if(mode==='play')logp('<b>You Play:</b> you control <b>'+DATA[L.id].n+'</b> at Home.');logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: +2 a turn; a block that stops a hit refunds its cost; Charge banks +'+CHARGE+'.');
     var t=0;while(L.hp>0&&R.hp>0&&t<core.TURN_CAP){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;await wait(220);}
     var win=L.hp>0&&R.hp>0?(L.hp/L.max>=R.hp/R.max?L:R):(L.hp>0?L:R),lose=win===L?R:L;if(L.hp>0&&R.hp>0)logp('Turn limit: <b>'+DATA[win.id].n+'</b> takes it on HP left.');
-    if(R.s.saitama){/* no K.O. screen, no streak change: he walks out and the next opponent comes */await PX.walkOut('R');$('winner').textContent='Saitama wandered off.';logp('<b>Saitama</b> walks out the way he came. That one does not count.');lastWin=L;busy=false;played(true);$('ovName').textContent='Saitama wandered off';$('ovStreak').textContent='That one did not count';$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;return;}
+    if(R.s.saitama){/* no K.O. screen, no streak change: he walks out and the next opponent comes */await PX.walkOut('R');$('winner').textContent='Saitama wandered off.';logp('<b>Saitama</b> walks out the way he came. That one does not count.');lastWin=L;busy=false;played(true);fightsTotal++;lsSet('bt_fights',String(fightsTotal));$('ovName').textContent='Saitama wandered off';$('ovStreak').textContent='That one did not count';$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;return;}
     $('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();
     var playerWon=mode==='play'?win===L:true;
     var koP;if(bossFight&&win===L){$('koTxt').textContent='YOU WIN!';$('koTxt').classList.add('win');koP=PX.bossDown();await wait(1500);$('koOv').hidden=false;bossBeaten++;}
@@ -886,7 +886,7 @@ function render(o) {
     await wait(1300);$('koOv').hidden=true;$('f'+win.side).querySelector('.card').classList.add('champ');if(playerWon){SFX.win();SFX.crowd();}else SFX.lose();spriteSeq(win,['dance1','dance2','dance1','dance2','dance1','dance2','dance1','dance2','dance1'],220);
     if(mode==='play'){if(win===L){streak=streakId===L.id?streak+1:1;streakId=L.id;}else{streak=0;streakId=null;}}else{if(win.boss){streak=0;streakId=null;}else{streak=win.id===streakId?streak+1:1;streakId=win.id;}}
     $('winner').textContent=DATA[win.id].n+' wins!'+(streak>1?' · '+streak+' in a row':'');logp('<b>'+DATA[win.id].n+'</b> wins with '+Math.max(0,win.hp)+' HP left. '+(bossFight?(win===L?'Kula is down. The streak goes on.':'Kula takes it. The streak is over.'):mode==='play'?(win===L?'You win! ':'The AI takes it. ')+'Next Fight keeps your card in against a new opponent.':'Next Fight keeps the champion in.'));await koP;
-    bossFight=false;lastWin=win;busy=false;played(true);
+    bossFight=false;lastWin=win;busy=false;played(true);fightsTotal++;lsSet('bt_fights',String(fightsTotal));
     if(!win.boss&&playerWon){winsTotal++;lsSet('bt_wins',String(winsTotal));}
     if((bossSoon||playerWon&&winsTotal>=nextBoss)&&!win.boss){bossSoon=false;nextBoss=winsTotal+5+Math.floor(Math.random()*3);lsSet('bt_next',String(nextBoss));bossEnter(win.id);return;}
     $('ovName').textContent=DATA[win.id].n+' wins!';$('ovStreak').textContent=(mode==='play'?'Your win streak: ':'Win streak: ')+streak+' · wins '+winsTotal+(winsTotal===nextBoss-1?' · one more for the challenger':'');$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;}

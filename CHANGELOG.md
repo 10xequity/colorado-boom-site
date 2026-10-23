@@ -10,6 +10,19 @@ reconstruct later.
 
 ---
 
+## v2.29 — 2026-10-23 · Battle Arena round 18
+coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp (new), scripts/ (gen_v7.js, guest-sheet-cut.py, build_v229.js)
+
+- Guest sheets: the owner's character sheets for Akuma, Scorpion, Tanjiro, Goku, Yuji, Goku Black, Saitama (pixel + high
+  detail) and Gojo (pixel + high detail) are cut by scripts/guest-sheet-cut.py into the game's 15-cell format (idle,
+  run, crouch, air, strike, stance, hurt x3, jump x3, charge x3) plus a card portrait from the sheet's top-right head.
+  Guests use the sheet in both 16-bit and 32-bit; the pixel-figure fallback remains only for a guest with no sheet
+  (Hinata, Kageyama, Tsukishima until theirs arrive).
+- Roster: Tanaka, Nishinoya, Daichi, Sugawara and Asahi removed; Tanjiro added (Water Breathing: Tenth Form 40,
+  Hinokami Kagura 25, Total Concentration shield 15).
+- Cadence: a special comes every 3-5 fights, counted on the device, and only after Kula's first visit; Saitama takes
+  one of those slots about every 15 fights. Kula's own cadence is unchanged (third win, then every 5-7 wins).
+
 ## v2.28 — 2026-10-23 · Battle Arena round 17
 coaching-staff.html, scripts/
 
