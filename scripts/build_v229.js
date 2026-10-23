@@ -37,7 +37,7 @@ for (const f of ['aura', 'burst', 'spark', 'beam']) if (!fs.existsSync(R + 'asse
 if (/boom-logo\.png|img\/cut\/|Left corner|Right corner|Lineup Card|Gym Booking|opens with 2 energy|selStyle|st\.trail\.push/.test(vis)) throw new Error('leftover markup');
 if ((vis.match(/<article class="card/g) || []).length !== ALLP.length + 1 + GUESTS.length) throw new Error('card count');
 if ((vis.match(/<script>/g) || []).length !== 1) throw new Error('script count');
-for (const m of ['id="vHd"', 'id="playedN"', 'abacus.jasoncameron.dev', 'sprites32/', 'stages32/', 'winsTotal', 'MODELS = { rally', 'Charge <b>+3</b>', 'rider', 'hdSprite', 'auraFor', 'hdFx', 'faint1', 'nextBoss', 'scaleX(-1)', 'drawNet', 'bounceAway', 'shieldFr', 'id="selBall"', 'ballSprite', 'FIT={beach', 'guest-saitama', 'seriousPunch', 'id="guest-hinata"', 'flistatec', 'guest-tanjiro', 'guestSprite', 'bt_nextg', 'guest-goku-portrait.webp']) if (!vis.includes(m)) throw new Error('round 11 marker: ' + m);
+for (const m of ['id="vHd"', 'id="playedN"', 'abacus.jasoncameron.dev', 'sprites32/', 'stages32/', 'winsTotal', 'MODELS = { rally', 'Charge <b>+3</b>', 'rider', 'hdSprite', 'auraFor', 'hdFx', 'faint1', 'nextBoss', 'scaleX(-1)', 'drawNet', 'bounceAway', 'shieldFr', 'id="selBall"', 'ballSprite', 'FIT={beach', 'guest-saitama', 'seriousPunch', 'id="guest-hinata"', 'flistatec', 'guest-tanjiro', 'guestSprite', 'bt_nextg', 'guest-goku-portrait.webp', 'guest-hinata-portrait.webp']) if (!vis.includes(m)) throw new Error('round 11 marker: ' + m);
 if (!h.includes(`<!-- BUILD ${V} `)) h = h.replace(/(  <!-- BUILD v)/, `  <!-- BUILD ${V} · 2026-10-23 · [CO] Battle Arena round 18: guests draw from their character sheets in 16-bit and 32-bit (Saitama and Gojo have a pixel sheet for 16-bit and a high-detail sheet for 32-bit) and their cards carry the sheet portrait; roster is Goku, Goku Black, Gojo, Akuma, Scorpion, Yuji, Tanjiro, Saitama plus Hinata, Kageyama, Tsukishima; a special comes every 3-5 fights once Kula has made his first visit, Saitama about every 15. Generated from scripts/gen_v7.js. -->
 $1`);
 o.h = h; save('coaching-staff.html', o);
@@ -46,10 +46,11 @@ if (!L.h.includes(`## ${V} `)) L.h = once(L.h, `## ${PREV} — 2026-10-23`, `## 
 coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp (new), scripts/ (gen_v7.js, guest-sheet-cut.py, build_v229.js)
 
 - Guest sheets: the owner's character sheets for Akuma, Scorpion, Tanjiro, Goku, Yuji, Goku Black, Saitama (pixel + high
-  detail) and Gojo (pixel + high detail) are cut by scripts/guest-sheet-cut.py into the game's 15-cell format (idle,
+  detail) and Gojo (pixel + high detail), plus Hinata, Kageyama and Tsukishima sheets generated in Canva in the same
+  layout, are cut by scripts/guest-sheet-cut.py into the game's 15-cell format (idle,
   run, crouch, air, strike, stance, hurt x3, jump x3, charge x3) plus a card portrait from the sheet's top-right head.
   Guests use the sheet in both 16-bit and 32-bit; the pixel-figure fallback remains only for a guest with no sheet
-  (Hinata, Kageyama, Tsukishima until theirs arrive).
+  (none at the moment).
 - Roster: Tanaka, Nishinoya, Daichi, Sugawara and Asahi removed; Tanjiro added (Water Breathing: Tenth Form 40,
   Hinokami Kagura 25, Total Concentration shield 15).
 - Cadence: a special comes every 3-5 fights, counted on the device, and only after Kula's first visit; Saitama takes
