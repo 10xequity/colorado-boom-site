@@ -55,23 +55,22 @@ b = b.crop((0, top, b.width, top + H)).resize((1280, 800), Image.LANCZOS); b.sav
 # source copies for the other three stay as the previously generated files; the logo versions overwrite the live files
 # ---- fieldhouse: decal across the centre line, club logo on the two big wall banners
 s = load_stage('fieldhouse')
-s = floor_decal(s, [(470, 455), (810, 455), (880, 575), (400, 575)], .8)
+s = floor_decal(s, [(480, 540), (800, 540), (860, 665), (420, 665)], .8)
 s = banner(s, (62, 148, 150, 310), bg=(8, 40, 44, 255)); s = banner(s, (1130, 148, 1218, 310), bg=(8, 40, 44, 255))
 save(s, 'fieldhouse')
 # ---- arena: decal on the court, comic logo on the front of the stands either side of the tunnel
 s = load_stage('arena')
-s = floor_decal(s, [(480, 470), (800, 470), (870, 575), (410, 575)], .8)
+s = floor_decal(s, [(480, 535), (800, 535), (860, 660), (420, 660)], .8)
 s = banner(s, (180, 410, 420, 470), src=ryl, bg=(0, 0, 0, 235)); s = banner(s, (860, 410, 1100, 470), src=ryl, bg=(0, 0, 0, 235))
 save(s, 'arena')
 # ---- retro: decal on the court, club logo on the brick wall between the window pairs
 s = load_stage('retro')
-s = floor_decal(s, [(480, 455), (800, 455), (860, 560), (420, 560)], .8)
+s = floor_decal(s, [(480, 540), (800, 540), (860, 665), (420, 665)], .8)
 s = banner(s, (560, 120, 720, 230), bg=(26, 18, 14, 230))
 save(s, 'retro')
 # ---- beach: decal in the sand, club logo on the centre fence cloth and the comic logo on the two outer cloths
 s = load_stage('beach')
-s = floor_decal(s, [(480, 430), (800, 430), (870, 545), (410, 545)], .8)
-s = banner(s, (556, 356, 724, 404), bg=(14, 124, 134, 255)); s = banner(s, (150, 356, 318, 404), src=ryl, bg=(14, 124, 134, 255)); s = banner(s, (962, 356, 1130, 404), src=ryl, bg=(14, 124, 134, 255))
+s = floor_decal(s, [(490, 480), (790, 480), (840, 595), (440, 595)], .8)   # beach: sand decal only, no fence banners
 save(s, 'beach')
 # preview sheet
 sheet = Image.new('RGB', (1280 * 2 // 2, 800 * 2 // 2))

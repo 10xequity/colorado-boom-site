@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v2.26 — 2026-10-23 · Battle Arena round 15
+coaching-staff.html, assets/img/coaches/stages32/, assets/img/coaches/sprites32/coach-janci-ige-32.webp, scripts/
+
+- Net: the near post now stands on the near (right) edge of the net face, where the mesh ends. 32-bit draws shaded
+  cylindrical posts, a finer mesh and a shadow under the top tape; 16-bit keeps the pixel version.
+- Volleyball: a real three-panel swirl ball, 15 px pixel art in 16-bit and a smooth shaded ball in 32-bit, with a Ball
+  picker beside Gym: Classic White, Molten Super Touch (red / white / green), Molten Flistatec Red, Molten Flistatec
+  Blue (blue / yellow / white) and Boom Teal (teal / black / gold). The Card View ball gets proper seams.
+- Stage logos: the floor decal sits centred on each drawing's own court (just above the players), not on the screen.
+- Beach Night: the fence-cloth logos are gone (the sand decal stays); the drawing is scaled 1.13x from the top so the
+  near sideline meets the game court and the sprites stand on the sand inside the lines.
+- Janci Ige is derived from the Asian-variant curly-hair body with dark hair.
+- 32-bit Kula already uses the owner's two drawn dragons (flying, standing); no change.
+
 ## v2.25 — 2026-10-23 · Battle Arena round 14
 coaching-staff.html, scripts/ (gen_v7.js, build_v225.js)
 
