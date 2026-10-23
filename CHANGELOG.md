@@ -10,6 +10,32 @@ reconstruct later.
 
 ---
 
+## v2.21 — 2026-10-22 · Battle Arena round 10
+coaching-staff.html, assets/img/coaches/cut/ (coach-kyn-van.webp, coach-makayla-clemons.webp new; coach-jae-spain.webp re-cut), scripts/ (gen_v7.js, battle-core.js, balance-sim.js, balance-tune.json, photo-palette.json)
+
+- Photos: Kyn Van and Makayla Clemons join the 11 real-photo cards (Makayla's grey CU tee is recoloured to a black
+  Colorado Boom tee with the club logo); Jae's cut no longer shows a stranger's arm.
+- Card backs: the club logo (gold ball, teal shards) on a teal field inside the gold frame with corner brackets.
+- Energy (owner's model): +1 on a card's first turn, +2 every turn after; the second mover opens with 2 banked;
+  Charge banks +2; cap 6. Fights end in 10 moves on average and never run past 10 turns each (HP left decides).
+- Kits by position so each plays differently: outsides swing 35/20 plus a tip that goes over a block; right sides hit
+  40/25 on 65-75 HP; setters drain an energy with the 2-cost and carry a cheap block; middles wall up (stops 25) and
+  hit 40; liberos tank 90-100 HP behind Super Dig; DS never need to charge (25 / tip 15 / dig 10); trainers heal 15;
+  directors drain with Yellow Card (Tara, was Lineup Card) and Benched (Damon, was Gym Booking).
+- Balance: scripts/balance-sim.js round-robins every card with the in-game AI (shared scripts/battle-core.js) and
+  nudges HP / top-move power into balance-tune.json until every card wins 48.5-51.5% and the directors 52%.
+- Kula: after three wins in a row the lights go out, lightning flashes, a dragon flies in and lands ("YOU FACE ME
+  NOW MORTAL!"). Scales take 10 off every hit, GigaSpike 35, Headbutt drains all energy, Kong Block stops a whole
+  turn, each with its own sound. Beat him: he flies up, drops, cracks the court and twitches under YOU WIN!. Lose:
+  he dances and a toddler hops off his back to tap your body.
+- Controls: You Play in 16-Bit RPG view is the default; Auto / You Play can be switched mid-fight (takes effect at
+  the next move); the pad shows your energy; FIGHT! sits in the middle of the ring; Home / Away replace Left / Right
+  corner; Boomdex (Directory) button beside Battle Now; short win and lose melodies.
+- 16-bit: sprites take hair and skin from the photo where there is one; spikes travel downward and land up or down
+  the court away from the defender; a dig is taken from the floor at the landing spot (a block still goes up at the
+  net); Charge flares a Dragon Ball aura (court and card); damage text clamps inside the canvas.
+- Mobile: cards sit side by side in Card View so the whole fight is on screen; pops, bursts and labels shrink to fit.
+
 ## v2.20 — 2026-10-22 · Battle Arena round 9
 coaching-staff.html
 

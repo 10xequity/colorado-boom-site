@@ -1,0 +1,54 @@
+{
+ "coach-claire-kwok": {
+  "hair": "#1a1410",
+  "skin": "#e4b48d"
+ },
+ "coach-damon-sichler-director": {
+  "hair": "#885d46",
+  "skin": "#c87f6c"
+ },
+ "coach-damon-sichler": {
+  "hair": "#885d46",
+  "skin": "#c87f6c"
+ },
+ "coach-jae-spain": {
+  "hair": "#bb904b",
+  "skin": "#90635e"
+ },
+ "coach-jawn-suzuki": {
+  "hair": "#624636",
+  "skin": "#c19785"
+ },
+ "coach-kimberly-krise": {
+  "hair": "#1f3a66",
+  "skin": "#ca794d"
+ },
+ "coach-kyn-van": {
+  "hair": "#68462b",
+  "skin": "#c08260"
+ },
+ "coach-makayla-clemons": {
+  "hair": "#5a3a22",
+  "skin": "#b67f63"
+ },
+ "coach-sidney-reese": {
+  "hair": "#49443f",
+  "skin": "#936a5b"
+ },
+ "coach-tara-tucker-director": {
+  "hair": "#64473d",
+  "skin": "#c98973"
+ },
+ "coach-tara-tucker": {
+  "hair": "#64473d",
+  "skin": "#c98973"
+ },
+ "coach-will-ly": {
+  "hair": "#231714",
+  "skin": "#ba8174"
+ },
+ "coach-zhu": {
+  "hair": "#08071a",
+  "skin": "#c08260"
+ }
+}
