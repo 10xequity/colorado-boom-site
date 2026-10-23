@@ -124,7 +124,7 @@ for img, gid, sfx, want_portrait in JOBS:
             if len(rr) == 4: break
         rr, prof = best; rr = split_to(merge_to(rr, 4), prof, 4)
         assert len(rr) == 4, (img, side, rr)
-        rows[side] = [(int(.02 * W) if side == 'L' else x0, x1, r[0], r[1]) for r in rr]
+        rows[side] = [((int(.02 * W) if big else int(.072 * W)) if side == 'L' else x0, x1, r[0], r[1]) for r in rr]
     M = (mask, colm)
     idle = cells_in(M, soft, rgba, *rows['L'][0], 6); walk = cells_in(M, soft, rgba, *rows['L'][1], 6); run = cells_in(M, soft, rgba, *rows['L'][3], 6)
     attack = cells_in(M, soft, rgba, *rows['R'][0], 5); jump = cells_in(M, soft, rgba, *rows['R'][1], 5)

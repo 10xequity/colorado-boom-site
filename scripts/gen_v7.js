@@ -856,13 +856,13 @@ function render(o) {
     if(same(a,b)){$('log').innerHTML='<p>Pick two different people. A coach cannot fight their own other card.</p>';$('fightOv').hidden=true;L=R=null;return;}setup(a,b);}
   selL.addEventListener('change',fromSelects);selR.addEventListener('change',fromSelects);
   var IDS=Object.keys(DATA).filter(function(k){return !DATA[k].boss&&!DATA[k].guest;}),GIDS=Object.keys(DATA).filter(function(k){return DATA[k].guest&&!DATA[k].s.saitama;});
-  var forceGuest=location.hash==='#guest',forceSaitama=location.hash==='#saitama';
+  var forceGuest=location.hash.indexOf('#guest')===0,forceGuestId=/^#guest-/.test(location.hash)?location.hash.slice(1):null,forceSaitama=location.hash==='#saitama',GBAG=[];
   var fightsTotal=+(lsGet('bt_fights')||0)||0,nextGuestAt=+(lsGet('bt_nextg')||0)||0,nextSaitamaAt=+(lsGet('bt_nexts')||0)||0,kulaSeen=lsGet('bt_kula')==='1';
   if(!nextGuestAt){nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));}if(!nextSaitamaAt){nextSaitamaAt=fightsTotal+13+Math.floor(Math.random()*5);lsSet('bt_nexts',String(nextSaitamaAt));}
   function staffOpp(a){var b;do{b=IDS[Math.floor(Math.random()*IDS.length)];}while(same(a,b));return b;}
   function randomOpp(a){var due=kulaSeen&&fightsTotal>=nextGuestAt;if(forceSaitama||(due&&fightsTotal>=nextSaitamaAt)){forceSaitama=false;nextSaitamaAt=fightsTotal+13+Math.floor(Math.random()*5);lsSet('bt_nexts',String(nextSaitamaAt));nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));return 'guest-saitama';}
-    if(forceGuest||due){forceGuest=false;nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));return GIDS[Math.floor(Math.random()*GIDS.length)];}return staffOpp(a);}
-  function randomPair(keep,side){var a=keep||IDS[Math.floor(Math.random()*IDS.length)],b=side==='R'?staffOpp(a):randomOpp(a);return side==='R'?[b,a]:[a,b];}
+    if(forceGuest||due){var fid=forceGuestId&&DATA[forceGuestId]?forceGuestId:null;forceGuest=false;forceGuestId=null;nextGuestAt=fightsTotal+3+Math.floor(Math.random()*3);lsSet('bt_nextg',String(nextGuestAt));if(fid)return fid;if(!GBAG.length)GBAG=GIDS.slice().sort(function(){return Math.random()-.5;});return GBAG.pop();}   /* a shuffled bag: every special appears once before any repeats */return staffOpp(a);}
+  function randomPair(keep,side){var a=keep||IDS[Math.floor(Math.random()*IDS.length)],b=randomOpp(a);return [a,b];}   /* the champion goes Home and the new opponent Away, whichever side won: a special can only enter on the Away side */
   $('btnRandom').addEventListener('click',function(){if(busy)return;var p=randomPair();if(DATA[p[1]].guest)selR.value='';selL.value=p[0];selR.value=p[1];setup(p[0],p[1]);});
   $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var keep=lastWin.boss?(streakId||L.id):lastWin.id;var p=mode==='play'?[L.id,randomOpp(L.id)]:randomPair(keep,lastWin.boss?'L':lastWin.side);selL.value=p[0];selR.value=DATA[p[1]].guest?'':p[1];setup(p[0],p[1]).then(fight);});
   /* mode can change mid-fight: it takes effect at the next move. Switching to Auto while waiting for your move hands that move to the AI. */

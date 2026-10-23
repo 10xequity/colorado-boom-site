@@ -9,7 +9,7 @@ const PREV = 'v2.32';
 function once(src, a, b, l) { const n = src.split(a).length - 1; if (n !== 1) throw new Error(l + ': anchor count ' + n); return src.replace(a, () => b); }
 const load = f => { const raw = fs.readFileSync(R + f, 'utf8'); return { crlf: raw.includes('\r\n'), h: raw.replace(/\r\n/g, '\n') }; };
 const save = (f, o) => fs.writeFileSync(R + f, o.crlf ? o.h.replace(/\n/g, '\r\n') : o.h);
-const r = render({ img: 'assets/img/coaches/', live: true, av: '234' });
+const r = render({ img: 'assets/img/coaches/', live: true, av: '235' });
 const o = load('coaching-staff.html'); let h = o.h;
 if (!h.includes(`<!-- BUILD ${PREV} `) && !h.includes(`<!-- BUILD ${V} `)) throw new Error('expected a ' + PREV + ' page');
 const sa = h.indexOf('  <style>\n'); const sb = h.indexOf('  </style>', sa);
