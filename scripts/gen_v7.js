@@ -81,7 +81,7 @@ const GUEST_DEFS = [
     moves: [['Divergent Fist', 3, 'atk', 35], ['Black Flash', 2, 'atk', 30], ['Manji Kick', 1, 'atk', 10, { pierce: 1 }]], weak: 'Movie Recommendations', flavor: 'Hits twice: the punch, then the cursed energy a beat later.' },
   { n: 'Saitama', frame: 'hero', entry: 'saitama', exit: 'walk', r: 'Hero for Fun', team: 'One-Punch Man', el: 'Lightning', hp: 100, spd: 1, saitama: 1, invuln: 1, gi: { H: '#f6dcc4', S: '#f6dcc4', J: '#f2c200', D: '#f2c200', K: '#f2c200', N: '#d7262b', E: '#d7262b' },
     moves: [['Serious Punch', 0, 'atk', 999], ['(nothing)', 0, 'shield:all'], ['OK.', 0, 'shield:all']], weak: 'Grocery Sales', flavor: 'OK. Takes no damage, takes no notice, then takes you off the court.' },
-  { n: 'Tanjiro', frame: 'water', entry: 'run', exit: 'run', r: 'Demon Slayer Corps', team: 'Demon Slayer', el: 'Lightning', hp: 85, spd: 76, gi: { H: '#7a2a3a', S: '#f0c8a0', J: '#1f6f4f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#d0334a' },
+  { n: 'Tanjiro', frame: 'sun', entry: 'run', exit: 'run', r: 'Demon Slayer Corps', team: 'Demon Slayer', el: 'Fire', hp: 85, spd: 76, gi: { H: '#7a2a3a', S: '#f0c8a0', J: '#1f6f4f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#d0334a' },
     moves: [['Water Breathing: Tenth Form', 3, 'atk', 40], ['Hinokami Kagura', 2, 'atk', 25], ['Total Concentration', 1, 'shield:15']], weak: 'His Sister Being Insulted', flavor: 'Water Surface Slash. Smells the ball coming before the setter touches it.' },
   /* Karasuno */
   { n: 'Hinata', frame: 'crow', happy: 1, entry: 'jump', exit: 'run', r: 'Karasuno #10 · Middle', team: 'Haikyu!!', el: 'Fighter', hp: 85, spd: 92, gi: { H: '#ff7a1f', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
@@ -232,12 +232,12 @@ function render(o) {
 #tc .bt h2{font-size:clamp(36px,4.8vw,54px)}#tc .bt .sub{font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-left:auto;color:var(--gold)}
 #tc .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:start}
 #tc .grp{min-width:0}#tc .span-1{grid-column:span 1}#tc .span-2{grid-column:span 2}#tc .span-3{grid-column:span 3}
-#tc .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,230px));gap:16px;align-items:stretch;justify-content:start}
+#tc .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;align-items:stretch}
 #tc .gh{display:flex;align-items:center;gap:10px;min-width:0;min-height:44px;margin-bottom:6px}
 #tc .gh h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.05em;line-height:1.3;min-width:0;text-transform:uppercase}
 #tc .gh .sep{margin:0 8px;color:var(--gold)}#tc .gh a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--gold)}#tc .gh a:hover{color:var(--gold)}
 #tc .gh .age{font-family:var(--display);font-size:32px;line-height:1;flex:none;color:var(--gold)}
-#tc .card{container-type:inline-size;position:relative;min-width:0;display:flex;padding:7px;border-radius:12px;aspect-ratio:var(--cr,.55);scroll-margin-top:90px;transition:transform .25s var(--ease),box-shadow .25s var(--ease);box-shadow:0 10px 30px rgba(0,0,0,.6);background:linear-gradient(160deg,var(--f1) 0%,var(--f2) 28%,var(--f3) 50%,var(--f2) 72%,var(--f1) 100%)}
+#tc .card{container-type:inline-size;position:relative;min-width:0;display:flex;padding:7px;border-radius:12px;aspect-ratio:var(--cr,.62);scroll-margin-top:90px;transition:transform .25s var(--ease),box-shadow .25s var(--ease);box-shadow:0 10px 30px rgba(0,0,0,.6);background:linear-gradient(160deg,var(--f1) 0%,var(--f2) 28%,var(--f3) 50%,var(--f2) 72%,var(--f1) 100%)}
 #tc .el-Fighter{--f1:#ff9a4d;--f2:#b3410f;--f3:#ffd1a6;--tint:#ff8a3d}
 #tc .el-Psychic{--f1:#ff7ae0;--f2:#6d1fb8;--f3:#f3c9ff;--tint:#d66cff}
 #tc .el-Fire{--f1:#ff5a36;--f2:#b51d05;--f3:#ffc46b;--tint:#ff6a3d}
@@ -290,7 +290,7 @@ function render(o) {
 #tc .cfoot span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#tc .cfoot span:first-child{white-space:normal;line-height:1.15;overflow:visible}
 #tc .cfoot small{display:block;font-size:max(7px,2.8cqw);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 #tc .cfoot .no{color:var(--gold)}#tc .cfoot em{font-style:normal}#tc .cfoot i{width:max(6px,2.6cqw);height:max(6px,2.6cqw)}
-#tc .lead-grid,#tc .train-grid{display:grid;grid-template-columns:repeat(2,minmax(0,230px));gap:20px;justify-content:center;margin:0 auto}
+#tc .lead-grid,#tc .train-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:600px;margin:0 auto}
 #tc .cta{text-align:center;margin-top:18px}
 #tc .btn{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase;letter-spacing:.05em;padding:13px 26px;background:var(--gold);color:#000;border:0;border-radius:0;cursor:pointer;line-height:1.2;transition:transform .18s var(--ease),box-shadow .18s var(--ease)}
 #tc .btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(229,184,0,.35)}#tc .btn:disabled{opacity:.5;cursor:default;transform:none;box-shadow:none}
@@ -397,6 +397,7 @@ function render(o) {
 #tc .intro.f-hell{--fa:#ffd400;--fb:#2a1200;--pat:linear-gradient(0deg,rgba(255,140,0,.5),transparent 60%)}
 #tc .intro.f-curse{--fa:#ff4d79;--fb:#120008;--pat:repeating-linear-gradient(90deg,rgba(255,77,121,.18) 0 2px,transparent 2px 9px)}
 #tc .intro.f-hero{--fa:#ffd400;--fb:#c81e1e;--pat:repeating-linear-gradient(45deg,rgba(255,255,255,.12) 0 14px,transparent 14px 28px)}
+#tc .intro.f-sun{--fa:#ff8a1f;--fb:#2a0800;--pat:radial-gradient(circle at 80% 120%,rgba(255,120,30,.55),transparent 55%),repeating-linear-gradient(-15deg,rgba(255,200,80,.18) 0 3px,transparent 3px 14px)}
 #tc .intro.f-water{--fa:#3fd8c8;--fb:#031a20;--pat:repeating-radial-gradient(circle at 20% 120%,rgba(63,216,200,.22) 0 6px,transparent 6px 18px)}
 #tc .intro.f-crow{--fa:#ff7a1f;--fb:#111;--pat:repeating-linear-gradient(-30deg,rgba(255,122,31,.22) 0 4px,transparent 4px 20px)}
 #tc .intro.f-king{--fa:#4f8cff;--fb:#06112a;--pat:linear-gradient(90deg,rgba(79,140,255,.35),transparent 50%)}
@@ -430,7 +431,7 @@ function render(o) {
 #tc .bossbank{display:none}
 /* narrow cards (two across on a phone): tighter header, smaller move rows, footer drops the retreat column so weak / resist never collide */
 @container (max-width:210px){#tc .ch{column-gap:4px}#tc .ch .hp{font-size:8px}#tc .ch .hp b{font-size:11px}#tc .ch .ty{width:18px;height:18px;font-size:11px}#tc .moves li{font-size:10px;gap:5px}#tc .dmg{font-size:13px}#tc .cfoot{grid-template-columns:1.3fr 1fr auto;font-size:8.5px;gap:5px}#tc .cfoot span:nth-child(3){display:none}#tc .cfoot .no{font-size:9px}#tc .flavor{font-size:9.5px;-webkit-line-clamp:2}}
-@media(max-width:1000px){#tc .grid{grid-template-columns:repeat(2,1fr)}#tc .span-3{grid-column:1/-1}}
+@media(max-width:1000px){#tc .grid{grid-template-columns:repeat(2,1fr)}#tc .span-3{grid-column:1/-1}#tc .tiles{grid-template-columns:repeat(auto-fit,minmax(170px,290px))}#tc .lead-grid,#tc .train-grid{grid-template-columns:repeat(2,minmax(0,290px));justify-content:center;max-width:none}}
 @media(max-width:560px){#tc .grid{grid-template-columns:1fr}#tc .grp{grid-column:1/-1}#tc .tiles{grid-template-columns:repeat(2,1fr)}#tc .bt .sub{display:none}
   #tc .ring{grid-template-columns:1fr 1fr;gap:8px;padding:12px 0}#tc .ring .vs{display:none}#tc .fighter .card{max-width:100%}#tc .pick{grid-template-columns:1fr 1fr;gap:8px}#tc .pick .vsm{display:none}#tc .pick select{font-size:14px;padding:8px}#tc .ring.px{grid-template-columns:1fr 1fr}
   #tc .hero .hbtns{display:grid}#tc .hero .hero-btn{text-align:center}#tc .pxopts{flex-wrap:wrap;justify-content:center;width:100%}#tc .pxopts select{max-width:100%}#tc .pad{position:static;transform:none;margin-top:8px;width:100%;justify-content:flex-start}#tc .pl{font-size:10px}#tc .turnlbl{font-size:13px;top:-10px}
@@ -621,15 +622,15 @@ function render(o) {
       return c;}
     /* the net: a plane standing on the centre line and running away from the viewer. Near post (bottom of the court) is tall,
        far post short; the top tape slants between them; the mesh is a slightly angled face so it reads as a net, not a line. */
-    function drawNet(k,smooth){var fx=NET,nx=NET,fTop=FAR-34,nTop=NEAR-58,fBot=FAR,nBot=NEAR-2,face=smooth?16:14;/* the plane is seen a little off edge-on, so its face widens toward the viewer */
+    function drawNet(k,smooth){var fx=NET,nx=NET,fTop=FAR-34,nTop=NEAR-58,fBot=FAR,nBot=NEAR-2,face=smooth?30:14;/* the plane is seen a little off edge-on, so its face widens toward the viewer */
       k.save();k.lineCap='butt';
       /* floor shadow */k.fillStyle='rgba(0,0,0,.22)';k.beginPath();k.moveTo(fx-2,fBot);k.lineTo(fx+10,fBot);k.lineTo(nx+16,nBot);k.lineTo(nx-2,nBot);k.closePath();k.fill();
-      /* mesh face */k.fillStyle='rgba(235,240,245,.22)';k.beginPath();k.moveTo(fx,fTop);k.lineTo(fx+face*.5,fTop+1);k.lineTo(nx+face,nTop+2);k.lineTo(nx+face,nBot);k.lineTo(fx+face*.5,fBot);k.lineTo(fx,fBot);k.closePath();k.fill();
-      k.strokeStyle=smooth?'rgba(250,250,250,.78)':'rgba(240,240,240,.7)';k.lineWidth=smooth?.45:1;k.beginPath();var i,n=smooth?40:14;
+      /* mesh face */k.fillStyle=smooth?'rgba(0,0,0,.10)':'rgba(235,240,245,.22)';k.beginPath();k.moveTo(fx,fTop);k.lineTo(fx+face*.5,fTop+1);k.lineTo(nx+face,nTop+2);k.lineTo(nx+face,nBot);k.lineTo(fx+face*.5,fBot);k.lineTo(fx,fBot);k.closePath();k.fill();
+      k.strokeStyle=smooth?'rgba(12,12,14,.7)':'rgba(240,240,240,.7)';k.lineWidth=smooth?.35:1;k.beginPath();var i,n=smooth?30:14;
       for(i=0;i<=n;i++){var q=i/n,y0=fTop+(fBot-fTop)*q,y1=nTop+(nBot-nTop)*q;k.moveTo(fx,y0);k.lineTo(nx+face,y1+(q*2));}
-      var m=smooth?34:11;for(i=0;i<=m;i++){var p=i/m,xa=fx+(nx-fx)*p,ya=fTop+(nTop-fTop)*p,yb=fBot+(nBot-fBot)*p,xb=xa+face*(.5+.5*p);k.moveTo(xb,ya+2);k.lineTo(xb,yb);}
+      var m=smooth?26:11;for(i=0;i<=m;i++){var p=i/m,xa=fx+(nx-fx)*p,ya=fTop+(nTop-fTop)*p,yb=fBot+(nBot-fBot)*p,xb=xa+face*(.5+.5*p);k.moveTo(xb,ya+2);k.lineTo(xb,yb);}
       k.stroke();
-      /* tapes */if(smooth){k.strokeStyle='rgba(0,0,0,.35)';k.lineWidth=2.6;k.beginPath();k.moveTo(fx-1,fTop+1.5);k.lineTo(nx+face,nTop+2.5);k.stroke();}k.strokeStyle='#f8f8f8';k.lineWidth=smooth?2.2:3;k.beginPath();k.moveTo(fx-1,fTop);k.lineTo(nx+face,nTop+1);k.stroke();k.lineWidth=smooth?1.2:1;k.beginPath();k.moveTo(fx,fBot-1);k.lineTo(nx+face,nBot-1);k.stroke();
+      /* tapes */if(smooth){k.strokeStyle='rgba(0,0,0,.6)';k.lineWidth=3.2;k.beginPath();k.moveTo(fx-1,fTop+1.5);k.lineTo(nx+face,nTop+2.5);k.stroke();}k.strokeStyle='#f8f8f8';k.lineWidth=smooth?2.2:3;k.beginPath();k.moveTo(fx-1,fTop);k.lineTo(nx+face,nTop+1);k.stroke();k.lineWidth=smooth?1.2:1;k.beginPath();k.moveTo(fx,fBot-1);k.lineTo(nx+face,nBot-1);k.stroke();
       /* posts: far on the far edge, near on the near (right) edge of the face */var px2=nx+face;
       if(smooth){var pg=k.createLinearGradient(fx-2,0,fx+1,0);pg.addColorStop(0,'#777');pg.addColorStop(.5,'#333');pg.addColorStop(1,'#111');k.fillStyle=pg;k.fillRect(fx-2,fTop-4,3,fBot-fTop+6);var pg2=k.createLinearGradient(px2-2,0,px2+3,0);pg2.addColorStop(0,'#888');pg2.addColorStop(.45,'#3a3a3a');pg2.addColorStop(1,'#101010');k.fillStyle=pg2;k.fillRect(px2-2,nTop-6,5,nBot-nTop+8);k.fillStyle='rgba(0,0,0,.35)';k.fillRect(px2-3,nBot,8,2);}
       else{k.fillStyle='#2a2a2a';k.fillRect(fx-2,fTop-4,3,fBot-fTop+6);k.fillRect(px2-2,nTop-6,4,nBot-nTop+8);k.fillStyle='#6a6a6a';k.fillRect(fx-2,fTop-4,1,fBot-fTop+6);k.fillRect(px2-2,nTop-6,1,nBot-nTop+8);}
@@ -735,8 +736,8 @@ function render(o) {
       if(st.on)requestAnimationFrame(frame);}
     function start(){if(!st.on){st.on=true;requestAnimationFrame(frame);}}
     start();
-    function runTo(f,tx,ty){var sx=f.x,sy=f.fy,ty2=ty==null?f.fy:ty,dist=Math.max(Math.abs(tx-sx),Math.abs(ty2-sy));if(f.spr.kind!=='rpg'||dist<2){f.x=tx;f.fy=ty2;return Promise.resolve();}var alt=f.spr.frames.run2?'run2':'side';return tween(Math.max(120,dist*7),function(p){f.x=sx+(tx-sx)*p;f.fy=sy+(ty2-sy)*p;f.frame=((p*dist/8)|0)%2?'siderun':alt;}).then(function(){f.frame='side';});}
-    function walkTo(f,tx){var sx=f.x,dist=Math.abs(tx-sx);if(!f.spr.frames.walk1)return runTo(f,tx,f.fy);return tween(Math.max(200,dist*16),function(p){f.x=sx+(tx-sx)*p;f.frame=((p*dist/10)|0)%2?'walk1':'walk2';}).then(function(){f.frame='idle';});}
+    function runTo(f,tx,ty){var sx=f.x,sy=f.fy,ty2=ty==null?f.fy:ty,dist=Math.max(Math.abs(tx-sx),Math.abs(ty2-sy));if(f.spr.kind!=='rpg'||dist<2){f.x=tx;f.fy=ty2;return Promise.resolve();}var alt=f.spr.frames.run2?'run2':'side',keep=f.faceFlip;if(Math.abs(tx-sx)>2)f.faceFlip=f.side==='R'?tx>sx:tx<sx;return tween(Math.max(120,dist*7),function(p){f.x=sx+(tx-sx)*p;f.fy=sy+(ty2-sy)*p;f.frame=((p*dist/8)|0)%2?'siderun':alt;}).then(function(){f.frame='side';f.faceFlip=keep&&!f.gone?keep:false;});}
+    function walkTo(f,tx){var sx=f.x,dist=Math.abs(tx-sx);if(!f.spr.frames.walk1)return runTo(f,tx,f.fy);if(dist>2)f.faceFlip=f.side==='R'?tx>sx:tx<sx;return tween(Math.max(200,dist*16),function(p){f.x=sx+(tx-sx)*p;f.frame=((p*dist/10)|0)%2?'walk1':'walk2';}).then(function(){f.frame='idle';f.faceFlip=false;});}
     function nearNet(f){return f.side==='L'?NET-34:NET+34;}
     function practice(F){var seq=F.spr.frames.punch1?['idle','punch1','punch2','punch3','punch2','idle','punch1','punch2','punch3','idle']:['idle','block','idle','block','idle'];var i=0;return new Promise(function(res){(function step(){F.frame=seq[i];if(/punch2|block/.test(seq[i]))SFX.whoosh();i++;if(i<seq.length)setTimeout(step,reduce?0:200);else res();})();});}
     function bounceAway(x0,y0,dirX,dirY){var b=st.ball,hops=[[18,52],[9,34],[4,20]];if(!b)return Promise.resolve();return hops.reduce(function(pr,hp,i){return pr.then(function(){var dur=380-i*90,sx=x0,sy=y0;return tween(dur,function(p){if(st.ball!==b)return;b.x=sx+dirX*hp[1]*p;b.y=sy+dirY*6*p-hp[0]*Math.sin(p*Math.PI);b.f=((p*8)|0)%2;}).then(function(){x0=sx+dirX*hp[1];y0=Math.min(NEAR-4,Math.max(FAR+4,sy+dirY*6));if(i===0)SFX.jump();});});},Promise.resolve()).then(function(){return tween(260,function(p){if(st.ball!==b)return;b.x=x0+dirX*14*p;});}).then(function(){if(st.ball===b)st.ball=null;});}

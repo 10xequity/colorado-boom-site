@@ -18,6 +18,7 @@ var BattleCore = (function () {
     else if (T.RESIST[def.s.el] === att.s.el) { base *= .7; note = ' Not very effective.'; }
     if ((T.PERSONAL[def.id] || []).indexOf(att.id) >= 0) { base *= 2; note = ' ' + T.first(def.id) + '’s one true weakness!'; }
     if (rng() < .12) { base *= 1.5; crit = true; }
+    base = Math.min(base, Math.floor(def.max * .5 / 5) * 5);   /* no single hit takes more than half a fighter's HP: weakness x crit stacks no longer one-shot */
     return { d: Math.max(5, Math.round(base / 5) * 5), note: note, crit: crit };
   }
   /* resolve one chosen move (null = Charge). Mutates att/def, returns what happened for the animation + log. */

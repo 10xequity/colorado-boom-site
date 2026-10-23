@@ -58,7 +58,7 @@ if (!args.includes('--report')) {
       const cands = [];
       /* HP and power move in 5s (damage is in 5s, so finer HP steps change nothing); speed is the fine lever: it flips who goes
          first (and so who opens with 2 energy) against a slice of the field without touching a number on the card */
-      for (const d of [-10, -5, 5, 10]) if (p.s.hp + d >= hb[0] - 25 && p.s.hp + d <= hb[1] + 25) cands.push({ hp: d });
+      for (const d of [-10, -5, 5, 10]) if (p.s.hp + d >= Math.max(hb[0] - 25, 70) && p.s.hp + d <= hb[1] + 25) cands.push({ hp: d });   /* nobody drops below 70 HP: a fragile card reads as dying instantly */
       for (const i of atks) for (const d of [-5, 5]) if (Math.abs((t.pow[i] || 0) + d) <= 15) cands.push({ pow: i, d });
       for (const d of [-25, -12, -6, 6, 12, 25]) if (Math.abs((t.spd || 0) + d) <= 60) cands.push({ spd: d });
       const NN = polish ? 400 : 240; const base = rateOf(g, p, NN, 9); let best = { score: Math.abs(base - target(p)), c: null };

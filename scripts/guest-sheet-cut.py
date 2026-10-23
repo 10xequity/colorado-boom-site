@@ -65,19 +65,24 @@ def cells_in(segs, soft, rgba, x0, x1, y0, y1, expect):
     out = []; ye0, ye1 = max(0, y0 - 18), min(H - 1, y1 + 18)
     for i, (c0, c1) in enumerate(keep):
         # the frame's rectangle: out to the midpoint of the gap to each neighbour (a short margin at the row ends)
-        a0 = (keep[i - 1][1] + c0) // 2 + 1 if i else max(0, c0 - 70); a1 = (c1 + keep[i + 1][0]) // 2 - 1 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 70)   # wide margins at the row ends: a dark half of a figure can fall under the strict mask
-        rect = soft[ye0:ye1 + 1, x0 + a0:x0 + a1 + 1]; lab = label(rect); keepk = []
+        a0 = (keep[i - 1][0] + keep[i - 1][1]) // 2 if i else max(0, c0 - 160); a1 = (keep[i + 1][0] + keep[i + 1][1]) // 2 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 160)   # out to the neighbours' centres: wide effects and fallen bodies stay whole   # out to the neighbour's body, not the gap midpoint: a fist, a slash or a fallen body reaching into the gap stays whole; the neighbour's own pieces cross the rectangle edge and are dropped   # wide margins at the row ends: a dark half of a figure can fall under the strict mask
+        rect = soft[ye0:ye1 + 1, x0 + a0:x0 + a1 + 1]; lab = label(rect); keepk = []; part = np.zeros(rect.shape, bool)
         rowy0, rowy1 = y0 - ye0, y1 - ye0
+        ml = (keep[i - 1][1] + c0) // 2 if i else a0; mr = (c1 + keep[i + 1][0]) // 2 if i < len(keep) - 1 else a1   # gap midpoints (frame coordinates)
+        nb = [keep[j] for j in (i - 1, i + 1) if 0 <= j < len(keep)]
+        gxs = np.arange(rect.shape[1]) + a0
         for k in np.unique(lab[lab > 0]):
-            ys, xs = np.where(lab == k); n = len(xs); cy = ys.mean()
+            ys, xs = np.where(lab == k); n = len(xs); cy = ys.mean(); gx = xs + a0
             inrow = ((ys >= rowy0 - 3) & (ys <= rowy1 + 3)).mean()
-            if not (rowy0 - 3 <= cy <= rowy1 + 3) or inrow < .6: continue        # the feet of the row above / heads of the row below (most of the piece must lie in this row)
-            px = A[ye0 + ys, x0 + a0 + xs]; grey = (px.max(axis=1) - px.min(axis=1)).mean() < 28
-            touches_body = xs.min() <= (c1 - a0) + 6 and xs.max() >= (c0 - a0) - 6
-            if grey and (not touches_body or (xs.max() - xs.min() < LW * W and ys.max() - ys.min() < 0.12 * H)): continue   # label text, even when it sits against the body
-            at_edge = xs.min() == 0 or xs.max() == rect.shape[1] - 1
-            if touches_body or (n > 30 and not at_edge): keepk.append(k)   # body + attached effects, and detached effects fully inside; a neighbour's tail entering from the edge is dropped
-        m = np.isin(lab, keepk)
+            if not (rowy0 - 3 <= cy <= rowy1 + 3) or inrow < .6: continue
+            px = A[ye0 + ys, x0 + gx]; grey = (px.max(axis=1) - px.min(axis=1)).mean() < 28
+            own = ((gx >= c0 - 6) & (gx <= c1 + 6)).any(); other = any(((gx >= b0) & (gx <= b1)).any() for b0, b1 in nb)
+            if grey and (not own or (xs.max() - xs.min() < LW * W and ys.max() - ys.min() < 0.12 * H)): continue
+            if own and not other: keepk.append(k)                                     # all of it: fists, slashes, a fallen body
+            elif own and other:                                                        # shared with a neighbour: split at the midpoints
+                sel = (lab == k) & ((gxs >= ml) & (gxs <= mr))[None, :]; part |= sel
+            elif n > 30 and gx.min() >= ml and gx.max() <= mr: keepk.append(k)        # detached effect inside this frame's half-gaps
+        m = np.isin(lab, keepk) | part
         if keepk:   # a figure's own pieces never sit below its feet: drop detached bits whose centre is under the main body's bottom edge
             sizes = {k: int((lab == k).sum()) for k in keepk}; main = max(sizes, key=sizes.get); my, _ = np.where(lab == main); by1, bh = my.max(), my.max() - my.min()
             for k in keepk:

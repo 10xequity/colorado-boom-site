@@ -5,26 +5,26 @@
    "0": 5,
    "1": 5
   },
-  "spd": 58
+  "spd": 52
  },
  "coach-rudy-garcia": {
   "hp": 15,
   "pow": {
-   "0": 0,
+   "0": 5,
    "1": 5
   },
   "spd": 42
  },
  "coach-tara-tucker-director": {
-  "hp": -5,
+  "hp": 0,
   "pow": {
    "0": 0,
    "1": -5
   },
-  "spd": -13
+  "spd": -1
  },
  "coach-zhu": {
-  "hp": 10,
+  "hp": 15,
   "pow": {
    "0": 0,
    "1": -5
@@ -37,7 +37,7 @@
    "0": 5,
    "1": 10
   },
-  "spd": -38
+  "spd": -32
  },
  "coach-hanfei-li": {
   "hp": 5,
@@ -45,47 +45,47 @@
    "0": 0,
    "1": 5
   },
-  "spd": 43
+  "spd": 55
  },
  "coach-tara-tucker": {
-  "hp": 10,
+  "hp": 15,
   "pow": {
    "0": -15,
    "2": 10
   },
-  "spd": -30
+  "spd": -55
  },
  "coach-alicia-hall": {
   "hp": 10,
   "pow": {
-   "0": 5,
+   "0": 10,
    "1": -5
   },
-  "spd": 22
+  "spd": 28
  },
  "coach-damon-sichler-director": {
-  "hp": 5,
+  "hp": 10,
   "pow": {
    "0": -5,
    "1": -5
   },
-  "spd": 19
+  "spd": 31
  },
  "coach-megan-daugherty": {
-  "hp": 25,
+  "hp": 30,
   "pow": {
    "0": -5,
    "1": 5
   },
-  "spd": -12
+  "spd": 13
  },
  "coach-brian-peterson": {
-  "hp": -10,
+  "hp": 0,
   "pow": {
    "0": 5,
    "2": 5
   },
-  "spd": -43
+  "spd": -12
  },
  "coach-randy-vang": {
   "hp": -5,
@@ -93,10 +93,10 @@
    "0": -10,
    "2": -5
   },
-  "spd": -24
+  "spd": 1
  },
  "coach-janci-ige": {
-  "hp": -25,
+  "hp": -30,
   "pow": {
    "0": 0,
    "2": -5
@@ -104,44 +104,44 @@
   "spd": -50
  },
  "coach-kimberly-krise": {
-  "hp": 10,
+  "hp": 5,
   "pow": {
    "0": 0,
    "1": 0
   },
-  "spd": 30
+  "spd": 54
  },
  "coach-brian-xu": {
   "hp": -15,
   "pow": {
-   "0": 0,
-   "2": 10
+   "0": -15,
+   "2": -5
   },
-  "spd": 0
+  "spd": -50
  },
  "coach-lena-cox": {
-  "hp": 5,
+  "hp": 15,
   "pow": {
    "0": 0,
    "2": 5
   },
-  "spd": -31
+  "spd": 0
  },
  "coach-jawn-suzuki": {
   "hp": 20,
   "pow": {
    "0": -5,
-   "2": -5
+   "2": 0
   },
-  "spd": -12
+  "spd": -37
  },
  "coach-will-ly": {
   "hp": 10,
   "pow": {
-   "0": -5,
-   "2": 0
+   "0": -10,
+   "2": 5
   },
-  "spd": -12
+  "spd": 13
  },
  "coach-kyn-van": {
   "hp": 15,
@@ -160,7 +160,7 @@
   "spd": 18
  },
  "coach-makayla-clemons": {
-  "hp": 10,
+  "hp": 20,
   "pow": {
    "0": 5,
    "1": 0
@@ -171,44 +171,44 @@
   "hp": 5,
   "pow": {
    "0": 10,
-   "1": 5
+   "1": 10
   },
   "spd": 0
  },
  "coach-jae-spain": {
   "hp": -15,
   "pow": {
-   "0": 0,
-   "2": 0
+   "0": -10,
+   "2": -5
   },
-  "spd": 18
+  "spd": -32
  },
  "coach-jamison-crowley": {
-  "hp": -5,
+  "hp": 20,
   "pow": {
    "0": 0,
    "2": 0
   },
-  "spd": 12
+  "spd": 6
  },
  "coach-sidney-reese": {
   "hp": 0,
   "pow": {
-   "0": 0,
-   "1": 0
+   "0": 10,
+   "1": 5
   },
-  "spd": 30
+  "spd": 36
  },
  "coach-adam-ray": {
   "hp": -10,
   "pow": {
-   "0": 0,
-   "2": 5
+   "0": -10,
+   "2": 10
   },
-  "spd": -6
+  "spd": -56
  },
  "coach-rob-oschner": {
-  "hp": 10,
+  "hp": 5,
   "pow": {
    "0": 0,
    "1": 0
@@ -216,39 +216,39 @@
   "spd": 24
  },
  "guest-gojo": {
-  "hp": -25,
+  "hp": -5,
   "pow": {
-   "0": 5,
+   "0": -5,
    "2": -5
   },
-  "spd": -50
+  "spd": -32
  },
  "guest-goku-black": {
   "hp": -10,
   "pow": {
-   "0": 0,
+   "0": 10,
    "1": 0
   },
-  "spd": 18
+  "spd": 24
  },
  "guest-yuji": {
   "hp": 0,
   "pow": {
    "0": 0,
-   "1": 0
+   "1": 5
   },
   "spd": -19
  },
  "guest-hinata": {
-  "hp": 0,
+  "hp": 5,
   "pow": {
    "0": 0,
    "1": 0
   },
-  "spd": 11
+  "spd": 17
  },
  "guest-goku": {
-  "hp": 0,
+  "hp": 10,
   "pow": {
    "0": 0,
    "1": -10
@@ -264,15 +264,15 @@
   "spd": 6
  },
  "guest-akuma": {
-  "hp": 0,
+  "hp": 20,
   "pow": {
    "0": 0,
    "1": 5
   },
-  "spd": -32
+  "spd": -20
  },
  "guest-tsukishima": {
-  "hp": 10,
+  "hp": 5,
   "pow": {
    "0": -10,
    "2": 0
@@ -288,12 +288,12 @@
   "spd": -12
  },
  "guest-kageyama": {
-  "hp": 15,
+  "hp": 10,
   "pow": {
    "0": 0,
-   "1": 0
+   "1": 5
   },
-  "spd": 18
+  "spd": 30
  },
  "guest-daichi": {
   "hp": -5,
@@ -312,12 +312,12 @@
   "spd": -6
  },
  "guest-scorpion": {
-  "hp": -5,
+  "hp": -10,
   "pow": {
    "0": 5,
    "1": 0
   },
-  "spd": 31
+  "spd": 49
  },
  "guest-asahi": {
   "hp": 0,
@@ -333,6 +333,6 @@
    "0": -5,
    "1": 5
   },
-  "spd": 0
+  "spd": 6
  }
 }
