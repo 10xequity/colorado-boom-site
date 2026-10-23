@@ -67,34 +67,34 @@ const KULA = { n: 'Kula', r: 'Dragon Boss', team: 'The Pit', id: 'kula', directo
 let TUNE = {}; try { TUNE = JSON.parse(fs.readFileSync(__dirname + '/balance-tune.json', 'utf8')); } catch (e) { TUNE = {}; }
 const hash = s => { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; } return h; };
 const GUEST_DEFS = [
-  { n: 'Goku', r: 'Saiyan Raised on Earth', team: 'Dragon Ball', el: 'Fighter', hp: 90, spd: 80, gi: { H: '#111111', S: '#f0c8a0', J: '#ff7a1f', D: '#1e5fb8', K: '#ff7a1f', N: '#1e5fb8', E: '#1e5fb8' },
+  { n: 'Goku', entry: 'flash', exit: 'flash', r: 'Saiyan Raised on Earth', team: 'Dragon Ball', el: 'Fighter', hp: 90, spd: 80, gi: { H: '#111111', S: '#f0c8a0', J: '#ff7a1f', D: '#1e5fb8', K: '#ff7a1f', N: '#1e5fb8', E: '#1e5fb8' },
     moves: [['Kamehameha', 3, 'atk', 40], ['Dragon Fist', 2, 'atk', 25], ['Instant Transmission', 1, 'shield:15']], weak: 'Needles', flavor: 'Ka... me... ha... me... HA! Fights anyone, anywhere, mostly for fun.' },
-  { n: 'Goku Black', r: 'Zamasu in a Saiyan Body', team: 'Dragon Ball Super', el: 'Shiny', holo: true, hp: 90, spd: 82, gi: { H: '#111111', S: '#f0c8a0', J: '#2a2a33', D: '#d0334a', K: '#2a2a33', N: '#d0334a', E: '#111111' },
+  { n: 'Goku Black', entry: 'float', exit: 'float', r: 'Zamasu in a Saiyan Body', team: 'Dragon Ball Super', el: 'Shiny', holo: true, hp: 90, spd: 82, gi: { H: '#111111', S: '#f0c8a0', J: '#2a2a33', D: '#d0334a', K: '#2a2a33', N: '#d0334a', E: '#111111' },
     moves: [['Black Kamehameha', 3, 'atk', 40], ['Divine Lasso', 2, 'atk', 20, { drain: 1 }], ['Ki Barrier', 1, 'shield:10']], weak: 'Mortals Who Dodge', flavor: 'Rosé. Judges every mortal on the court and finds them lacking.' },
-  { n: 'Gojo', r: 'The Strongest Sorcerer', team: 'Jujutsu Kaisen', el: 'Psychic', hp: 85, spd: 88, gi: { H: '#f2f2f2', S: '#f0c8a0', J: '#161616', D: '#161616', K: '#161616', N: '#161616', E: '#161616', W: '#000000' },
+  { n: 'Gojo', entry: 'walk', exit: 'flash', r: 'The Strongest Sorcerer', team: 'Jujutsu Kaisen', el: 'Psychic', hp: 85, spd: 88, gi: { H: '#f2f2f2', S: '#f0c8a0', J: '#161616', D: '#161616', K: '#161616', N: '#161616', E: '#161616', W: '#000000' },
     moves: [['Hollow Purple', 3, 'atk', 45], ['Infinity', 2, 'shield:30'], ['Cursed Technique: Blue', 1, 'atk', 15, { pierce: 1 }]], weak: 'Kikufuku Shortages', flavor: 'Blindfold on. Nothing touches him; Infinity sits between the ball and his hands.' },
-  { n: 'Akuma', r: 'Master of the Fist', team: 'Street Fighter', el: 'Fire', hp: 80, spd: 70, gi: { H: '#d0334a', S: '#c08260', J: '#1a1a1a', D: '#1a1a1a', K: '#1a1a1a', N: '#f2f2f2', E: '#2a2a2a' },
+  { n: 'Akuma', entry: 'drop', exit: 'dash', r: 'Master of the Fist', team: 'Street Fighter', el: 'Fire', hp: 80, spd: 70, gi: { H: '#d0334a', S: '#c08260', J: '#1a1a1a', D: '#1a1a1a', K: '#1a1a1a', N: '#f2f2f2', E: '#2a2a2a' },
     moves: [['Shun Goku Satsu', 3, 'atk', 45], ['Gohadoken', 2, 'atk', 20], ['Ashura Senku', 1, 'shield:15']], weak: 'Mercy', flavor: 'The Raging Demon. The kanji on his back means the point is over.' },
-  { n: 'Scorpion', r: 'Netherrealm Ninja', team: 'Mortal Kombat', el: 'Fire', hp: 85, spd: 76, gi: { H: '#f2c200', S: '#e4b48d', J: '#f2c200', D: '#161616', K: '#161616', N: '#f2c200', E: '#161616', W: '#f2f2f2' },
+  { n: 'Scorpion', entry: 'fire', exit: 'fire', r: 'Netherrealm Ninja', team: 'Mortal Kombat', el: 'Fire', hp: 85, spd: 76, gi: { H: '#f2c200', S: '#e4b48d', J: '#f2c200', D: '#161616', K: '#161616', N: '#f2c200', E: '#161616', W: '#f2f2f2' },
     moves: [['Hellfire', 3, 'atk', 35], ['Spear: Get Over Here', 2, 'atk', 20, { drain: 1 }], ['Teleport Punch', 1, 'atk', 10, { pierce: 1 }]], weak: 'Sub-Zero', flavor: 'GET OVER HERE! The spear pulls the ball, and your energy, to his side.' },
-  { n: 'Yuji', r: 'Vessel of Sukuna', team: 'Jujutsu Kaisen', el: 'Fighter', hp: 95, spd: 78, gi: { H: '#d98c7a', S: '#f0c8a0', J: '#161616', D: '#d0334a', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+  { n: 'Yuji', entry: 'run', exit: 'run', r: 'Vessel of Sukuna', team: 'Jujutsu Kaisen', el: 'Fighter', hp: 95, spd: 78, gi: { H: '#d98c7a', S: '#f0c8a0', J: '#161616', D: '#d0334a', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
     moves: [['Divergent Fist', 3, 'atk', 35], ['Black Flash', 2, 'atk', 30], ['Manji Kick', 1, 'atk', 10, { pierce: 1 }]], weak: 'Movie Recommendations', flavor: 'Hits twice: the punch, then the cursed energy a beat later.' },
-  { n: 'Saitama', r: 'Hero for Fun', team: 'One-Punch Man', el: 'Rock', hp: 100, spd: 1, saitama: 1, invuln: 1, gi: { H: '#f6dcc4', S: '#f6dcc4', J: '#f2c200', D: '#f2c200', K: '#f2c200', N: '#d7262b', E: '#d7262b' },
+  { n: 'Saitama', entry: 'saitama', exit: 'walk', r: 'Hero for Fun', team: 'One-Punch Man', el: 'Rock', hp: 100, spd: 1, saitama: 1, invuln: 1, gi: { H: '#f6dcc4', S: '#f6dcc4', J: '#f2c200', D: '#f2c200', K: '#f2c200', N: '#d7262b', E: '#d7262b' },
     moves: [['Serious Punch', 0, 'atk', 999], ['(nothing)', 0, 'shield:all'], ['OK.', 0, 'shield:all']], weak: 'Grocery Sales', flavor: 'OK. Takes no damage, takes no notice, then takes you off the court.' },
-  { n: 'Tanjiro', r: 'Demon Slayer Corps', team: 'Demon Slayer', el: 'Water', hp: 85, spd: 76, gi: { H: '#7a2a3a', S: '#f0c8a0', J: '#1f6f4f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#d0334a' },
+  { n: 'Tanjiro', entry: 'run', exit: 'run', r: 'Demon Slayer Corps', team: 'Demon Slayer', el: 'Water', hp: 85, spd: 76, gi: { H: '#7a2a3a', S: '#f0c8a0', J: '#1f6f4f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#d0334a' },
     moves: [['Water Breathing: Tenth Form', 3, 'atk', 40], ['Hinokami Kagura', 2, 'atk', 25], ['Total Concentration', 1, 'shield:15']], weak: 'His Sister Being Insulted', flavor: 'Water Surface Slash. Smells the ball coming before the setter touches it.' },
   /* Karasuno */
-  { n: 'Hinata', r: 'Karasuno #10 · Middle', team: 'Haikyu!!', el: 'Fighter', hp: 85, spd: 92, gi: { H: '#ff7a1f', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+  { n: 'Hinata', entry: 'jump', exit: 'run', r: 'Karasuno #10 · Middle', team: 'Haikyu!!', el: 'Fighter', hp: 85, spd: 92, gi: { H: '#ff7a1f', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
     moves: [['Minus-Tempo Quick', 3, 'atk', 35], ['Freak Quick', 2, 'atk', 25], ['Wide Broad', 1, 'atk', 10, { pierce: 1 }]], weak: 'Bus Rides', flavor: 'Eyes closed, arm up, the ball is already there.' },
-  { n: 'Kageyama', r: 'Karasuno #9 · Setter', team: 'Haikyu!!', el: 'Psychic', hp: 85, spd: 84, gi: { H: '#111111', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+  { n: 'Kageyama', entry: 'walk', exit: 'walk', r: 'Karasuno #9 · Setter', team: 'Haikyu!!', el: 'Psychic', hp: 85, spd: 84, gi: { H: '#111111', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
     moves: [["King's Toss", 3, 'atk', 30], ['Pinpoint Set', 2, 'atk', 15, { drain: 1 }], ['Setter Block', 1, 'shield:10']], weak: 'Being Called King', flavor: 'The set lands where the hitter will be, not where he is.' },
-  { n: 'Tsukishima', r: 'Karasuno #11 · Middle', team: 'Haikyu!!', el: 'Rock', hp: 70, spd: 66, gi: { H: '#e8d57a', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+  { n: 'Tsukishima', entry: 'walk', exit: 'walk', r: 'Karasuno #11 · Middle', team: 'Haikyu!!', el: 'Rock', hp: 70, spd: 66, gi: { H: '#e8d57a', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
     moves: [['Delayed Spike', 3, 'atk', 35], ['Read Block', 2, 'shield:30'], ['Soft Block Tip', 1, 'atk', 10]], weak: 'Enthusiasm', flavor: 'Reads the setter, waits, then puts a hand exactly where the ball goes.' },
 ];
 const GUESTS = GUEST_DEFS.map(d => {
   const id = 'guest-' + d.n.toLowerCase().replace(/[^a-z]+/g, '-'); const tune = TUNE[id] || {};
   const moves = d.moves.map(([name, cost, kind, pow, extra], i) => Object.assign({ name, cost, kind, pow: kind === 'atk' ? Math.max(5, pow + ((tune.pow || {})[i] || 0)) : 0 }, extra || {}));
-  const s = { el: d.el, pos: 'Guest', hp: d.hp + (tune.hp || 0), atk: 70, def: 65, spd: d.spd + (tune.spd || 0), moves, weak: d.weak, flavor: d.flavor, seed: hash(d.n), jersey: 'black', gi: d.gi };
+  const s = { el: d.el, pos: 'Guest', hp: d.hp + (tune.hp || 0), atk: 70, def: 65, spd: d.spd + (tune.spd || 0), moves, weak: d.weak, flavor: d.flavor, seed: hash(d.n), jersey: 'black', gi: d.gi, entry: d.entry, exit: d.exit };
   if (d.saitama) { s.saitama = 1; s.invuln = 1; }
   return { n: d.n, r: d.r, team: d.team, id, s, director: false, head: false, no: 0, guest: true, holo: !!d.holo };
 });
@@ -630,8 +630,10 @@ function render(o) {
       return Promise.resolve({kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC});}
     function whiteOf(c){var w=document.createElement('canvas');w.width=c.width;w.height=c.height;var wk=w.getContext('2d');wk.drawImage(c,0,0);wk.globalCompositeOperation='source-in';wk.fillStyle='#fff';wk.fillRect(0,0,w.width,w.height);return w;}
     function contentH(c){try{var d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,top=-1,bot=-1;for(var y=0;y<c.height;y++){for(var x=0;x<c.width;x++){if(d[(y*c.width+x)*4+3]>40){if(top<0)top=y;bot=y;break;}}}return bot<0?c.height:bot-top+1;}catch(e){return c.height;}}
-    function sheetSprite(im,k){var c=function(i){return cell(im,i,200,240);},ready=c(0),run=c(1),dig=c(2),set=c(3),spike=c(4),block=c(5);if(k==='fit')k=58/Math.max(60,contentH(ready));
-      return {kind:'rpg',frames:{idle:ready,side:ready,run:run,siderun:run,spike:spike,sidespike:spike,sidedig:dig,block:block,set:set,faint1:c(6),faint2:c(7),faint3:c(8),dance1:c(9),dance2:c(10),dance3:c(11),charge1:c(12),charge2:c(13),charge3:c(14),ko:c(8)},k:k,smooth:true,allSide:true,full:true};}
+    function sheetSprite(im,k){var cw=im.height===240?200:300,n=Math.round(im.width/cw),c=function(i){return cell(im,i,cw,im.height);},ready=c(0),run=c(1),dig=c(2),set=c(3),spike=c(4),block=c(5);if(k==='fit')k=58/Math.max(60,contentH(ready));
+      var fr={idle:ready,side:ready,run:run,siderun:run,spike:spike,sidespike:spike,sidedig:dig,block:block,set:set,faint1:c(6),faint2:c(7),faint3:c(8),dance1:c(9),dance2:c(10),dance3:c(11),charge1:c(12),charge2:c(13),charge3:c(14),ko:c(8)};
+      if(n>=26){fr.walk1=c(15);fr.walk2=c(16);fr.punch1=c(17);fr.punch2=c(18);fr.punch3=c(19);fr.sp1=c(20);fr.sp2=c(21);fr.sp3=c(22);fr.sp4=c(23);fr.sp5=c(24);fr.run2=c(25);fr.side=fr.run2;}
+      return {kind:'rpg',frames:fr,k:k,smooth:true,allSide:true,full:true};}
     function guestSprite(id){var fb={kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};var try32=function(){return loadImg('${SPR32}'+id+'-32.webp').then(function(im){return im?sheetSprite(im,'fit'):fb;});};
       if(hd)return try32();return loadImg('${SPR32}'+id+'-16.webp').then(function(im){return im?sheetSprite(im,'fit'):try32();});}
     function makeSprite(id){var d=DATA[id];if(d.guest)return guestSprite(id);if(hd)return hdSprite(id);if(d.boss)return Promise.resolve({kind:'boss',frames:dragonSet(1),k:3,back:[.58,.42]});var rpg={kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC};
@@ -641,6 +643,7 @@ function render(o) {
     function drawBall(x,y,fl){var c=ballSprite(ballType,hd),sz=hd?15.5:17;g.save();g.imageSmoothingEnabled=hd;if(fl){g.translate(x,y);g.scale(-1,1);g.translate(-x,-y);}g.drawImage(c,Math.round(x-sz/2),Math.round(y-sz/2),sz,sz);g.restore();}
     function drawF(f){if(!f||!f.spr||f.hide||f.gone)return;if(f.loop&&f.spr.frames[f.loop[0]])f.frame=f.loop[((st.t/f.loopMs)|0)%f.loop.length];var c=frameOf(f),kk=f.spr.k||SC,w=c.width*kk,h=c.height*kk,x=Math.round(f.x-w/2+f.ox),y=Math.round(f.fy-h+f.oy);
       if(!f.noShadow){g.fillStyle='rgba(0,0,0,.35)';g.fillRect(Math.round(f.x-w/2+6+f.ox),f.fy-2,w-12,3);}
+      if(f.windAura){var wa=f.windAura[((st.t/70)|0)%f.windAura.length],wsz=h*(f.windScale||1.2);g.save();g.globalCompositeOperation='lighter';g.globalAlpha=.95;g.imageSmoothingEnabled=true;g.drawImage(wa,Math.round(f.x-wsz/2+f.ox),Math.round(f.fy-wsz+8+f.oy),wsz,wsz);g.restore();}
       if(f.aura>0&&hd){if(f.auraFr){var af=f.auraFr[((st.t/70)|0)%f.auraFr.length],ah=h*1.7,aw=ah;g.save();g.globalCompositeOperation='lighter';g.globalAlpha=.95;g.imageSmoothingEnabled=true;g.drawImage(af,Math.round(f.x-aw/2+f.ox),Math.round(f.fy-ah+6+f.oy),aw,ah);g.restore();}}
       else if(f.aura>0){/* Dragon Ball style flare: flickering flame pixels around the body */var tw=(st.t/50)|0;for(var a=0;a<26;a++){var ax=x-6+((tw*13+a*37)%(w+12)),ay=y-10+((tw*7+a*53)%(h+14)),big=((tw+a)%3)===0;g.fillStyle=((a+tw)%4)===0?'#ffffff':((a+tw)%2)?'#ffd36b':'#ff9a2b';g.fillRect(ax,ay-((tw+a)%5)*2,big?3:2,big?5:3);}g.fillStyle='rgba(255,210,80,.18)';g.fillRect(x-8,y-12,w+16,h+14);}
       g.save();if(f.side==='R'&&(SIDE.test(f.frame)||f.spr.allSide)){g.translate(f.x+f.ox,0);g.scale(-1,1);g.translate(-(f.x+f.ox),0);}
@@ -685,14 +688,18 @@ function render(o) {
       for(i=st.fx.length-1;i>=0;i--){var e=st.fx[i],q=(now-e.t0)/900;if(q>=1){st.fx.splice(i,1);continue;}g.globalAlpha=1-q*q;g.fillStyle='#000';g.fillText(e.txt,e.x+1,e.y-q*26+1);g.fillStyle=e.col;g.fillText(e.txt,e.x,e.y-q*26);g.globalAlpha=1;}
       panel(st.L,4);panel(st.R,W-4-132);
       if(st.dark>0){g.fillStyle='rgba(0,0,0,'+st.dark+')';g.fillRect(0,0,W,H);}
-      if(st.face){/* Saitama's neutral face, full screen */g.fillStyle='#f6dcc4';g.fillRect(0,0,W,H);g.fillStyle='#e8c7a6';g.fillRect(0,0,W,24);g.fillRect(0,H-22,W,22);g.fillStyle='#f6dcc4';g.beginPath();g.ellipse(W/2,H/2+4,W*.34,H*.52,0,0,Math.PI*2);g.fill();
+      if(st.face&&st.faceImg){g.fillStyle='#f6dcc4';g.fillRect(0,0,W,H);var fi=st.faceImg,fsc=Math.max(W/fi.width,H/fi.height)*1.05,fw=fi.width*fsc,fh=fi.height*fsc;g.imageSmoothingEnabled=true;g.drawImage(fi,Math.round((W-fw)/2),Math.round((H-fh)/2),fw,fh);}
+      else if(st.face){/* Saitama's neutral face, full screen (fallback when the portrait is missing) */g.fillStyle='#f6dcc4';g.fillRect(0,0,W,H);g.fillStyle='#e8c7a6';g.fillRect(0,0,W,24);g.fillRect(0,H-22,W,22);g.fillStyle='#f6dcc4';g.beginPath();g.ellipse(W/2,H/2+4,W*.34,H*.52,0,0,Math.PI*2);g.fill();
         g.fillStyle='#e8c7a6';g.fillRect(W*.17,H*.5,10,26);g.fillRect(W*.83-10,H*.5,10,26);g.fillStyle='#111';g.fillRect(W*.4-4,H*.46,8,6);g.fillRect(W*.6-4,H*.46,8,6);g.fillRect(W*.47,H*.72,W*.06,3);g.fillStyle='#d9b08f';g.fillRect(W*.495,H*.58,3,8);}
+      if(st.black){g.fillStyle='#000';g.fillRect(0,0,W,H);}
       if(st.flash>0){g.fillStyle='rgba(255,255,255,'+st.flash+')';g.fillRect(0,0,W,H);st.flash=Math.max(0,st.flash-.2);}
       if(st.on)requestAnimationFrame(frame);}
     function start(){if(!st.on){st.on=true;requestAnimationFrame(frame);}}
     start();
-    function runTo(f,tx,ty){var sx=f.x,sy=f.fy,ty2=ty==null?f.fy:ty,dist=Math.max(Math.abs(tx-sx),Math.abs(ty2-sy));if(f.spr.kind!=='rpg'||dist<2){f.x=tx;f.fy=ty2;return Promise.resolve();}return tween(Math.max(120,dist*7),function(p){f.x=sx+(tx-sx)*p;f.fy=sy+(ty2-sy)*p;f.frame=((p*dist/8)|0)%2?'siderun':'side';}).then(function(){f.frame='side';});}
+    function runTo(f,tx,ty){var sx=f.x,sy=f.fy,ty2=ty==null?f.fy:ty,dist=Math.max(Math.abs(tx-sx),Math.abs(ty2-sy));if(f.spr.kind!=='rpg'||dist<2){f.x=tx;f.fy=ty2;return Promise.resolve();}var alt=f.spr.frames.run2?'run2':'side';return tween(Math.max(120,dist*7),function(p){f.x=sx+(tx-sx)*p;f.fy=sy+(ty2-sy)*p;f.frame=((p*dist/8)|0)%2?'siderun':alt;}).then(function(){f.frame='side';});}
+    function walkTo(f,tx){var sx=f.x,dist=Math.abs(tx-sx);if(!f.spr.frames.walk1)return runTo(f,tx,f.fy);return tween(Math.max(200,dist*16),function(p){f.x=sx+(tx-sx)*p;f.frame=((p*dist/10)|0)%2?'walk1':'walk2';}).then(function(){f.frame='idle';});}
     function nearNet(f){return f.side==='L'?NET-34:NET+34;}
+    function practice(F){var seq=F.spr.frames.punch1?['idle','punch1','punch2','punch3','punch2','idle','punch1','punch2','punch3','idle']:['idle','block','idle','block','idle'];var i=0;return new Promise(function(res){(function step(){F.frame=seq[i];if(/punch2|block/.test(seq[i]))SFX.whoosh();i++;if(i<seq.length)setTimeout(step,reduce?0:200);else res();})();});}
     function bounceAway(x0,y0,dirX,dirY){var b=st.ball,hops=[[18,52],[9,34],[4,20]];if(!b)return Promise.resolve();return hops.reduce(function(pr,hp,i){return pr.then(function(){var dur=380-i*90,sx=x0,sy=y0;return tween(dur,function(p){if(st.ball!==b)return;b.x=sx+dirX*hp[1]*p;b.y=sy+dirY*6*p-hp[0]*Math.sin(p*Math.PI);b.f=((p*8)|0)%2;}).then(function(){x0=sx+dirX*hp[1];y0=Math.min(NEAR-4,Math.max(FAR+4,sy+dirY*6));if(i===0)SFX.jump();});});},Promise.resolve()).then(function(){return tween(260,function(p){if(st.ball!==b)return;b.x=x0+dirX*14*p;});}).then(function(){if(st.ball===b)st.ball=null;});}
     function bossBob(f){return tween(900,function(p){f.oy=-3*Math.abs(Math.sin(p*Math.PI));});}
     return {
@@ -702,7 +709,7 @@ function render(o) {
       ballPreview:function(t,smooth){return ballSprite(t,smooth).toDataURL();},
       mode:function(v){hd=v==='hd';S=hd?4:1;cv.width=W*S;cv.height=H*S;cv.classList.toggle('hd',hd);return rebuildBg().then(function(){var a=st.L&&st.L.id,b=st.R&&st.R.id;if(!a)return;return Promise.all([makeSprite(a),makeSprite(b)]).then(function(r){st.L.spr=r[0];st.L.white={};st.R.spr=r[1];st.R.white={};if(st.L.frame!=='ko')st.L.frame='idle';if(st.R.frame!=='ko')st.R.frame='idle';});});},
       style:function(s){st.style=s;var a=st.L&&st.L.id,b=st.R&&st.R.id;if(!a)return Promise.resolve();return Promise.all([makeSprite(a),makeSprite(b)]).then(function(r){st.L.spr=r[0];st.L.white={};st.R.spr=r[1];st.R.white={};st.L.frame=st.R.frame='idle';});},
-      setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.sparks=[];st.bolts=[];st.extra=[];st.ball=null;st.dark=0;st.face=0;st.fxs=[];st.trail=[];st.L.loop=st.R.loop=null;tweens=[];start();return rebuildBg();});},
+      setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.sparks=[];st.bolts=[];st.extra=[];st.ball=null;st.dark=0;st.face=0;st.black=0;st.fxs=[];st.trail=[];st.L.loop=st.R.loop=null;tweens=[];start();return rebuildBg();});},
       hp:function(side,hp){st[side].hp=hp;},
       energy:function(side,e){st[side].energy=e;},
       charge:function(a){var A=st[a];A.aura=1;fxText('CHARGE',A.x,A.fy-hOf(A)-8,'#E5B800');var full=A.spr.full;if(A.spr.kind==='rpg')A.frame=full?'charge1':'block';var pr=hd?auraFor(DATA[A.id].s.el).then(function(fr){A.auraFr=fr;}):Promise.resolve();return pr.then(function(){return tween(hd?1200:900,function(p){A.oy=-3*Math.abs(Math.sin(p*Math.PI*4));if(full)A.frame=p<.3?'charge1':p<.6?'charge2':'charge3';});}).then(function(){A.oy=0;A.aura=0;A.auraFr=null;A.frame='idle';});},
@@ -739,15 +746,35 @@ function render(o) {
         return tween(900,function(p){st.dark=p;}).then(function(){return wait(300);}).then(function(){/* lightning */var n=0;return new Promise(function(res){(function flashLoop(){st.flash=1;SFX.thunder();for(var i=0;i<3;i++)bolt(40+Math.random()*240,0,60+Math.random()*200,FAR+Math.random()*60,220);n++;if(n<4)setTimeout(flashLoop,reduce?0:380+Math.random()*260);else setTimeout(res,reduce?0:500);})();});})
         .then(function(){SFX.intro();SFX.roar();K.hide=false;K.x=W+40;K.oy=-150;K.frame='fly1';var fl=0;return tween(2200,function(p){st.dark=1-p*.85;K.x=W+40+(home-W-40)*Math.min(1,p*1.25);K.oy=-150*(1-p*p);K.frame=((p*14)|0)%2?'fly1':'fly2';var ff=(p*14)|0;if(ff!==fl){fl=ff;SFX.flap();}});})
         .then(function(){K.oy=0;K.frame='idle';K.noShadow=false;st.dark=0;st.shake=18;SFX.land();sparks(K.x,K.fy,['#8a5a2b','#c9a063','#ffffff'],24);for(var i=0;i<8;i++)bolt(K.x-50+Math.random()*100,K.fy-120,K.x-30+Math.random()*60,K.fy-10,420);return tween(1000,function(p){if(((p*10)|0)%3===0&&Math.random()<.3)bolt(K.x-60+Math.random()*120,K.fy-130,K.x-40+Math.random()*80,K.fy-20,200);});});},
-      walkIn:function(side){var F=st[side];F.x=W+30;return runTo(F,F.home,FY).then(function(){F.frame='idle';});},
-      walkOut:function(side){var F=st[side];return wait(500).then(function(){return runTo(F,W+40,FY);}).then(function(){F.gone=true;});},
-      /* Serious Punch: flashes and wind while he winds up, the whole screen becomes his face, then the punch sends the other
-         fighter off the screen and leaves a crater */
-      seriousPunch:function(l){var Pl=st[l],Sa=st[l==='L'?'R':'L'];Sa.frame='block';
-        return tween(2000,function(p){if(Math.random()<.18)st.flash=.75;st.shake=5;for(var i=0;i<3;i++)st.sparks.push({wind:1,x:W+10,y:16+Math.random()*(H-30),vx:-(7+Math.random()*6),vy:0,col:Math.random()<.5?'#ffffff':'#dfe9ee',t0:performance.now(),life:520});if(((p*20)|0)%4===0&&Math.random()<.3)SFX.thunder();})
-        .then(function(){st.face=1;SFX.thud();return wait(1000);}).then(function(){st.face=0;st.flash=1;SFX.giga();var sx=Sa.x,tx=Pl.x+(Pl.side==='L'?18:-18);return tween(130,function(p){Sa.x=sx+(tx-sx)*p;Sa.frame='sidespike';});})
+      /* entrances and exits by character. side is 'R' for every guest today; the maths works for either side. */
+      entrance:function(side){var F=st[side],e=DATA[F.id].s.entry||'walk',dir=side==='R'?1:-1,off=side==='R'?W+40:-40,el=DATA[F.id].s.el;F.hide=false;F.oy=0;F.ox=0;
+        var idle=function(){F.frame='idle';};
+        if(e==='walk'||e==='saitama'){F.x=off;return walkTo(F,F.home).then(function(){if(e!=='saitama')return;return practice(F);}).then(idle);}
+        if(e==='run'){F.x=off;return runTo(F,F.home+dir*8,FY).then(function(){F.frame='sidedig';SFX.dig();return tween(220,function(p){F.x=F.home+dir*8*(1-p);});}).then(idle);}
+        if(e==='jump'){F.x=off;return runTo(F,F.home+dir*40,FY).then(function(){SFX.jump();return tween(520,function(p){F.x=F.home+dir*40*(1-p);F.oy=-46*Math.sin(p*Math.PI);F.frame=p<.5?'set':'dance3';});}).then(function(){st.shake=4;SFX.thud();}).then(idle);}
+        if(e==='drop'){F.x=F.home;F.oy=-230;F.frame='set';return wait(300).then(function(){SFX.whoosh();return tween(520,function(p){F.oy=-230*(1-p*p);});}).then(function(){F.oy=0;st.shake=16;st.flash=.5;SFX.land();sparks(F.x,F.fy,['#8a5a2b','#c9a063','#ff5a4e'],22);crater(F.x,F.fy-2);F.frame='sidedig';return wait(500);}).then(idle);}
+        if(e==='flash'){F.x=F.home;F.hide=true;return wait(400).then(function(){st.flash=1;SFX.negate();F.hide=false;sparks(F.x,F.fy-30,['#ffffff','#9ad7e8','#ffe680'],18);F.frame='idle';return wait(500);});}
+        if(e==='float'){F.x=F.home;F.oy=-210;F.frame='set';return auraFor(el).then(function(fr){F.windAura=fr;F.windScale=1.5;SFX.charge();return tween(1500,function(p){F.oy=-210*(1-p*(2-p));});}).then(function(){F.oy=0;F.windAura=null;F.frame='charge3';return wait(400);}).then(idle);}
+        if(e==='fire'){F.x=F.home;F.hide=true;return wait(300).then(function(){st.flash=.8;SFX.giga();sparks(F.x,F.fy-24,['#ff7a1f','#ffd400','#ff3b2f','#ffffff'],40);for(var i=0;i<5;i++)bolt(F.x-30+Math.random()*60,F.fy-90,F.x-10+Math.random()*20,F.fy-10,320);return wait(260);}).then(function(){F.hide=false;F.frame='charge2';st.shake=6;return wait(500);}).then(idle);}
+        F.x=off;return walkTo(F,F.home).then(idle);},
+      exit:function(side){var F=st[side],e=DATA[F.id].s.exit||'walk',dir=side==='R'?1:-1,off=side==='R'?W+50:-50,el=DATA[F.id].s.el;F.loop=null;F.oy=0;F.ox=0;F.shield=0;
+        var gone=function(){F.gone=true;};
+        if(e==='walk')return wait(400).then(function(){return walkTo(F,off);}).then(gone);
+        if(e==='run'||e==='dash'){if(e==='dash'){SFX.whoosh();sparks(F.x,F.fy,['#ff3b2f','#ffffff'],12);}return wait(300).then(function(){return e==='dash'?tween(180,function(p){F.x=F.x+(off-F.x)*p*.4;F.frame='siderun';}):runTo(F,off,FY);}).then(gone);}
+        if(e==='flash')return wait(500).then(function(){st.flash=1;SFX.negate();sparks(F.x,F.fy-30,['#ffffff','#9ad7e8'],14);F.hide=true;return wait(300);}).then(gone);
+        if(e==='float')return auraFor(el).then(function(fr){F.windAura=fr;F.windScale=1.5;F.frame='set';SFX.charge();return tween(1200,function(p){F.oy=-240*p*p;});}).then(function(){F.windAura=null;}).then(gone);
+        if(e==='fire')return wait(400).then(function(){st.flash=.8;SFX.giga();sparks(F.x,F.fy-24,['#ff7a1f','#ffd400','#ff3b2f'],36);F.hide=true;return wait(300);}).then(gone);
+        return wait(400).then(function(){return walkTo(F,off);}).then(gone);},
+      practice:function(side){return practice(st[side]);},
+      /* Serious Punch: the wind-up frames with auras that grow around him, flashes and wind; the screen becomes his face from
+         the sheet; black; then the punch dashes in and sends the other fighter off the court, leaving a crater */
+      seriousPunch:function(l){var Pl=st[l],Sa=st[l==='L'?'R':'L'],fr=Sa.spr.frames,has=!!fr.sp1;Sa.frame=has?'sp1':'block';
+        return Promise.all([auraFor('Rock'),loadImg('${SPR32}guest-saitama-portrait.webp')]).then(function(r){Sa.windAura=r[0];st.faceImg=r[1];
+          return tween(2600,function(p){Sa.windScale=1.1+p*1.6;if(has)Sa.frame=p<.35?'sp1':p<.7?'sp2':'sp3';if(Math.random()<.16)st.flash=.7;st.shake=4+(p*8|0);for(var i=0;i<3;i++)st.sparks.push({wind:1,x:W+10,y:16+Math.random()*(H-30),vx:-(7+Math.random()*7),vy:0,col:Math.random()<.5?'#ffffff':'#dfe9ee',t0:performance.now(),life:520});if(((p*24)|0)%5===0&&Math.random()<.3)SFX.thunder();});})
+        .then(function(){Sa.windAura=null;st.face=1;SFX.thud();return wait(1000);}).then(function(){st.face=0;st.black=1;return wait(600);})
+        .then(function(){st.black=0;st.flash=1;SFX.giga();var sx=Sa.x,tx=Pl.x+(Pl.side==='L'?20:-20);return tween(140,function(p){Sa.x=sx+(tx-sx)*p;Sa.frame=has?'sp4':'sidespike';});})
         .then(function(){st.flash=1;st.shake=34;SFX.crater();crater(Pl.x,Pl.fy-2);sparks(Pl.x,Pl.fy-24,['#ffffff','#ffd36b','#ff5a4e'],34);var px0=Pl.x,dir=Pl.side==='L'?-1:1;return tween(700,function(p){Pl.x=px0+dir*(W+120)*p*p;Pl.oy=-60*Math.sin(p*Math.PI);Pl.frame=((p*12)|0)%2?'ko':'idle';});})
-        .then(function(){Pl.gone=true;Sa.frame='idle';return runTo(Sa,Sa.home,FY);}).then(function(){Sa.frame='idle';return wait(400);});},
+        .then(function(){Pl.gone=true;if(has)Sa.frame='sp5';return wait(500);}).then(function(){Sa.frame='idle';return walkTo(Sa,Sa.home);}).then(function(){Sa.frame='idle';return wait(300);});},
       hideRider:function(){if(hd&&st.R)st.R.rider=false;},
       bossTaunt:function(mv){var K=st.R;fxText(mv.toUpperCase(),K.x,K.fy-hOf(K)-10,'#ffe14d');for(var i=0;i<4;i++)bolt(K.x-40+Math.random()*80,K.fy-110,K.x-20+Math.random()*40,K.fy-30,300);return tween(500,function(p){K.oy=-6*Math.abs(Math.sin(p*Math.PI));});},
       /* player beat Kula: he flies up, drops, cracks the floor, lies bloody and twitching */
@@ -841,7 +868,7 @@ function render(o) {
   function pop(el,cls,txt){var p=document.createElement('span');p.className='pop'+(cls?' '+cls:'');p.textContent=txt;el.appendChild(p);return p;}
   async function turn(att,def){att.round++;att.energy=Math.min(MAXE,att.energy+core.gain(att.round,att));enUI(att);
     var ac=$('f'+att.side).querySelector('.card'),dc=$('f'+def.side).querySelector('.card');
-    if(att.s.saitama){if(att.round<3){await textBox('<b>SAITAMA</b>'+(att.round===1?'...':'Is this the gym? OK.'),1300);logp('<b>Saitama</b> looks around.');return;}
+    if(att.s.saitama){if(att.round<3){await textBox('<b>SAITAMA</b>'+(att.round===1?'...':'Is this the gym? OK.'),1300);await PX.practice(att.side);logp('<b>Saitama</b> throws a few practice punches.');return;}
       await textBox('<b>SAITAMA</b>Serious Series: Serious Punch.',1400);logp('<b>Saitama</b> winds up. The air starts to move.');await PX.seriousPunch(def.side);def.hp=0;hpUI(def);dc.classList.add('ko');var kc2=cardSpr(def);if(kc2)drawCard(kc2,def.id,'ko');logp('<b>'+DATA[def.id].n+'</b> leaves the gym through the far wall. Only a crater is left.');return;}
     var mv=(mode==='play'&&att===L)?await userMove(att,def):core.pickMove(att,def,Math.random,T);
     var r=core.resolve(att,def,mv,Math.random,T);enUI(att);
@@ -872,12 +899,12 @@ function render(o) {
     await PX.bossIntro();await textBox('<b>KULA</b>'+esc(DATA.kula.s.flavor),3400);PX.hideRider();
     logp('<b>Kula</b> the dragon lands on the court, toddler aboard. Scales take 10 off every hit, so tips bounce off; GigaSpike hits 35; Headbutt takes the 2 energy you just banked; Kong Block stops a whole turn. He only wakes 1 energy a turn: hit hard while he is low, block when he has 3.');fight();}
   async function fight(){if(busy&&!bossFight||!L)return;busy=true;$('fightOv').hidden=true;$('btnNext').disabled=true;$('btnRandom').disabled=true;selL.disabled=selR.disabled=true;
-    if(R.s.saitama){logp('A bald man in a yellow suit wanders onto the court.');await PX.walkIn('R');}
+    if(DATA[R.id].guest){logp(R.s.saitama?'A bald man in a yellow suit wanders onto the court.':'<b>'+DATA[R.id].n+'</b> enters.');await PX.entrance('R');}
     SFX.whistle();var first=L.s.spd>=R.s.spd?L:R,second=first===L?R:L;first.energy=core.startEnergy(true);second.energy=core.startEnergy(false);enUI(first);enUI(second);
     if(mode==='play')logp('<b>You Play:</b> you control <b>'+DATA[L.id].n+'</b> at Home.');logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: +2 a turn; a block that stops a hit refunds its cost; Charge banks +'+CHARGE+'.');
     var t=0;while(L.hp>0&&R.hp>0&&t<core.TURN_CAP){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;await wait(220);}
     var win=L.hp>0&&R.hp>0?(L.hp/L.max>=R.hp/R.max?L:R):(L.hp>0?L:R),lose=win===L?R:L;if(L.hp>0&&R.hp>0)logp('Turn limit: <b>'+DATA[win.id].n+'</b> takes it on HP left.');
-    if(R.s.saitama){/* no K.O. screen, no streak change: he walks out and the next opponent comes */await PX.walkOut('R');$('winner').textContent='Saitama wandered off.';logp('<b>Saitama</b> walks out the way he came. That one does not count.');lastWin=L;busy=false;played(true);fightsTotal++;lsSet('bt_fights',String(fightsTotal));$('ovName').textContent='Saitama wandered off';$('ovStreak').textContent='That one did not count';$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;return;}
+    if(R.s.saitama){/* no K.O. screen, no streak change: he walks out and the next opponent comes */await PX.exit('R');$('winner').textContent='Saitama wandered off.';logp('<b>Saitama</b> walks out the way he came. That one does not count.');lastWin=L;busy=false;played(true);fightsTotal++;lsSet('bt_fights',String(fightsTotal));$('ovName').textContent='Saitama wandered off';$('ovStreak').textContent='That one did not count';$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;return;}
     $('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();
     var playerWon=mode==='play'?win===L:true;
     var koP;if(bossFight&&win===L){$('koTxt').textContent='YOU WIN!';$('koTxt').classList.add('win');koP=PX.bossDown();await wait(1500);$('koOv').hidden=false;bossBeaten++;}
@@ -886,6 +913,7 @@ function render(o) {
     await wait(1300);$('koOv').hidden=true;$('f'+win.side).querySelector('.card').classList.add('champ');if(playerWon){SFX.win();SFX.crowd();}else SFX.lose();spriteSeq(win,['dance1','dance2','dance1','dance2','dance1','dance2','dance1','dance2','dance1'],220);
     if(mode==='play'){if(win===L){streak=streakId===L.id?streak+1:1;streakId=L.id;}else{streak=0;streakId=null;}}else{if(win.boss){streak=0;streakId=null;}else{streak=win.id===streakId?streak+1:1;streakId=win.id;}}
     $('winner').textContent=DATA[win.id].n+' wins!'+(streak>1?' · '+streak+' in a row':'');logp('<b>'+DATA[win.id].n+'</b> wins with '+Math.max(0,win.hp)+' HP left. '+(bossFight?(win===L?'Kula is down. The streak goes on.':'Kula takes it. The streak is over.'):mode==='play'?(win===L?'You win! ':'The AI takes it. ')+'Next Fight keeps your card in against a new opponent.':'Next Fight keeps the champion in.'));await koP;
+    if(win===R&&DATA[R.id].guest)await PX.exit('R');
     bossFight=false;lastWin=win;busy=false;played(true);fightsTotal++;lsSet('bt_fights',String(fightsTotal));
     if(!win.boss&&playerWon){winsTotal++;lsSet('bt_wins',String(winsTotal));}
     if((bossSoon||playerWon&&winsTotal>=nextBoss)&&!win.boss){bossSoon=false;nextBoss=winsTotal+5+Math.floor(Math.random()*3);lsSet('bt_next',String(nextBoss));bossEnter(win.id);return;}

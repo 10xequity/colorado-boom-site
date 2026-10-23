@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v2.30 — 2026-10-23 · Battle Arena round 19
+coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp, scripts/ (gen_v7.js, guest-sheet-cut.py, build_v230.js)
+
+- Guest sheets: 26 cells of 300x260 (was 15 of 200x240). Each frame is cropped out to the midpoint of the gap to its
+  neighbours and a little above and below the row, so slashes, beams and auras come through whole. New cells: two walk
+  frames, three punch frames, the five frames of the special row, and a second run frame so running alternates two
+  run poses instead of run / stand.
+- Entrances and exits by character: Goku flashes in and out (Instant Transmission); Goku Black floats down on his aura
+  and rises away; Gojo strolls in with his hands in his pockets and blinks out; Akuma drops from the sky and cracks the
+  floor, then dashes off; Scorpion arrives and leaves in a burst of fire; Yuji and Tanjiro sprint in and skid; Hinata
+  sprints in and jumps; Kageyama and Tsukishima walk. A guest who wins leaves before the Next Opponent screen.
+- Saitama: walks in, throws practice punches, repeats them on his first two turns; on the third he winds up through the
+  three wind-up frames with auras that animate and grow around him under flashes and wind; the screen becomes his
+  portrait from the sheet; black; then the punch dashes in, the opponent flies off the court, a crater stays, and he
+  walks out.
+
 ## v2.29 — 2026-10-23 · Battle Arena round 18
 coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp (new), scripts/ (gen_v7.js, guest-sheet-cut.py, build_v229.js)
 

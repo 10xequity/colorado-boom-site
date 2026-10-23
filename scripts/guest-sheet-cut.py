@@ -10,7 +10,7 @@ SPR = OUT + '/assets/img/coaches/sprites32/'
 JOBS = [('25', 'guest-akuma', '32', 1), ('26', 'guest-scorpion', '32', 1), ('27', 'guest-tanjiro', '32', 1), ('28', 'guest-goku', '32', 1),
         ('29', 'guest-yuji', '32', 1), ('30', 'guest-goku-black', '32', 1), ('31', 'guest-saitama', '16', 0), ('33', 'guest-saitama', '32', 1),
         ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '32', 1), ('36', 'guest-kageyama', '32', 1), ('37', 'guest-tsukishima', '32', 1)]
-CW, CH = 200, 240
+CW, CH = 300, 260   # guest cells are wider than the coach cells (200x240) so slashes, beams and auras are not cut off
 
 def runs(prof, minlen):
     on = prof > 0; out = []; i = 0
@@ -58,13 +58,14 @@ def cells_in(segs, soft, rgba, x0, x1, y0, y1, expect):
         if len(keep) == expect: break
     keep, prof, seg = best; sub = seg[y0:y1 + 1, x0:x1 + 1]
     keep = split_to(merge_to(keep, expect), prof, expect)
-    out = []
-    for c0, c1 in keep:
-        a0, a1 = max(0, c0 - 3), min(sub.shape[1] - 1, c1 + 3)   # a wider margin pulled the neighbouring row label into the crop
+    out = []; ye0, ye1 = max(0, y0 - 18), min(H - 1, y1 + 18)
+    for i, (c0, c1) in enumerate(keep):
+        a0 = (keep[i - 1][1] + c0) // 2 + 1 if i else max(0, c0 - 40); a1 = (c1 + keep[i + 1][0]) // 2 - 1 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 40)
         hs = sub[:, a0:a1 + 1]; colh = np.array([(np.where(col)[0].max() - np.where(col)[0].min() + 1) if col.any() else 0 for col in hs.T])
-        lead = int(np.argmax(colh >= 0.03 * H)) if (colh >= 0.03 * H).any() else 0; a0 = a0 + max(0, lead - 2)
-        s = soft[y0:y1 + 1, x0 + a0:x0 + a1 + 1]; ys, xs = np.where(s)
-        out.append(rgba.crop((x0 + a0 + xs.min(), y0 + ys.min(), x0 + a0 + xs.max() + 1, y0 + ys.max() + 1)))
+        lead = int(np.argmax(colh >= 0.03 * H)) if (colh >= 0.03 * H).any() else 0
+        if lead > 2 and hs[:, :lead].any(): a0 = a0 + lead - 2   # overlapping label text (strict pixels) left of the body; a soft glow has none and stays
+        s = soft[ye0:ye1 + 1, x0 + a0:x0 + a1 + 1]; ys, xs = np.where(s)
+        out.append(rgba.crop((x0 + a0 + xs.min(), ye0 + ys.min(), x0 + a0 + xs.max() + 1, ye0 + ys.max() + 1)))
     return out
 
 def fit(c):
@@ -94,13 +95,15 @@ for img, gid, sfx, want_portrait in JOBS:
         assert len(rr) == 4, (img, side, rr)
         rows[side] = [(x0, x1, r[0], r[1]) for r in rr]
     M = (mask, colm)
-    idle = cells_in(M, soft, rgba, *rows['L'][0], 6); run = cells_in(M, soft, rgba, *rows['L'][3], 6)
+    idle = cells_in(M, soft, rgba, *rows['L'][0], 6); walk = cells_in(M, soft, rgba, *rows['L'][1], 6); run = cells_in(M, soft, rgba, *rows['L'][3], 6)
     attack = cells_in(M, soft, rgba, *rows['R'][0], 5); jump = cells_in(M, soft, rgba, *rows['R'][1], 5)
     charge = cells_in(M, soft, rgba, *rows['R'][2], 5); hurt = cells_in(M, soft, rgba, *rows['R'][3], 5)
     saitama = gid == 'guest-saitama'
+    # 26 cells: 0 ready, 1 run, 2 crouch, 3 air, 4 strike, 5 stance, 6-8 hurt, 9-11 dance, 12-14 charge, 15-16 walk, 17-19 punches, 20-24 the special row, 25 second run frame
     cells = [idle[0], run[3], jump[0], jump[2], charge[3] if saitama else attack[2], charge[1] if saitama else attack[0],
-             hurt[1], hurt[3], hurt[4], jump[1], jump[2], jump[3], charge[0], charge[1], charge[2]]
-    sheet = Image.new('RGBA', (CW * 15, CH), (0, 0, 0, 0))
+             hurt[1], hurt[3], hurt[4], jump[1], jump[2], jump[3], charge[0], charge[1], charge[2],
+             walk[1], walk[4], attack[0], attack[2], attack[4], charge[0], charge[1], charge[2], charge[3], charge[4], run[0]]
+    sheet = Image.new('RGBA', (CW * 26, CH), (0, 0, 0, 0))
     for i, c in enumerate(cells):
         if gid == 'guest-yuji':
             ca = np.array(c); lum = ca[..., :3].mean(axis=2); sat = ca[..., :3].max(axis=2) - ca[..., :3].min(axis=2)
@@ -120,9 +123,9 @@ for img, gid, sfx, want_portrait in JOBS:
         por = rgba.crop((x0 + xs.min(), r[0] + ys.min(), x0 + xs.min() + pw, r[0] + ys.max() + 1))
         por.save(f'{SPR}{gid}-portrait.webp', quality=88, method=6); print('  portrait', por.size)
 # preview
-ids = sorted(set(j[1] for j in JOBS)); pv = Image.new('RGB', (750, 60 * len(ids) + 10 + 160), (30, 120, 130)); y = 5
+ids = sorted(set(j[1] for j in JOBS)); pv = Image.new('RGB', (1250, 60 * len(ids) + 10 + 160), (30, 120, 130)); y = 5
 for gid in ids:
-    sh = Image.open(f'{SPR}{gid}-32.webp').convert('RGBA').resize((750, 60)); pv.paste(sh, (0, y), sh); y += 60
+    sh = Image.open(f'{SPR}{gid}-32.webp').convert('RGBA'); sh = sh.resize((1250, 52)); pv.paste(sh, (0, y), sh); y += 60
 x = 5
 for gid in ids:
     p = Image.open(f'{SPR}{gid}-portrait.webp').convert('RGBA'); p.thumbnail((70, 150)); pv.paste(p, (x, y + 5), p); x += 80
