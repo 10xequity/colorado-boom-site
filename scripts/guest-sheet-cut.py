@@ -9,7 +9,7 @@ SPR = OUT + '/assets/img/coaches/sprites32/'
 # (image, id, suffix, take portrait)
 JOBS = [('25', 'guest-akuma', '32', 1), ('26', 'guest-scorpion', '32', 1), ('27', 'guest-tanjiro', '32', 1), ('28', 'guest-goku', '32', 1),
         ('29', 'guest-yuji', '32', 1), ('30', 'guest-goku-black', '32', 1), ('31', 'guest-saitama', '16', 0), ('33', 'guest-saitama', '32', 1),
-        ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '32', 1), ('36', 'guest-kageyama', '32', 1), ('37', 'guest-tsukishima', '32', 1)]
+        ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '16', 0), ('36', 'guest-kageyama', '16', 0), ('37', 'guest-tsukishima', '32', 1), ('39', 'guest-hinata', '32', 1), ('38', 'guest-kageyama', '32', 1)]
 CW, CH = 300, 260   # guest cells are wider than the coach cells (200x240) so slashes, beams and auras are not cut off
 
 def runs(prof, minlen):
@@ -79,9 +79,10 @@ for img, gid, sfx, want_portrait in JOBS:
     CTX = img
     im = Image.open(f'{I}/{img}.png').convert('RGB'); a = np.array(im).astype(int); H, W = a.shape[:2]; A = a
     border = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(border, axis=0)
-    d = np.abs(a - bg).sum(axis=2); mask = d > 110; soft = d > 36   # strict mask splits frames; the soft one keeps the glow for alpha
-    rowm = mask & np.roll(mask, 4, axis=1) & np.roll(mask, -4, axis=1)   # drops vertical hairlines (dividers, panel borders)
-    colm = mask & np.roll(mask, 4, axis=0) & np.roll(mask, -4, axis=0)   # drops horizontal hairlines
+    big = W >= 1400; thr, er = (110, 4) if big else (70, 2)   # the 1024-wide sheets carry smaller, darker figures
+    d = np.abs(a - bg).sum(axis=2); mask = d > thr; soft = d > 36   # strict mask splits frames; the soft one keeps the glow for alpha
+    rowm = mask & np.roll(mask, er, axis=1) & np.roll(mask, -er, axis=1)   # drops vertical hairlines (dividers, panel borders)
+    colm = mask & np.roll(mask, er, axis=0) & np.roll(mask, -er, axis=0)   # drops horizontal hairlines
     alpha = np.clip((d - 18) * 255 / 30, 0, 255).astype(np.uint8)
     rgba = Image.fromarray(np.dstack([a.astype(np.uint8), alpha]))
     rows = {}
@@ -122,6 +123,25 @@ for img, gid, sfx, want_portrait in JOBS:
         ph = ys.max() - ys.min() + 1; pw = min(xs.max() - xs.min() + 1, int(ph * 1.15))   # a head is about square; expression heads that touch it get cut off
         por = rgba.crop((x0 + xs.min(), r[0] + ys.min(), x0 + xs.min() + pw, r[0] + ys.max() + 1))
         por.save(f'{SPR}{gid}-portrait.webp', quality=88, method=6); print('  portrait', por.size)
+        def heads(y0f, y1f, skip=None):
+            fb = colm[y0f:y1f + 1, x0:x1 + 1]; out = []
+            for c in runs(fb.sum(axis=0), 3):
+                if skip and c[0] <= skip[1] and c[1] >= skip[0]: continue
+                ys2 = np.where(fb[:, c[0]:c[1] + 1].any(axis=1))[0]
+                if .02 * W < c[1] - c[0] < .12 * W and len(ys2) and .035 * H < ys2.max() - ys2.min() < .18 * H: out.append(c)
+            return out[:4]
+        below = [q for q in rr[1:] if .04 * H < q[1] - q[0] < .18 * H]
+        cand = [(heads(q[0], q[1]), q[0], q[1]) for q in below[:1]] + [(heads(r[0], r[1], (c0, c1)), r[0], r[1])]
+        fc, fy0, fy1 = max(cand, key=lambda t: len(t[0])); fy0 = fy0; q = (0, fy1 - fy0)
+        if len(fc) >= 2:
+            faces = Image.new('RGBA', (160 * 4, 160), (0, 0, 0, 0))
+            for k, (c0, c1) in enumerate(fc):
+                fs = soft[fy0 + q[0]:fy0 + q[1] + 1, x0 + c0:x0 + c1 + 1]; fys, fxs = np.where(fs)
+                f = rgba.crop((x0 + c0 + fxs.min(), fy0 + q[0] + fys.min(), x0 + c0 + fxs.max() + 1, fy0 + q[0] + fys.max() + 1))
+                sc = min(152 / f.width, 152 / f.height); f = f.resize((max(1, round(f.width * sc)), max(1, round(f.height * sc))), Image.LANCZOS)
+                faces.paste(f, (k * 160 + (160 - f.width) // 2, 160 - f.height - 4), f)
+            faces.save(f'{SPR}{gid}-faces.webp', quality=88, method=6); print('  faces', len(fc))
+        else: print('  faces NONE')
 # preview
 ids = sorted(set(j[1] for j in JOBS)); pv = Image.new('RGB', (1250, 60 * len(ids) + 10 + 160), (30, 120, 130)); y = 5
 for gid in ids:

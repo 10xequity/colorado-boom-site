@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v2.31 — 2026-10-23 · Battle Arena round 20
+coaching-staff.html, assets/img/coaches/sprites32/ (guest-hinata / guest-kageyama 32-bit sheets, guest-*-faces.webp), scripts/ (gen_v7.js, battle-core.js, balance-tune.json, guest-sheet-cut.py, build_v231.js)
+
+- Opening turns: a card's first turn allows 1-cost moves only, its second up to 2-cost, from the third anything. The
+  first mover no longer lands a 2-cost swing before the other side can set a block. Fights run a little longer.
+- Defence: Dig, Cover, Pancake, Setter Block, Platform Dig and the guests' minor shields stop 15 (was 10); Super Dig
+  stops 35 (was 25); Big Block, Stuff Block, Roof and Wall Up stop 30 (was 25). Kula's scales leave at least 5 of every
+  hit. The whole field was retuned by the simulator afterwards.
+- Hinata and Kageyama: the owner's high-detail sheets drive 32-bit (and the cards' portraits); the Canva pixel sheets
+  stay for 16-bit. The cutter now also lifts the four expression heads from every sheet (guest-<name>-faces.webp).
+- Intro banner: after a special character's entrance a skewed black band a third of the ring tall slides in with one of
+  their expressions at random, their name and their card line, then slides out. When a guest wins, the same band comes
+  back with the happy face and WINS before they leave.
+- Call-outs: every move is announced in a comic tag on the mover's side when it activates (HARD SPIKE!, SUPER DIG!,
+  CHARGE!), and the defender's side answers on impact (DIG! -35, BLOCKED!, CRITICAL!, SCALES!).
+
 ## v2.30 — 2026-10-23 · Battle Arena round 19
 coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp, scripts/ (gen_v7.js, guest-sheet-cut.py, build_v230.js)
 

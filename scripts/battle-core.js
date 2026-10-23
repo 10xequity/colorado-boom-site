@@ -9,6 +9,7 @@ var BattleCore = (function () {
   var MAXE = 6, CHARGE = MODEL.charge, TURN_CAP = 24, SCALES = 10;
   function gain(round, f) { return (f && f.s.slow) ? 1 : MODEL.gain(round); }   /* a slow card (Kula) always +1 */
   function startEnergy(first) { return MODEL.start(first); }
+  function maxCost(round) { return Math.min(3, round); }   /* a card's first turn allows 1-cost moves only, its second up to 2: no opening supers, no free big swing for the first mover */
   function mkFighter(id, s, side, first) { return { id: id, s: s, side: side, hp: s.hp, max: s.hp, energy: startEnergy(first), shield: 0, round: 0, scales: !!s.scales }; }
   function shieldAmt(mv) { var v = mv.kind.split(':')[1]; return v === 'all' ? 'all' : parseInt(v, 10); }
   function dmg(att, def, mv, rng, T) {
@@ -26,7 +27,7 @@ var BattleCore = (function () {
     if (mv.kind !== 'atk' && mv.kind.indexOf('shield') === 0) { att.shield = shieldAmt(mv); att.shieldCost = mv.cost; return { kind: 'shield', amt: att.shield, mv: mv }; }
     if (mv.kind === 'heal') { var h = Math.min(mv.pow, att.max - att.hp); att.hp += h; return { kind: 'heal', amt: h, mv: mv }; }
     var r = dmg(att, def, mv, rng, T), d = r.d, blocked = 0, scaled = 0, willBlock = !!def.shield && !mv.pierce;
-    if (def.scales) { scaled = Math.min(d, SCALES); d -= scaled; }
+    if (def.scales) { scaled = Math.min(Math.max(0, d - 5), SCALES); d -= scaled; }   /* the scales never take a hit all the way to zero */
     if (def.s.invuln) { d = 0; }   /* Saitama: nothing lands */
     var refund = 0; if (willBlock) { blocked = def.shield === 'all' ? d : Math.min(def.shield, d); d -= blocked; def.shield = 0; if (MODEL.refund && blocked > 0) { refund = Math.min(def.shieldCost || 0, MAXE - def.energy); def.energy += refund; } }
     var drained = 0; if (mv.drain) { drained = mv.drain === 'all' ? def.energy : Math.min(def.energy, mv.drain); def.energy -= drained; }
@@ -36,7 +37,7 @@ var BattleCore = (function () {
   /* AI: lethal first, shield when the other side can afford a big swing, biggest attack otherwise, hold for a bigger one sometimes. */
   function expected(att, def, mv, T) { var b = mv.pow; if (T.WEAK[def.s.el] === att.s.el) b *= 1.5; else if (T.RESIST[def.s.el] === att.s.el) b *= .7; if ((T.PERSONAL[def.id] || []).indexOf(att.id) >= 0) b *= 2; b = Math.round(b / 5) * 5; if (def.scales) b = Math.max(0, b - SCALES); if (def.shield && !mv.pierce) b = def.shield === 'all' ? 0 : Math.max(0, b - def.shield); return b; }
   function pickMove(att, def, rng, T) {
-    var aff = att.s.moves.filter(function (m) { return m.cost <= att.energy; });
+    var aff = att.s.moves.filter(function (m) { return m.cost <= att.energy && m.cost <= maxCost(att.round); });
     var atks = aff.filter(function (m) { return m.kind === 'atk'; });
     var i, best = null, bestE = -1;
     for (i = 0; i < atks.length; i++) { var e = expected(att, def, atks[i], T); if (e >= def.hp) return atks[i]; if (e > bestE) { bestE = e; best = atks[i]; } }
@@ -62,6 +63,6 @@ var BattleCore = (function () {
     var win = A.hp <= 0 ? B : B.hp <= 0 ? A : (A.hp / A.max >= B.hp / B.max ? A : B);
     return { win: win, turns: t, capped: t >= TURN_CAP && A.hp > 0 && B.hp > 0 };
   }
-  return { MODEL: MODEL, MAXE: MAXE, CHARGE: CHARGE, TURN_CAP: TURN_CAP, SCALES: SCALES, gain: gain, startEnergy: startEnergy, mkFighter: mkFighter, resolve: resolve, pickMove: pickMove, expected: expected, fight: fight };
+  return { MODEL: MODEL, maxCost: maxCost, MAXE: MAXE, CHARGE: CHARGE, TURN_CAP: TURN_CAP, SCALES: SCALES, gain: gain, startEnergy: startEnergy, mkFighter: mkFighter, resolve: resolve, pickMove: pickMove, expected: expected, fight: fight };
 })();
 if (typeof module !== 'undefined') module.exports = BattleCore;
