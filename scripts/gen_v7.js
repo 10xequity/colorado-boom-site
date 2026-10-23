@@ -61,9 +61,53 @@ const KULA = { n: 'Kula', r: 'Dragon Boss', team: 'The Pit', id: 'kula', directo
   s: { el: 'Dragon', pos: 'Dragon', hp: 80, atk: 90, def: 90, spd: 1, scales: 1, slow: 1, jersey: 'black', seed: 7,
     moves: [{ name: 'GigaSpike', cost: 3, kind: 'atk', pow: 35 }, { name: 'Headbutt', cost: 2, kind: 'atk', pow: 15, drain: 2 }, { name: 'Kong Block', cost: 2, kind: 'shield:all', pow: 0 }],
     weak: 'Mortals Who Charge', flavor: 'YOU FACE ME NOW MORTAL! Every hit glances off the scales. Slow to wake: one energy a turn.' } };
+// Guests: anime fighters and the Karasuno squad. They never sit in the staff grid or the Boomdex; they turn up at random as
+// the Away card (GUEST_RATE in the page script). gi = the 16-bit figure's colours (hair, skin, top, trim, shorts, socks, shoes).
+// Saitama has no moves: every hit does nothing, and on his third turn he throws the Serious Punch.
+let TUNE = {}; try { TUNE = JSON.parse(fs.readFileSync(__dirname + '/balance-tune.json', 'utf8')); } catch (e) { TUNE = {}; }
+const hash = s => { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; } return h; };
+const GUEST_DEFS = [
+  { n: 'Goku', r: 'Saiyan Raised on Earth', team: 'Dragon Ball', el: 'Fighter', hp: 90, spd: 80, gi: { H: '#111111', S: '#f0c8a0', J: '#ff7a1f', D: '#1e5fb8', K: '#ff7a1f', N: '#1e5fb8', E: '#1e5fb8' },
+    moves: [['Kamehameha', 3, 'atk', 40], ['Dragon Fist', 2, 'atk', 25], ['Instant Transmission', 1, 'shield:15']], weak: 'Needles', flavor: 'Ka... me... ha... me... HA! Fights anyone, anywhere, mostly for fun.' },
+  { n: 'Goku Black', r: 'Zamasu in a Saiyan Body', team: 'Dragon Ball Super', el: 'Shiny', holo: true, hp: 90, spd: 82, gi: { H: '#111111', S: '#f0c8a0', J: '#2a2a33', D: '#d0334a', K: '#2a2a33', N: '#d0334a', E: '#111111' },
+    moves: [['Black Kamehameha', 3, 'atk', 40], ['Divine Lasso', 2, 'atk', 20, { drain: 1 }], ['Ki Barrier', 1, 'shield:10']], weak: 'Mortals Who Dodge', flavor: 'Rosé. Judges every mortal on the court and finds them lacking.' },
+  { n: 'Gojo', r: 'The Strongest Sorcerer', team: 'Jujutsu Kaisen', el: 'Psychic', hp: 85, spd: 88, gi: { H: '#f2f2f2', S: '#f0c8a0', J: '#161616', D: '#161616', K: '#161616', N: '#161616', E: '#161616', W: '#000000' },
+    moves: [['Hollow Purple', 3, 'atk', 45], ['Infinity', 2, 'shield:30'], ['Cursed Technique: Blue', 1, 'atk', 15, { pierce: 1 }]], weak: 'Kikufuku Shortages', flavor: 'Blindfold on. Nothing touches him; Infinity sits between the ball and his hands.' },
+  { n: 'Akuma', r: 'Master of the Fist', team: 'Street Fighter', el: 'Fire', hp: 80, spd: 70, gi: { H: '#d0334a', S: '#c08260', J: '#1a1a1a', D: '#1a1a1a', K: '#1a1a1a', N: '#f2f2f2', E: '#2a2a2a' },
+    moves: [['Shun Goku Satsu', 3, 'atk', 45], ['Gohadoken', 2, 'atk', 20], ['Ashura Senku', 1, 'shield:15']], weak: 'Mercy', flavor: 'The Raging Demon. The kanji on his back means the point is over.' },
+  { n: 'Scorpion', r: 'Netherrealm Ninja', team: 'Mortal Kombat', el: 'Fire', hp: 85, spd: 76, gi: { H: '#f2c200', S: '#e4b48d', J: '#f2c200', D: '#161616', K: '#161616', N: '#f2c200', E: '#161616', W: '#f2f2f2' },
+    moves: [['Hellfire', 3, 'atk', 35], ['Spear: Get Over Here', 2, 'atk', 20, { drain: 1 }], ['Teleport Punch', 1, 'atk', 10, { pierce: 1 }]], weak: 'Sub-Zero', flavor: 'GET OVER HERE! The spear pulls the ball, and your energy, to his side.' },
+  { n: 'Yuji', r: 'Vessel of Sukuna', team: 'Jujutsu Kaisen', el: 'Fighter', hp: 95, spd: 78, gi: { H: '#d98c7a', S: '#f0c8a0', J: '#161616', D: '#d0334a', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Divergent Fist', 3, 'atk', 35], ['Black Flash', 2, 'atk', 30], ['Manji Kick', 1, 'atk', 10, { pierce: 1 }]], weak: 'Movie Recommendations', flavor: 'Hits twice: the punch, then the cursed energy a beat later.' },
+  { n: 'Saitama', r: 'Hero for Fun', team: 'One-Punch Man', el: 'Rock', hp: 100, spd: 1, saitama: 1, invuln: 1, gi: { H: '#f6dcc4', S: '#f6dcc4', J: '#f2c200', D: '#f2c200', K: '#f2c200', N: '#d7262b', E: '#d7262b' },
+    moves: [['Serious Punch', 0, 'atk', 999], ['(nothing)', 0, 'shield:all'], ['OK.', 0, 'shield:all']], weak: 'Grocery Sales', flavor: 'OK. Takes no damage, takes no notice, then takes you off the court.' },
+  /* Karasuno */
+  { n: 'Hinata', r: 'Karasuno #10 · Middle', team: 'Haikyu!!', el: 'Fighter', hp: 85, spd: 92, gi: { H: '#ff7a1f', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Minus-Tempo Quick', 3, 'atk', 35], ['Freak Quick', 2, 'atk', 25], ['Wide Broad', 1, 'atk', 10, { pierce: 1 }]], weak: 'Bus Rides', flavor: 'Eyes closed, arm up, the ball is already there.' },
+  { n: 'Kageyama', r: 'Karasuno #9 · Setter', team: 'Haikyu!!', el: 'Psychic', hp: 85, spd: 84, gi: { H: '#111111', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [["King's Toss", 3, 'atk', 30], ['Pinpoint Set', 2, 'atk', 15, { drain: 1 }], ['Setter Block', 1, 'shield:10']], weak: 'Being Called King', flavor: 'The set lands where the hitter will be, not where he is.' },
+  { n: 'Tsukishima', r: 'Karasuno #11 · Middle', team: 'Haikyu!!', el: 'Rock', hp: 70, spd: 66, gi: { H: '#e8d57a', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Delayed Spike', 3, 'atk', 35], ['Read Block', 2, 'shield:30'], ['Soft Block Tip', 1, 'atk', 10]], weak: 'Enthusiasm', flavor: 'Reads the setter, waits, then puts a hand exactly where the ball goes.' },
+  { n: 'Tanaka', r: 'Karasuno #5 · Outside', team: 'Haikyu!!', el: 'Fire', hp: 80, spd: 74, gi: { H: '#f0c8a0', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Cross Spike', 3, 'atk', 40], ['Straight Spike', 2, 'atk', 25], ['Tip', 1, 'atk', 10, { pierce: 1 }]], weak: 'Kiyoko Ignoring Him', flavor: 'Shirt off at the first sign of a lead. Hits the cross until it works.' },
+  { n: 'Nishinoya', r: 'Karasuno #4 · Libero', team: 'Haikyu!!', el: 'Grass', hp: 100, spd: 90, gi: { H: '#111111', S: '#f0c8a0', J: '#ff7a1f', D: '#161616', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Rolling Thunder', 2, 'shield:25'], ['Jump Float', 3, 'atk', 25], ['Pass Up', 1, 'atk', 10]], weak: 'Height Charts', flavor: 'ROLLING THUNDER! Nothing hits the floor on his side.' },
+  { n: 'Daichi', r: 'Karasuno #1 · Captain', team: 'Haikyu!!', el: 'Wind', hp: 95, spd: 72, gi: { H: '#3b2416', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [["Captain's Spike", 3, 'atk', 30], ['Jump Serve', 2, 'atk', 20], ['Perfect Receive', 1, 'shield:10']], weak: 'Tanaka and Noya Together', flavor: 'The receive that keeps the rally alive, then a word with the bench.' },
+  { n: 'Sugawara', r: 'Karasuno #2 · Setter', team: 'Haikyu!!', el: 'Psychic', hp: 85, spd: 70, gi: { H: '#cfcfcf', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Signal Set', 3, 'atk', 30], ['Setter Dump', 2, 'atk', 15, { drain: 1 }], ['Cover', 1, 'shield:10']], weak: 'Benches', flavor: 'Calls the play with a hand signal and dumps it when you forget him.' },
+  { n: 'Asahi', r: 'Karasuno #3 · Ace', team: 'Haikyu!!', el: 'Fire', hp: 80, spd: 64, gi: { H: '#5a3a22', S: '#f0c8a0', J: '#161616', D: '#ff7a1f', K: '#161616', N: '#f2f2f2', E: '#f2f2f2' },
+    moves: [['Ace Spike', 3, 'atk', 45], ['Line Shot', 2, 'atk', 25], ['Jump Serve', 1, 'atk', 10]], weak: 'Being Called Scary', flavor: 'The ace. Gentle off the court, a wall-breaker on it.' },
+];
+const GUESTS = GUEST_DEFS.map(d => {
+  const id = 'guest-' + d.n.toLowerCase().replace(/[^a-z]+/g, '-'); const tune = TUNE[id] || {};
+  const moves = d.moves.map(([name, cost, kind, pow, extra], i) => Object.assign({ name, cost, kind, pow: kind === 'atk' ? Math.max(5, pow + ((tune.pow || {})[i] || 0)) : 0 }, extra || {}));
+  const s = { el: d.el, pos: 'Guest', hp: d.hp + (tune.hp || 0), atk: 70, def: 65, spd: d.spd + (tune.spd || 0), moves, weak: d.weak, flavor: d.flavor, seed: hash(d.n), jersey: 'black', gi: d.gi };
+  if (d.saitama) { s.saitama = 1; s.invuln = 1; }
+  return { n: d.n, r: d.r, team: d.team, id, s, director: false, head: false, no: 0, guest: true, holo: !!d.holo };
+});
 const HPB = { Fighter: [75, 85], Fire: [65, 75], Psychic: [75, 85], Rock: [55, 65], Grass: [90, 100], Wind: [85, 95], Water: [75, 85], Shiny: [105, 120] };
 // per-card tuning from the balance simulator (balance-sim.js writes it); hp / pow deltas in multiples of 5
-let TUNE = {}; try { TUNE = JSON.parse(fs.readFileSync(__dirname + '/balance-tune.json', 'utf8')); } catch (e) { TUNE = {}; }
 let PHOTO_PAL = {}; try { PHOTO_PAL = JSON.parse(fs.readFileSync(__dirname + '/photo-palette.json', 'utf8')); } catch (e) { PHOTO_PAL = {}; }
 const PERSONAL = { 'Damon Sichler': 'Tara', 'Tara Tucker': 'Bad Teammates', 'Will Ly': 'Bad Footwear', 'Matt Jueng': 'Bad Korean Food', 'Zhu': 'Early Mornings', 'Alicia Hall': 'HR', 'Rob Oschner': 'Overhead Press', 'Sidney Reese': 'Seafood', 'Brian Peterson': 'Gas Prices' };
 const WPOOL = ['Serve Receive', 'Not Calling Timeout', 'Line Judges', 'Net Violations', '6 AM Practice', 'Tournament Parking', 'Cold Gyms', 'Rotation Errors', 'Bad Refs', 'Shanked Passes', 'Libero Tracking Sheets', 'Hotel Breakfast', 'Ball Carts With One Bad Wheel', 'Day Three of a Qualifier'];
@@ -92,7 +136,6 @@ const FLAVOR = {
   Shiny: ['Sets the schedule the whole club runs on. Holds the lineup card.', 'Runs the bench, the budget and the timeouts.', 'Answers every parent email before the second practice.',
     'Knows every kid\'s name, number and school by week two.', 'Books the gym, orders the uniforms, still runs the drill.', 'Somehow at every court at once.'],
 };
-const hash = s => { let h = 2166136261; for (const c of s) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619) >>> 0; } return h; };
 const slug = n => 'coach-' + n.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
 const esc = s => s.replace(/&/g, '&amp;');
 function mk(n, r, team, opts = {}) {
@@ -153,16 +196,16 @@ function render(o) {
   const mval = m => m.kind === 'atk' ? m.pow : m.kind === 'heal' ? '<small>heals</small>' + m.pow : '<small>blocks</small>' + (m.kind.split(':')[1] === 'all' ? 'ALL' : m.kind.split(':')[1]);
   const mtag = m => m.pierce ? '<em class="tag">over block</em>' : m.drain ? '<em class="tag">' + (m.drain === 'all' ? 'drains all' : '-' + m.drain + ' en') + '</em>' : '';
   const card = p => `
-      <article class="card el-${p.s.el}${p.director ? ' shiny' : ''}" id="${p.id}">
+      <article class="card el-${p.s.el}${p.director || p.holo ? ' shiny' : ''}" id="${p.id}">
         <div class="ci">
           <header class="ch"><span class="stage">${esc(p.r)}</span><h4>${p.n}</h4><span class="hp"><b data-hp>${p.s.hp}</b> HP</span><span class="ty" title="${p.s.el} (${p.s.pos})">${ICON[p.s.el]}</span></header>
           <div class="ph">${art(p)}</div>
-          <div class="meta"><span>${esc(p.team)}</span><span>${p.director ? 'Director' : p.boss ? 'Boss' : p.s.pos + ' &middot; ' + p.s.el}</span></div>
+          <div class="meta"><span>${esc(p.team)}</span><span>${p.director ? 'Director' : p.boss ? 'Boss' : p.guest ? 'Guest &middot; ' + p.s.el : p.s.pos + ' &middot; ' + p.s.el}</span></div>
           <ul class="moves">${p.s.moves.map(m => `
             <li><span class="cost">${dots(m.cost)}</span><span class="mn">${m.name}${mtag(m)}</span><span class="dmg">${mval(m)}</span></li>`).join('')}
           </ul>
           <p class="flavor">${p.s.flavor}</p>
-          <footer class="cfoot"><span><small>weak</small>${p.s.weak}</span><span><small>resist</small>${RESIST[p.s.el]}</span><span><small>retreat</small>${dots(1 + (p.s.def > 70 ? 1 : 0))}</span><span class="no">${p.boss ? 'BOSS' : String(p.no).padStart(2, '0') + '/' + ALLP.length} <em>${p.boss ? '🐉' : rar(p)}</em></span></footer>
+          <footer class="cfoot"><span><small>weak</small>${p.s.weak}</span><span><small>resist</small>${RESIST[p.s.el]}</span><span><small>retreat</small>${dots(1 + (p.s.def > 70 ? 1 : 0))}</span><span class="no">${p.boss ? 'BOSS' : p.guest ? 'GUEST' : String(p.no).padStart(2, '0') + '/' + ALLP.length} <em>${p.boss ? '🐉' : p.guest ? '★' : rar(p)}</em></span></footer>
         </div>
         <div class="cb" aria-hidden="true"><img src="${LOGO}" alt="" loading="lazy" width="372" height="240"><span>Colorado Boom</span><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
       </article>`;
@@ -391,7 +434,7 @@ function render(o) {
     <div class="row"><button type="button" class="btn" id="btnRandom">Random Matchup</button><button type="button" class="btn btn-line" id="btnNext" disabled title="The winner stays in and fights a new random opponent right away">Next Fight</button><button type="button" class="btn btn-line" id="btnSound" aria-pressed="true">Sound: On</button></div>
     <div class="row"><button type="button" class="btn btn-tab" id="mAuto" aria-pressed="false">Auto Play</button><button type="button" class="btn btn-tab" id="mPlay" aria-pressed="true" title="You pick Home's move each turn; the AI plays Away. Switch any time: it takes effect at the next move.">You Play</button></div>
     <div class="row"><button type="button" class="btn btn-tab" id="vCard" aria-pressed="false">Card View</button><button type="button" class="btn btn-tab" id="vPx" aria-pressed="true">16-Bit View</button><button type="button" class="btn btn-tab" id="vHd" aria-pressed="false" title="Hand-drawn 32-bit stages and sprites (Tara, Damon, Will and Sidney have drawn sheets; the rest use their photo)">32-Bit View</button>
-      <span class="pxopts" id="pxopts"><label>Ball <select id="selBall"><option value="classic">Classic White</option><option value="supertouch">Molten Super Touch</option><option value="flired">Molten Flistatec Red</option><option value="fliblue">Molten Flistatec Blue</option><option value="boom">Boom Teal</option></select></label><label>Gym <select id="selGym"><option value="fieldhouse">Boomtown Fieldhouse</option><option value="arena">Championship Arena</option><option value="beach">Beach Night</option><option value="retro">Retro Gym</option></select></label></span></div>
+      <span class="pxopts" id="pxopts"><label>Ball <select id="selBall"><option value="classic">Classic White</option><option value="supertouch">Molten Super Touch</option><option value="flistatec">Molten Flistatec</option><option value="flincaa">Molten Flistatec NCAA</option><option value="boom">Boom Teal (custom)</option></select></label><label>Gym <select id="selGym"><option value="fieldhouse">Boomtown Fieldhouse</option><option value="arena">Championship Arena</option><option value="beach">Beach Night</option><option value="retro">Retro Gym</option></select></label></span></div>
     <div class="ring px" id="ring"><div class="pxwrap" id="pxwrap"><canvas id="px" width="320" height="200" role="img" aria-label="Pixel-art replay of the fight"></canvas>
       <div class="pad" id="pad" hidden role="group" aria-label="Your move">
         <div class="dia"><button type="button" class="pb pb-y" data-i="0" aria-label="Y: first move">Y</button><button type="button" class="pb pb-x" data-i="1" aria-label="X: second move">X</button><button type="button" class="pb pb-a" data-i="2" aria-label="A: third move">A</button><button type="button" class="pb pb-b" data-i="3" aria-label="B: Charge">B</button></div>
@@ -406,11 +449,11 @@ function render(o) {
     <div class="log" id="log"></div>
     <p class="played" id="played">Thank you for playing!<b id="playedN">&hellip;</b><small id="playedNote">Total games played globally</small></p>
   </div>
-  <div class="bossbank" aria-hidden="true">${card(KULA)}</div>
+  <div class="bossbank" aria-hidden="true">${card(KULA)}${GUESTS.map(card).join('')}</div>
 </div></section>`;
   const SCRIPT = `<script>
 (function(){
-  var DATA=${JSON.stringify(Object.fromEntries(ALLP.concat([KULA]).map(p => [p.id, { n: p.n, no: p.no, s: p.s, photo: photoOf(p), shiny: p.director, boss: !!p.boss }])))};
+  var DATA=${JSON.stringify(Object.fromEntries(ALLP.concat([KULA], GUESTS).map(p => [p.id, { n: p.n, no: p.no, s: p.s, photo: photoOf(p), shiny: p.director || !!p.holo, boss: !!p.boss, guest: !!p.guest }])))};
   var WEAK=${JSON.stringify(WEAK)},RESIST=${JSON.stringify(RESIST)},TINT=${JSON.stringify(TINT)};
   var PERSONAL={'coach-damon-sichler':['coach-tara-tucker','coach-tara-tucker-director'],'coach-damon-sichler-director':['coach-tara-tucker','coach-tara-tucker-director']};
   ${CORE_SRC.trim()}
@@ -447,7 +490,7 @@ function render(o) {
   var DIG={'0':['111','101','101','101','111'],'1':['010','110','010','010','111'],'2':['111','001','111','100','111'],'3':['111','001','111','001','111'],'4':['101','101','111','001','001'],'5':['111','100','111','001','111'],'6':['111','100','111','101','111'],'7':['111','001','001','001','001'],'8':['111','101','111','101','111'],'9':['111','101','111','001','111']};
   var SKIN=['#f6dcc4','#efc9a6','#e4b48d','#d19b70'],HAIR=['#1a1410','#3b2416','#5a3a22','#8a5a2b','#c9a063','#d9b35c','#6b2a1a'];
   var JERSEY={black:{J:'#161616',D:'#0E7C86',num:'#ffffff'},teal:{J:'#0E7C86',D:'#065A62',num:'#ffffff'},white:{J:'#f2f2f2',D:'#0E7C86',num:'#111111'}};
-  function paletteFor(id){var d=DATA[id],h=d.s.seed,j=JERSEY[d.s.jersey],pp=d.s.pal||{};return {H:pp.hair||HAIR[(h>>>2)%HAIR.length],S:pp.skin||SKIN[(h>>>6)%SKIN.length],J:j.J,D:j.D,K:'#1a1a1a',N:'#ffffff',W:'#101010',E:'#f2f2f2',num:j.num,no:d.no};}
+  function paletteFor(id){var d=DATA[id],h=d.s.seed,j=JERSEY[d.s.jersey],pp=d.s.pal||{};if(d.s.gi){var gi=d.s.gi;return {H:gi.H,S:gi.S,J:gi.J,D:gi.D,K:gi.K||'#1a1a1a',N:gi.N||'#ffffff',W:gi.W||'#101010',E:gi.E||'#f2f2f2',num:'#fff',no:0};}return {H:pp.hair||HAIR[(h>>>2)%HAIR.length],S:pp.skin||SKIN[(h>>>6)%SKIN.length],J:j.J,D:j.D,K:'#1a1a1a',N:'#ffffff',W:'#101010',E:'#f2f2f2',num:j.num,no:d.no};}
   var FRONT={idle:1,run:1,spike:1,block:1,dance1:1,dance2:1};var SIDE=/^side/;
   function gridFrame(rows,pal,sc,numOf){var w=rows[0].length,h=rows.length,c=document.createElement('canvas');c.width=w;c.height=h;var k=c.getContext('2d'),op=[],x,y;
     for(y=0;y<h;y++){op[y]=[];for(x=0;x<w;x++){var ch=rows[y][x];op[y][x]=ch!=='.';if(ch!=='.'){k.fillStyle=pal[ch]||'#f0f';k.fillRect(x,y,1,1);}}}
@@ -486,24 +529,31 @@ function render(o) {
   /* ---- 16-bit court ---- */
   var PX=(function(){
     var cv=$('px'),g=cv.getContext('2d');var W=320,H=200,NET=160,FY=170,SC=2;var FAR=98,NEAR=188;var S=1,hd=false;/* 32-bit view: same 320x200 logic, drawn at 4x onto a 1280x800 canvas with hand-drawn stages and sprite sheets */
-    var st={L:null,R:null,fx:[],sparks:[],bolts:[],ball:null,shake:0,flash:0,dark:0,on:false,t:0,style:'rpg',extra:[],fxs:[],trail:[]};var BEAM=null;
+    var st={L:null,R:null,fx:[],sparks:[],bolts:[],ball:null,shake:0,flash:0,dark:0,face:0,on:false,t:0,style:'rpg',extra:[],fxs:[],trail:[]};var BEAM=null;
     var SHEETS=${JSON.stringify(SHEETS32)},IMGS={};
     var AV='?v=${o.av||'0'}';/* asset version: bumps when a stage / sheet file changes so browsers and the CDN refetch it */
     function loadImg(src){if(IMGS[src])return IMGS[src];IMGS[src]=new Promise(function(res){var im=new Image();im.onload=function(){res(im);};im.onerror=function(){res(null);};im.src=src+AV;});return IMGS[src];}
     function hOf(f){return frameOf(f).height*(f.spr.k||SC);}function wOf(f){return frameOf(f).width*(f.spr.k||SC);}
     /* ball: three panel groups (A top-left, B right, C bottom-left) meeting at the centre, seams S, highlight H */
     var BALL=['.....SSSSS.....','...SSAAAAASS...','..SAHAAAAAABS..','.SAHAAAAABBBBS.','.SAAAAAABBBBBS.','SAAAAAABBBBBBBS','SAAAAABBBBBBBBS','SCCCCSSBBBBBBBS','SCCCCCCSSBBBBBS','SCCCCCCCCSSBBBS','.SCCCCCCCCCSSS.','.SCCCCCCCCCCCS.','..SCCCCCCCCCS..','...SSCCCCCSS...','.....SSSSS.....'],BR=7;
-    var BALLS={classic:{n:'Classic White',A:'#fbfbfb',B:'#e3e6e8',C:'#f4f4f4',S:'#b9bfc4'},supertouch:{n:'Molten Super Touch',A:'#d7262b',B:'#f7f7f7',C:'#1f8a3b',S:'#2a2a2a'},flired:{n:'Molten Flistatec Red',A:'#d7262b',B:'#1f8a3b',C:'#f7f7f7',S:'#2a2a2a'},fliblue:{n:'Molten Flistatec Blue',A:'#1e5fb8',B:'#ffd400',C:'#f7f7f7',S:'#1a2a4a'},boom:{n:'Boom Teal',A:'#0E7C86',B:'#161616',C:'#E5B800',S:'#000000'}},ballType='classic',BALLC={};
+    /* liveries: w = the nine wedge colours going round the ball (three groups of three), S = seams, dim = Flistatec's flat dimpled
+       surface. Super Touch: white-red-green strips repeating. Flistatec (red / white / green, and the red / white / blue NCAA
+       ball): wide red and green fields split by white arrows. Boom: Flistatec layout in club colours (a custom-colour ball). */
+    var BALLS={classic:{n:'Classic White',w:['#fbfbfb','#eef0f2','#f7f7f7','#fbfbfb','#eef0f2','#f7f7f7','#fbfbfb','#eef0f2','#f7f7f7'],S:'#b9bfc4',A:'#fbfbfb',B:'#e3e6e8',C:'#f4f4f4'},
+      supertouch:{n:'Molten Super Touch',w:['#f7f7f7','#d7262b','#1f8a3b','#f7f7f7','#d7262b','#1f8a3b','#f7f7f7','#d7262b','#1f8a3b'],S:'#2a2a2a',A:'#d7262b',B:'#f7f7f7',C:'#1f8a3b'},
+      flistatec:{n:'Molten Flistatec',w:['#d7262b','#d7262b','#f7f7f7','#1f8a3b','#1f8a3b','#f7f7f7','#d7262b','#1f8a3b','#f7f7f7'],S:'#2a2a2a',dim:1,A:'#d7262b',B:'#1f8a3b',C:'#f7f7f7'},
+      flincaa:{n:'Molten Flistatec NCAA',w:['#d7262b','#d7262b','#f7f7f7','#1e5fb8','#1e5fb8','#f7f7f7','#d7262b','#1e5fb8','#f7f7f7'],S:'#1a2a4a',dim:1,A:'#d7262b',B:'#1e5fb8',C:'#f7f7f7'},
+      boom:{n:'Boom Teal (custom)',w:['#0E7C86','#0E7C86','#E5B800','#161616','#161616','#E5B800','#0E7C86','#161616','#E5B800'],S:'#000000',dim:1,A:'#0E7C86',B:'#161616',C:'#E5B800'}},ballType='classic',BALLC={};
     function ballSprite(type,smooth){var key=type+(smooth?'h':'p');if(BALLC[key])return BALLC[key];var L=BALLS[type]||BALLS.classic,c=document.createElement('canvas');
       if(!smooth){c.width=17;c.height=17;var k=c.getContext('2d'),r,q,ch;for(r=0;r<15;r++)for(q=0;q<15;q++){ch=BALL[r][q];if(ch==='.')continue;k.fillStyle='#2a2a2a';k.fillRect(q,r+1,1,1);k.fillRect(q+2,r+1,1,1);k.fillRect(q+1,r,1,1);k.fillRect(q+1,r+2,1,1);}
         for(r=0;r<15;r++)for(q=0;q<15;q++){ch=BALL[r][q];if(ch==='.')continue;k.fillStyle=ch==='H'?'#ffffff':L[ch]||L.A;k.fillRect(q+1,r+1,1,1);}}
-      else{var R=30;c.width=c.height=R*2+2;var g2=c.getContext('2d'),cx=R+1,cy=R+1;g2.beginPath();g2.arc(cx,cy,R,0,Math.PI*2);g2.fillStyle=L.A;g2.fill();g2.save();g2.clip();
-        /* panel B: right lobe, panel C: lower-left lobe, both bounded by curved seams from the centre */
-        g2.fillStyle=L.B;g2.beginPath();g2.moveTo(cx,cy);g2.quadraticCurveTo(cx+R*.2,cy-R*.75,cx+R*.75,cy-R*.75);g2.lineTo(cx+R*1.2,cy+R*.3);g2.lineTo(cx+R*.6,cy+R*1.2);g2.quadraticCurveTo(cx+R*.55,cy+R*.3,cx,cy);g2.closePath();g2.fill();
-        g2.fillStyle=L.C;g2.beginPath();g2.moveTo(cx,cy);g2.quadraticCurveTo(cx+R*.55,cy+R*.3,cx+R*.6,cy+R*1.2);g2.lineTo(cx-R*1.2,cy+R*1.2);g2.lineTo(cx-R*1.2,cy-R*.1);g2.quadraticCurveTo(cx-R*.5,cy+R*.2,cx,cy);g2.closePath();g2.fill();
-        /* seams: the three centre seams plus one mid-panel seam each, so it reads as the 18-panel swirl */
-        g2.strokeStyle=L.S;g2.lineWidth=1.6;g2.lineCap='round';g2.beginPath();g2.moveTo(cx,cy);g2.quadraticCurveTo(cx+R*.2,cy-R*.75,cx+R*.75,cy-R*.75);g2.moveTo(cx,cy);g2.quadraticCurveTo(cx+R*.55,cy+R*.3,cx+R*.6,cy+R*1.2);g2.moveTo(cx,cy);g2.quadraticCurveTo(cx-R*.5,cy+R*.2,cx-R*1.2,cy-R*.1);
-        g2.moveTo(cx-R*.9,cy-R*.75);g2.quadraticCurveTo(cx-R*.2,cy-R*.4,cx+R*.3,cy-R*1.1);g2.moveTo(cx+R*1.1,cy-R*.1);g2.quadraticCurveTo(cx+R*.55,cy+R*.05,cx+R*.9,cy+R*.85);g2.moveTo(cx-R*.75,cy+R*1);g2.quadraticCurveTo(cx-R*.2,cy+R*.5,cx+R*.1,cy+R*1.15);g2.stroke();
+      else{var R=30;c.width=c.height=R*2+2;var g2=c.getContext('2d'),cx=R+1,cy=R+1,i2;g2.beginPath();g2.arc(cx,cy,R,0,Math.PI*2);g2.fillStyle=L.w[0];g2.fill();g2.save();g2.clip();
+        /* nine curved wedges round the centre (the swirl), each split by a mid arc into two panels = 18 panels */
+        function wedge(a0,a1,col){var m=(a0+a1)/2,bend=.55;g2.fillStyle=col;g2.beginPath();g2.moveTo(cx,cy);g2.quadraticCurveTo(cx+Math.cos(a0+bend)*R*.55,cy+Math.sin(a0+bend)*R*.55,cx+Math.cos(a0)*R*1.3,cy+Math.sin(a0)*R*1.3);g2.lineTo(cx+Math.cos(m)*R*1.4,cy+Math.sin(m)*R*1.4);g2.lineTo(cx+Math.cos(a1)*R*1.3,cy+Math.sin(a1)*R*1.3);g2.quadraticCurveTo(cx+Math.cos(a1+bend)*R*.55,cy+Math.sin(a1+bend)*R*.55,cx,cy);g2.closePath();g2.fill();}
+        for(i2=0;i2<9;i2++)wedge(-Math.PI/2+i2*Math.PI*2/9,-Math.PI/2+(i2+1)*Math.PI*2/9,L.w[i2]);
+        g2.strokeStyle=L.S;g2.lineWidth=1.3;g2.lineCap='round';g2.beginPath();for(i2=0;i2<9;i2++){var a0=-Math.PI/2+i2*Math.PI*2/9;g2.moveTo(cx,cy);g2.quadraticCurveTo(cx+Math.cos(a0+.55)*R*.55,cy+Math.sin(a0+.55)*R*.55,cx+Math.cos(a0)*R*1.3,cy+Math.sin(a0)*R*1.3);}g2.stroke();
+        g2.lineWidth=1;g2.beginPath();g2.arc(cx,cy,R*.62,0,Math.PI*2);g2.stroke();
+        if(L.dim){/* Flistatec: the flat hexagonal dimple texture */g2.fillStyle='rgba(0,0,0,.08)';for(var yy=2;yy<R*2;yy+=4)for(var xx=((yy/4)|0)%2?4:2;xx<R*2;xx+=4)g2.fillRect(xx,yy,2,2);}
         /* shading + highlight */var sh=g2.createRadialGradient(cx-R*.4,cy-R*.45,R*.1,cx,cy,R*1.05);sh.addColorStop(0,'rgba(255,255,255,.35)');sh.addColorStop(.55,'rgba(255,255,255,0)');sh.addColorStop(1,'rgba(0,0,0,.42)');g2.fillStyle=sh;g2.fillRect(0,0,c.width,c.height);g2.restore();
         g2.strokeStyle='rgba(20,20,20,.8)';g2.lineWidth=1.4;g2.beginPath();g2.arc(cx,cy,R-.5,0,Math.PI*2);g2.stroke();}
       BALLC[key]=c;return c;}
@@ -620,7 +670,7 @@ function render(o) {
     function bolt(x1,y1,x2,y2,life){var pts=[[x1,y1]],n=6;for(var i=1;i<n;i++){var p=i/n;pts.push([x1+(x2-x1)*p+(Math.random()*18-9),y1+(y2-y1)*p+(Math.random()*8-4)]);}pts.push([x2,y2]);st.bolts.push({pts:pts,t0:performance.now(),life:life||160});}
     function drawSparks(now){for(var i=st.sparks.length-1;i>=0;i--){var p=st.sparks[i],q=(now-p.t0)/p.life;if(q>=1){st.sparks.splice(i,1);continue;}
       if(p.ring){g.strokeStyle=p.col;g.lineWidth=2;g.globalAlpha=1-q;g.beginPath();g.arc(p.x,p.y,4+q*22,0,Math.PI*2);g.stroke();g.globalAlpha=1;continue;}
-      var t=q*p.life/16;g.fillStyle=p.col;g.globalAlpha=1-q;g.fillRect(Math.round(p.x+p.vx*t),Math.round(p.y+p.vy*t+.12*t*t),2,2);g.globalAlpha=1;}
+      var t=q*p.life/16;g.fillStyle=p.col;g.globalAlpha=1-q;if(p.wind)g.fillRect(Math.round(p.x+p.vx*t),Math.round(p.y),10,1);else g.fillRect(Math.round(p.x+p.vx*t),Math.round(p.y+p.vy*t+.12*t*t),2,2);g.globalAlpha=1;}
       for(i=st.bolts.length-1;i>=0;i--){var b=st.bolts[i],q2=(now-b.t0)/b.life;if(q2>=1){st.bolts.splice(i,1);continue;}g.globalAlpha=1-q2*q2;g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();g.moveTo(b.pts[0][0],b.pts[0][1]);for(var j=1;j<b.pts.length;j++)g.lineTo(b.pts[j][0],b.pts[j][1]);g.stroke();g.strokeStyle='#9d7bff';g.lineWidth=4;g.globalAlpha=(1-q2)*.35;g.stroke();g.globalAlpha=1;}}
     function frame(now){st.t=now;var i;
       for(i=tweens.length-1;i>=0;i--){var tw=tweens[i],p=tw.dur?Math.min(1,(now-tw.t0)/tw.dur):1;tw.fn(p);if(p>=1){tweens.splice(i,1);tw.res();}}
@@ -638,6 +688,8 @@ function render(o) {
       for(i=st.fx.length-1;i>=0;i--){var e=st.fx[i],q=(now-e.t0)/900;if(q>=1){st.fx.splice(i,1);continue;}g.globalAlpha=1-q*q;g.fillStyle='#000';g.fillText(e.txt,e.x+1,e.y-q*26+1);g.fillStyle=e.col;g.fillText(e.txt,e.x,e.y-q*26);g.globalAlpha=1;}
       panel(st.L,4);panel(st.R,W-4-132);
       if(st.dark>0){g.fillStyle='rgba(0,0,0,'+st.dark+')';g.fillRect(0,0,W,H);}
+      if(st.face){/* Saitama's neutral face, full screen */g.fillStyle='#f6dcc4';g.fillRect(0,0,W,H);g.fillStyle='#e8c7a6';g.fillRect(0,0,W,24);g.fillRect(0,H-22,W,22);g.fillStyle='#f6dcc4';g.beginPath();g.ellipse(W/2,H/2+4,W*.34,H*.52,0,0,Math.PI*2);g.fill();
+        g.fillStyle='#e8c7a6';g.fillRect(W*.17,H*.5,10,26);g.fillRect(W*.83-10,H*.5,10,26);g.fillStyle='#111';g.fillRect(W*.4-4,H*.46,8,6);g.fillRect(W*.6-4,H*.46,8,6);g.fillRect(W*.47,H*.72,W*.06,3);g.fillStyle='#d9b08f';g.fillRect(W*.495,H*.58,3,8);}
       if(st.flash>0){g.fillStyle='rgba(255,255,255,'+st.flash+')';g.fillRect(0,0,W,H);st.flash=Math.max(0,st.flash-.2);}
       if(st.on)requestAnimationFrame(frame);}
     function start(){if(!st.on){st.on=true;requestAnimationFrame(frame);}}
@@ -653,7 +705,7 @@ function render(o) {
       ballPreview:function(t,smooth){return ballSprite(t,smooth).toDataURL();},
       mode:function(v){hd=v==='hd';S=hd?4:1;cv.width=W*S;cv.height=H*S;cv.classList.toggle('hd',hd);return rebuildBg().then(function(){var a=st.L&&st.L.id,b=st.R&&st.R.id;if(!a)return;return Promise.all([makeSprite(a),makeSprite(b)]).then(function(r){st.L.spr=r[0];st.L.white={};st.R.spr=r[1];st.R.white={};if(st.L.frame!=='ko')st.L.frame='idle';if(st.R.frame!=='ko')st.R.frame='idle';});});},
       style:function(s){st.style=s;var a=st.L&&st.L.id,b=st.R&&st.R.id;if(!a)return Promise.resolve();return Promise.all([makeSprite(a),makeSprite(b)]).then(function(r){st.L.spr=r[0];st.L.white={};st.R.spr=r[1];st.R.white={};st.L.frame=st.R.frame='idle';});},
-      setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.sparks=[];st.bolts=[];st.extra=[];st.ball=null;st.dark=0;st.fxs=[];st.trail=[];st.L.loop=st.R.loop=null;tweens=[];start();return rebuildBg();});},
+      setup:function(a,b){return Promise.all([makeSprite(a),makeSprite(b),document.fonts?document.fonts.load('8px "Press Start 2P"').catch(function(){}):null]).then(function(r){st.L=fighter('L',a,r[0]);st.R=fighter('R',b,r[1]);st.fx=[];st.sparks=[];st.bolts=[];st.extra=[];st.ball=null;st.dark=0;st.face=0;st.fxs=[];st.trail=[];st.L.loop=st.R.loop=null;tweens=[];start();return rebuildBg();});},
       hp:function(side,hp){st[side].hp=hp;},
       energy:function(side,e){st[side].energy=e;},
       charge:function(a){var A=st[a];A.aura=1;fxText('CHARGE',A.x,A.fy-hOf(A)-8,'#E5B800');var full=A.spr.full;if(A.spr.kind==='rpg')A.frame=full?'charge1':'block';var pr=hd?auraFor(DATA[A.id].s.el).then(function(fr){A.auraFr=fr;}):Promise.resolve();return pr.then(function(){return tween(hd?1200:900,function(p){A.oy=-3*Math.abs(Math.sin(p*Math.PI*4));if(full)A.frame=p<.3?'charge1':p<.6?'charge2':'charge3';});}).then(function(){A.oy=0;A.aura=0;A.auraFr=null;A.frame='idle';});},
@@ -690,6 +742,15 @@ function render(o) {
         return tween(900,function(p){st.dark=p;}).then(function(){return wait(300);}).then(function(){/* lightning */var n=0;return new Promise(function(res){(function flashLoop(){st.flash=1;SFX.thunder();for(var i=0;i<3;i++)bolt(40+Math.random()*240,0,60+Math.random()*200,FAR+Math.random()*60,220);n++;if(n<4)setTimeout(flashLoop,reduce?0:380+Math.random()*260);else setTimeout(res,reduce?0:500);})();});})
         .then(function(){SFX.intro();SFX.roar();K.hide=false;K.x=W+40;K.oy=-150;K.frame='fly1';var fl=0;return tween(2200,function(p){st.dark=1-p*.85;K.x=W+40+(home-W-40)*Math.min(1,p*1.25);K.oy=-150*(1-p*p);K.frame=((p*14)|0)%2?'fly1':'fly2';var ff=(p*14)|0;if(ff!==fl){fl=ff;SFX.flap();}});})
         .then(function(){K.oy=0;K.frame='idle';K.noShadow=false;st.dark=0;st.shake=18;SFX.land();sparks(K.x,K.fy,['#8a5a2b','#c9a063','#ffffff'],24);for(var i=0;i<8;i++)bolt(K.x-50+Math.random()*100,K.fy-120,K.x-30+Math.random()*60,K.fy-10,420);return tween(1000,function(p){if(((p*10)|0)%3===0&&Math.random()<.3)bolt(K.x-60+Math.random()*120,K.fy-130,K.x-40+Math.random()*80,K.fy-20,200);});});},
+      walkIn:function(side){var F=st[side];F.x=W+30;return runTo(F,F.home,FY).then(function(){F.frame='idle';});},
+      walkOut:function(side){var F=st[side];return wait(500).then(function(){return runTo(F,W+40,FY);}).then(function(){F.gone=true;});},
+      /* Serious Punch: flashes and wind while he winds up, the whole screen becomes his face, then the punch sends the other
+         fighter off the screen and leaves a crater */
+      seriousPunch:function(l){var Pl=st[l],Sa=st[l==='L'?'R':'L'];Sa.frame='block';
+        return tween(2000,function(p){if(Math.random()<.18)st.flash=.75;st.shake=5;for(var i=0;i<3;i++)st.sparks.push({wind:1,x:W+10,y:16+Math.random()*(H-30),vx:-(7+Math.random()*6),vy:0,col:Math.random()<.5?'#ffffff':'#dfe9ee',t0:performance.now(),life:520});if(((p*20)|0)%4===0&&Math.random()<.3)SFX.thunder();})
+        .then(function(){st.face=1;SFX.thud();return wait(1000);}).then(function(){st.face=0;st.flash=1;SFX.giga();var sx=Sa.x,tx=Pl.x+(Pl.side==='L'?18:-18);return tween(130,function(p){Sa.x=sx+(tx-sx)*p;Sa.frame='sidespike';});})
+        .then(function(){st.flash=1;st.shake=34;SFX.crater();crater(Pl.x,Pl.fy-2);sparks(Pl.x,Pl.fy-24,['#ffffff','#ffd36b','#ff5a4e'],34);var px0=Pl.x,dir=Pl.side==='L'?-1:1;return tween(700,function(p){Pl.x=px0+dir*(W+120)*p*p;Pl.oy=-60*Math.sin(p*Math.PI);Pl.frame=((p*12)|0)%2?'ko':'idle';});})
+        .then(function(){Pl.gone=true;Sa.frame='idle';return runTo(Sa,Sa.home,FY);}).then(function(){Sa.frame='idle';return wait(400);});},
       bossTaunt:function(mv){var K=st.R;fxText(mv.toUpperCase(),K.x,K.fy-hOf(K)-10,'#ffe14d');for(var i=0;i<4;i++)bolt(K.x-40+Math.random()*80,K.fy-110,K.x-20+Math.random()*40,K.fy-30,300);return tween(500,function(p){K.oy=-6*Math.abs(Math.sin(p*Math.PI));});},
       /* player beat Kula: he flies up, drops, cracks the floor, lies bloody and twitching */
       bossDown:function(){var K=st.R,P=st.L;K.shield=P.shield=0;K.noShadow=true;SFX.roar();
@@ -730,11 +791,13 @@ function render(o) {
   function fromSelects(){var a=selL.value,b=selR.value;if(busy)return;if(!a||!b){L=R=null;$('fightOv').hidden=true;return;}
     if(same(a,b)){$('log').innerHTML='<p>Pick two different people. A coach cannot fight their own other card.</p>';$('fightOv').hidden=true;L=R=null;return;}setup(a,b);}
   selL.addEventListener('change',fromSelects);selR.addEventListener('change',fromSelects);
-  var IDS=Object.keys(DATA).filter(function(k){return !DATA[k].boss;});
-  function randomOpp(a){var b;do{b=IDS[Math.floor(Math.random()*IDS.length)];}while(same(a,b));return b;}
-  function randomPair(keep,side){var a=keep||IDS[Math.floor(Math.random()*IDS.length)],b;do{b=IDS[Math.floor(Math.random()*IDS.length)];}while(same(a,b));return side==='R'?[b,a]:[a,b];}
-  $('btnRandom').addEventListener('click',function(){if(busy)return;var p=randomPair();selL.value=p[0];selR.value=p[1];setup(p[0],p[1]);});
-  $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var keep=lastWin.boss?(streakId||L.id):lastWin.id;var p=mode==='play'?[L.id,randomOpp(L.id)]:randomPair(keep,lastWin.boss?'L':lastWin.side);selL.value=p[0];selR.value=p[1];setup(p[0],p[1]).then(fight);});
+  var IDS=Object.keys(DATA).filter(function(k){return !DATA[k].boss&&!DATA[k].guest;}),GIDS=Object.keys(DATA).filter(function(k){return DATA[k].guest&&!DATA[k].s.saitama;});
+  var GUEST_RATE=.2,SAITAMA_RATE=.05,forceGuest=location.hash==='#guest',forceSaitama=location.hash==='#saitama';
+  function staffOpp(a){var b;do{b=IDS[Math.floor(Math.random()*IDS.length)];}while(same(a,b));return b;}
+  function randomOpp(a){var r=Math.random();if(forceSaitama||r<SAITAMA_RATE){forceSaitama=false;return 'guest-saitama';}if(forceGuest||r<SAITAMA_RATE+GUEST_RATE){forceGuest=false;return GIDS[Math.floor(Math.random()*GIDS.length)];}return staffOpp(a);}
+  function randomPair(keep,side){var a=keep||IDS[Math.floor(Math.random()*IDS.length)],b=side==='R'?staffOpp(a):randomOpp(a);return side==='R'?[b,a]:[a,b];}
+  $('btnRandom').addEventListener('click',function(){if(busy)return;var p=randomPair();if(DATA[p[1]].guest)selR.value='';selL.value=p[0];selR.value=p[1];setup(p[0],p[1]);});
+  $('btnNext').addEventListener('click',function(){if(busy||!lastWin)return;var keep=lastWin.boss?(streakId||L.id):lastWin.id;var p=mode==='play'?[L.id,randomOpp(L.id)]:randomPair(keep,lastWin.boss?'L':lastWin.side);selL.value=p[0];selR.value=DATA[p[1]].guest?'':p[1];setup(p[0],p[1]).then(fight);});
   /* mode can change mid-fight: it takes effect at the next move. Switching to Auto while waiting for your move hands that move to the AI. */
   function setMode(m){mode=m;$('mAuto').setAttribute('aria-pressed',String(m==='auto'));$('mPlay').setAttribute('aria-pressed',String(m==='play'));$('btnNext').title=m==='play'?'Your card stays in and meets a new random opponent':'The winner stays in and fights a new random opponent right away';if(L)logp(m==='play'?'<b>You Play:</b> you control Home. Pick a move each turn; the AI plays Away.':'<b>Auto Play:</b> both sides play themselves.');if(m==='auto'&&autoHook)autoHook();}
   $('ovNext').addEventListener('click',function(){$('btnNext').click();});
@@ -777,6 +840,8 @@ function render(o) {
   function pop(el,cls,txt){var p=document.createElement('span');p.className='pop'+(cls?' '+cls:'');p.textContent=txt;el.appendChild(p);return p;}
   async function turn(att,def){att.round++;att.energy=Math.min(MAXE,att.energy+core.gain(att.round,att));enUI(att);
     var ac=$('f'+att.side).querySelector('.card'),dc=$('f'+def.side).querySelector('.card');
+    if(att.s.saitama){if(att.round<3){await textBox('<b>SAITAMA</b>'+(att.round===1?'...':'Is this the gym? OK.'),1300);logp('<b>Saitama</b> looks around.');return;}
+      await textBox('<b>SAITAMA</b>Serious Series: Serious Punch.',1400);logp('<b>Saitama</b> winds up. The air starts to move.');await PX.seriousPunch(def.side);def.hp=0;hpUI(def);dc.classList.add('ko');var kc2=cardSpr(def);if(kc2)drawCard(kc2,def.id,'ko');logp('<b>'+DATA[def.id].n+'</b> leaves the gym through the far wall. Only a crater is left.');return;}
     var mv=(mode==='play'&&att===L)?await userMove(att,def):core.pickMove(att,def,Math.random,T);
     var r=core.resolve(att,def,mv,Math.random,T);enUI(att);
     if(r.kind==='charge'){var cp=pop(ac,'chg','CHARGE +'+CHARGE);var au=document.createElement('span');au.className='aura';ac.appendChild(au);SFX.charge();logp('<b>'+DATA[att.id].n+'</b> charges up: +'+CHARGE+' energy ('+att.energy+' banked).');await Promise.all([PX.charge(att.side),spriteSeq(att,['block','block','block','idle'],250),wait(900)]);cp.remove();au.remove();return;}
@@ -799,17 +864,19 @@ function render(o) {
     await Promise.all([ballP,seqP,impP,wait(650)]);ac.classList.remove('lunge-l','lunge-r');dc.classList.remove('hit','blockup');pp.remove();spriteIdle(att);}
   function textBox(html,ms){return new Promise(function(res){var ring=$('ring'),box=document.createElement('div');box.className='tbox';box.setAttribute('role','status');ring.appendChild(box);var i=0,txt=html,done=false;
     function fin(){if(done)return;done=true;box.remove();res();}
-    (function type(){if(done)return;i++;box.innerHTML=txt.slice(0,i);if(i<txt.length)setTimeout(type,reduce?0:28);else setTimeout(fin,reduce?0:ms);})();box.onclick=fin;});}
+    box.innerHTML=txt;setTimeout(fin,reduce?0:ms);box.onclick=fin;});}
   async function bossEnter(champ){/* fade out, lightning, Kula flies in, text box, then the fight */busy=true;$('nextOv').hidden=true;$('btnNext').disabled=true;$('btnRandom').disabled=true;selL.disabled=selR.disabled=true;
     if(view==='card')setView('px');logp('<b>The lights go out...</b>');var fade=$('fade');fade.classList.add('on');await wait(1000);
     selL.value=champ;selR.value='';await setup(champ,'kula');fade.classList.remove('on');$('fightOv').hidden=true;
-    await PX.bossIntro();await textBox('<b>KULA</b>YOU FACE ME NOW MORTAL!',2600);
+    await PX.bossIntro();await textBox('<b>KULA</b>'+esc(DATA.kula.s.flavor),3400);
     logp('<b>Kula</b> the dragon lands on the court, toddler aboard. Scales take 10 off every hit, so tips bounce off; GigaSpike hits 35; Headbutt takes the 2 energy you just banked; Kong Block stops a whole turn. He only wakes 1 energy a turn: hit hard while he is low, block when he has 3.');fight();}
   async function fight(){if(busy&&!bossFight||!L)return;busy=true;$('fightOv').hidden=true;$('btnNext').disabled=true;$('btnRandom').disabled=true;selL.disabled=selR.disabled=true;
+    if(R.s.saitama){logp('A bald man in a yellow suit wanders onto the court.');await PX.walkIn('R');}
     SFX.whistle();var first=L.s.spd>=R.s.spd?L:R,second=first===L?R:L;first.energy=core.startEnergy(true);second.energy=core.startEnergy(false);enUI(first);enUI(second);
     if(mode==='play')logp('<b>You Play:</b> you control <b>'+DATA[L.id].n+'</b> at Home.');logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: +2 a turn; a block that stops a hit refunds its cost; Charge banks +'+CHARGE+'.');
     var t=0;while(L.hp>0&&R.hp>0&&t<core.TURN_CAP){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;await wait(220);}
     var win=L.hp>0&&R.hp>0?(L.hp/L.max>=R.hp/R.max?L:R):(L.hp>0?L:R),lose=win===L?R:L;if(L.hp>0&&R.hp>0)logp('Turn limit: <b>'+DATA[win.id].n+'</b> takes it on HP left.');
+    if(R.s.saitama){/* no K.O. screen, no streak change: he walks out and the next opponent comes */await PX.walkOut('R');$('winner').textContent='Saitama wandered off.';logp('<b>Saitama</b> walks out the way he came. That one does not count.');lastWin=L;busy=false;played(true);$('ovName').textContent='Saitama wandered off';$('ovStreak').textContent='That one did not count';$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;return;}
     $('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();
     var playerWon=mode==='play'?win===L:true;
     var koP;if(bossFight&&win===L){$('koTxt').textContent='YOU WIN!';$('koTxt').classList.add('win');koP=PX.bossDown();await wait(1500);$('koOv').hidden=false;bossBeaten++;}
@@ -854,7 +921,7 @@ ${BANDS.map(b => `<section class="band ${b.bg}" id="${b.id}"><div class="wrap">
 ${arenaHtml}`;
   return { CSS, hero, bands, dexHtml, SCRIPT, count: ALLP.length, real: ALLP.filter(p => photoOf(p)).length };
 }
-module.exports = { render, ALLP, REAL, KULA, WEAK, RESIST, HPB };
+module.exports = { render, ALLP, REAL, KULA, GUESTS, WEAK, RESIST, HPB };
 
 if (require.main === module) {
   const VN = [['v1', 'Court Lines'], ['v2', 'Chalkboard'], ['v3', 'Spotlight'], ['v4', 'Game Program'], ['v5', 'Cast'], ['v6', 'Comic Book'], ['v7', 'Trading Cards']];

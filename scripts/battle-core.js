@@ -27,6 +27,7 @@ var BattleCore = (function () {
     if (mv.kind === 'heal') { var h = Math.min(mv.pow, att.max - att.hp); att.hp += h; return { kind: 'heal', amt: h, mv: mv }; }
     var r = dmg(att, def, mv, rng, T), d = r.d, blocked = 0, scaled = 0, willBlock = !!def.shield && !mv.pierce;
     if (def.scales) { scaled = Math.min(d, SCALES); d -= scaled; }
+    if (def.s.invuln) { d = 0; }   /* Saitama: nothing lands */
     var refund = 0; if (willBlock) { blocked = def.shield === 'all' ? d : Math.min(def.shield, d); d -= blocked; def.shield = 0; if (MODEL.refund && blocked > 0) { refund = Math.min(def.shieldCost || 0, MAXE - def.energy); def.energy += refund; } }
     var drained = 0; if (mv.drain) { drained = mv.drain === 'all' ? def.energy : Math.min(def.energy, mv.drain); def.energy -= drained; }
     def.hp -= d;

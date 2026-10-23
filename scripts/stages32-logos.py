@@ -61,7 +61,19 @@ save(s, 'fieldhouse')
 # ---- arena: decal on the court, comic logo on the front of the stands either side of the tunnel
 s = load_stage('arena')
 s = floor_decal(s, [(480, 535), (800, 535), (860, 660), (420, 660)], .8)
-s = banner(s, (180, 410, 420, 470), src=ryl, bg=(0, 0, 0, 235)); s = banner(s, (860, 410, 1100, 470), src=ryl, bg=(0, 0, 0, 235))
+# arena: the comic-burst logo painted straight onto the dark wall band under the stands, either side of the tunnel: a soft
+# dark halo instead of a box, slightly lower alpha so the wall texture shows through
+def wall_paint(stage, box, src):
+    x0, y0, x1, y1 = box; w, h = x1 - x0, y1 - y0
+    halo = Image.new('RGBA', stage.size, (0, 0, 0, 0)); hd = Image.new('RGBA', (w + 16, h + 10), (0, 0, 0, 170)); halo.paste(hd, (x0 - 8, y0 - 5))
+    halo = halo.filter(ImageFilter.GaussianBlur(6)); out = stage.copy(); out.alpha_composite(halo)
+    return banner(out, box, src=src, pad=0.04, alpha=.92)
+from PIL import ImageFilter
+# a ribbon board: the comic logo repeated along the whole wall band, skipping the tunnel, the way an arena's LED ribbon runs
+# the chevron wall band runs y 388-428; a text-only crop of the comic logo (ball trimmed off) fits it as a ribbon board
+mark = ryl.crop((0, int(ryl.height * .32), ryl.width, ryl.height))
+for bx in list(range(40, 520, 108)) + list(range(760, 1240, 108)):
+    s = wall_paint(s, (bx, 389, bx + 92, 427), mark)
 save(s, 'arena')
 # ---- retro: decal on the court, club logo on the brick wall between the window pairs
 s = load_stage('retro')

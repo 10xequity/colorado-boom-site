@@ -10,6 +10,25 @@ reconstruct later.
 
 ---
 
+## v2.27 — 2026-10-23 · Battle Arena round 16
+coaching-staff.html, assets/img/coaches/stages32/arena.webp, scripts/ (gen_v7.js, battle-core.js, balance-sim.js, balance-tune.json, build_v227.js)
+
+- Guests: Goku, Goku Black (holo card), Gojo, Akuma, Scorpion, Yuji and the Karasuno eight (Hinata, Kageyama, Tsukishima,
+  Tanaka, Nishinoya, Daichi, Sugawara, Asahi) are hidden cards that appear as the Away card about one fight in five
+  (Random Matchup and Next Fight). Each carries three signature moves mapped onto the game's kit (Kamehameha 40,
+  Hollow Purple 45 behind Infinity 30, Scorpion's spear drains energy, Hinata's quicks, Nishinoya's Rolling Thunder) and
+  is balanced by the simulator alongside the staff. They use 16-bit figures in their own colours; 32-bit falls back to
+  the same figure until drawn sheets arrive (file names sprites32/guest-<name>-32.webp).
+- Saitama (about one fight in twenty): walks in, ignores the player's hits, stares for two turns, then the Serious
+  Punch: screen flashes and wind streaks while he winds up, the whole screen becomes his face, then the punch sends the
+  other fighter off the court and leaves a crater. He walks out and the next opponent comes; that fight does not count
+  for the streak or the wins.
+- Kula's chat box appears at once with his card line, in an RPG text box, and goes after a moment.
+- Volleyballs: 18-panel balls (nine curved wedges each split by an arc). Liveries after the real balls: Molten Super
+  Touch (white / red / green strips), Molten Flistatec (red and green fields split by white, flat dimpled surface),
+  Flistatec NCAA (red / white / blue) and Boom Teal as a custom-colour Flistatec.
+- Championship Arena: the logo runs as a ribbon of badges along the wall band instead of two black boxes.
+
 ## v2.26 — 2026-10-23 · Battle Arena round 15
 coaching-staff.html, assets/img/coaches/stages32/, assets/img/coaches/sprites32/coach-janci-ige-32.webp, scripts/
 

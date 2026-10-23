@@ -1,22 +1,22 @@
 {
  "coach-matt-jueng": {
-  "hp": 0,
+  "hp": 5,
   "pow": {
    "0": 5,
    "1": 0
   },
-  "spd": 34
+  "spd": 46
  },
  "coach-rudy-garcia": {
-  "hp": 10,
+  "hp": 15,
   "pow": {
    "0": 0,
    "1": 5
   },
-  "spd": 25
+  "spd": 55
  },
  "coach-tara-tucker-director": {
-  "hp": -5,
+  "hp": 0,
   "pow": {
    "0": -5,
    "1": -5
@@ -29,31 +29,31 @@
    "0": 0,
    "1": -5
   },
-  "spd": -25
+  "spd": -19
  },
  "coach-damon-sichler": {
   "hp": 0,
   "pow": {
    "0": 0,
-   "1": 0
+   "1": 5
   },
   "spd": -25
  },
  "coach-hanfei-li": {
-  "hp": 5,
+  "hp": 10,
   "pow": {
    "0": 0,
    "1": 0
   },
-  "spd": 25
+  "spd": 13
  },
  "coach-tara-tucker": {
-  "hp": 0,
+  "hp": 15,
   "pow": {
    "0": -10,
-   "2": 0
+   "2": 5
   },
-  "spd": 0
+  "spd": -12
  },
  "coach-alicia-hall": {
   "hp": 5,
@@ -61,7 +61,7 @@
    "0": 0,
    "1": 0
   },
-  "spd": 22
+  "spd": 28
  },
  "coach-damon-sichler-director": {
   "hp": 5,
@@ -72,12 +72,12 @@
   "spd": -24
  },
  "coach-megan-daugherty": {
-  "hp": 15,
+  "hp": 20,
   "pow": {
    "0": 0,
    "1": 0
   },
-  "spd": 0
+  "spd": 6
  },
  "coach-brian-peterson": {
   "hp": 0,
@@ -88,47 +88,47 @@
   "spd": -25
  },
  "coach-randy-vang": {
-  "hp": -10,
+  "hp": 5,
   "pow": {
    "0": -5,
    "2": -5
   },
-  "spd": 6
+  "spd": 0
  },
  "coach-janci-ige": {
   "hp": -10,
   "pow": {
-   "0": -5,
+   "0": 0,
    "2": -5
   },
   "spd": 0
  },
  "coach-kimberly-krise": {
-  "hp": 5,
+  "hp": 10,
   "pow": {
    "0": 0,
    "1": 0
   },
-  "spd": 0
+  "spd": 6
  },
  "coach-brian-xu": {
   "hp": 0,
   "pow": {
    "0": 0,
-   "2": 0
+   "2": 5
   },
-  "spd": -18
+  "spd": -12
  },
  "coach-lena-cox": {
-  "hp": 10,
+  "hp": 5,
   "pow": {
    "0": 0,
-   "2": 0
+   "2": 5
   },
   "spd": 0
  },
  "coach-jawn-suzuki": {
-  "hp": 10,
+  "hp": 25,
   "pow": {
    "0": 0,
    "2": 0
@@ -136,7 +136,7 @@
   "spd": -12
  },
  "coach-will-ly": {
-  "hp": 5,
+  "hp": 20,
   "pow": {
    "0": 0,
    "2": 0
@@ -173,18 +173,18 @@
    "0": 0,
    "1": 5
   },
-  "spd": -6
+  "spd": 54
  },
  "coach-jae-spain": {
   "hp": 0,
   "pow": {
    "0": 0,
-   "2": -5
+   "2": 0
   },
-  "spd": 6
+  "spd": 12
  },
  "coach-jamison-crowley": {
-  "hp": 0,
+  "hp": 5,
   "pow": {
    "0": 0,
    "2": 0
@@ -203,9 +203,9 @@
   "hp": 0,
   "pow": {
    "0": 0,
-   "2": -5
+   "2": 0
   },
-  "spd": 0
+  "spd": 6
  },
  "coach-rob-oschner": {
   "hp": 0,
@@ -214,5 +214,117 @@
    "1": 0
   },
   "spd": 6
+ },
+ "guest-gojo": {
+  "hp": -35,
+  "pow": {
+   "0": 0,
+   "2": 0
+  },
+  "spd": -25
+ },
+ "guest-goku-black": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": -25
+ },
+ "guest-yuji": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": -50
+ },
+ "guest-hinata": {
+  "hp": 5,
+  "pow": {
+   "0": -5,
+   "1": 0
+  },
+  "spd": 54
+ },
+ "guest-goku": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": -19
+ },
+ "guest-sugawara": {
+  "hp": 0,
+  "pow": {
+   "0": 5,
+   "1": 0
+  },
+  "spd": 6
+ },
+ "guest-akuma": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": -50
+ },
+ "guest-tsukishima": {
+  "hp": 0,
+  "pow": {
+   "0": -5,
+   "2": 0
+  },
+  "spd": 12
+ },
+ "guest-nishinoya": {
+  "hp": 15,
+  "pow": {
+   "1": 0,
+   "2": 5
+  },
+  "spd": -12
+ },
+ "guest-kageyama": {
+  "hp": 10,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 25
+ },
+ "guest-daichi": {
+  "hp": -5,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 0
+ },
+ "guest-tanaka": {
+  "hp": 5,
+  "pow": {
+   "0": -5,
+   "1": 0
+  },
+  "spd": -6
+ },
+ "guest-scorpion": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 0
+ },
+ "guest-asahi": {
+  "hp": 0,
+  "pow": {
+   "0": -5,
+   "1": 0
+  },
+  "spd": 0
  }
 }
