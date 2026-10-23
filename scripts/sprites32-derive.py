@@ -1,24 +1,48 @@
-"""32-bit sheets for every coach: the four drawn bodies (Tara, Damon, Will, Sidney) are the templates; each other coach gets a
-template by build, then hair, skin and jersey are recoloured to that coach (photo colours where a photo exists, the card's
-own palette otherwise). Palette-swapped variants, the classic sprite trick, not newly drawn figures."""
-import sys, os, json, colorsys, numpy as np
-from PIL import Image
+"""32-bit sheets for every coach: the drawn bodies (Tara, Damon, Will, Sidney and their Asian variants) are the templates;
+each other coach gets a template by build, then hair, skin and jersey are recoloured to that coach (photo colours where a
+photo exists, the card's own palette otherwise). Palette-swapped variants, the classic sprite trick, not newly drawn figures.
+  python scripts/sprites32-derive.py <repo> '<json list of {id, template, hair, skin, jersey, no}>'"""
+import sys, os, json, numpy as np
+from PIL import Image, ImageFilter
 OUT = sys.argv[1]; SPR = OUT + '/assets/img/coaches/sprites32/'
-data = json.loads(sys.argv[2])  # [{id, template, hair, skin, jersey, no}]
+data = json.loads(sys.argv[2])
 JER = {'black': (22, 22, 22), 'teal': (14, 124, 134), 'white': (236, 236, 236)}
 TRIM = {'black': (14, 124, 134), 'teal': (6, 90, 98), 'white': (14, 124, 134)}
 
 def hexrgb(h): return tuple(int(h[i:i + 2], 16) for i in (1, 3, 5))
 
+def rgb_to_hsv(rgb):
+    """vectorised: rgb in 0..1 -> h (0..360), s, v"""
+    r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
+    mx = rgb.max(axis=-1); mn = rgb.min(axis=-1); d = mx - mn
+    h = np.zeros_like(mx)
+    m = d > 1e-6
+    rc = np.where(m, (mx - r) / np.where(m, d, 1), 0); gc = np.where(m, (mx - g) / np.where(m, d, 1), 0); bc = np.where(m, (mx - b) / np.where(m, d, 1), 0)
+    h = np.where(mx == r, bc - gc, np.where(mx == g, 2 + rc - bc, 4 + gc - rc))
+    h = (h / 6.0) % 1.0 * 360; h = np.where(m, h, 0)
+    s = np.where(mx > 0, d / np.where(mx > 0, mx, 1), 0)
+    return h, s, mx
+
+def clean(m, r=2):
+    """morphological opening: drop small scattered patches (shadowed skin that reads as hair, trim pixels on legs)"""
+    im = Image.fromarray((m * 255).astype(np.uint8)).filter(ImageFilter.MinFilter(2 * r + 1)).filter(ImageFilter.MaxFilter(2 * r + 1))
+    return np.array(im) > 128
+
 def masks(a):
     rgb = a[..., :3].astype(float) / 255; al = a[..., 3] > 40
-    hsv = np.array([colorsys.rgb_to_hsv(*p) for p in rgb.reshape(-1, 3)]).reshape(rgb.shape)
-    h, s, v = hsv[..., 0] * 360, hsv[..., 1], hsv[..., 2]
-    skin = al & (h >= 8) & (h <= 38) & (s >= .18) & (s <= .62) & (v >= .5)
-    hair = al & (h >= 8) & (h <= 48) & (s >= .25) & (v >= .08) & (v < .5)
-    hair |= al & (s < .3) & (v < .22) & (h < 60)            # very dark hair reads as near-black
-    jersey = al & (h >= 170) & (h <= 240) & (s >= .18) & (v >= .08) & (v <= .5)
-    trim = al & (h >= 35) & (h <= 60) & (s >= .3) & (v >= .5)  # gold pinstripe on the jersey
+    h, s, v = rgb_to_hsv(rgb)
+    skin = al & (h >= 8) & (h <= 40) & (s >= .15) & (s <= .78) & (v >= .32)   # wide enough for the tanner variant bodies' arm shading
+    rough = al & (((h >= 8) & (h <= 48) & (s >= .25) & (v >= .08) & (v < .5)) | ((s < .3) & (v < .22) & (h < 60)))
+    # the template's real hair colour: median of the rough mask in the top of the cells (heads), then keep only pixels close to it,
+    # which leaves shadowed skin on arms and legs alone
+    top = np.zeros_like(rough); top[:70, :] = True
+    ref = np.median(a[..., :3][rough & top], axis=0) if (rough & top).any() else np.array([60, 40, 30])
+    dist = np.sqrt(((a[..., :3].astype(float) - ref) ** 2).sum(axis=-1))
+    hair = al & (dist < 42) & ~((h >= 8) & (h <= 38) & (s >= .18) & (s <= .62) & (v >= .5))
+    hair = clean(hair, 1); skin = skin & ~hair
+    jersey = al & (h >= 165) & (h <= 235) & (s >= .32) & (v >= .08) & (v <= .92)   # navy (originals) and teal (variants)
+    trim = al & (h >= 35) & (h <= 60) & (s >= .3) & (v >= .5)                      # gold pinstripe on the jersey
+    jersey = clean(jersey & ~skin, 1)
     return skin, hair, jersey, trim, al
 
 def recolour(a, m, target, mode='mul'):
@@ -43,12 +67,10 @@ for d in data:
     skin, hair, jersey, trim, al = masks(a)
     recolour(a, hair, hexrgb(d['hair']))
     recolour(a, skin, hexrgb(d['skin']))
-    if d['jersey'] != 'black':
-        recolour(a, jersey, JER[d['jersey']], 'lift' if d['jersey'] == 'white' else 'mul')
-        recolour(a, trim, TRIM[d['jersey']])
+    recolour(a, jersey, JER[d['jersey']], 'lift' if d['jersey'] == 'white' else 'mul')
+    recolour(a, trim, TRIM[d['jersey']])
     im = Image.fromarray(a)
-    # card number on the chest of the ready pose (cell 0): a 3x5 pixel font at 4 px per dot, colour by jersey
-    cell0 = (0, 0, 200, 240); num = digits(d['no']); col = (20, 20, 20) if d['jersey'] == 'white' else (240, 240, 240)
+    num = digits(d['no']); col = (20, 20, 20) if d['jersey'] == 'white' else (240, 240, 240)
     cx, cy = 96 - (len(num) * 16) // 2, 118
     for i, g in enumerate(num):
         for y in range(5):
