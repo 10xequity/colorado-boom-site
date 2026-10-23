@@ -9,7 +9,7 @@ SPR = OUT + '/assets/img/coaches/sprites32/'
 # (image, id, suffix, take portrait)
 JOBS = [('25', 'guest-akuma', '32', 1), ('26', 'guest-scorpion', '32', 1), ('27', 'guest-tanjiro', '32', 1), ('28', 'guest-goku', '32', 1),
         ('29', 'guest-yuji', '32', 1), ('30', 'guest-goku-black', '32', 1), ('31', 'guest-saitama', '16', 0), ('33', 'guest-saitama', '32', 1),
-        ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '16', 0), ('36', 'guest-kageyama', '16', 0), ('37', 'guest-tsukishima', '16', 0), ('39', 'guest-hinata', '32', 1), ('38', 'guest-kageyama', '32', 1), ('40', 'guest-tsukishima', '32', 1)]
+        ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '16', 0), ('36', 'guest-kageyama', '16', 0), ('37', 'guest-tsukishima', '16', 0), ('42', 'guest-hinata', '32', 1), ('43', 'guest-kageyama', '32', 1), ('41', 'guest-tsukishima', '32', 1)]   # 41-43: the 2752 px high-detail sheets
 # The three 1024-wide Karasuno sheets (38-40) are too small and tightly packed to cut cleanly: they supply the portrait and faces only;
 # after a run, copy guest-<name>-16.webp (the Canva sheet) over guest-<name>-32.webp for hinata, kageyama and tsukishima.
 CW, CH = 300, 260   # guest cells are wider than the coach cells (200x240) so slashes, beams and auras are not cut off
@@ -70,13 +70,20 @@ def cells_in(segs, soft, rgba, x0, x1, y0, y1, expect):
         rowy0, rowy1 = y0 - ye0, y1 - ye0
         for k in np.unique(lab[lab > 0]):
             ys, xs = np.where(lab == k); n = len(xs); cy = ys.mean()
-            if not (rowy0 - 3 <= cy <= rowy1 + 3): continue                      # the feet of the row above / heads of the row below
+            inrow = ((ys >= rowy0 - 3) & (ys <= rowy1 + 3)).mean()
+            if not (rowy0 - 3 <= cy <= rowy1 + 3) or inrow < .6: continue        # the feet of the row above / heads of the row below (most of the piece must lie in this row)
             px = A[ye0 + ys, x0 + a0 + xs]; grey = (px.max(axis=1) - px.min(axis=1)).mean() < 28
             touches_body = xs.min() <= (c1 - a0) + 6 and xs.max() >= (c0 - a0) - 6
             if grey and (not touches_body or (xs.max() - xs.min() < LW * W and ys.max() - ys.min() < 0.12 * H)): continue   # label text, even when it sits against the body
             at_edge = xs.min() == 0 or xs.max() == rect.shape[1] - 1
             if touches_body or (n > 30 and not at_edge): keepk.append(k)   # body + attached effects, and detached effects fully inside; a neighbour's tail entering from the edge is dropped
         m = np.isin(lab, keepk)
+        if keepk:   # a figure's own pieces never sit below its feet: drop detached bits whose centre is under the main body's bottom edge
+            sizes = {k: int((lab == k).sum()) for k in keepk}; main = max(sizes, key=sizes.get); my, _ = np.where(lab == main); by1, bh = my.max(), my.max() - my.min()
+            for k in keepk:
+                if k == main: continue
+                ky, kx = np.where(lab == k)
+                if ky.mean() > by1 - 0.12 * bh and ky.min() > by1 - 0.3 * bh: m[lab == k] = False
         if not m.any(): m = rect
         ys, xs = np.where(m)
         crop = rgba.crop((x0 + a0 + xs.min(), ye0 + ys.min(), x0 + a0 + xs.max() + 1, ye0 + ys.max() + 1)); ca = np.array(crop)
@@ -106,10 +113,10 @@ ONLY = os.environ.get('ONLY', '').split(',') if os.environ.get('ONLY') else None
 for img, gid, sfx, want_portrait in JOBS:
     if ONLY and img not in ONLY: continue
     CTX = img
-    im = Image.open(f'{I}/{img}.png').convert('RGB'); a = np.array(im).astype(int); H, W = a.shape[:2]; A = a
+    im = Image.open(f'{I}/{img}.png' if os.path.exists(f'{I}/{img}.png') else f'{I}/{img}.jpg').convert('RGB'); a = np.array(im).astype(int); H, W = a.shape[:2]; A = a
     border = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(border, axis=0)
     big = W >= 1400; thr, er = (110, 4) if big else (70, 2)   # the 1024-wide sheets carry smaller, darker figures
-    globals()['LW'] = .032 if big else .07   # a label column's width as a share of the sheet
+    globals()['LW'] = (.065 if W > 2400 else .032) if big else .07   # a label column's width as a share of the sheet
     d = np.abs(a - bg).sum(axis=2); mask = d > thr; soft = d > 36   # strict mask splits frames; the soft one keeps the glow for alpha
     rowm = mask & np.roll(mask, er, axis=1) & np.roll(mask, -er, axis=1)   # drops vertical hairlines (dividers, panel borders)
     colm = mask & np.roll(mask, er, axis=0) & np.roll(mask, -er, axis=0)   # drops horizontal hairlines
@@ -129,6 +136,9 @@ for img, gid, sfx, want_portrait in JOBS:
     idle = cells_in(M, soft, rgba, *rows['L'][0], 6); walk = cells_in(M, soft, rgba, *rows['L'][1], 6); run = cells_in(M, soft, rgba, *rows['L'][3], 6)
     attack = cells_in(M, soft, rgba, *rows['R'][0], 5); jump = cells_in(M, soft, rgba, *rows['R'][1], 5)
     charge = cells_in(M, soft, rgba, *rows['R'][2], 5); hurt = cells_in(M, soft, rgba, *rows['R'][3], 5)
+    def solid(c): return int((np.array(c)[..., 3] > 40).sum())
+    for k in range(1, len(hurt)):   # a hurt frame that came out nearly empty (figure lost to the cutter) borrows its neighbour
+        if solid(hurt[k]) < .3 * max(solid(h) for h in hurt): hurt[k] = hurt[k - 1]
     saitama = gid == 'guest-saitama'
     # 26 cells: 0 ready, 1 run, 2 crouch, 3 air, 4 strike, 5 stance, 6-8 hurt, 9-11 dance, 12-14 charge, 15-16 walk, 17-19 punches, 20-24 the special row, 25 second run frame
     cells = [idle[0], run[3], jump[0], jump[2], charge[3] if saitama else attack[2], charge[1] if saitama else attack[0],
