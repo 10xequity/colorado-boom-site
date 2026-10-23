@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v2.25 — 2026-10-23 · Battle Arena round 14
+coaching-staff.html, scripts/ (gen_v7.js, build_v225.js)
+
+- Net: one drawing shared by 16-bit and 32-bit, in perspective. The plane stands on the centre line and runs away from
+  the viewer: a tall near post, a short far post, a slanted top tape, mesh lines that converge, a floor shadow and
+  red-and-white antennas.
+- Ball: the light trail is gone. After a hit lands, or after a dig / block sends it back, the ball bounces away from the
+  defender in three shrinking hops, drifting up or down the court, then rolls off.
+- Defence: the blue box is replaced by the card's element aura. 32-bit shows the drawn aura tinted to the element at
+  lower alpha; 16-bit shows the pixel flicker in the element colour; Card View glows the card in its element tint.
+- Sprites option removed from the 16-bit controls: photo sprites are gone from the court, photos stay on the cards.
+- 16-bit Boomtown Fieldhouse: lower wall is plain black (no teal seams, no gold pinstripe), the baseboard trim is black,
+  court lines are black, and the two logo banners are larger.
+
 ## v2.24 — 2026-10-22 · Battle Arena round 13
 coaching-staff.html, assets/img/coaches/sprites32/ (8 template sheets, 27 coach sheets, 15 poses each), assets/img/coaches/fx32/ (aura, burst, spark, beam), assets/img/coaches/stages32/, scripts/
 
