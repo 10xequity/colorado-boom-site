@@ -185,7 +185,7 @@ function render(o) {
   const tgt = o.live ? '' : ' target="_blank" rel="noopener"';
   const photoOf = p => REAL.has(p.id) ? IMG + 'cut/' + p.id + '.webp' : null;
   const portraitOf = p => p.guest && fs.existsSync(__dirname + '/../assets/img/coaches/sprites32/' + p.id + '-portrait.webp') ? SPR32 + p.id + '-portrait.webp' : null;
-  const art = p => portraitOf(p) ? `<img src="${portraitOf(p)}" alt="${p.n}" width="480" height="280" loading="lazy">` : p.boss ? `<canvas class="spr boss" data-id="kula" width="120" height="96" role="img" aria-label="Kula the dragon"></canvas>` : photoOf(p) ? `<img src="${photoOf(p)}" alt="${p.n}, ${esc(p.r)}" width="480" height="520" loading="lazy">` : `<canvas class="spr" data-id="${p.id}" width="60" height="84" role="img" aria-label="${p.n}, ${esc(p.r)} (pixel sprite placeholder)"></canvas>`;
+  const art = p => portraitOf(p) ? `<img class="por" src="${portraitOf(p)}" alt="${p.n}" width="480" height="280" loading="lazy">` : p.boss ? `<canvas class="spr boss" data-id="kula" width="120" height="96" role="img" aria-label="Kula the dragon"></canvas>` : photoOf(p) ? `<img src="${photoOf(p)}" alt="${p.n}, ${esc(p.r)}" width="480" height="520" loading="lazy">` : `<canvas class="spr" data-id="${p.id}" width="60" height="84" role="img" aria-label="${p.n}, ${esc(p.r)} (pixel sprite placeholder)"></canvas>`;
   const mval = m => m.kind === 'atk' ? m.pow : m.kind === 'heal' ? '<small>heals</small>' + m.pow : '<small>blocks</small>' + (m.kind.split(':')[1] === 'all' ? 'ALL' : m.kind.split(':')[1]);
   const mtag = m => m.pierce ? '<em class="tag">over block</em>' : m.drain ? '<em class="tag">' + (m.drain === 'all' ? 'drains all' : '-' + m.drain + ' en') + '</em>' : m.counter ? '<em class="tag">hits back ' + m.counter + '</em>' : '';
   const card = p => `
@@ -272,7 +272,7 @@ function render(o) {
 #tc .ph{position:relative;margin:1cqw 3cqw 0;aspect-ratio:1.42;border:2px solid color-mix(in srgb,var(--tint) 60%,#fff 0%);overflow:hidden;min-height:0;background:repeating-conic-gradient(from 0deg at 50% 68%,rgba(255,255,255,.13) 0 5deg,transparent 5deg 15deg),radial-gradient(ellipse 70% 80% at 50% 70%,color-mix(in srgb,var(--tint) 65%,#fff) 0%,var(--tint) 40%,color-mix(in srgb,var(--tint) 45%,#000) 100%)}
 #tc .card.shiny .ph{background:repeating-conic-gradient(from 0deg at 50% 68%,rgba(255,255,255,.18) 0 5deg,transparent 5deg 15deg),radial-gradient(ellipse 70% 80% at 50% 70%,#fff2b8 0%,var(--gold) 40%,#6b5400 100%)}
 #tc .el-Dragon .ph{background:repeating-conic-gradient(from 0deg at 50% 68%,rgba(255,255,255,.1) 0 5deg,transparent 5deg 15deg),radial-gradient(ellipse 70% 80% at 50% 70%,#2a1455 0%,#120726 60%,#000 100%)}
-#tc .ph img{position:absolute;left:0;bottom:0;width:100%;height:96%;object-fit:contain;object-position:50% 100%;filter:drop-shadow(0 5px 6px rgba(0,0,0,.5))}
+#tc .ph img{position:absolute;left:0;bottom:0;width:100%;height:96%;object-fit:contain;object-position:50% 100%;}#tc .ph img.por{height:100%;object-fit:cover;object-position:50% 20%;filter:drop-shadow(0 5px 6px rgba(0,0,0,.5))}
 #tc .ph canvas.spr{position:absolute;left:50%;bottom:4%;height:88%;width:auto;transform:translateX(-50%);image-rendering:pixelated;filter:drop-shadow(0 5px 6px rgba(0,0,0,.5))}
 #tc .ph canvas.spr.boss{height:auto;width:90%;bottom:6%}
 #tc .ph canvas.spr.flip{transform:translateX(-50%) scaleX(-1)}
@@ -403,9 +403,9 @@ function render(o) {
 #tc .intro.f-moon{--fa:#f2e394;--fb:#1a1a14;--pat:radial-gradient(circle at 85% 30%,rgba(242,227,148,.5) 0 8%,transparent 9%)}
 #tc .intro.f-dragon{--fa:#b388ff;--fb:#12062a;--pat:repeating-linear-gradient(60deg,rgba(179,136,255,.25) 0 2px,transparent 2px 12px,rgba(255,255,255,.15) 12px 13px,transparent 13px 30px)}
 /* move call-outs: a comic tag on the mover's side */
-#tc .callout{position:absolute;top:24%;z-index:9;max-width:44%;padding:5px 14px;font-family:var(--display);font-size:clamp(18px,3.6vw,34px);letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.84);border:3px solid var(--gold);box-shadow:4px 4px 0 #000;text-shadow:2px 2px 0 #000;pointer-events:none;animation:coIn .18s cubic-bezier(.2,1.4,.4,1) both,coOut .25s ease-in 1s both;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tc .callout{position:absolute;top:24%;z-index:9;max-width:40%;padding:3px 10px;font-family:var(--display);font-size:clamp(13px,2.4vw,22px);letter-spacing:.06em;color:#fff;background:rgba(0,0,0,.84);border:3px solid var(--gold);box-shadow:4px 4px 0 #000;text-shadow:2px 2px 0 #000;pointer-events:none;animation:coIn .18s cubic-bezier(.2,1.4,.4,1) both,coOut .25s ease-in 1s both;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #tc .callout.L{left:3%}#tc .callout.R{right:3%}#tc .callout.lo{top:58%}
-#tc .ring.px:not(.hd) .callout{font-family:var(--pixel);font-size:clamp(9px,1.7vw,15px);letter-spacing:0;padding:8px 10px;border-width:2px;box-shadow:3px 3px 0 #000;text-shadow:none;border-radius:0}
+#tc .ring.px:not(.hd) .callout{font-family:var(--pixel);font-size:clamp(7px,1.2vw,11px);letter-spacing:0;padding:6px 8px;border-width:2px;box-shadow:3px 3px 0 #000;text-shadow:none;border-radius:0}
 #tc .ring.hd .callout{border-radius:6px;background:linear-gradient(180deg,rgba(20,20,20,.92),rgba(0,0,0,.88));box-shadow:0 6px 18px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.08)}
 #tc .ring:not(.px) .callout{top:8%}
 #tc .callout.blk{border-color:#8fd1f2;color:#8fd1f2}#tc .callout.crit{border-color:#ff5a4e;color:#ffd36b}#tc .callout.chg{color:var(--gold)}#tc .callout.heal{border-color:#49d26a;color:#49d26a}#tc .callout.drain{border-color:#c65cff;color:#e6b3ff}
@@ -669,7 +669,7 @@ function render(o) {
       return Promise.resolve({kind:'rpg',frames:rpgSet(paletteFor(id),1),k:SC});}
     function whiteOf(c){var w=document.createElement('canvas');w.width=c.width;w.height=c.height;var wk=w.getContext('2d');wk.drawImage(c,0,0);wk.globalCompositeOperation='source-in';wk.fillStyle='#fff';wk.fillRect(0,0,w.width,w.height);return w;}
     function contentH(c){try{var d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,top=-1,bot=-1;for(var y=0;y<c.height;y++){for(var x=0;x<c.width;x++){if(d[(y*c.width+x)*4+3]>40){if(top<0)top=y;bot=y;break;}}}return bot<0?c.height:bot-top+1;}catch(e){return c.height;}}
-    function sheetSprite(im,k){var cw=im.height===240?200:300,n=Math.round(im.width/cw),c=function(i){return cell(im,i,cw,im.height);},ready=c(0),run=c(1),dig=c(2),set=c(3),spike=c(4),block=c(5);if(k==='fit')k=58/Math.max(60,contentH(ready));
+    function sheetSprite(im,k){var cw=im.height===240?200:300,n=Math.round(im.width/cw),c=function(i){return cell(im,i,cw,im.height);},ready=c(0),run=c(1),dig=c(2),set=c(3),spike=c(4),block=c(5);if(k==='fit')k=68/Math.max(60,contentH(ready));
       var fr={idle:ready,side:ready,run:run,siderun:run,spike:spike,sidespike:spike,sidedig:dig,block:block,set:set,faint1:c(6),faint2:c(7),faint3:c(8),dance1:c(9),dance2:c(10),dance3:c(11),charge1:c(12),charge2:c(13),charge3:c(14),ko:c(8)};
       if(n>=26){fr.walk1=c(15);fr.walk2=c(16);fr.punch1=c(17);fr.punch2=c(18);fr.punch3=c(19);fr.sp1=c(20);fr.sp2=c(21);fr.sp3=c(22);fr.sp4=c(23);fr.sp5=c(24);fr.run2=c(25);fr.side=fr.run2;}
       return {kind:'rpg',frames:fr,k:k,smooth:true,allSide:true,full:true};}
@@ -713,7 +713,7 @@ function render(o) {
       for(i=st.bolts.length-1;i>=0;i--){var b=st.bolts[i],q2=(now-b.t0)/b.life;if(q2>=1){st.bolts.splice(i,1);continue;}g.globalAlpha=1-q2*q2;g.strokeStyle='#fff';g.lineWidth=2;g.beginPath();g.moveTo(b.pts[0][0],b.pts[0][1]);for(var j=1;j<b.pts.length;j++)g.lineTo(b.pts[j][0],b.pts[j][1]);g.stroke();g.strokeStyle='#9d7bff';g.lineWidth=4;g.globalAlpha=(1-q2)*.35;g.stroke();g.globalAlpha=1;}}
     function frame(now){st.t=now;var i;
       for(i=tweens.length-1;i>=0;i--){var tw=tweens[i],p=tw.dur?Math.min(1,(now-tw.t0)/tw.dur):1;tw.fn(p);if(p>=1){tweens.splice(i,1);tw.res();}}
-      ['L','R'].forEach(function(s){var f=st[s];if(!f)return;f.shown+=(Math.max(0,f.hp)-f.shown)*.12;if(Math.abs(f.shown-Math.max(0,f.hp))<.5)f.shown=Math.max(0,f.hp);if(f.hit>0)f.hit--;});
+      ['L','R'].forEach(function(s){var f=st[s];if(!f)return;f.shown+=(Math.max(0,f.hp)-f.shown)*(f.hp<=0?.4:.12);if(Math.abs(f.shown-Math.max(0,f.hp))<.5)f.shown=Math.max(0,f.hp);if(f.hit>0)f.hit--;});
       g.setTransform(S,0,0,S,0,0);g.clearRect(0,0,W,H);
       if(st.shake>0){g.translate(Math.round(Math.random()*4-2),Math.round(Math.random()*4-2));st.shake--;}
       g.imageSmoothingEnabled=hd;g.drawImage(bg,0,0,W,H);
@@ -776,10 +776,10 @@ function render(o) {
         if(st.ball)bounceAway(ld.x,ld.y-2,ld.dir,ld.y<D.fy?-1:1);return Promise.resolve();},
       block:function(d,amt,dig){var D=st[d];var rpg=D.spr.kind==='rpg';D.shield=1;if(hd)auraFor(DATA[D.id].s.el).then(function(fr){D.shieldFr=fr;});if(rpg)D.frame=dig?'sidedig':'block';if(D.spr.kind==='boss'){D.frame='idle';return tween(600,function(p){D.ox=-6*Math.sin(p*Math.PI*2);}).then(function(){D.ox=0;});}return tween(500,function(p){D.oy=-3*Math.abs(Math.sin(p*Math.PI*2));}).then(function(){D.oy=0;D.frame='idle';});},
       drain:function(d){var D=st[d];for(var i=0;i<6;i++)bolt(D.x-20+Math.random()*40,D.fy-60,D.x,D.fy-20,260);fxText('ENERGY GONE',D.x,D.fy-hOf(D)-24,'#ffe14d');return tween(400,function(p){D.ox=Math.round(Math.sin(p*20)*2);}).then(function(){D.ox=0;});},
-      ko:function(l,w){var Lf=st[l],Wf=st[w];Lf.shield=Wf.shield=0;if(Lf.spr.full)return tween(900,function(p){Lf.frame=p<.35?'faint1':p<.7?'faint2':'faint3';}).then(function(){fxText('K.O.',Lf.x,Lf.fy-40,'#ff5a4e');if(Wf.spr.full){Wf.loop=['dance1','dance2','dance3'];Wf.loopMs=200;return tween(1800,function(){});}return tween(700,function(p){Wf.oy=-14*Math.abs(Math.sin(p*Math.PI*2));});}).then(function(){fxText('WINNER',Wf.x,Wf.fy-hOf(Wf)-10,'#E5B800');});
-        return tween(600,function(p){Lf.hide=((p*12)|0)%2===1;}).then(function(){Lf.hide=false;if(Lf.spr.kind==='rpg'){Lf.frame='ko';return tween(500,function(){});}return tween(500,function(p){Lf.oy=p*p*90;});}).then(function(){if(Lf.spr.kind!=='rpg')Lf.gone=true;fxText('K.O.',Lf.x,Lf.fy-40,'#ff5a4e');
-        if(Wf.spr.kind==='rpg')return tween(1800,function(p){Wf.frame=((p*9)|0)%2?'dance2':'dance1';Wf.oy=-5*Math.abs(Math.sin(p*Math.PI*9));}).then(function(){Wf.oy=0;Wf.frame='dance1';});
-        return tween(700,function(p){Wf.oy=-14*Math.abs(Math.sin(p*Math.PI*2));});}).then(function(){fxText('WINNER',Wf.x,Wf.fy-hOf(Wf)-10,'#E5B800');});},
+      ko:function(l,w){var Lf=st[l],Wf=st[w];Lf.shield=Wf.shield=0;if(Lf.spr.full)return tween(600,function(p){Lf.frame=p<.35?'faint1':p<.7?'faint2':'faint3';}).then(function(){fxText('K.O.',Lf.x,Lf.fy-40,'#ff5a4e');if(Wf.spr.full){Wf.loop=['dance1','dance2','dance3'];Wf.loopMs=200;return tween(900,function(){});}return tween(700,function(p){Wf.oy=-14*Math.abs(Math.sin(p*Math.PI*2));});}).then(function(){fxText('WINNER',Wf.x,Wf.fy-hOf(Wf)-10,'#E5B800');});
+        return tween(300,function(p){Lf.hide=((p*12)|0)%2===1;}).then(function(){Lf.hide=false;if(Lf.spr.kind==='rpg'){Lf.frame='ko';return tween(300,function(){});}return tween(500,function(p){Lf.oy=p*p*90;});}).then(function(){if(Lf.spr.kind!=='rpg')Lf.gone=true;fxText('K.O.',Lf.x,Lf.fy-40,'#ff5a4e');
+        if(Wf.spr.kind==='rpg')return tween(1000,function(p){Wf.frame=((p*9)|0)%2?'dance2':'dance1';Wf.oy=-5*Math.abs(Math.sin(p*Math.PI*9));}).then(function(){Wf.oy=0;Wf.frame='dance1';});
+        return tween(500,function(p){Wf.oy=-14*Math.abs(Math.sin(p*Math.PI*2));});}).then(function(){fxText('WINNER',Wf.x,Wf.fy-hOf(Wf)-10,'#E5B800');});},
       /* ---- Kula ---- */
       bossIntro:function(){var K=st.R;K.hide=true;K.noShadow=true;var home=K.home;
         return tween(900,function(p){st.dark=p;}).then(function(){return wait(300);}).then(function(){/* lightning */var n=0;return new Promise(function(res){(function flashLoop(){st.flash=1;SFX.thunder();for(var i=0;i<3;i++)bolt(40+Math.random()*240,0,60+Math.random()*200,FAR+Math.random()*60,220);n++;if(n<4)setTimeout(flashLoop,reduce?0:380+Math.random()*260);else setTimeout(res,reduce?0:500);})();});})
@@ -911,10 +911,10 @@ function render(o) {
       await textBox('<b>SAITAMA</b>Serious Series: Serious Punch.',1400);logp('<b>Saitama</b> winds up. The air starts to move.');await PX.seriousPunch(def.side);def.hp=0;hpUI(def);dc.classList.add('ko');var kc2=cardSpr(def);if(kc2)drawCard(kc2,def.id,'ko');logp('<b>'+DATA[def.id].n+'</b> leaves the gym through the far wall. Only a crater is left.');return;}
     var mv=(mode==='play'&&att===L)?await userMove(att,def):core.pickMove(att,def,Math.random,T);
     var r=core.resolve(att,def,mv,Math.random,T);enUI(att);
-    if(r.kind==='charge'){callout(att.side,'CHARGE · +'+CHARGE,'chg');var cp=pop(ac,'chg','CHARGE +'+CHARGE);var au=document.createElement('span');au.className='aura';ac.appendChild(au);SFX.charge();logp('<b>'+DATA[att.id].n+'</b> charges up: +'+CHARGE+' energy ('+att.energy+' banked).');await Promise.all([PX.charge(att.side),spriteSeq(att,['block','block','block','idle'],250),wait(900)]);cp.remove();au.remove();return;}
+    if(r.kind==='charge'){callout(att.side,'CHARGE!','chg');var cp=pop(ac,'chg','CHARGE +'+CHARGE);var au=document.createElement('span');au.className='aura';ac.appendChild(au);SFX.charge();logp('<b>'+DATA[att.id].n+'</b> charges up: +'+CHARGE+' energy ('+att.energy+' banked).');await Promise.all([PX.charge(att.side),spriteSeq(att,['block','block','block','idle'],250),wait(900)]);cp.remove();au.remove();return;}
     if(r.kind==='heal'){callout(att.side,mv.name.toUpperCase()+'!','heal');hpUI(att);var hp=pop(ac,'heal','+'+r.amt);SFX.heal();logp('<b>'+DATA[att.id].n+'</b> uses '+esc(mv.name)+' ('+mv.cost+' energy): recovers '+r.amt+' HP.');await Promise.all([PX.heal(att.side,r.amt),wait(800)]);hp.remove();return;}
     if(r.kind==='shield'){var dig=DIGRX.test(mv.name)&&!att.boss;var sh=document.createElement('span');sh.className='shield';ac.appendChild(sh);SFX.block();if(att.boss){SFX.kong();await PX.bossTaunt('KONG BLOCK');}
-      callout(att.side,mv.name.toUpperCase()+(r.amt==='all'?'!':' · STOPS '+r.amt),'blk');var p=pop(ac,'blk',r.amt==='all'?'KONG BLOCK':dig?'DIG READY':'BLOCK READY');SFX.ready();logp('<b>'+DATA[att.id].n+'</b> sets up '+esc(mv.name)+' ('+mv.cost+' energy): it triggers when the next ball comes over and stops '+(r.amt==='all'?'everything that turn':'up to '+r.amt)+'.'+(dig?' A dig is taken from the floor, so tips still go over.':''));await Promise.all([PX.block(att.side,r.amt,dig),spriteSeq(att,['block','block','idle'],300),wait(900)]);p.remove();return;}
+      callout(att.side,mv.name.toUpperCase()+'!','blk');var p=pop(ac,'blk',r.amt==='all'?'KONG BLOCK':dig?'DIG READY':'BLOCK READY');SFX.ready();logp('<b>'+DATA[att.id].n+'</b> sets up '+esc(mv.name)+' ('+mv.cost+' energy): it triggers when the next ball comes over and stops '+(r.amt==='all'?'everything that turn':'up to '+r.amt)+'.'+(dig?' A dig is taken from the floor, so tips still go over.':''));await Promise.all([PX.block(att.side,r.amt,dig),spriteSeq(att,['block','block','idle'],300),wait(900)]);p.remove();return;}
     /* attack */
     var d=r.d,blocked=r.blocked,willBlock=r.willBlock,dig=willBlock&&DIGRX.test(def.s.moves.filter(function(m){return m.kind.indexOf('shield')===0;}).map(function(m){return m.name;}).join(' '))&&!def.boss;
     if(att.boss){SFX[mv.name==='GigaSpike'?'giga':'headbutt']();await PX.bossTaunt(mv.name);}
@@ -923,13 +923,13 @@ function render(o) {
     if(willBlock){setTimeout(function(){dc.classList.add('blockup');spriteSeq(def,['block','block','block','idle'],200,def.side==='L');},reduce?0:300);}
     await PX.attack(att.side,def.side,willBlock?(dig?'dig':'block'):'hit',Math.random()<.5?'up':'down');
     var crit=r.crit;
-    if(willBlock)callout(def.side,(d>0?(dig?'DIG · STOPPED '+blocked:'BLOCK · STOPPED '+blocked):(dig?'DUG UP CLEAN!':'BLOCKED CLEAN!'))+(r.counter?' · HITS BACK '+r.counter:''),'blk lo');else if(crit)callout(def.side,'CRITICAL!','crit lo');else if(r.scaled)callout(def.side,'SCALES!','blk lo');
+    if(willBlock)callout(def.side,dig?'DIG!':'BLOCK!','blk lo');else if(crit)callout(def.side,'CRITICAL!','crit lo');else if(r.scaled)callout(def.side,'SCALES!','blk lo');
     var sh2=dc.querySelector('.shield');if(sh2)sh2.remove();var pp=pop(dc,d>0?'':'blk',d>0?'-'+d:(willBlock?(dig?'DUG UP!':'BLOCKED!'):'NO DAMAGE'));
     if(willBlock){SFX.negate();burst(dc,true);if(d>0){dc.classList.add('hit');SFX.hit();}}else{dc.classList.add('hit');SFX.hit();if(crit){SFX.crit();}else{SFX.thud();}burst(dc,false);}
     var impP=PX.impact(def.side,d,willBlock?(dig?'dig':'block'):'hit',crit,r.scaled);
     hpUI(def);if(r.counter){hpUI(att);SFX.block();}if(r.drained){enUI(def);SFX.drain();PX.drain(def.side);}if(r.refund)enUI(def);
     logp('<b>'+DATA[att.id].n+'</b> used '+esc(mv.name)+' ('+mv.cost+' energy) for '+(d+blocked+r.scaled)+'.'+(r.scaled?' The scales shrugged off '+r.scaled+'.':'')+(willBlock?(d>0?' <b>'+T.first(def.id)+'</b> got a hand on it: '+blocked+' stopped, '+d+' through.':' <b>'+T.first(def.id)+'</b> '+(dig?'dug it up clean.':'blocked it clean.')+' Nothing got through.'):'')+(r.pierce&&def.shield===0&&mv.pierce?' (A tip goes over any block.)':'')+(r.drained?' <b>'+T.first(def.id)+'</b> loses '+r.drained+' energy.':'')+(r.refund?' The block refunds '+r.refund+' energy.':'')+(r.counter?' The block hits back for '+r.counter+'.':'')+(crit?' <b>Critical hit!</b>':'')+r.note);
-    await Promise.all([ballP,seqP,impP,wait(650)]);ac.classList.remove('lunge-l','lunge-r');dc.classList.remove('hit','blockup');pp.remove();spriteIdle(att);}
+    await Promise.all([ballP,seqP,impP,wait(def.hp<=0?250:650)]);ac.classList.remove('lunge-l','lunge-r');dc.classList.remove('hit','blockup');pp.remove();spriteIdle(att);}
   var AVQ='?v=${o.av||'0'}',FACES=${JSON.stringify(Object.fromEntries(GUESTS.filter(p => fs.existsSync(__dirname + '/../assets/img/coaches/sprites32/' + p.id + '-faces.webp')).map(p => [p.id, 1])))};
   function callout(side,txt,cls){var ring=$('ring'),el=document.createElement('div');el.className='callout '+side+(cls?' '+cls:'');el.textContent=txt;ring.appendChild(el);setTimeout(function(){el.remove();},reduce?0:1300);}
   /* intro banner: face (one of the sheet's expressions, or the portrait) + name; label 'WINS' for the win version */
@@ -938,7 +938,7 @@ function render(o) {
     el.innerHTML='<div class="iface"></div><div class="itext">'+esc(d.n)+(label?' <em>'+label+'</em>':'')+'<small>'+esc(d.s.flavor.split('.')[0])+'</small></div>';
     var f=el.querySelector('.iface');f.style.backgroundImage='url('+por+')';
     if(FACES[id]){var im=new Image();im.onload=function(){f.style.backgroundImage='url('+faces+')';f.style.backgroundSize='400% 100%';f.style.backgroundPosition=(faceIdx*100/3)+'% 0';};im.src=faces;}
-    ring.appendChild(el);SFX.ready();return wait(1700).then(function(){el.classList.add('out');return wait(380);}).then(function(){el.remove();});}
+    ring.appendChild(el);SFX.ready();return wait(label?1100:1500).then(function(){el.classList.add('out');return wait(300);}).then(function(){el.remove();});}
   function textBox(html,ms){return new Promise(function(res){var ring=$('ring'),box=document.createElement('div');box.className='tbox';box.setAttribute('role','status');ring.appendChild(box);var i=0,txt=html,done=false;
     function fin(){if(done)return;done=true;box.remove();res();}
     box.innerHTML=txt;setTimeout(fin,reduce?0:ms);box.onclick=fin;});}
@@ -951,7 +951,7 @@ function render(o) {
     if(DATA[R.id].guest){logp(R.s.saitama?'A bald man in a yellow suit wanders onto the court.':'<b>'+DATA[R.id].n+'</b> enters.');await PX.entrance('R');await intro(R.id,Math.floor(Math.random()*4),'');}
     SFX.whistle();var first=L.s.spd>=R.s.spd?L:R,second=first===L?R:L;first.energy=core.startEnergy(true);second.energy=core.startEnergy(false);enUI(first);enUI(second);
     if(mode==='play')logp('<b>You Play:</b> you control <b>'+DATA[L.id].n+'</b> at Home.');logp('<b>'+DATA[first.id].n+'</b> is faster and goes first. Energy: +2 a turn; a block that stops a hit refunds its cost; Charge banks +'+CHARGE+'. First turn: 1-cost moves only; second turn: up to 2-cost.');
-    var t=0;while(L.hp>0&&R.hp>0&&t<core.TURN_CAP){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;await wait(220);}
+    var t=0;while(L.hp>0&&R.hp>0&&t<core.TURN_CAP){var att=t%2===0?first:second,def=att===L?R:L;await turn(att,def);t++;if(L.hp>0&&R.hp>0)await wait(220);}
     var win=L.hp>0&&R.hp>0?(L.hp/L.max>=R.hp/R.max?L:R):(L.hp>0?L:R),lose=win===L?R:L;if(L.hp>0&&R.hp>0)logp('Turn limit: <b>'+DATA[win.id].n+'</b> takes it on HP left.');
     if(R.s.saitama){/* no K.O. screen, no streak change: he walks out and the next opponent comes */await PX.exit('R');$('winner').textContent='Saitama wandered off.';logp('<b>Saitama</b> walks out the way he came. That one does not count.');lastWin=L;busy=false;played(true);fightsTotal++;lsSet('bt_fights',String(fightsTotal));$('ovName').textContent='Saitama wandered off';$('ovStreak').textContent='That one did not count';$('nextOv').hidden=false;$('btnNext').disabled=false;$('btnRandom').disabled=false;selL.disabled=selR.disabled=false;return;}
     $('f'+lose.side).querySelector('.card').classList.add('ko');var kc=cardSpr(lose);if(kc)drawCard(kc,lose.id,'ko');SFX.ko();
@@ -959,7 +959,7 @@ function render(o) {
     var koP;if(bossFight&&win===L){$('koTxt').textContent='YOU WIN!';$('koTxt').classList.add('win');koP=PX.bossDown();await wait(1500);$('koOv').hidden=false;bossBeaten++;}
     else if(bossFight){$('koTxt').textContent='K.O.';$('koTxt').classList.remove('win');$('koOv').hidden=false;koP=PX.bossWon();}
     else{$('koTxt').textContent='K.O.';$('koTxt').classList.remove('win');$('koOv').hidden=false;koP=PX.ko(lose.side,win.side);}
-    await wait(1300);$('koOv').hidden=true;$('f'+win.side).querySelector('.card').classList.add('champ');if(playerWon){SFX.win();SFX.crowd();}else SFX.lose();spriteSeq(win,['dance1','dance2','dance1','dance2','dance1','dance2','dance1','dance2','dance1'],220);
+    await wait(900);$('koOv').hidden=true;$('f'+win.side).querySelector('.card').classList.add('champ');if(playerWon){SFX.win();SFX.crowd();}else SFX.lose();spriteSeq(win,['dance1','dance2','dance1','dance2','dance1','dance2','dance1','dance2','dance1'],220);
     if(mode==='play'){if(win===L){streak=streakId===L.id?streak+1:1;streakId=L.id;}else{streak=0;streakId=null;}}else{if(win.boss){streak=0;streakId=null;}else{streak=win.id===streakId?streak+1:1;streakId=win.id;}}
     $('winner').textContent=DATA[win.id].n+' wins!'+(streak>1?' · '+streak+' in a row':'');logp('<b>'+DATA[win.id].n+'</b> wins with '+Math.max(0,win.hp)+' HP left. '+(bossFight?(win===L?'Kula is down. The streak goes on.':'Kula takes it. The streak is over.'):mode==='play'?(win===L?'You win! ':'The AI takes it. ')+'Next Fight keeps your card in against a new opponent.':'Next Fight keeps the champion in.'));await koP;
     if(win===R&&DATA[R.id].guest){await intro(R.id,R.s.happy!=null?R.s.happy:3,'WINS');await PX.exit('R');}

@@ -10,6 +10,8 @@ SPR = OUT + '/assets/img/coaches/sprites32/'
 JOBS = [('25', 'guest-akuma', '32', 1), ('26', 'guest-scorpion', '32', 1), ('27', 'guest-tanjiro', '32', 1), ('28', 'guest-goku', '32', 1),
         ('29', 'guest-yuji', '32', 1), ('30', 'guest-goku-black', '32', 1), ('31', 'guest-saitama', '16', 0), ('33', 'guest-saitama', '32', 1),
         ('34', 'guest-gojo', '16', 0), ('32', 'guest-gojo', '32', 1), ('35', 'guest-hinata', '16', 0), ('36', 'guest-kageyama', '16', 0), ('37', 'guest-tsukishima', '16', 0), ('39', 'guest-hinata', '32', 1), ('38', 'guest-kageyama', '32', 1), ('40', 'guest-tsukishima', '32', 1)]
+# The three 1024-wide Karasuno sheets (38-40) are too small and tightly packed to cut cleanly: they supply the portrait and faces only;
+# after a run, copy guest-<name>-16.webp (the Canva sheet) over guest-<name>-32.webp for hinata, kageyama and tsukishima.
 CW, CH = 300, 260   # guest cells are wider than the coach cells (200x240) so slashes, beams and auras are not cut off
 
 def runs(prof, minlen):
@@ -37,17 +39,17 @@ def split_to(rs, prof, n):
         cut = a + m + int(np.argmin(prof[a + m:b - m + 1])); rs[k:k + 1] = [[a, cut - 1], [cut + 1, b]]
         rs.sort()
     return rs
-def col_runs(seg, x0, x1, y0, y1):
+def col_runs(seg, x0, x1, y0, y1, nolabel=False):
     H = seg.shape[0]; sub = seg[y0:y1 + 1, x0:x1 + 1]; prof = sub.sum(axis=0); cols = runs(prof, 2); keep = []
     for c0, c1 in cols:
         ys = np.where(sub[:, c0:c1 + 1].any(axis=1))[0]; h = ys.max() - ys.min() if len(ys) else 0
         if h < 0.045 * H or c1 - c0 < 5: continue           # stray marks and vertical hairlines
-        if not keep and h < 0.1 * H:   # the row label sits first and short; it is grey text, a figure has colour
+        if not nolabel and not keep and c1 - c0 < LW * seg.shape[1]:   # the row label sits first and narrow (text columns are ~2-3% of the sheet; a pixel figure is wider); grey text at any brightness
             px = A[y0:y1 + 1, x0 + c0:x0 + c1 + 1][sub[:, c0:c1 + 1]]
-            if len(px) and (px.max(axis=1) - px.min(axis=1)).mean() < 28 and px.mean() > bg.mean() + 40: continue   # light grey text; a dark uniform is also low-saturation
+            if len(px) and (px.max(axis=1) - px.min(axis=1)).mean() < 28: continue   # light grey text; a dark uniform is also low-saturation
         keep.append([c0, c1])
     return keep, prof
-ROW = None
+ROW = None; LW = .032
 def cells_in(segs, soft, rgba, x0, x1, y0, y1, expect):
     global ROW; ROW = (x0, x1, y0, y1, expect)
     # try the plain mask, then the eroded one (which drops panel hairlines); take whichever lands nearest the expected count
@@ -56,16 +58,22 @@ def cells_in(segs, soft, rgba, x0, x1, y0, y1, expect):
         keep, prof = col_runs(seg, x0, x1, y0, y1)
         if best is None or abs(len(keep) - expect) < abs(len(best[0]) - expect): best = (keep, prof, seg)
         if len(keep) == expect: break
-    keep, prof, seg = best; sub = seg[y0:y1 + 1, x0:x1 + 1]
+    keep, prof, seg = best
+    if not keep: keep, prof = col_runs(seg, x0, x1, y0, y1, nolabel=True)   # tiny dark figures can look like label text
+    sub = seg[y0:y1 + 1, x0:x1 + 1]
     keep = split_to(merge_to(keep, expect), prof, expect)
     out = []; ye0, ye1 = max(0, y0 - 18), min(H - 1, y1 + 18)
     for i, (c0, c1) in enumerate(keep):
         # the frame's rectangle: out to the midpoint of the gap to each neighbour (a short margin at the row ends)
-        a0 = (keep[i - 1][1] + c0) // 2 + 1 if i else max(0, c0 - 25); a1 = (c1 + keep[i + 1][0]) // 2 - 1 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 25)
+        a0 = (keep[i - 1][1] + c0) // 2 + 1 if i else max(0, c0 - 70); a1 = (c1 + keep[i + 1][0]) // 2 - 1 if i < len(keep) - 1 else min(sub.shape[1] - 1, c1 + 70)   # wide margins at the row ends: a dark half of a figure can fall under the strict mask
         rect = soft[ye0:ye1 + 1, x0 + a0:x0 + a1 + 1]; lab = label(rect); keepk = []
+        rowy0, rowy1 = y0 - ye0, y1 - ye0
         for k in np.unique(lab[lab > 0]):
-            ys, xs = np.where(lab == k); n = len(xs)
+            ys, xs = np.where(lab == k); n = len(xs); cy = ys.mean()
+            if not (rowy0 - 3 <= cy <= rowy1 + 3): continue                      # the feet of the row above / heads of the row below
+            px = A[ye0 + ys, x0 + a0 + xs]; grey = (px.max(axis=1) - px.min(axis=1)).mean() < 28
             touches_body = xs.min() <= (c1 - a0) + 6 and xs.max() >= (c0 - a0) - 6
+            if grey and (not touches_body or (xs.max() - xs.min() < LW * W and ys.max() - ys.min() < 0.12 * H)): continue   # label text, even when it sits against the body
             at_edge = xs.min() == 0 or xs.max() == rect.shape[1] - 1
             if touches_body or (n > 30 and not at_edge): keepk.append(k)   # body + attached effects, and detached effects fully inside; a neighbour's tail entering from the edge is dropped
         m = np.isin(lab, keepk)
@@ -101,13 +109,14 @@ for img, gid, sfx, want_portrait in JOBS:
     im = Image.open(f'{I}/{img}.png').convert('RGB'); a = np.array(im).astype(int); H, W = a.shape[:2]; A = a
     border = np.concatenate([a[0], a[-1], a[:, 0], a[:, -1]]); bg = np.median(border, axis=0)
     big = W >= 1400; thr, er = (110, 4) if big else (70, 2)   # the 1024-wide sheets carry smaller, darker figures
+    globals()['LW'] = .032 if big else .07   # a label column's width as a share of the sheet
     d = np.abs(a - bg).sum(axis=2); mask = d > thr; soft = d > 36   # strict mask splits frames; the soft one keeps the glow for alpha
     rowm = mask & np.roll(mask, er, axis=1) & np.roll(mask, -er, axis=1)   # drops vertical hairlines (dividers, panel borders)
     colm = mask & np.roll(mask, er, axis=0) & np.roll(mask, -er, axis=0)   # drops horizontal hairlines
     alpha = np.clip((d - 18) * 255 / 30, 0, 255).astype(np.uint8)
     rgba = Image.fromarray(np.dstack([a.astype(np.uint8), alpha]))
     rows = {}
-    for side, (x0, x1) in {'L': (int(.075 * W), int(.47 * W)), 'R': (int(.5 * W), W - 1)}.items():
+    for side, (x0, x1) in {'L': (int(.075 * W), int(.47 * W)), 'R': (int(.5 * W), W - 1)}.items():   # rows are found from 7.5% in (past the labels); frames are then cut from 2% in, since a figure can start before 7.5%
         best = None
         for m in (mask, rowm):
             prof = m[:, x0:x1 + 1].sum(axis=1); rr = [r for r in runs(prof, int(.05 * H)) if r[0] > .3 * H][-4:]
@@ -115,7 +124,7 @@ for img, gid, sfx, want_portrait in JOBS:
             if len(rr) == 4: break
         rr, prof = best; rr = split_to(merge_to(rr, 4), prof, 4)
         assert len(rr) == 4, (img, side, rr)
-        rows[side] = [(x0, x1, r[0], r[1]) for r in rr]
+        rows[side] = [(int(.02 * W) if side == 'L' else x0, x1, r[0], r[1]) for r in rr]
     M = (mask, colm)
     idle = cells_in(M, soft, rgba, *rows['L'][0], 6); walk = cells_in(M, soft, rgba, *rows['L'][1], 6); run = cells_in(M, soft, rgba, *rows['L'][3], 6)
     attack = cells_in(M, soft, rgba, *rows['R'][0], 5); jump = cells_in(M, soft, rgba, *rows['R'][1], 5)
@@ -140,9 +149,10 @@ for img, gid, sfx, want_portrait in JOBS:
             ys = np.where(band[:, c[0]:c[1] + 1].any(axis=1))[0]; return (ys.max() - ys.min()) if len(ys) else 0
         c0, c1 = max(cr, key=tall)   # the big head is the tallest thing in the block (the expression heads touch and form a wider but shorter run)
         rr = [r for r in runs(rowm[:int(.4 * H), x0 + c0:x0 + c1 + 1].sum(axis=1), 3) if r[1] - r[0] > .1 * H]; r = rr[0]
-        s = sub[r[0]:r[1] + 1, c0:c1 + 1]; ys, xs = np.where(s); xs = xs + c0
-        ph = ys.max() - ys.min() + 1; pw = min(xs.max() - xs.min() + 1, int(ph * 1.15))   # a head is about square; expression heads that touch it get cut off
-        por = rgba.crop((x0 + xs.min(), r[0] + ys.min(), x0 + xs.min() + pw, r[0] + ys.max() + 1))
+        blk = soft[r[0]:r[1] + 1, x0 + c0:x0 + c1 + 1]; bl = label(blk); big = max(np.unique(bl[bl > 0]), key=lambda k: (bl == k).sum())
+        ys, xs = np.where(bl == big); xs = xs + c0
+        ph = ys.max() - ys.min() + 1; pw = min(xs.max() - xs.min() + 1, int(ph * 1.15)); cxm = int(np.median(xs))
+        px0 = max(xs.min(), cxm - pw // 2); por = rgba.crop((x0 + px0, r[0] + ys.min(), x0 + px0 + pw, r[0] + ys.max() + 1))
         por.save(f'{SPR}{gid}-portrait.webp', quality=88, method=6); print('  portrait', por.size)
         def heads(y0f, y1f, skip=None):
             fb = colm[y0f:y1f + 1, x0:x1 + 1]; out = []

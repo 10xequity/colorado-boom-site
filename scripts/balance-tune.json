@@ -144,12 +144,12 @@
   "spd": -12
  },
  "coach-kyn-van": {
-  "hp": 20,
+  "hp": 15,
   "pow": {
-   "0": 0,
+   "0": 5,
    "1": 5
   },
-  "spd": -6
+  "spd": -14
  },
  "coach-dax-martin": {
   "hp": 15,
@@ -170,10 +170,10 @@
  "coach-claire-kwok": {
   "hp": 5,
   "pow": {
-   "0": 5,
+   "0": 10,
    "1": 5
   },
-  "spd": 11
+  "spd": 0
  },
  "coach-jae-spain": {
   "hp": -15,

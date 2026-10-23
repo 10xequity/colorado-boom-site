@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v2.33 — 2026-10-23 · Battle Arena round 22
+coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp, scripts/ (gen_v7.js, balance-tune.json, guest-sheet-cut.py, build_v233.js)
+
+- Frame cuts: a piece belongs to a frame only when its centre sits inside that row, so the feet of the row above and the
+  heads of the row below no longer ride along; grey label text that does not touch the body is dropped.
+- Special characters stand about a head taller than the coaches (68 px to the coaches' 58).
+- Call-outs show the move name only (CHARGE!, SUPER DIG!, HARD SPIKE!), the defender's answer is DIG! or BLOCK!, and a
+  critical says CRITICAL!; the box is smaller. Numbers stay in the log.
+- K.O. pace: the killing blow skips the end-of-turn waits, the HP bar drains straight to zero, the K.O. splash holds
+  0.9 s (was 1.3 s).
+- Guest card portraits fill the frame (cover, centred on the head); the portrait crop is centred on the head blob
+  (Akuma's no longer shows hair and shoulders).
+- Claire Kwok and Kyn Van hit harder (tune picked from a candidate sweep) so both sit inside the band.
+
 ## v2.32 — 2026-10-23 · Battle Arena round 21
 coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp, scripts/ (gen_v7.js, battle-core.js, balance-tune.json, guest-sheet-cut.py, build_v232.js)
 
