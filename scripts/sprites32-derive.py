@@ -43,6 +43,8 @@ def masks(a):
     jersey = al & (h >= 165) & (h <= 235) & (s >= .32) & (v >= .08) & (v <= .92)   # navy (originals) and teal (variants)
     trim = al & (h >= 35) & (h <= 60) & (s >= .3) & (v >= .5)                      # gold pinstripe on the jersey
     jersey = clean(jersey & ~skin, 1)
+    near = np.array(Image.fromarray((jersey * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(7))) > 128
+    trim = trim & ~skin & ~hair & near   # the pinstripe sits on the jersey; skin highlights share its hue
     return skin, hair, jersey, trim, al
 
 def recolour(a, m, target, mode='mul'):
