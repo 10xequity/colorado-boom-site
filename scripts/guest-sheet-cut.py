@@ -116,7 +116,8 @@ for img, gid, sfx, want_portrait in JOBS:
         c0, c1 = max(cr, key=tall)   # the big head is the tallest thing in the block (the expression heads touch and form a wider but shorter run)
         rr = [r for r in runs(rowm[:int(.4 * H), x0 + c0:x0 + c1 + 1].sum(axis=1), 3) if r[1] - r[0] > .1 * H]; r = rr[0]
         s = sub[r[0]:r[1] + 1, c0:c1 + 1]; ys, xs = np.where(s); xs = xs + c0
-        por = rgba.crop((x0 + xs.min(), r[0] + ys.min(), x0 + xs.max() + 1, r[0] + ys.max() + 1))
+        ph = ys.max() - ys.min() + 1; pw = min(xs.max() - xs.min() + 1, int(ph * 1.15))   # a head is about square; expression heads that touch it get cut off
+        por = rgba.crop((x0 + xs.min(), r[0] + ys.min(), x0 + xs.min() + pw, r[0] + ys.max() + 1))
         por.save(f'{SPR}{gid}-portrait.webp', quality=88, method=6); print('  portrait', por.size)
 # preview
 ids = sorted(set(j[1] for j in JOBS)); pv = Image.new('RGB', (750, 60 * len(ids) + 10 + 160), (30, 120, 130)); y = 5
