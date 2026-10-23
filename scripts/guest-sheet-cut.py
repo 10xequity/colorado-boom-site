@@ -113,7 +113,7 @@ for img, gid, sfx, want_portrait in JOBS:
         band = colm[:int(.4 * H), x0:x1 + 1]; cr = runs(band.sum(axis=0), 3)
         def tall(c):
             ys = np.where(band[:, c[0]:c[1] + 1].any(axis=1))[0]; return (ys.max() - ys.min()) if len(ys) else 0
-        cr = [c for c in cr if tall(c) > .1 * H] or cr; c0, c1 = max(cr, key=lambda c: c[1] - c[0])   # the big head: wide and tall (palette strips are wide but short)
+        c0, c1 = max(cr, key=tall)   # the big head is the tallest thing in the block (the expression heads touch and form a wider but shorter run)
         rr = [r for r in runs(rowm[:int(.4 * H), x0 + c0:x0 + c1 + 1].sum(axis=1), 3) if r[1] - r[0] > .1 * H]; r = rr[0]
         s = sub[r[0]:r[1] + 1, c0:c1 + 1]; ys, xs = np.where(s); xs = xs + c0
         por = rgba.crop((x0 + xs.min(), r[0] + ys.min(), x0 + xs.max() + 1, r[0] + ys.max() + 1))
