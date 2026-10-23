@@ -10,6 +10,15 @@ reconstruct later.
 
 ---
 
+## v2.28 — 2026-10-23 · Battle Arena round 17
+coaching-staff.html, scripts/
+
+- 32-bit loads a guest's drawn sheet by file name (assets/img/coaches/sprites32/guest-<name>-32.webp, 15 cells of
+  200x240: ready, run, dig, set, spike, block, faint x3, dance x3, charge x3) the moment the file exists; until then the
+  pixel figure stands in. No guest sheets have been supplied yet.
+- 32-bit: the toddler rides in on Kula's back, is hidden once the fight starts, and comes back for the ending (runs off
+  when Kula goes down, hops off to tap the body when Kula wins). 16-bit keeps him on the dragon throughout.
+
 ## v2.27 — 2026-10-23 · Battle Arena round 16
 coaching-staff.html, assets/img/coaches/stages32/arena.webp, scripts/ (gen_v7.js, battle-core.js, balance-sim.js, balance-tune.json, build_v227.js)
 
