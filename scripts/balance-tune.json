@@ -1,179 +1,155 @@
 {
- "coach-tara-tucker-director": {
-  "hp": -10,
+ "coach-matt-jueng": {
+  "hp": 0,
   "pow": {
-   "0": -5,
+   "0": 5,
    "1": 0
   },
-  "spd": 18
+  "spd": 37
  },
  "coach-rudy-garcia": {
-  "hp": 0,
-  "pow": {
-   "0": 5,
-   "1": 5
-  },
-  "spd": -36
- },
- "coach-damon-sichler-director": {
-  "hp": -3,
-  "pow": {
-   "0": -5,
-   "1": -5
-  },
-  "spd": 6
- },
- "coach-matt-jueng": {
-  "hp": 5,
-  "pow": {
-   "0": 5,
-   "1": 0
-  },
-  "spd": -37
- },
- "coach-claire-kwok": {
-  "hp": 0,
-  "pow": {
-   "0": 5,
-   "1": -5
-  },
-  "spd": 0
- },
- "coach-jawn-suzuki": {
-  "hp": -5,
-  "pow": {
-   "0": 10,
-   "2": 0
-  },
-  "spd": -6
- },
- "coach-zhu": {
-  "hp": -10,
-  "pow": {
-   "0": -5,
-   "1": 5
-  },
-  "spd": 18
- },
- "coach-kimberly-krise": {
   "hp": 10,
   "pow": {
    "0": 0,
    "1": 5
-  },
-  "spd": -44
- },
- "coach-makayla-clemons": {
-  "hp": -15,
-  "pow": {
-   "0": 0,
-   "1": 0
-  },
-  "spd": -36
- },
- "coach-tara-tucker": {
-  "hp": -13,
-  "pow": {
-   "0": 0,
-   "2": 0
-  },
-  "spd": 0
- },
- "coach-kyn-van": {
-  "hp": 0,
-  "pow": {
-   "0": 10,
-   "1": 0
-  },
-  "spd": 12
- },
- "coach-will-ly": {
-  "hp": 0,
-  "pow": {
-   "0": 5,
-   "2": 5
-  },
-  "spd": 0
- },
- "coach-damon-sichler": {
-  "hp": -10,
-  "pow": {
-   "0": 0,
-   "1": 0
-  },
-  "spd": 18
- },
- "coach-brian-xu": {
-  "hp": 10,
-  "pow": {
-   "0": 0,
-   "2": 5
   },
   "spd": 25
  },
- "coach-janci-ige": {
-  "hp": 5,
+ "coach-tara-tucker-director": {
+  "hp": -5,
   "pow": {
    "0": -5,
-   "2": 0
+   "1": -5
   },
-  "spd": -56
+  "spd": -13
  },
- "coach-brian-peterson": {
-  "hp": -10,
-  "pow": {
-   "0": 0,
-   "2": -5
-  },
-  "spd": 24
- },
- "coach-megan-daugherty": {
+ "coach-zhu": {
   "hp": 0,
   "pow": {
    "0": 0,
-   "1": 5
+   "1": -5
   },
-  "spd": -56
+  "spd": -25
  },
- "coach-alicia-hall": {
-  "hp": -5,
-  "pow": {
-   "0": 0,
-   "1": 0
-  },
-  "spd": -37
- },
- "coach-sidney-reese": {
-  "hp": -5,
+ "coach-damon-sichler": {
+  "hp": 0,
   "pow": {
    "0": 0,
    "1": 0
   },
   "spd": -25
  },
- "coach-randy-vang": {
+ "coach-hanfei-li": {
+  "hp": 5,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 25
+ },
+ "coach-tara-tucker": {
+  "hp": 0,
+  "pow": {
+   "0": -10,
+   "2": 0
+  },
+  "spd": 0
+ },
+ "coach-alicia-hall": {
+  "hp": 5,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 19
+ },
+ "coach-damon-sichler-director": {
+  "hp": 0,
+  "pow": {
+   "0": -5,
+   "1": 0
+  },
+  "spd": -12
+ },
+ "coach-megan-daugherty": {
+  "hp": 15,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 0
+ },
+ "coach-brian-peterson": {
   "hp": 0,
   "pow": {
    "0": 0,
+   "2": 5
+  },
+  "spd": -25
+ },
+ "coach-randy-vang": {
+  "hp": -10,
+  "pow": {
+   "0": -5,
    "2": -5
   },
-  "spd": 12
+  "spd": 6
  },
- "coach-adam-ray": {
+ "coach-janci-ige": {
+  "hp": -10,
+  "pow": {
+   "0": -5,
+   "2": -5
+  },
+  "spd": 0
+ },
+ "coach-kimberly-krise": {
+  "hp": 5,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 0
+ },
+ "coach-brian-xu": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "2": 0
+  },
+  "spd": -18
+ },
+ "coach-lena-cox": {
   "hp": 10,
   "pow": {
    "0": 0,
    "2": 0
   },
-  "spd": -57
+  "spd": 0
  },
- "coach-hanfei-li": {
-  "hp": 0,
+ "coach-jawn-suzuki": {
+  "hp": 10,
   "pow": {
    "0": 0,
-   "1": 5
+   "2": 0
   },
-  "spd": -54
+  "spd": -12
+ },
+ "coach-will-ly": {
+  "hp": 5,
+  "pow": {
+   "0": 0,
+   "2": 0
+  },
+  "spd": -6
+ },
+ "coach-kyn-van": {
+  "hp": 10,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 0
  },
  "coach-dax-martin": {
   "hp": 5,
@@ -181,38 +157,62 @@
    "0": 0,
    "1": -5
   },
-  "spd": -25
+  "spd": 0
  },
- "coach-jamison-crowley": {
-  "hp": -5,
+ "coach-makayla-clemons": {
+  "hp": 0,
   "pow": {
-   "0": 0,
-   "2": 5
+   "0": 5,
+   "1": -5
   },
   "spd": 12
  },
- "coach-rob-oschner": {
-  "hp": 0,
+ "coach-claire-kwok": {
+  "hp": 5,
   "pow": {
    "0": 0,
-   "1": -5
+   "1": 5
   },
-  "spd": -55
+  "spd": -6
  },
  "coach-jae-spain": {
   "hp": 0,
   "pow": {
    "0": 0,
-   "2": 5
+   "2": -5
   },
-  "spd": -38
+  "spd": 6
  },
- "coach-lena-cox": {
-  "hp": -2,
+ "coach-jamison-crowley": {
+  "hp": 0,
   "pow": {
    "0": 0,
    "2": 0
   },
-  "spd": -54
+  "spd": 0
+ },
+ "coach-sidney-reese": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 0
+ },
+ "coach-adam-ray": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "2": -5
+  },
+  "spd": 0
+ },
+ "coach-rob-oschner": {
+  "hp": 0,
+  "pow": {
+   "0": 0,
+   "1": 0
+  },
+  "spd": 6
  }
 }

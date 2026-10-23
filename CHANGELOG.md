@@ -10,6 +10,26 @@ reconstruct later.
 
 ---
 
+## v2.22 — 2026-10-22 · Battle Arena round 11
+coaching-staff.html, assets/img/coaches/sprites32/ (new), assets/img/coaches/stages32/ (new), scripts/ (gen_v7.js, battle-core.js, balance-tune.json, build_v222.js)
+
+- Games-played counter under the arena: "Thank you for playing!" with the global total from a public hit counter
+  (abacus.jasoncameron.dev, key coloradoboom/battle-arena-games). If that service cannot be reached the line shows this
+  device's own count and says so.
+- Kula now arrives after every third win on the device (counted across visits), not three in a row. Losing to him moves
+  straight on to a regular opponent.
+- The dragon is 50% bigger and the toddler rides on his back. When Kula goes down the toddler runs off the court; when
+  Kula wins he hops off and taps the body, as before.
+- Energy is the "rally" model: +2 every turn, nobody opens with a bank, a block that stops a hit refunds its cost, Charge
+  banks +3. The v2.21 model (+1 then +2, second mover opens on 2) stays in battle-core.js as MODELS.owner. Cards were
+  retuned by balance-sim.js for the new model. The 10-turn mark is a soft average target now (cap 24 moves).
+- 32-Bit View beside 16-Bit View: the hand-drawn stages (Championship Arena, Boomtown Fieldhouse, Retro Gym; Beach Night
+  falls back to the pixel court scaled up) and the drawn sprite sheets for Tara, Damon, Will and Sidney (ready, run, dig,
+  set, spike, block; the dig pose lies down for a K.O.). Other photographed coaches use their photo at double resolution;
+  the rest keep their pixel figure. Kula uses the two drawn dragons (flying and standing). The engine keeps its 320x200
+  logic and draws at 4x, so every effect, the HUD and the pad work unchanged. The simpler 16-bit-style sheets from the
+  same batch are saved beside them (*-16.webp) but not wired up.
+
 ## v2.21 — 2026-10-22 · Battle Arena round 10
 coaching-staff.html, assets/img/coaches/cut/ (coach-kyn-van.webp, coach-makayla-clemons.webp new; coach-jae-spain.webp re-cut), scripts/ (gen_v7.js, battle-core.js, balance-sim.js, balance-tune.json, photo-palette.json)
 
