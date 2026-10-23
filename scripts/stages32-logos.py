@@ -2,7 +2,7 @@
 (floor decal across the centre line in perspective, club logo on the wall banners / fence cloths)."""
 import sys, os, numpy as np
 from PIL import Image, ImageOps
-I, OUT = sys.argv[1], sys.argv[2]
+I, OUT, S = sys.argv[1], sys.argv[2], sys.argv[3]
 STG = OUT + '/assets/img/coaches/stages32/'
 logo = Image.open(OUT + '/assets/img/logo.png').convert('RGBA')          # gold / teal / white club logo
 ryl = Image.open(OUT + '/assets/img/coaches/ryl-logo.webp').convert('RGBA')  # comic-burst logo
@@ -45,32 +45,32 @@ def banner(stage, box, src=logo, pad=0.08, bg=None, alpha=1.0):
     a = np.array(layer); a[..., 3] = (a[..., 3] * alpha).astype(np.uint8)
     out = stage.copy(); out.alpha_composite(Image.fromarray(a)); return out
 
-def load_stage(name): return Image.open(f'{STG}{name}.webp').convert('RGBA')
+SRC={'fieldhouse':S+'/fieldhouse-src.webp','arena':S+'/arena-src.webp','retro':S+'/retro-src.webp','beach':STG+'beach.webp'}
+def load_stage(name): return Image.open(SRC[name]).convert('RGBA')
 def save(im, name): im.convert('RGB').save(f'{STG}{name}.webp', quality=80, method=6); print(name, os.path.getsize(f'{STG}{name}.webp'))
 
 # ---- beach: crop the 1536x1024 drawing to 16:10 and size it like the others
 b = Image.open(f'{I}/14.png').convert('RGB'); H = round(b.width * 10 / 16); top = (b.height - H) // 2
 b = b.crop((0, top, b.width, top + H)).resize((1280, 800), Image.LANCZOS); b.save(f'{STG}beach.webp', quality=80, method=6)
-Image.open(f'{I}/14.png').convert('RGB').save(f'{STG}beach-src.png')  # keep the untouched source for the next edit
 # source copies for the other three stay as the previously generated files; the logo versions overwrite the live files
 # ---- fieldhouse: decal across the centre line, club logo on the two big wall banners
 s = load_stage('fieldhouse')
-s = floor_decal(s, [(520, 470), (760, 470), (820, 560), (460, 560)], .5)
+s = floor_decal(s, [(470, 455), (810, 455), (880, 575), (400, 575)], .8)
 s = banner(s, (62, 148, 150, 310), bg=(8, 40, 44, 255)); s = banner(s, (1130, 148, 1218, 310), bg=(8, 40, 44, 255))
 save(s, 'fieldhouse')
 # ---- arena: decal on the court, comic logo on the front of the stands either side of the tunnel
 s = load_stage('arena')
-s = floor_decal(s, [(540, 480), (740, 480), (800, 560), (480, 560)], .5)
+s = floor_decal(s, [(480, 470), (800, 470), (870, 575), (410, 575)], .8)
 s = banner(s, (180, 410, 420, 470), src=ryl, bg=(0, 0, 0, 235)); s = banner(s, (860, 410, 1100, 470), src=ryl, bg=(0, 0, 0, 235))
 save(s, 'arena')
 # ---- retro: decal on the court, club logo on the brick wall between the window pairs
 s = load_stage('retro')
-s = floor_decal(s, [(540, 470), (740, 470), (790, 545), (490, 545)], .45)
+s = floor_decal(s, [(480, 455), (800, 455), (860, 560), (420, 560)], .8)
 s = banner(s, (560, 120, 720, 230), bg=(26, 18, 14, 230))
 save(s, 'retro')
 # ---- beach: decal in the sand, club logo on the centre fence cloth and the comic logo on the two outer cloths
 s = load_stage('beach')
-s = floor_decal(s, [(540, 440), (740, 440), (790, 530), (490, 530)], .5)
+s = floor_decal(s, [(480, 430), (800, 430), (870, 545), (410, 545)], .8)
 s = banner(s, (556, 356, 724, 404), bg=(14, 124, 134, 255)); s = banner(s, (150, 356, 318, 404), src=ryl, bg=(14, 124, 134, 255)); s = banner(s, (962, 356, 1130, 404), src=ryl, bg=(14, 124, 134, 255))
 save(s, 'beach')
 # preview sheet

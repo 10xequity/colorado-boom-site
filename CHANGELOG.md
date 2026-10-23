@@ -10,6 +10,22 @@ reconstruct later.
 
 ---
 
+## v2.24 — 2026-10-22 · Battle Arena round 13
+coaching-staff.html, assets/img/coaches/sprites32/ (8 template sheets, 27 coach sheets, 15 poses each), assets/img/coaches/fx32/ (aura, burst, spark, beam), assets/img/coaches/stages32/, scripts/
+
+- 32-bit poses: faint (lose balance, kneel, collapse), victory dance (fist pump, jump, land) and charge-up (crouch, tense,
+  shout) from the owner's wide sheets, for the four drawn coaches and their Asian-variant bodies; Hanfei Li, Zhu, Kyn Van,
+  Brian Xu, Jawn Suzuki and Claire Kwok now derive from the variant bodies. K.O. plays the faint sequence; the winner
+  loops the dance until the next matchup.
+- 32-bit Charge: one drawn power-up aura (three frames, 70 ms apart) tinted to the card's element behind the crouch /
+  tense / shout frames, about 1.7x the fighter's height, with the charge sound. The code-drawn flame is gone.
+- 32-bit hits: an impact burst at the landing spot (bigger on a critical), a spark burst on a block or dig, and a light
+  beam trailing the ball along its path.
+- Kula: first visit at the third win, then again 5-7 wins later each time (random), remembered on the device.
+- Stage logos stamped bigger and stronger (floor decal across the centre line, wall banners / fence cloths).
+- Card flip is a 2-D squash instead of a 3-D rotation and the holo animation pauses while a card turns, so flipping no
+  longer stutters on a page with 28 cards.
+
 ## v2.23 — 2026-10-22 · Battle Arena round 12
 coaching-staff.html, assets/img/coaches/sprites32/ (27 sheets), assets/img/coaches/stages32/ (beach new; logos on all four), scripts/ (gen_v7.js, sheets32.json, balance-tune.json, build_v223.js)
 

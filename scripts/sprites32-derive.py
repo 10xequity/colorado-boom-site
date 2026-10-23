@@ -36,7 +36,7 @@ def digits(no):
     return [DIG[c] for c in str(no)]
 
 templates = {}
-for t in ['tara', 'damon', 'will', 'sidney']:
+for t in ['tara', 'damon', 'will', 'sidney', 'taraa', 'damona', 'willa', 'sidneya']:
     templates[t] = Image.open(f'{SPR}{t}-32.webp').convert('RGBA')
 for d in data:
     tpl = templates[d['template']]; a = np.array(tpl).copy()
