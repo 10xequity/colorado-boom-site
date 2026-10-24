@@ -10,6 +10,25 @@ reconstruct later.
 
 ---
 
+## v2.35 — 2026-10-23 · 17 Colorado Middle back + site sweep
+every page's announcement bar, index.html, girls-club.html, boys-club.html, club.html, programs.html,
+parent-resources.html, schedule.html, scripts/ (build_v235.js, build_v235_sweep.js)
+
+- 17 Colorado Middle is back on the recruiting lines (the owner has no confirmation it is filled, so it stays listed).
+  "(1)" is tied to its label so it never wraps onto a line by itself on phones.
+- The popup's "Littles Skills Development" is in Title Case like every other program name on the site.
+- Sweep: since v2.15 the Tryouts page has said 2026–27 spots are by appointment and open gym is not a tryout, but
+  five other places still said "try out at any Wed / Fri open gym" (Girls Club calendar, homepage club card,
+  Programs RYL paragraph, Parent Resources FAQ and its search data, Schedule tryout table, and two Club FAQ answers).
+  They now say private evaluation by appointment through admin@. The Schedule page's open-spot note listed
+  August-era needs (17s/18s middles and pins, Regional 15s/16s); it now matches the banner.
+- Broken links: Girls/Boys schedule buttons pointed at #GC-05/#BC-05, which had no id (they now do);
+  the Club page's #add-on-training now points to #dev-training; Parent Resources' Facility Info button went to a
+  404 (boomtownathletics.com/fieldhouseusa) and now opens the Facility Rules page.
+- Checked and clean: 990 internal links and images, no browser errors or broken images on any of the 15 pages
+  (the checker was confirmed to catch a planted error first). Known outside issue: www.coloradoaf.org (Parent
+  Resources, financial aid) has an HTTPS certificate fault on its own end.
+
 ## v2.34 — 2026-10-23 · Roster adds + recruiting refresh
 teams.html, index.html, every page's announcement bar, scripts/build_v234.js
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.35 · 2026-10-23 · [ANN] 17 Colorado Middle back on the recruiting line (unconfirmed, kept for now). [HM-POP] same in Open Spots; "Littles Skills Development" in Title Case; key v235. Sweep: tryout lines now say by appointment (open gym is not a tryout, per tryouts.html v2.15); schedule.html open spots refreshed; GC-05/BC-05 ids added, #add-on-training -> #dev-training. -->
   <!-- BUILD v2.34 · 2026-10-23 · [ANN] recruiting: 12 Colorado any (1), 16 Colorado OH & setter; 13s full, 17 Colorado middle dropped. [HM-POP] open spots: 12 Colorado any (1), 16 Colorado OH & setter; practice player / developmental league line; Littles ages 6-11; key v234. -->
   <!-- BUILD v2.15 · 2026-10-22 · Littles (ages 6-9, Tue/Thu 5-6:30) folded into the Skills Training Membership; nav + footer say Littles (Ages 6-9). [RB] Parent Meeting row now "Parent Meeting, Team Meet & Greet & Team Bonding". Try Out buttons email admin@ for an appointment. [HM-POP] Parent Meeting row renamed; key v215. -->
   <!-- BUILD v2.14 · 2026-10-21 · [RB] ticker matches the popup: Pre-Season Club Training Oct 26-30, Parent Meeting Oct 28, Club Halloween Dance Party & Drop-In Oct 30 7:30-11 PM, First Practice, Picture Day Jan 15. [ANN] gold bar now carries recruitment (17 Colorado Middle, 16 Colorado Pin, 12s & 13s any) with an Email to Try Out button. -->
@@ -254,7 +255,7 @@
   <!-- ============ [ANN] ANNOUNCEMENT BAR — v1.50: concise gold CTA ============ -->
   <div class="announcement announcement--xl" data-section="ANN" role="region" aria-label="Club announcement">
     <!-- EDIT: headline (template: keep this block, swap the text for future announcements) -->
-    Now Recruiting: 12 Colorado Any Position (1) &nbsp;&bull;&nbsp; 16 Colorado Outside &amp; Setter
+    Now Recruiting: 17 Colorado Middle &nbsp;&bull;&nbsp; 16 Colorado Outside &amp; Setter &nbsp;&bull;&nbsp; 12 Colorado Any Position&nbsp;(1)
     <!-- /EDIT -->
     <span class="ann-note">Join through a private evaluation. Rosters and practice times are under Our Club Teams.</span>
     <a class="ann-cta" href="mailto:admin@coloradoboom.com?subject=Open%20roster%20spot">Email to Try Out</a>
@@ -318,7 +319,7 @@
           <div class="card-body">
             <span class="badge">Competitive</span>
             <h3>Club Volleyball</h3>
-            <p>Girls 10U&ndash;18U and Boys 13U&ndash;18U. Sanctioned by RMR and USA Volleyball. Girls 10U&ndash;14U Club &amp; RYL tryouts<span data-show-until="2026-10-11"> run Oct 11, 2026</span><span data-show-from="2026-10-12" hidden style="display:none"> continue at any Wed / Fri open gym</span>.</p>
+            <p>Girls 10U&ndash;18U and Boys 13U&ndash;18U. Sanctioned by RMR and USA Volleyball. Girls 10U&ndash;14U Club &amp; RYL tryouts<span data-show-until="2026-10-11"> run Oct 11, 2026</span><span data-show-from="2026-10-12" hidden style="display:none"> are now by appointment: email admin@coloradoboom.com</span>.</p>
             <a href="tryouts.html" class="btn btn-teal">View Tryout Dates</a>
           </div>
         </article>
@@ -563,7 +564,7 @@
         <a class="popup-cta popup-cta--top" href="teams.html">See Team Rosters</a>
       </div>
       <div class="popup-body">
-        <p class="popup-needs"><strong>Open Spots:</strong> 12 Colorado &middot; Any (1) &nbsp;&bull;&nbsp; 16 Colorado &middot; Outside &amp; Setter<br>All other teams: practice player and developmental league spots only. Ages 6&ndash;11 are welcome to join <a class="inline" href="programs.html#littles">Littles Skills developmental classes</a>.<br><a class="inline" href="mailto:admin@coloradoboom.com?subject=Open%20roster%20spot">Email admin@coloradoboom.com</a></p>
+        <p class="popup-needs"><strong>Open Spots:</strong> 17 Colorado &middot; Middle &nbsp;&bull;&nbsp; 16 Colorado &middot; Outside &amp; Setter &nbsp;&bull;&nbsp; 12 Colorado &middot; Any&nbsp;(1)<br>All other teams: practice player and developmental league spots only. Ages 6&ndash;11 are welcome to join <a class="inline" href="programs.html#littles">Littles Skills Development classes</a>.<br><a class="inline" href="mailto:admin@coloradoboom.com?subject=Open%20roster%20spot">Email admin@coloradoboom.com</a></p>
         <table class="popup-sched">
           <caption>For Club Members</caption>
           <tbody>
@@ -588,7 +589,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v234';
+    var KEY='cobo-popup-v235';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){
