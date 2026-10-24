@@ -10,6 +10,17 @@ reconstruct later.
 
 ---
 
+## v2.34 — 2026-10-23 · Roster adds + recruiting refresh
+teams.html, index.html, every page's announcement bar, scripts/build_v234.js
+
+- 12 Colorado - Makayla: Vivien Liebl joins (8 players); Darian Xiong is the assistant coach (no staff card yet, so unlinked).
+- 14 Colorado - Janci: Tabitha Adams joins (8 players).
+- Recruiting per owner: 13s are full and 17 Colorado Middle is dropped; open spots are now 12 Colorado (1, any position)
+  and 16 Colorado Outside & Setter. The homepage popup adds that every other team has only practice player and
+  developmental league spots, and that ages 6–11 can join Littles Skills developmental classes. Popup key bumped to
+  v234 so returning visitors see the new spots.
+- Nav and footer still say "Littles (Ages 6–9)"; the owner's note says 6–11. Left as is pending confirmation.
+
 ## v2.33 — 2026-10-23 · Battle Arena round 22
 coaching-staff.html, assets/img/coaches/sprites32/guest-*.webp, scripts/ (gen_v7.js, balance-tune.json, guest-sheet-cut.py, build_v233.js)
 
