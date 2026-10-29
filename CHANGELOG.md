@@ -10,6 +10,14 @@ reconstruct later.
 
 ---
 
+## v2.36 — 2026-10-29 · Matthew Jeung spelling
+teams.html, coaching-staff.html
+
+- Tara's request (email "COBO Site Update - 10/29/26"): the 16 Colorado - Zhu assistant is **Matthew Jeung**, not "Matt Jueng".
+  Fixed on the Teams roster line and everywhere the coaching-staff card shows the name (card title, screen-reader label,
+  matchup pickers, card data). The card id `coach-matt-jueng` is unchanged on purpose: links, sprite sheets and saved
+  matchups key off it, and visitors never see it.
+
 ## v2.35 — 2026-10-23 · 17 Colorado Middle back + site sweep
 every page's announcement bar, index.html, girls-club.html, boys-club.html, club.html, programs.html,
 parent-resources.html, schedule.html, scripts/ (build_v235.js, build_v235_sweep.js)
