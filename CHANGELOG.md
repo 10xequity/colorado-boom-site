@@ -10,6 +10,15 @@ reconstruct later.
 
 ---
 
+## v2.37 — 2026-10-29 · Kimberlyn Krise, Aniah Henry
+teams.html, coaching-staff.html
+
+- Tara (reply in "COBO site update - 10/29/26", with screenshot): the 14 Colorado head coach is **Kimberlyn** Krise. The team
+  name follows the coach, so it is now **14 Colorado - Kimberlyn**. Changed everywhere visitors see it (team heading, coach
+  link, game picker, staff card, card pickers and data). Ids `t14-colorado-krise` and `coach-kimberly-krise` are unchanged
+  so links, sprites and the photo file still resolve. `scripts/gen_v7.js` (old generator) still says Kimberly; fix it if it is ever rerun.
+- Tara: **Aniah Henry** added to 17 National - Jawn; roster now 11. Her Tabitha Adams request (14 Colorado - Janci) was already live since v2.34.
+
 ## v2.36 — 2026-10-29 · Matthew Jeung spelling
 teams.html, coaching-staff.html
 
