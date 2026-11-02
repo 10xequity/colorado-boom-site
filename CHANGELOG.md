@@ -10,6 +10,20 @@ reconstruct later.
 
 ---
 
+## v2.39 — 2026-11-02 · Break camps and youth training flyers
+programs.html, index.html, assets/img/flyer-*.webp
+
+- Zhu sent two "COBO Site Update - 11/2/2026" emails with flyers; Vincent approved both directly. The flyers are the newest
+  source, so where they disagree with the site they win: Fall Break camp is **Nov 23–25, 9 AM–3 PM** (site said Nov 23–24, 9–4),
+  Winter Break adds **Session 1, Dec 21–23**, both winter sessions run 9–3, and break camps are **ages 8–16, $240 full / $120 half**.
+  Break camps now register through the forms.gle links in the emails instead of emailing admin@. Summer rows are unchanged.
+- New `#youth-training` block under the membership box: Little Spikers 6–9 and Youth 10–14, **$295/month 2x a week, $150/month
+  1x a week**, MYSPARK accepted, first week free, one GymDesk sign-up link for both. The membership box above still says
+  "$150 club members / $295 open enrollment"; Vincent to confirm whether the flyer pricing replaces it.
+- The training and winter flyers arrived as 3-second MP4s. The site shows each one's final frame as a WebP image (all text is in
+  that frame), which avoids adding video files to the repo.
+- Home popup gets a "Camps & Youth Training" table; key v235 → v239. The site-wide [RB] ticker was not touched (12 files).
+
 ## v2.38 — 2026-11-02 · Getsi Palomino
 
 - teams.html: 16 Colorado - Brian roster shows "Getsi Palomino" (was "Getsemana Palomino"). Tara asked for "Getsi" by email on 11/01/26; she wrote "Getsemani", same player. Applied by hand because the email automation is not live yet.

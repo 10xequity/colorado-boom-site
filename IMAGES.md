@@ -19,6 +19,10 @@ upload a new file with the EXACT same name (lowercase) and it appears automatica
 | `hiring-hero.jpg` | Hiring hero `[HR-01]` | Camp group, candid laugh, player holding ball (Nike Camp, DSC_4981) |
 | `hiring-band-left.jpg` | *(not placed; photo band removed 2026-09-12, kept for reuse)* | Camp group of six, posed (Nike Camp, DSC_4993) |
 | `hiring-band-right.jpg` | *(not placed; photo band removed 2026-09-12, kept for reuse)* | Camp group of nine in a row, posed (Nike Camp, DSC_5001) |
+| `flyer-camp-fall-break-2026.webp` | Programs `[PG-04]` camp flyers (hides after Nov 25, 2026) | Fall Break camp flyer from Zhu |
+| `flyer-camp-winter-break-2026.webp` | Programs `[PG-04]` camp flyers (hides after Dec 30, 2026) | Winter Break camp flyer (final frame of Zhu's MP4) |
+| `flyer-little-spikers.webp` | Programs `#youth-training` | Little Spikers 6–9 flyer (final frame of Zhu's MP4) |
+| `flyer-youth-training-10-14.webp` | Programs `#youth-training` | Youth Training 10–14 flyer (final frame of Zhu's MP4) |
 
 **Recommended specs:** JPG, ~1200px wide max, under ~250KB each, web-optimized. Logo is PNG with transparency.
 **To replace any photo:** keep the filename identical, just upload the new file over it.
