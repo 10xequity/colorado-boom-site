@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.38 — 2026-11-02 · Getsi Palomino
+
+- teams.html: 16 Colorado - Brian roster shows "Getsi Palomino" (was "Getsemana Palomino"). Tara asked for "Getsi" by email on 11/01/26; she wrote "Getsemani", same player. Applied by hand because the email automation is not live yet.
+
 ## v2.37 — 2026-10-29 · Kimberlyn Krise, Aniah Henry
 teams.html, coaching-staff.html
 
