@@ -35,7 +35,7 @@ const POS = {
   'Damon Sichler': 'Setter', 'Randy Vang': 'Libero', 'Will Ly': 'Libero', 'Kyn Van': 'Right Side', 'Jawn Suzuki': 'Libero', 'Brian Xu': 'Middle',
   'Jamison Crowley': 'Trainer', 'Lena Cox': 'Trainer',
 };
-const REAL = new Set(['coach-kyn-van', 'coach-makayla-clemons', 'coach-tara-tucker', 'coach-tara-tucker-director', 'coach-jae-spain', 'coach-claire-kwok', 'coach-zhu', 'coach-will-ly', 'coach-jawn-suzuki', 'coach-kimberly-krise', 'coach-damon-sichler', 'coach-damon-sichler-director', 'coach-sidney-reese']);
+const REAL = new Set(['coach-kyn-van', 'coach-makayla-clemons', 'coach-tara-tucker', 'coach-tara-tucker-director', 'coach-jae-spain', 'coach-claire-kwok', 'coach-zhu', 'coach-will-ly', 'coach-jawn-suzuki', 'coach-kimberly-krise', 'coach-damon-sichler', 'coach-damon-sichler-director', 'coach-sidney-reese', 'coach-jamison-crowley']);
 const ELEM = { Outside: 'Fighter', Setter: 'Psychic', 'Right Side': 'Fire', Middle: 'Rock', Libero: 'Grass', DS: 'Wind', Trainer: 'Water', Director: 'Shiny', Dragon: 'Dragon' };
 const WEAK = { Fighter: 'Psychic', Psychic: 'Wind', Wind: 'Rock', Rock: 'Water', Water: 'Grass', Grass: 'Fire', Fire: 'Water', Shiny: 'Shiny', Dragon: 'Shiny', Lightning: 'Rock' };
 const RESIST = { Fighter: 'Rock', Psychic: 'Fighter', Wind: 'Grass', Rock: 'Fire', Water: 'Fire', Grass: 'Water', Fire: 'Grass', Shiny: 'Psychic', Dragon: 'Fire', Lightning: 'Wind' };

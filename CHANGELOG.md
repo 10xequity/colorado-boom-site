@@ -10,6 +10,14 @@ reconstruct later.
 
 ---
 
+## v2.40 — 2026-11-03 · Jamison Crowley photo
+coaching-staff.html, assets/img/coaches/cut/coach-jamison-crowley.webp, scripts/gen_v7.js, scripts/photo-palette.json
+
+- Vincent supplied a portrait for Jamison Crowley (Strength & Conditioning). Background removed, cropped to head and
+  shoulders and saved 480 wide like the other cut-outs; his card shows the photo instead of the pixel-sprite placeholder,
+  and the 16-bit view reads the photo too (`photo` set in the card data). The generator's REAL list and palette file carry
+  the same entry so a rerun keeps him.
+
 ## v2.39 — 2026-11-02 · Break camps and youth training flyers
 programs.html, index.html, assets/img/flyer-*.webp
 
