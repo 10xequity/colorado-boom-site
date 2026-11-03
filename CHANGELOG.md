@@ -10,6 +10,26 @@ reconstruct later.
 
 ---
 
+## v2.41 — 2026-11-03 · Programs page: Open Gym paused, readability pass
+programs.html
+
+- Owner: Open Gym is on pause until the end of the club season. The section keeps its heading (people look for it) and
+  now says so, with the replacement in the callout: **Group & Advanced Volleyball Classes, every week Tues/Wed/Thurs,
+  5–7 PM** at Boomtown Fieldhouse. Non-club players email zhu@coloradoboom.com (link + gold button). The old
+  "See Tryouts & Open Gyms" button is gone from this section. Other pages were deliberately left alone, so tryouts.html
+  still lists Wed/Fri open gym until the owner asks.
+- Background rhythm: Littles was `bg-teal-d`, whose gradient fades to near-black at the edges and ran straight into the
+  black footer. It is now solid teal (`bg-teal`) with page-scoped white text rules, so light/dark alternates all the way
+  down: white, teal, white, teal, cream, teal, white, teal, footer.
+- No floating words: day/time/price strings ("Tues / Thurs", "5:00–6:30 PM", "$80 for 8 weeks"...) are wrapped in a
+  `.nw` no-wrap span; links inside the membership list, the sched note, Open Gym and the Littles list never split across
+  lines (the two membership links broke at phone width); short lists and notes get `text-wrap:pretty` plus a few
+  non-breaking spaces where a single word still fell to its own line.
+- Copy: membership list in Title Case to match the session headings; "Email us" cells now "Email Us"; hero line reworded
+  from "Pathways... first touches" to plain language.
+- Holiday closures from Tara (Nov 20–29, Dec 19–28, Dec 31–Jan 2) are on file, not on the site: owner wants them added
+  after the first few weeks of practice.
+
 ## v2.40 — 2026-11-03 · Jamison Crowley photo
 coaching-staff.html, assets/img/coaches/cut/coach-jamison-crowley.webp, scripts/gen_v7.js, scripts/photo-palette.json
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.41 · 2026-11-03 · [PG-05] Open Gym paused until the end of club season; Group & Advanced Volleyball Classes every Tues/Wed/Thurs 5-7 PM, non-club players email zhu@coloradoboom.com. [PG] Littles on solid teal (was teal-d fading into the black footer); day/time/price strings and in-text links no longer split across lines; membership list in Title Case; hero line reworded. -->
   <!-- BUILD v2.39 · 2026-11-02 · Zhu (two "COBO Site Update - 11/2/2026" emails). [PG-04] Fall Break camp now Nov 23-25 9-3 (was Nov 23-24 9-4); Winter Break Session 1 Dec 21-23 added; Dec 28-30 now 9-3; break camps ages 8-16, $240 full / $120 half; forms.gle register links + flyer cards. [PG-02] #youth-training: Little Spikers 6-9 & Youth 10-14 flyers, $295 2x/wk / $150 1x/wk, MYSPARK, first week free, GymDesk sign-up. Video flyers shown as their final frame. -->
   <!-- BUILD v2.35 · 2026-10-23 · [ANN] 17 Colorado Middle back on the recruiting line (unconfirmed, kept for now). Sweep: tryout lines now say by appointment (open gym is not a tryout, per tryouts.html v2.15); schedule.html open spots refreshed; GC-05/BC-05 ids added, #add-on-training -> #dev-training. -->
   <!-- BUILD v2.34 · 2026-10-23 · [ANN] recruiting: 12 Colorado any (1), 16 Colorado OH & setter; 13s full, 17 Colorado middle dropped. -->
@@ -60,6 +61,13 @@
     @media(hover:hover) and (pointer:fine){.camp-flyer:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.18);}}
     .camp-flyer:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
     .camp-meta{max-width:760px;margin:0 auto 20px;text-align:center;}
+    /* v2.41: no floating words. Day/time/price strings stay on one line, in-text links never split,
+       and short lists/notes wrap evenly. Littles sits on solid teal so it reads apart from the black footer. */
+    .nw{white-space:nowrap;}
+    .mship li a,.sched-note a,#open-gym .ulink,#littles li a{white-space:nowrap;}
+    .mship li,.lead,.lessons-note,.lesson-card li,.step p,.section-subtitle{text-wrap:pretty;}
+    .bg-teal .section-subtitle,.bg-teal .prose p,.bg-teal p{color:rgba(255,255,255,.9);}
+    .bg-teal-d .ulink{color:#9fe3ea;}
     /* v1.56: the developmental gym shot is a very wide 1400x630 panorama that renders as a thin
        strip (looks "stretched"); crop it to a natural 16:9 so it reads as a proper photo. */
     #dev-training .media-img{aspect-ratio:16/9;object-fit:cover;object-position:center 40%;}
@@ -201,7 +209,7 @@
   <!-- ===== [PG-01] HERO ===== -->
   <section class="subhero has-img subhero--dark" data-section="PG-01" id="top">
     <span class="sub-bg" style="background-image:url('assets/img/programs.jpg');background-position:center 58%;"></span>
-    <div class="container"><h1>Programs</h1><p>Pathways for every age and level, from first touches to position-specific training.</p></div>
+    <div class="container"><h1>Programs</h1><p>Training for every age and level, from a first serve to position-specific work.</p></div>
   </section>
   <!-- ===== [PG-NAV] Jump nav (v1.34, #8) ===== -->
   <div class="page-jump bg-white" data-section="PG-NAV">
@@ -220,14 +228,14 @@
   <section id="dev-training" data-section="PG-02" class="bg-white">
     <div class="container">
       <h2 class="section-title">Skills Training Membership</h2>
-      <p class="section-subtitle">One monthly membership covers every skills &amp; mechanics session, from Littles (ages 6&ndash;9) through advanced club training. Come one day a week or every day. Each session is described in full below.</p>
+      <p class="section-subtitle">One monthly membership covers every skills &amp; mechanics session, from Littles (ages 6&ndash;9) through advanced club training. Come one day a week or every day. Each session is described in full&nbsp;below.</p>
       <div class="mship mship--teal">
         <div class="price">$150&ndash;$295<small>per month &middot; $150 club members / $295 open enrollment</small></div>
         <ul>
-          <li><a href="#s-littles" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Littles: Little Spikers</strong></a>: Ages 6&ndash;9 &middot; Tues / Thurs &middot; 5:00&ndash;6:30 PM</li>
-          <li><a href="#s-dev" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Developmental skills &amp; mechanics</strong></a>: Ages 8&ndash;16 &middot; Tues / Thurs &middot; 5:00&ndash;6:30 PM</li>
-          <li><a href="#s-adv" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Advanced skills &amp; mechanics (14+)</strong></a>: Tues / Wed / Thurs &middot; 5:00&ndash;7:00 PM</li>
-          <li><a href="#s-club" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Advanced club training</strong></a>: Tues / Thurs &middot; 5:00&ndash;7:00 PM</li>
+          <li><a href="#s-littles" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Littles: Little Spikers</strong></a>: <span class="nw">Ages 6&ndash;9</span> &middot; <span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;6:30 PM</span></li>
+          <li><a href="#s-dev" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Developmental Skills &amp; Mechanics</strong></a>: <span class="nw">Ages 8&ndash;16</span> &middot; <span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;6:30 PM</span></li>
+          <li><a href="#s-adv" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Advanced Skills &amp; Mechanics (14+)</strong></a>: <span class="nw">Tues / Wed / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span></li>
+          <li><a href="#s-club" style="color:#fff;border-bottom:1px solid var(--gold);"><strong>Advanced Club Training</strong></a>: <span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span></li>
         </ul>
         <p class="prose">Club members get the $150 rate once the season begins in September. Cancel anytime.</p>
         <div class="cta-inline" style="margin-top:8px;"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Register for Membership</a></div>
@@ -235,7 +243,7 @@
       <!-- v2.39 · Zhu, "COBO Site Update - 11/2/2026": Youth Volleyball Training flyers (Little Spikers 6-9, Youth 10-14), one GymDesk sign-up for both -->
       <div id="youth-training" style="scroll-margin-top:90px;margin:42px auto 0;max-width:760px;text-align:center;">
         <h3 style="text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px;">Youth Volleyball Training</h3>
-        <p class="section-subtitle" style="margin-bottom:18px;">Girls &amp; boys &middot; Little Spikers ages 6&ndash;9 and Youth ages 10&ndash;14 &middot; Tues / Thurs at Boomtown Fieldhouse<br><strong>$295/month for 2x a week (Tue &amp; Thu) &middot; $150/month for 1x a week (Tue or Thu) &middot; MYSPARK accepted &middot; First week free</strong></p>
+        <p class="section-subtitle" style="margin-bottom:18px;">Girls &amp; boys &middot; <span class="nw">Little Spikers ages 6&ndash;9</span> and <span class="nw">Youth ages 10&ndash;14</span> &middot; <span class="nw">Tues / Thurs</span> at Boomtown Fieldhouse<br><strong><span class="nw">$295/month for 2x a week</span> (Tue &amp; Thu) &middot; <span class="nw">$150/month for 1x a week</span> (Tue or Thu) &middot; <span class="nw">MYSPARK accepted</span> &middot; <span class="nw">First week free</span></strong></p>
         <div class="camp-flyers">
           <a class="camp-flyer" href="https://colorado-boom.gymdesk.com/signup/v/lWM2B" target="_blank" rel="noopener"><img src="assets/img/flyer-little-spikers.webp" width="1080" height="1350" loading="lazy" alt="Little Spikers Volleyball, girls and boys ages 6 to 9. Encouraging, safe, perfect for beginners. $295 a month 2x a week Tue and Thu, $150 a month 1x a week Tue or Thu, MYSPARK accepted. Try a free week. Sign up."></a>
           <a class="camp-flyer" href="https://colorado-boom.gymdesk.com/signup/v/lWM2B" target="_blank" rel="noopener"><img src="assets/img/flyer-youth-training-10-14.webp" width="1080" height="1350" loading="lazy" alt="Youth Volleyball Training, girls and boys ages 10 to 14. Preparation for school and club season. $295 a month 2x a week Tue and Thu, $150 a month 1x a week Tue or Thu, MYSPARK accepted. First week free. Sign up."></a>
@@ -247,22 +255,22 @@
         <p class="section-subtitle" style="margin-bottom:22px;">Every session below is included in the one membership. Pick the days that fit.</p>
         <div id="s-littles" style="scroll-margin-top:90px;padding:6px 0 16px;border-bottom:1px solid rgba(0,0,0,.08);">
           <h4 style="margin:0 0 2px;">Littles: Little Spikers</h4>
-          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);">Ages 6&ndash;9 &middot; Tues / Thurs &middot; 5:00&ndash;6:30 PM</p>
+          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);"><span class="nw">Ages 6&ndash;9</span> &middot; <span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;6:30 PM</span></p>
           <p style="margin:0;">Less screen time, more play time. A first volleyball program built for little kids: encouraging, safe and fun, with the ball in their hands the whole session. Movement, catching and tossing, underhand serving and the very first passes, taught in small groups by Boom coaches. No experience needed.</p>
         </div>
         <div id="s-dev" style="scroll-margin-top:90px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.08);">
           <h4 style="margin:0 0 2px;">Developmental Skills &amp; Mechanics</h4>
-          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);">Ages 8&ndash;16 &middot; Tues / Thurs &middot; 5:00&ndash;6:30 PM</p>
+          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);"><span class="nw">Ages 8&ndash;16</span> &middot; <span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;6:30 PM</span></p>
           <p style="margin:0;">Foundational skills and biomechanics: passing, setting, serving, and court movement, taught in a supportive, small-group setting. Built for newer and younger players, and a clear pathway into club volleyball.</p>
         </div>
         <div id="s-adv" style="scroll-margin-top:90px;padding:16px 0;border-bottom:1px solid rgba(0,0,0,.08);">
           <h4 style="margin:0 0 2px;">Advanced Skills &amp; Mechanics</h4>
-          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);">Players 14+ &middot; Tues / Wed / Thurs &middot; 5:00&ndash;7:00 PM</p>
+          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);"><span class="nw">Players 14+</span> &middot; <span class="nw">Tues / Wed / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span></p>
           <p style="margin:0;">Higher-rep, position-specific technique and mechanics for committed players 14 and up. Sharpens form, footwork, and volleyball IQ for club-level competition.</p>
         </div>
         <div id="s-club" style="scroll-margin-top:90px;padding:16px 0 0;">
           <h4 style="margin:0 0 2px;">Advanced Club Training</h4>
-          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);">Tues / Thurs &middot; 5:00&ndash;7:00 PM</p>
+          <p style="margin:0 0 6px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--teal-dark);"><span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span></p>
           <p style="margin:0;">High-rep, competitive training for committed players preparing for the club season. The most game-like reps of the week.</p>
         </div>
       </div>
@@ -272,7 +280,7 @@
   <section id="girls-league" data-section="PG-02g" class="bg-teal-d">
     <div class="container narrow prose" style="text-align:center;">
       <h2 class="section-title">Girls League</h2>
-      <p class="lead">Girls 14U&ndash;18U &nbsp;|&nbsp; Aug&ndash;Oct &nbsp;|&nbsp; $80 for 8 weeks</p>
+      <p class="lead"><span class="nw">Girls 14U&ndash;18U</span> &nbsp;|&nbsp; <span class="nw">Aug&ndash;Oct</span> &nbsp;|&nbsp; <span class="nw">$80 for 8 weeks</span></p>
       <p>A flexible, competitive league for girls 14U&ndash;18U who want steady reps outside the club season. Eight weeks of guided match play and skill work at Boomtown Fieldhouse. A great way to stay sharp between school ball and club, with no full-season commitment. Open to any Colorado Boom club player.</p>
       <div class="cta-inline"><a href="https://docs.google.com/forms/d/e/1FAIpQLScVc0co2_2f36uQCu1Mj1n2SySxPNOlFN2mGqcMIs3kL1wbSw/viewform" target="_blank" rel="noopener" class="btn btn-gold">Register for Girls League</a></div>
     </div>
@@ -281,24 +289,25 @@
   <section id="ryl" data-section="PG-02r" class="bg-white">
     <div class="container narrow prose" style="text-align:center;">
       <h2 class="section-title">Rocky Mountain Youth League (RYL)</h2>
-      <p class="lead">Girls 14U &amp; under &nbsp;|&nbsp; Season: Sep&ndash;Oct &nbsp;|&nbsp; Five league events &nbsp;|&nbsp; $500</p>
+      <p class="lead"><span class="nw">Girls 14U &amp; under</span> &nbsp;|&nbsp; <span class="nw">Season: Sep&ndash;Oct</span> &nbsp;|&nbsp; <span class="nw">Five league events</span> &nbsp;|&nbsp; $500</p>
       <p>The RYL is the Rocky Mountain Region&rsquo;s fall youth league, the stepping stone between developmental volleyball and full club play. It mirrors the club experience with real rules, real competition, and real teamwork, without the time and cost of a full club season. Four one-day Sunday tournaments plus a two-day championship weekend run September and October at participating clubs across the Denver metro.</p>
       <p>At Colorado Boom, RYL teams train in a true club environment: club coaches and two team practices per week, all at Boomtown Fieldhouse (days for each team are on the <a class="ulink" href="ryl-teams.html">RYL Teams</a> page). <strong>RYL is included for our rostered 14U &amp; under club players.</strong> We also field RYL-only teams for players who want a season of competitive volleyball before committing to club. The RYL-only season is <strong>$500</strong>.</p>
       <p><strong>Tryouts are combined:</strong> our girls&rsquo; club tryouts (10U&ndash;18U) run <span data-show-until="2026-10-11">Sun Oct 11</span><span data-show-from="2026-10-12" hidden style="display:none">by appointment (email admin@coloradoboom.com)</span>, and one tryout covers both pathways. New to USAV/RMR? You&rsquo;ll only need the low-cost $20 RYL membership ($15 of it applies toward a full membership if you later join club).</p>
       <div class="btn-row"><a href="ryl-teams.html" class="btn btn-teal">RYL Teams &amp; Rosters</a><a href="tryouts.html#tryouts" class="btn btn-gold">See Tryout Dates &amp; Register</a><a href="https://www.rmrvolleyball.org/page/show/9160754-rocky-mountain-youth-league" target="_blank" rel="noopener" class="btn btn-outline-teal">RYL on the RMR Site</a></div>
     </div>
   </section>
-  <!-- ===== [PG-05] Open Gym — v1.63: moved up to sit after RYL per owner; recolored bg-teal-d (btn-outline-white for contrast) ===== -->
+  <!-- ===== [PG-05] Open Gym — v2.41: paused until the end of club season; Group & Advanced Volleyball Classes run Tues/Wed/Thurs 5-7 PM instead (owner, 2026-11-03). Non-club players email zhu@coloradoboom.com. ===== -->
   <section id="open-gym" data-section="PG-05" class="bg-teal-d">
     <div class="container narrow" style="text-align:center;">
       <h2 class="section-title">Open Gym</h2>
+      <p class="section-subtitle" style="margin-bottom:18px;">Open gym is on pause until the end of the club season.</p>
       <div class="times-callout">
-        <span class="big">Wed / Fri &middot; 5:30&ndash;7:00 PM</span>
-        <span class="sub">Running now through the start of club season</span>
-        <span class="sub">Group Training &amp; Developmental: Tues / Thurs &middot; 5:00&ndash;6:30 PM</span>
+        <span class="big">Group &amp; Advanced Volleyball Classes</span>
+        <span class="sub">Every week &middot; <span class="nw">Tues / Wed / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span></span>
+        <span class="sub">Boomtown Fieldhouse</span>
       </div>
-      <p class="prose">All skill levels welcome. Registration preferred, walk-ins welcome.</p>
-      <div class="cta-inline"><a href="tryouts.html" class="btn btn-outline-white">See Tryouts &amp; Open Gyms</a></div>
+      <p class="prose">Not a club player? Interested players email <a class="ulink" href="mailto:zhu@coloradoboom.com?subject=Group%20and%20Advanced%20Volleyball%20Classes">zhu@coloradoboom.com</a>.</p>
+      <div class="cta-inline"><a href="mailto:zhu@coloradoboom.com?subject=Group%20and%20Advanced%20Volleyball%20Classes" class="btn btn-gold">Email Zhu to Join</a></div>
     </div>
   </section>
   <!-- ===== [PG-04] Camps & Clinics (v1.34, #3 rebuild) ===== -->
@@ -322,9 +331,9 @@
             <tr data-show-until="2026-11-25"><td>Fall Break &middot; Mon&ndash;Wed, Nov 23&ndash;25, 2026</td><td>3 days &middot; 9:00 AM&ndash;3:00 PM</td><td><a class="ulink" href="https://forms.gle/LfT8hzWy3amj5Xa29" target="_blank" rel="noopener">Register</a></td></tr>
             <tr data-show-until="2026-12-23"><td>Winter Break Session 1 &middot; Mon&ndash;Wed, Dec 21&ndash;23, 2026</td><td>3 days &middot; 9:00 AM&ndash;3:00 PM</td><td><a class="ulink" href="https://forms.gle/NxTQe89jfdS84uGE6" target="_blank" rel="noopener">Register</a></td></tr>
             <tr data-show-until="2026-12-30"><td>Winter Break Session 2 &middot; Mon&ndash;Wed, Dec 28&ndash;30, 2026</td><td>3 days &middot; 9:00 AM&ndash;3:00 PM</td><td><a class="ulink" href="https://forms.gle/NxTQe89jfdS84uGE6" target="_blank" rel="noopener">Register</a></td></tr>
-            <tr data-show-until="2027-06-17"><td>Summer &middot; Mon&ndash;Thu, Jun 14&ndash;17, 2027</td><td>4 days &middot; 9:00 AM&ndash;4:00 PM</td><td>Email us</td></tr>
-            <tr data-show-until="2027-07-08"><td>Summer &middot; Mon&ndash;Thu, Jul 5&ndash;8, 2027</td><td>4 days &middot; 9:00 AM&ndash;4:00 PM</td><td>Email us</td></tr>
-            <tr data-show-until="2027-07-22"><td>Summer &middot; Mon&ndash;Thu, Jul 19&ndash;22, 2027</td><td>4 days &middot; 9:00 AM&ndash;4:00 PM</td><td>Email us</td></tr>
+            <tr data-show-until="2027-06-17"><td>Summer &middot; Mon&ndash;Thu, Jun 14&ndash;17, 2027</td><td>4 days &middot; 9:00 AM&ndash;4:00 PM</td><td>Email Us</td></tr>
+            <tr data-show-until="2027-07-08"><td>Summer &middot; Mon&ndash;Thu, Jul 5&ndash;8, 2027</td><td>4 days &middot; 9:00 AM&ndash;4:00 PM</td><td>Email Us</td></tr>
+            <tr data-show-until="2027-07-22"><td>Summer &middot; Mon&ndash;Thu, Jul 19&ndash;22, 2027</td><td>4 days &middot; 9:00 AM&ndash;4:00 PM</td><td>Email Us</td></tr>
         </tbody>
       </table></div>
       <p class="sched-note">Spots are limited. Break camps register online with the links above. For summer camps, email <a class="ulink" href="mailto:admin@coloradoboom.com?subject=Camp%20registration">admin@coloradoboom.com</a> with the player&rsquo;s name, age and the camp dates, and we will send registration details.</p>
@@ -344,7 +353,7 @@
           <ul>
             <li>The coach&rsquo;s full attention, every rep</li>
             <li>A plan built around the player&rsquo;s position and goals</li>
-            <li>Scheduled by email around your calendar</li>
+            <li>Scheduled by email around your&nbsp;calendar</li>
           </ul>
           <span class="lesson-go">Email admin@coloradoboom.com &rarr;</span>
         </a>
@@ -352,14 +361,14 @@
           <h3>Group Training</h3>
           <div class="price">$50<small>per player &middot; groups of 2 or more</small></div>
           <ul>
-            <li>Bring a teammate, sibling, or friends</li>
+            <li>Bring a teammate, sibling, or&nbsp;friends</li>
             <li>Shared reps with the same coaching focus</li>
             <li>Great for serve-receive pairs and position groups</li>
           </ul>
           <span class="lesson-go">Email admin@coloradoboom.com &rarr;</span>
         </a>
       </div>
-      <p class="lessons-note">Rates are per session. We confirm the coach, time, and total by email before anything is booked.</p>
+      <p class="lessons-note">Rates are per session. We confirm the coach, time, and total by email before anything is&nbsp;booked.</p>
       <h3 class="hiw-title">How It Works</h3>
       <p class="section-subtitle hiw-sub">Three steps from email to court time.</p>
       <div class="steps">
@@ -374,24 +383,24 @@
   <section id="outdoor" data-section="PG-04b" class="bg-white">
     <div class="container">
       <h2 class="section-title">Outdoor: Grass &amp; Sand</h2>
-      <p class="section-subtitle">Keep playing all summer through our partner Boomtown Athletics: grass doubles, junior 4s, and sand tournaments.</p>
+      <p class="section-subtitle">Keep playing all summer through our partner Boomtown Athletics: grass doubles, junior 4s, and sand&nbsp;tournaments.</p>
       <div class="btn-row" style="margin-top:8px;"><a href="https://docs.google.com/spreadsheets/d/11gSs2akMUBsRrR-80HPU8n7HJz5v-oT6HfGmsnFkn-w/edit?usp=sharing" target="_blank" rel="noopener" class="btn btn-gold">View Schedule &amp; Register</a><a href="https://www.boomtownvb.com" target="_blank" rel="noopener" class="btn btn-outline-teal">boomtownvb.com</a></div>
       <p class="sched-note">Outdoor programs are run by Boomtown Athletics (@boomtownvb). Dates and divisions are subject to change.</p>
     </div>
   </section>
   <!-- ===== [PG-03] Littles ===== -->
-  <section id="littles" data-section="PG-03" class="bg-teal-d">
+  <section id="littles" data-section="PG-03" class="bg-teal">
     <div class="container narrow prose">
       <h2 class="section-title" style="text-align:center;">Littles: Ages 6&ndash;9</h2>
       <p class="section-subtitle" style="text-align:center;">Our youngest program is here, and it is part of the one Skills Training Membership. Find your athlete&rsquo;s age below.</p>
       <h3 style="text-align:center;text-transform:uppercase;letter-spacing:.02em;margin:18px 0 10px;">Membership by Age Group</h3>
       <ul style="list-style:none;padding:0;margin:0 0 18px;display:grid;gap:10px;">
-        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong>Ages 6&ndash;9 &middot; Littles: Little Spikers</strong><br>Tues / Thurs &middot; 5:00&ndash;6:30 PM &middot; first volleyball, fun first, no experience needed. <a href="#s-littles" style="color:var(--gold);">Details</a></li>
-        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong>Ages 8&ndash;16 &middot; Developmental Skills &amp; Mechanics</strong><br>Tues / Thurs &middot; 5:00&ndash;6:30 PM &middot; passing, setting, serving and court movement. <a href="#s-dev" style="color:var(--gold);">Details</a></li>
-        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong>Ages 14+ &middot; Advanced Skills &amp; Mechanics</strong><br>Tues / Wed / Thurs &middot; 5:00&ndash;7:00 PM &middot; position-specific technique for committed players. <a href="#s-adv" style="color:var(--gold);">Details</a></li>
-        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong>Club players &middot; Advanced Club Training</strong><br>Tues / Thurs &middot; 5:00&ndash;7:00 PM &middot; the most game-like reps of the week. <a href="#s-club" style="color:var(--gold);">Details</a></li>
+        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong><span class="nw">Ages 6&ndash;9</span> &middot; Littles: Little Spikers</strong><br><span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;6:30 PM</span> &middot; first volleyball, fun first, no experience needed. <a href="#s-littles" style="color:var(--gold);">Details</a></li>
+        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong><span class="nw">Ages 8&ndash;16</span> &middot; Developmental Skills &amp; Mechanics</strong><br><span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;6:30 PM</span> &middot; passing, setting, serving and court movement. <a href="#s-dev" style="color:var(--gold);">Details</a></li>
+        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong><span class="nw">Ages 14+</span> &middot; Advanced Skills &amp; Mechanics</strong><br><span class="nw">Tues / Wed / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span> &middot; position-specific technique for committed players. <a href="#s-adv" style="color:var(--gold);">Details</a></li>
+        <li style="padding:12px 14px;border:1px solid rgba(255,255,255,.25);"><strong>Club players &middot; Advanced Club Training</strong><br><span class="nw">Tues / Thurs</span> &middot; <span class="nw">5:00&ndash;7:00 PM</span> &middot; the most game-like reps of the week. <a href="#s-club" style="color:var(--gold);">Details</a></li>
       </ul>
-      <p style="text-align:center;">One membership, every session: $150 per month for club members, $295 open enrollment. Cancel anytime.</p>
+      <p style="text-align:center;">One membership, every session: <span class="nw">$150 per month</span> for club members, <span class="nw">$295 open enrollment</span>. Cancel anytime.</p>
       <div class="cta-inline" style="text-align:center;"><a href="https://forms.gle/yvnstZ89psTTLmux7" target="_blank" rel="noopener" class="btn btn-gold">Register for Membership</a><a href="mailto:admin@coloradoboom.com?subject=Littles%20question" class="btn btn-outline-white" style="margin-left:10px;">Ask About Littles</a></div>
     </div>
   </section>
