@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.42 — 2026-11-05 · Denver Albarran spelling
+
+- teams.html: 16 Colorado - Zhu roster shows "Denver Albarran" (was the typo "Denver Albarrab"). Tara forwarded the parent's request on 11/04/26. Applied by hand: her subject read "COBO website update", which Veronika's "COBO Site Update -" trigger does not match.
+
 ## v2.41 — 2026-11-03 · Programs page: Open Gym paused, readability pass
 programs.html
 
