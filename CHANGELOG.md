@@ -10,6 +10,13 @@ reconstruct later.
 
 ---
 
+## v2.43 — 2026-11-05 · Recruiting refresh
+every page's announcement bar, index.html popup, schedule.html open-spots note
+
+- Per Tara ("COBO Adds", 11/05/26, plus her correction "14's Lib, Setter and Middle, not pin"): open spots are 12s Any Position, 14s Libero, Setter & Middle, 15s Middle, 17s Middle. 16 Colorado Outside & Setter is dropped.
+- Listed by age group (12s/14s/15s/17s) because Tara named ages, not teams. The 12s "(1)" count is dropped since she gave no number.
+- Popup key bumped to v243 so returning visitors see the new spots.
+
 ## v2.42 — 2026-11-05 · Denver Albarran spelling
 
 - teams.html: 16 Colorado - Zhu roster shows "Denver Albarran" (was the typo "Denver Albarrab"). Tara forwarded the parent's request on 11/04/26. Applied by hand: her subject read "COBO website update", which Veronika's "COBO Site Update -" trigger does not match.
