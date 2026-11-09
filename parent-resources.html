@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.45 · 2026-11-09 · [RE-03b] Team Store live: "Coming Soon" replaced by two cards. Club Store: For Parents & Family (pickup only at Boomtown Fieldhouse, links /store -> Square) and Online Player Uniform Store (Adidas via BSN Sports, shipped for a fee). Buttons centered. Jump nav + Resources menu (all pages) gain Team Store. Header Try Out button replaced by a gold Store dropdown (Club Store: Pickup, Adidas Uniform Store) on all pages; Try Out stays in heroes and page CTAs. -->
   <!-- BUILD v2.43 · 2026-11-05 · [RB] recruiting per Tara (COBO Adds, 11/05/26): 12s Any Position, 14s Libero/Setter/Middle, 15s Middle, 17s Middle. 16 Colorado Outside & Setter dropped. -->
   <!-- BUILD v2.35 · 2026-10-23 · [ANN] 17 Colorado Middle back on the recruiting line (unconfirmed, kept for now). Sweep: Facility Info button -> boomtownathletics.com/facility-rules.html (old /fieldhouseusa 404s); tryout lines now say by appointment (open gym is not a tryout, per tryouts.html v2.15); schedule.html open spots refreshed; GC-05/BC-05 ids added, #add-on-training -> #dev-training. -->
   <!-- BUILD v2.34 · 2026-10-23 · [ANN] recruiting: 12 Colorado any (1), 16 Colorado OH & setter; 13s full, 17 Colorado middle dropped. -->
@@ -100,13 +101,20 @@
           <a href="parent-resources.html" aria-haspopup="true">Resources &#9662;</a>
           <span class="drop" role="menu">
             <a href="parent-resources.html" role="menuitem">Parent Resources</a>
+            <a href="parent-resources.html#team-store" role="menuitem">Team Store</a>
             <a href="volleyball-rules.html" role="menuitem">Volleyball Rules</a>
             <a href="volleyball-positions.html" role="menuitem">Volleyball Positions</a>
           </span>
         </span>
         <a href="mailto:admin@coloradoboom.com">Contact</a>
         <span class="nav-ctas">
-          <a href="mailto:admin@coloradoboom.com?subject=Tryout%20appointment" class="btn btn-gold">Try Out</a>
+          <span class="has-drop store-drop">
+            <a href="parent-resources.html#team-store" class="btn btn-gold" aria-haspopup="true">Store &#9662;</a>
+            <span class="drop" role="menu">
+              <a href="store/" target="_blank" rel="noopener" role="menuitem">Club Store: Pickup</a>
+              <a href="https://bsnteamsports.com/shop/2026Boom" target="_blank" rel="noopener" role="menuitem">Adidas Uniform Store</a>
+            </span>
+          </span>
           <a href="https://colorado-boom.gymdesk.com/login" target="_blank" rel="noopener" class="btn btn-black btn-login">Club Login</a>
         </span>
       </nav>
@@ -165,7 +173,7 @@
   <!-- ===== [RE-NAV] jump nav ===== -->
   <section data-section="RE-NAV" class="bg-white" style="padding:24px 0;">
     <div class="container"><nav class="jump-nav" aria-label="On this page">
-      <a href="#links">Quick Links</a><a href="#financial-aid">Financial Aid</a><a href="#commitment">Making the Team</a><a href="#rules">Volleyball Rules</a>
+      <a href="#links">Quick Links</a><a href="#team-store">Team Store</a><a href="#financial-aid">Financial Aid</a><a href="#commitment">Making the Team</a><a href="#rules">Volleyball Rules</a>
       <a href="#positions">Positions</a><a href="#sideline">Sideline Behavior</a><a href="#rmr">RMR Essentials</a><a href="#ocs">Offers (OCS)</a>
     </nav></div>
   </section>
@@ -221,11 +229,24 @@
     </div>
   </section>
   <!-- ===== [RE-03b] Team Store ===== -->
-  <section data-section="RE-03b" class="club-transition">
+  <section data-section="RE-03b" class="club-transition" id="team-store">
     <div class="container">
-      <h2>Team Store: Coming Soon</h2>
-      <p>Official Colorado Boom spirit wear and gear is on the way. Want a heads-up when it opens? Send us a note and we'll let you know.</p>
-      <div class="btn-row"><span class="btn btn-gold" style="cursor:default;opacity:.92;">Coming Soon</span></div>
+      <h2>Team Store</h2>
+      <p>Two ways to get Colorado Boom gear: pick it up at the gym, or have it shipped to your door.</p>
+      <div class="res-grid two">
+        <div class="res-card">
+          <h3>Club Store: For Parents &amp; Family</h3>
+          <p class="store-note">Pickup only at Boomtown Fieldhouse &middot; 14200 E Alameda Ave, Aurora &middot; No shipping</p>
+          <p>Branded spirit wear we keep in stock at the gym: T-shirts, Rhone performance shirts and tech hats. Order online and pick it up at practice. Buy here when you want it fast and don't want to pay shipping. Every purchase supports club operations and scholarships.</p>
+          <a href="store/" target="_blank" rel="noopener" class="btn btn-gold">Shop &amp; Pick Up</a>
+        </div>
+        <div class="res-card">
+          <h3>Online Player Uniform Store</h3>
+          <p class="store-note">Delivered to your home &middot; Delivery fee applies</p>
+          <p>Our official Adidas team store through BSN Sports: player uniform items plus other Adidas gear. Buy here when you need a uniform piece or Adidas gear we don't stock at the gym.</p>
+          <a href="https://bsnteamsports.com/shop/2026Boom" target="_blank" rel="noopener" class="btn btn-gold">Shop Online Store</a>
+        </div>
+      </div>
     </div>
   </section>
   <!-- ===== [RE-04] Financial aid writeup ===== -->
