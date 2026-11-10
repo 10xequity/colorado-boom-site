@@ -10,6 +10,14 @@ reconstruct later.
 
 ---
 
+## v2.46 — 2026-11-10 · Holiday breaks in popup and ticker
+index.html popup, every page's events ticker
+
+- Per owner: Thanksgiving break Nov 20–29, Christmas break Dec 19–28, New Year's break Dec 31–Jan 3 (no practice).
+- Teams playing the Jan 3 Friendship Tournament 2 practice Tue & Wed Dec 29–30, 5:15–7 PM. Team list comes from each team's schedule on teams.html: 12 Colorado, 13 Colorado, all four 14s, 15 Colorado, 15 Regional, 16 Colorado - Brian, 16 Regional, 17 Colorado. Teams not playing are off Dec 19–Jan 3.
+- Removed expired items: Oct 26–30 training, Oct 28 meet & greet, Oct 30 dance, "First Practice week of Nov 2", the popup Uniform Fitting row, and the popup's duplicate "Rosters on Our Club Teams" bullet (the top button already links there) to keep it short.
+- Every new item carries data-show-until so it retires itself; the ticker also lists the Winter Break Camp. Popup key bumped to v246.
+
 ## v2.43 — 2026-11-05 · Recruiting refresh
 every page's announcement bar, index.html popup, schedule.html open-spots note
 
