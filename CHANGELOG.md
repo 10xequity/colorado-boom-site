@@ -10,6 +10,16 @@ reconstruct later.
 
 ---
 
+## v2.48 — 2026-11-12 · Bug and link check
+programs.html, volleyball-rules.html, tryouts.html, volleyball-positions.html
+
+- Full check of 15 pages: internal links, #anchors, image/CSS/script files, duplicate ids, tag nesting, 58 external links, sitemap, and live-page console errors.
+- Fixed: USA Volleyball rules link 404 (volleyball-rules.html) -> usavolleyball.org/play/rules-of-volleyball/.
+- Fixed: two "USAV Junior" links that now redirect to unrelated junior-high lesson plans. Tryouts age chart -> RMR 26-27 age definitions PDF; positions net-height note -> USA Volleyball rules + RMR membership page.
+- Fixed: stray extra </div> in the Programs camps section.
+- Not fixed here: www.coloradoaf.org (Financial Aid button, parent-resources.html) serves GitHub's *.github.io certificate, so browsers warn "not secure". GitHub Pages for repo 10xequity/COAF reports certificate state "dns_changed"; it needs re-provisioning there.
+- Left as is: Facebook link returns 400 to scripts (Facebook blocks bots); fonts.googleapis/gstatic 404 on the bare host are preconnect hints, not links; join-our-staff about:blank is the hidden form placeholder.
+
 ## v2.47 — 2026-11-11 · Friday practice cancelled
 index.html popup, every page's events ticker, legal.html
 
