@@ -10,6 +10,13 @@ reconstruct later.
 
 ---
 
+## v2.47 — 2026-11-11 · Friday practice cancelled
+index.html popup, every page's events ticker, legal.html
+
+- Per owner: practice is cancelled Fri Nov 13 and resumes Mon Nov 16. Shown first in the ticker and at the top of the popup body.
+- Expires on its own: data-show-until="2026-11-13" hides it from midnight Sat Nov 14, Denver time. Popup key bumped to v247 so returning visitors see it.
+- Fix: legal.html never loaded main.js, so its dated ticker items never retired. It now carries the same date-hiding rule inline.
+
 ## v2.46 — 2026-11-10 · Holiday breaks in popup and ticker
 index.html popup, every page's events ticker
 

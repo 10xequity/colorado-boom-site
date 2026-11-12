@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BUILD v2.47 · 2026-11-11 · [RB]+[HM-POP] Practice cancelled Fri Nov 13, resumes Mon Nov 16; data-show-until 2026-11-13 hides it from 12:00 AM Sat Nov 14 (Denver). -->
   <!-- BUILD v2.46 · 2026-11-10 · [RB]+[HM-POP] holiday breaks per owner: Thanksgiving Nov 20-29, Christmas Dec 19-28, New Year's Dec 31-Jan 3; Jan 3 teams practice Dec 29-30 5:15-7 PM. Expired items removed (Oct events, First Practice, Uniform Fitting row in popup). -->
   <!-- BUILD v2.43 · 2026-11-05 · [RB] recruiting per Tara (COBO Adds, 11/05/26): 12s Any Position, 14s Libero/Setter/Middle, 15s Middle, 17s Middle. 16 Colorado Outside & Setter dropped. -->
   <!-- BUILD v2.39 · 2026-11-02 · [HM-POP] new "Camps & Youth Training" table: Fall Break Camp Nov 23-25, Winter Break Camp Dec 21-23 / Dec 28-30 (forms.gle register links), Youth Training 6-9 & 10-14 first week free (GymDesk sign-up); key v235 -> v239. Per Zhu's two "COBO Site Update - 11/2/2026" emails. -->
@@ -277,6 +278,7 @@
          seamless-loop copy (hidden from screen readers). Dated items carry data-show-until. -->
     <div class="rb-track">
       <ul class="rb-list">
+          <li data-show-until="2026-11-13"><span class="rb-hl">Practice Cancelled Fri, Nov 13</span> Practice resumes Monday, Nov 16</li>
           <li data-show-until="2026-11-29"><span class="rb-hl">Thanksgiving Break</span> No practice Fri, Nov 20 &ndash; Sun, Nov 29</li>
           <li data-show-until="2026-12-28"><span class="rb-hl">Christmas Break</span> No practice Sat, Dec 19 &ndash; Mon, Dec 28</li>
           <li data-show-until="2026-12-30"><span class="rb-hl">Playing Jan 3?</span> Practice Tue &amp; Wed, Dec 29&ndash;30 &middot; 5:15&ndash;7 PM &middot; <a href="teams.html">Check your team&rsquo;s schedule</a></li>
@@ -285,6 +287,7 @@
           <li data-show-until="2027-01-15"><span class="rb-hl">Picture Day &amp; Team Bonding</span> Fri, Jan 15 &middot; 5:15 PM &middot; All teams</li>
       </ul>
       <ul class="rb-list" aria-hidden="true">
+          <li data-show-until="2026-11-13"><span class="rb-hl">Practice Cancelled Fri, Nov 13</span> Practice resumes Monday, Nov 16</li>
           <li data-show-until="2026-11-29"><span class="rb-hl">Thanksgiving Break</span> No practice Fri, Nov 20 &ndash; Sun, Nov 29</li>
           <li data-show-until="2026-12-28"><span class="rb-hl">Christmas Break</span> No practice Sat, Dec 19 &ndash; Mon, Dec 28</li>
           <li data-show-until="2026-12-30"><span class="rb-hl">Playing Jan 3?</span> Practice Tue &amp; Wed, Dec 29&ndash;30 &middot; 5:15&ndash;7 PM &middot; <a href="teams.html" tabindex="-1">Check your team&rsquo;s schedule</a></li>
@@ -577,6 +580,7 @@
       </div>
       <div class="popup-body">
         <p class="popup-needs"><strong>Open Spots:</strong> 12s &middot; Any Position &nbsp;&bull;&nbsp; 14s &middot; Libero, Setter &amp; Middle &nbsp;&bull;&nbsp; 15s &middot; Middle &nbsp;&bull;&nbsp; 17s &middot; Middle<br>All other teams: practice player and developmental league spots only. Ages 6&ndash;11 are welcome to join <a class="inline" href="programs.html#littles">Littles Skills Development classes</a>.<br><a class="inline" href="mailto:admin@coloradoboom.com?subject=Open%20roster%20spot">Email admin@coloradoboom.com</a></p>
+        <p class="popup-needs" data-show-until="2026-11-13"><strong>Practice Cancelled Fri, Nov 13.</strong> Practice resumes Monday, Nov 16.</p>
         <table class="popup-sched">
           <caption>Holiday Breaks &middot; No Practice</caption>
           <tbody>
@@ -607,7 +611,7 @@
   (function(){
     var overlay=document.getElementById('tryout-popup');
     if(!overlay)return;
-    var KEY='cobo-popup-v246';
+    var KEY='cobo-popup-v247';
     var lastFocus=null;
     function focusables(){return overlay.querySelectorAll('a[href],button:not([disabled])');}
     function open(){
