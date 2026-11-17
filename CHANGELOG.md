@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.50 — 2026-11-16
+
+- ryl-teams.html: "Maddison Woodman" -> "Madison Woodman" to match teams.html.
+
 ## v2.49 — 2026-11-16
 
 - teams.html: "Maddison Johnson" -> "Madison Johnson" on 16 Colorado - Zhu (parent correction forwarded by Tara).
