@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.49 — 2026-11-16
+
+- teams.html: "Maddison Johnson" -> "Madison Johnson" on 16 Colorado - Zhu (parent correction forwarded by Tara).
+
 ## v2.48 — 2026-11-12 · Bug and link check
 programs.html, volleyball-rules.html, tryouts.html, volleyball-positions.html
 
