@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.53 — 2026-11-19
+
+Footer on every page links Shoot 360 Denver ("Basketball next door"). Owner wants all the fieldhouse sites to link the Denver site so it gains links from sister businesses.
+
 ## v2.52 — 2026-11-19 · 14+ Advanced Skills times, pre-season listing retired
 tryouts.html, schedule.html, programs.html
 
