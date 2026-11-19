@@ -32,10 +32,13 @@ branch and deploys nothing.
 announcement bar instead of the shared ones. Any site-wide header or banner edit **misses it**.
 Check it by hand every time. (See `CHANGELOG.md` → 2026-08-11 for how this bit us.)
 
-**One image still loads from Wix.** The Boomtown Fieldhouse photo in `index.html` is hosted on
-`static.wixstatic.com`. It is the last external dependency and an unoptimized ~6.5 MB phone
-photo that every visitor downloads. The owner chose to leave it for now; a 239 KB replacement
-was prepared but not shipped.
+**No images load from Wix any more.** Since v2.51 the Boomtown Fieldhouse photo on the home page
+is `assets/img/fieldhouse.webp` (cropped 4:3, about 105 KB), made from the club's own 6.5 MB Wix
+original.
+
+**The coaching staff page is generated.** Edit `scripts/gen_v7.js`, then run
+`node scripts/build_v251.js` (or the newest `build_v*.js` that rebuilds it). Hand edits to
+`coaching-staff.html` are lost on the next rebuild.
 
 ---
 

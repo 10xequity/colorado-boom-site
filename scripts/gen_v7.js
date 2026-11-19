@@ -23,7 +23,7 @@ const OUT = __dirname + '/demos/';
 const SITE = 'https://coloradoboom.com/';
 const A = {
   '12 Colorado - Makayla': 't12-colorado', '13 Colorado - Zhu': 't13-colorado', '14 National - Tara': 't14-national',
-  '14 Colorado - Kimberly': 't14-colorado-krise', '14 Colorado - Rob': 't14-colorado-rob', '14 Colorado - Janci': 't14-colorado-janci',
+  '14 Colorado - Kimberlyn': 't14-colorado-krise', '14 Colorado - Rob': 't14-colorado-rob', '14 Colorado - Janci': 't14-colorado-janci',
   '15 National - Tara': 't15-national-tucker', '15 National - Sidney': 't15-national-reese', '15 Colorado - Jae': 't15-colorado',
   '15 Regional - Adam': 't15-regional', '16 National - Damon': 't16-national', '16 Colorado - Zhu': 't16-colorado-zhu',
   '16 Colorado - Brian': 't16-colorado-peterson', '16 Regional - Will': 't16-regional', '17 National - Jawn': 't17-national', '17 Colorado - Will': 't17-colorado',
@@ -145,14 +145,14 @@ function mk(n, r, team, opts = {}) {
     }),
     weak: PERSONAL[n] || WPOOL[(h >>> 9) % WPOOL.length], flavor: opts.director ? DIRECTOR[n].flavor : FLAVOR[el][(h >>> 5) % FLAVOR[el].length], seed: h, jersey: ['black', 'teal', 'white'][(h >>> 13) % 3] };
   if (PHOTO_PAL[id]) s.pal = PHOTO_PAL[id];
-  return { n, r, team, id, s, director: !!opts.director, head };
+  return { n: opts.label || n, r, team, id, s, director: !!opts.director, head };
 }
 const BANDS = [
   { id: 'b1', title: '12U – 14U', bg: 'pat', groups: [
     { age: '12', teams: ['12 Colorado - Makayla'], people: [mk('Makayla Clemons', 'Head Coach', '12 Colorado')] },
-    { age: '13 / 16', teams: ['13 Colorado - Zhu', '16 Colorado - Zhu'], people: [mk('Zhu', 'Head Coach', '13 & 16 Colorado'), mk('Megan Daugherty', 'Assistant Coach', '13 Colorado'), mk('Matt Jueng', 'Assistant Coach', '16 Colorado')] },
+    { age: '13 / 16', teams: ['13 Colorado - Zhu', '16 Colorado - Zhu'], people: [mk('Zhu', 'Head Coach', '13 & 16 Colorado'), mk('Megan Daugherty', 'Assistant Coach', '13 Colorado'), mk('Matt Jueng', 'Assistant Coach', '16 Colorado', { label: 'Matthew Jeung' })] },
     { age: '14 / 15', teams: ['14 National - Tara', '15 National - Tara'], people: [mk('Tara Tucker', 'Head Coach', '14 & 15 National'), mk('Alicia Hall', 'Assistant Coach', '14 & 15 National')] },
-    { age: '14', teams: ['14 Colorado - Kimberly'], people: [mk('Kimberly Krise', 'Head Coach', '14 Colorado'), mk('Rudy Garcia', 'Assistant Coach', '14 Colorado')] },
+    { age: '14', teams: ['14 Colorado - Kimberlyn'], people: [mk('Kimberly Krise', 'Head Coach', '14 Colorado', { label: 'Kimberlyn Krise' }), mk('Rudy Garcia', 'Assistant Coach', '14 Colorado')] },
     { age: '14', teams: ['14 Colorado - Rob'], people: [mk('Rob Oschner', 'Head Coach', '14 Colorado')] },
     { age: '14', teams: ['14 Colorado - Janci'], people: [mk('Janci Ige', 'Head Coach', '14 Colorado'), mk('Dax Martin', 'Assistant Coach', '14 Colorado')] },
   ] },
@@ -176,7 +176,7 @@ const rar = p => p.director ? '✦' : p.head ? '★' : p.r.startsWith('Assistant
 
 function render(o) {
   const IMG = o.img; // 'img/' for the demo, 'assets/img/coaches/' on the site
-  const LOGO = o.live ? 'assets/img/logo.png' : 'img/logo.png';
+  const LOGO = o.live ? 'assets/img/logo.webp' : 'img/logo.png';
   const CORE_SRC = fs.readFileSync(__dirname + '/battle-core.js', 'utf8').replace(/if \(typeof module[^\n]*\n?/, '');
   const CORE = require('./battle-core.js');
   const SPR32 = IMG + 'sprites32/', STG32 = IMG + 'stages32/', FX32 = IMG + 'fx32/';
@@ -184,8 +184,9 @@ function render(o) {
   const teamHref = t => o.live ? `teams.html#${A[t]}` : `${SITE}teams.html#${A[t]}`;
   const tgt = o.live ? '' : ' target="_blank" rel="noopener"';
   const photoOf = p => REAL.has(p.id) ? IMG + 'cut/' + p.id + '.webp' : null;
+  const PHOTO_H = { 'coach-jamison-crowley': 540 };
   const portraitOf = p => p.guest && fs.existsSync(__dirname + '/../assets/img/coaches/sprites32/' + p.id + '-portrait.webp') ? SPR32 + p.id + '-portrait.webp' : null;
-  const art = p => portraitOf(p) ? `<img class="por" src="${portraitOf(p)}" alt="${p.n}" width="480" height="280" loading="lazy">` : p.boss ? `<canvas class="spr boss" data-id="kula" width="120" height="96" role="img" aria-label="Kula the dragon"></canvas>` : photoOf(p) ? `<img src="${photoOf(p)}" alt="${p.n}, ${esc(p.r)}" width="480" height="520" loading="lazy">` : `<canvas class="spr" data-id="${p.id}" width="60" height="84" role="img" aria-label="${p.n}, ${esc(p.r)} (pixel sprite placeholder)"></canvas>`;
+  const art = p => portraitOf(p) ? `<img class="por" src="${portraitOf(p)}" alt="${p.n}" width="480" height="280" loading="lazy">` : p.boss ? `<canvas class="spr boss" data-id="kula" width="120" height="96" role="img" aria-label="Kula the dragon"></canvas>` : photoOf(p) ? `<img src="${photoOf(p)}" alt="${p.n}, ${esc(p.r)}" width="480" height="${PHOTO_H[p.id] || 520}" loading="lazy">` : `<canvas class="spr" data-id="${p.id}" width="60" height="84" role="img" aria-label="${p.n}, ${esc(p.r)} (pixel sprite placeholder)"></canvas>`;
   const mval = m => m.kind === 'atk' ? m.pow : m.kind === 'heal' ? '<small>heals</small>' + m.pow : '<small>blocks</small>' + (m.kind.split(':')[1] === 'all' ? 'ALL' : m.kind.split(':')[1]);
   const mtag = m => m.pierce ? '<em class="tag">over block</em>' : m.drain ? '<em class="tag">' + (m.drain === 'all' ? 'drains all' : '-' + m.drain + ' en') + '</em>' : m.counter ? '<em class="tag">hits back ' + m.counter + '</em>' : '';
   const card = p => `
@@ -225,7 +226,7 @@ function render(o) {
 #tc .hero .eyebrow{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 #tc .hero h1{font-size:clamp(56px,8.5vw,112px);margin:4px 0 6px;color:#fff;text-shadow:3px 4px 0 #000,0 0 3px #000,-1px -1px 0 #000,0 12px 30px rgba(0,0,0,.75)}
 #tc .hero .hbtns{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}#tc .hero .hero-btn{font-size:16px;padding:14px 32px}
-#tc .hero p{max-width:680px;color:rgba(255,255,255,.94);font-size:17px;margin:0}
+#tc .hero p{max-width:680px;color:#fff;font-size:17px;margin:0}
 #tc .hero .hero-sub{margin-top:10px}
 #tc section.band{padding-block:clamp(24px,3.5vw,40px)}
 #tc .bt{display:flex;align-items:center;gap:14px;margin-bottom:16px}#tc .bt::before{content:"";width:10px;height:44px;background:var(--gold);flex:none}
@@ -285,10 +286,10 @@ function render(o) {
 #tc .cost{display:inline-flex;gap:3px}#tc .cost i,#tc .cfoot i{width:max(9px,3.8cqw);height:max(9px,3.8cqw);border-radius:50%;background:var(--tint);box-shadow:inset 0 0 0 1.5px rgba(0,0,0,.45),0 0 0 1.5px rgba(255,255,255,.75);display:inline-block}
 #tc .mn{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#tc .mn .tag{display:block;font-style:normal;font-size:max(7px,2.9cqw);letter-spacing:.08em;text-transform:uppercase;color:var(--tint);line-height:1.1}
 #tc .dmg{font-family:var(--display);font-size:max(14px,6.4cqw);letter-spacing:.04em;white-space:nowrap}#tc .dmg small{font-family:'Montserrat',sans-serif;font-size:max(7px,2.8cqw);letter-spacing:.1em;text-transform:uppercase;margin-right:3px;color:#fff}
-#tc .flavor{margin:1.2cqw 3cqw .6cqw;font-size:max(10px,4cqw);font-style:italic;line-height:1.35;color:rgba(255,255,255,.86);overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;align-self:center}
+#tc .flavor{margin:1.2cqw 3cqw .6cqw;font-size:max(10px,4cqw);font-style:italic;line-height:1.35;color:#fff;overflow:hidden;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;align-self:center}
 #tc .cfoot{display:grid;grid-template-columns:1.8fr .95fr .85fr auto;align-items:end;gap:1.8cqw;padding:1.2cqw 3cqw 1.8cqw;font-family:'Montserrat',sans-serif;font-weight:700;font-size:max(9.5px,3.7cqw);letter-spacing:.02em;border-top:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.35)}
 #tc .cfoot span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#tc .cfoot span:first-child{white-space:normal;line-height:1.15;overflow:visible}
-#tc .cfoot small{display:block;font-size:max(7px,2.8cqw);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+#tc .cfoot small{display:block;font-size:max(7px,2.8cqw);letter-spacing:.08em;text-transform:uppercase;color:#fff}
 #tc .cfoot .no{color:var(--gold)}#tc .cfoot em{font-style:normal}#tc .cfoot i{width:max(6px,2.6cqw);height:max(6px,2.6cqw)}
 #tc .lead-grid,#tc .train-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:600px;margin:0 auto}
 #tc .cta{text-align:center;margin-top:18px}
@@ -308,7 +309,7 @@ function render(o) {
 #tc .ring::before{content:"";position:absolute;inset:0;background:url(${IMG}ryl-logo.webp) center/min(82%,640px) no-repeat;opacity:.16;pointer-events:none;z-index:0}
 #tc .ring>*{position:relative;z-index:1}
 #tc .ring .vs{font-family:var(--display);font-size:60px;color:var(--gold);text-align:center;align-self:center}
-#tc .ring .empty{grid-column:1/-1;text-align:center;align-self:center;color:rgba(255,255,255,.8);font-size:16px;margin:0}
+#tc .ring .empty{grid-column:1/-1;text-align:center;align-self:center;color:#fff;font-size:16px;margin:0}
 #tc .fighter{min-width:0}
 #tc .fighter .card{max-width:320px;margin:0 auto}
 #tc .fname{display:none;font-family:var(--display);font-size:26px;text-align:center;letter-spacing:.04em;margin-bottom:4px}
@@ -325,7 +326,7 @@ function render(o) {
 #tc .vb{position:absolute;left:0;top:0;width:46px;height:46px;z-index:6;pointer-events:none;filter:drop-shadow(0 6px 6px rgba(0,0,0,.55))}
 #tc .log{margin-top:12px;max-height:160px;overflow:auto;font-size:15px;line-height:1.5;border-top:1px solid rgba(255,255,255,.12);padding-top:8px;max-width:900px;margin-inline:auto}
 #tc .log p{margin:0}#tc .log p b{color:var(--gold)}
-#tc .played{text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:22px auto 0;max-width:900px}#tc .played b{display:block;font-family:var(--display);font-size:34px;letter-spacing:.04em;color:#fff;line-height:1.1;margin-top:2px}#tc .played small{display:block;font-size:10px;letter-spacing:.14em;color:rgba(255,255,255,.6);margin-top:4px}
+#tc .played{text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin:22px auto 0;max-width:900px}#tc .played b{display:block;font-family:var(--display);font-size:34px;letter-spacing:.04em;color:#fff;line-height:1.1;margin-top:2px}#tc .played small{display:block;font-size:10px;letter-spacing:.14em;color:#fff;margin-top:4px}
 #tc .winner{font-family:var(--display);font-size:clamp(30px,4vw,48px);color:var(--gold);text-align:center;margin:8px 0 0;min-height:1em}
 #tc .lunge-l{animation:lungeL .55s var(--ease)}#tc .lunge-r{animation:lungeR .55s var(--ease)}
 @keyframes lungeL{30%{transform:translateX(44px) rotate(3deg)}60%{transform:translateX(-8px)}100%{transform:none}}
@@ -481,7 +482,8 @@ function render(o) {
   <div class="bossbank" aria-hidden="true">${card(KULA)}${GUESTS.map(card).join('')}</div>
 </div></section>`;
   const SCRIPT = `<script>
-(function(){
+(function(){ /* v2.51 deferred boot */
+function run(){
   var DATA=${JSON.stringify(Object.fromEntries(ALLP.concat([KULA], GUESTS).map(p => [p.id, { n: p.n, no: p.no, s: p.s, photo: photoOf(p), shiny: p.director || !!p.holo, boss: !!p.boss, guest: !!p.guest }])))};
   var WEAK=${JSON.stringify(WEAK)},RESIST=${JSON.stringify(RESIST)},TINT=${JSON.stringify(TINT)};
   var PERSONAL={'coach-damon-sichler':['coach-tara-tucker','coach-tara-tucker-director'],'coach-damon-sichler-director':['coach-tara-tucker','coach-tara-tucker-director']};
@@ -977,8 +979,14 @@ function render(o) {
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!f.hidden){close();b.focus();}});
   ['selTeam','selCoach'].forEach(function(id){var s=$(id);s.addEventListener('change',function(){var el=$(s.value);if(!el)return;var g=el.closest('.grp')||el;g.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('is-hit');setTimeout(function(){el.classList.remove('is-hit');},1800);s.value='';close();});});
   if(matchMedia('(hover:hover) and (prefers-reduced-motion:no-preference)').matches){document.querySelectorAll('#tc .tiles .card,#tc .lead-grid .card,#tc .train-grid .card').forEach(function(c){c.addEventListener('pointermove',function(e){if(c.classList.contains('flipped'))return;var r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;c.style.transform='perspective(700px) rotateX('+(-py*8)+'deg) rotateY('+(px*10)+'deg) translateY(-4px)';});c.addEventListener('pointerleave',function(){c.style.transform='';});});}
-  document.querySelectorAll('#tc .tiles .card,#tc .lead-grid .card,#tc .train-grid .card').forEach(function(c){c.tabIndex=0;c.title='Click to flip';function flip(){c.style.transition='transform .45s cubic-bezier(.4,0,.2,1)';c.style.transform='';c.classList.add('turning');c.classList.toggle('flipped');setTimeout(function(){c.style.transition='';c.classList.remove('turning');},520);}
+  document.querySelectorAll('#tc .tiles .card,#tc .lead-grid .card,#tc .train-grid .card').forEach(function(c){c.tabIndex=0;c.title='Click to flip';c.setAttribute('role','button');c.setAttribute('aria-pressed','false');function flip(){c.style.transition='transform .45s cubic-bezier(.4,0,.2,1)';c.style.transform='';c.classList.add('turning');c.setAttribute('aria-pressed',String(c.classList.toggle('flipped')));setTimeout(function(){c.style.transition='';c.classList.remove('turning');},520);}
     c.addEventListener('click',flip);c.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}});});
+}
+var done=0,io=null,ev=['pointerdown','pointermove','keydown','touchstart','wheel','scroll'];
+function go(){if(done)return;done=1;ev.forEach(function(t){removeEventListener(t,go,true);});if(io)io.disconnect();run();}
+ev.forEach(function(t){addEventListener(t,go,{capture:true,passive:true});});
+var a=document.getElementById('arena');
+if(a&&'IntersectionObserver' in window){io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)go();});},{rootMargin:'300px'});io.observe(a);}else go();
 })();
 </script>`;
   const hero = `<section class="hero pat"><img src="${IMG}hero-cast.jpg" alt="" width="1800" height="640"><div class="wrap"><span class="eyebrow">Colorado Boom</span><h1>Coaching Staff</h1><p>Meet the coaches of Colorado Boom Volleyball Club. Our staff brings years of playing and coaching experience to every practice, with a focus on skill development, competitive play and building confident athletes on and off the court.</p><p class="hero-sub">Choose your coach to battle in the Arena!</p><div class="hbtns"><a class="btn hero-btn" href="#arena" id="battleNow">Battle Now &darr;</a><button type="button" class="btn btn-line hero-btn" id="dexHero" aria-controls="dex">Boomdex (Directory)</button></div></div></section>`;

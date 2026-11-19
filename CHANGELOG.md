@@ -2,13 +2,45 @@
 
 **Version** 1.0 · **Created** 2026-08-17 · **Status** Active
 
-Newest first. Internal build numbers (`v1.xx`) also appear in an HTML comment at the top of
-each page, so a page's own stamp tells you how current it is.
+Newest first. Each page carries one `<!-- BUILD vX.XX -->` stamp at the top so you can tell how
+current it is; since v2.51 the per-change history lives only here, not in the pages.
 
 Entries record **why**, not just what — the reasoning is the part that is expensive to
 reconstruct later.
 
 ---
+
+## v2.51 — 2026-11-19 · Audit fixes: practice times, open gym, privacy, speed
+every page, assets/css/styles.css, scripts/gen_v7.js, scripts/build_v251.js, llms.txt, sitemap.xml, 404.html, favicon.ico
+
+- Owner facts (2026-11-19): team practices are 5:15-7:30 PM; open gym dates are posted on the club calendar.
+  General practice claims now say 5:15-7:30 (club, girls/boys club, home, club FAQs, hiring page meta,
+  JobPosting data and FAQ, llms.txt). The club FAQ that said only 11U-14U start at 5:15 now says every team does.
+  Every fixed open-gym day/time or "on pause" line (home, programs, tryouts, schedule, club FAQ, girls/boys
+  season tables) now points to schedule.html#calendar.
+- Not changed, waiting on the owner: per-team blocks on teams.html (14 National - Tara: Mon 6:30-8:45 PM plus
+  Wed & Fri 5:15-7:30; 15 National - Tara: Mon, Tue & Fri, which fits neither M/W/F nor T/Th/F) and 14+ Advanced Skills (Tue/Thu 4-6 PM on tryouts and schedule vs Tue/Wed/Thu 5-7 PM
+  on programs). The "no late nights / wraps by 7:30" lines stay because they match the owner's 5:15-7:30, but the
+  Mon 6:30-8:45 block contradicts them.
+- Privacy: the per-change BUILD comments at the top of every page are gone (they carried roster and player notes
+  into public HTML). One stamp line remains per page.
+- schedule.html: the open-gym Event JSON-LD ended 2026-10-30 and is removed so search results stop showing it.
+- Home meta/og/twitter descriptions drop "tryouts August 2026" for the private-evaluation wording.
+- Speed: home hero is hero.webp (97 KB, was a 290 KB JPEG) with a high-priority preload; logo, uniform, hiring and
+  teams heroes are WebP at their displayed sizes (PNG/JPG kept for the favicon, social cards and JSON-LD). The
+  fieldhouse photo is local (fieldhouse.webp) instead of the 6.5 MB Wix file. The coaching staff page script now
+  starts on the first scroll, tap, key or mouse move, or when the arena nears the screen.
+- Coaching staff generator caught up with the hand edits made since v2.33 (Matthew Jeung, Kimberlyn Krise,
+  Jamison's 480x540 photo), so regenerating no longer reverts them. Flip cards are role="button" with aria-pressed.
+- No gray text: translucent white text (footer, subtitles, card text) is solid white; legal.html body text was #555
+  and its footer #aaa, now black and white. legal.html is not linked to styles.css: its hand-rolled header, footer and
+  layout share selectors with styles.css (footer, section, the * reset) and would restyle.
+- .reveal only hides content when JavaScript runs (club, home and hiring pages add class "js" to html), so a failed
+  script no longer leaves sections invisible.
+- New 404.html (noindex, root-relative links) and favicon.ico. sitemap.xml has lastmod from git dates.
+  styles.css link bumped to ?v=2.51. c.der (a stray certificate file) deleted.
+- Still public: CHANGELOG.md, HANDOFF.md, HIRING_FORM.md, README.md, scripts/ and the other .md files. The site has
+  .nojekyll, so a Jekyll exclude list does nothing; moving them needs a separate decision.
 
 ## v2.50 — 2026-11-16
 
