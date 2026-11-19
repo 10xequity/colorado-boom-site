@@ -10,6 +10,15 @@ reconstruct later.
 
 ---
 
+## v2.52 — 2026-11-19 · 14+ Advanced Skills times, pre-season listing retired
+tryouts.html, schedule.html, programs.html
+
+- Owner decision (2026-11-19): 14+ Advanced Skills & Mechanics is Tuesday & Thursday 5:00-7:00 PM everywhere.
+  Tryouts and schedule said Tue/Thu 4-6 PM; programs said Tue/Wed/Thu 5-7 PM. All three now agree.
+- The season has started, so the Pre-season Practice & Training listing (Tues-Fri 5-7 PM) is removed: the tryouts
+  section and its jump-nav link, and the schedule table row.
+- Unchanged by decision: 14 National Monday 6:30-8:45 PM, 15 National Mon/Tue/Fri, team practices 5:15-7:30 PM.
+
 ## v2.51 — 2026-11-19 · Audit fixes: practice times, open gym, privacy, speed
 every page, assets/css/styles.css, scripts/gen_v7.js, scripts/build_v251.js, llms.txt, sitemap.xml, 404.html, favicon.ico
 
