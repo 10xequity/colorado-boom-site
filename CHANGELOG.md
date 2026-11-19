@@ -10,6 +10,10 @@ reconstruct later.
 
 ---
 
+## v2.54 — 2026-11-19
+
+Bing flagged short meta descriptions and a 73-character title. Lengthened five descriptions (boys club, parent resources, programs, RYL teams, tryouts) to 100–160 characters using facts already on each page, and shortened the club page title so it no longer truncates in results.
+
 ## v2.53 — 2026-11-19
 
 Footer on every page links Shoot 360 Denver ("Basketball next door"). Owner wants all the fieldhouse sites to link the Denver site so it gains links from sister businesses.
